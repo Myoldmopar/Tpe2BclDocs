@@ -1,0 +1,10 @@
+******************************
+Product Processor (High Level)
+******************************
+
+The product processor is the highest level of the underlying translation library.  The processor has the reponsibility of creating the product instance and calling the appropriate managers to do the deeper translation work.  The basic steps involved are:
+
+* Create an instance of the type based on the product category given by the user
+* Extract the product zip file and evaluate the contents of the extracted folder
+* Call the csv manager to translate the parameters found in the csv file into a usable parameter list within the translator: :ref:`csv_processing`
+* Determine whether performance maps can and should be processed for this component; if so do map processing: :ref:`map_processing`

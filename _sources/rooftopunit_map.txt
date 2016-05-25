@@ -1,0 +1,80 @@
+.. _rooftopunit_map_new:
+
+*********************************
+RoofTop Unit (RTU) Map Processing
+*********************************
+
+For reading performance maps, many steps are similar between all product categories.  This will go through the entire process, although some things will hopefully be abstracted out to a higher level later.
+
+The first step in processing the maps is to determine which type of map we are processing.  This essentially corresponds to two questions:
+
+* Which underlying datapoint type will we be processing the data into?
+* What EnergyPlus/OpenStudio components will we ultimately be making?
+
+The map processor has a filename of the map being processed.  The map processor uses the parameters defined in the csv file to determine which type of map it expects to be processing.  Currently it uses a simple match:
+
+* If filename matches ``PARAM_HPPERFORMANCEMAP``, which is "Heat Pump Performance Map", the type is ``MAP_TYPE_HEATPUMP``
+* If filename matches ``PARAM_CLGPERFORMANCEMAP``, which is "Cooling Heating Performance Map", the type is ``MAP_TYPE_COOLING``
+* If filename matches ``PARAM_AUXHTGPERFORMANCEMAP``, which is "Gas or Electric Heating Performance Map", the type is ``MAP_TYPE_AUX_HEATING``
+
+.. raw:: html
+
+    <font color="blue">
+  This is actually not the correct logic, and is currently being improved.  The actual logic should check other parameters in the csv file first, mainly what type of heating the unit uses, before deciding what the content of this performance map should be used to generate.  But we'll get back on track for now.
+    </font>
+
+The map reader then instantiates a class variable for storing all the data points found in this map.  Next the map reader reads the high level (meta) data about the component from the top portion of the map.
+
+.. raw:: html
+
+    <font color="blue">
+  It does the same reading for every map type; are they really identical?
+    </font>
+
+The map reader then calls the appropriate datapoint reader based on the map type.  Currently it is:
+
+* ``MAP_TYPE_HEATPUMP --> read_aux_htg_map``
+* ``MAP_TYPE_COOLING --> read_cooling_map``
+* ``MAP_TYPE_AUX_HTG --> read_aux_htg_map``
+
+.. raw:: html
+
+    <font color="blue">
+  But it should actually be more intelligent.  It should be using the logic about the component to determine which type of datapoints we expect to be reading in.
+    </font>
+
+Each ``read_*_map`` reader does roughly the same operations, just reading in different data points for each type.
+
+* Read necessary metadata from the map to determine expected datapoint conditions.
+* Define constants for row numbers, column numbers, etc.
+* Read each datapoint row:
+  * Independent variables first
+  * Then dependent variables
+  * Check if dependent variables contain any nil values
+  * Check if dependent variables contain any non-numeric values
+  * Create datapoint instance from these values
+  * Add datapoint to dataset array
+* Report data to the log file
+* If there is insufficient data in this map, set the ``@insufficient..`` flag to true and return
+
+The actual data being read for each map type is listed here:
+
++--------------------+--------------------+-----------------------+--------------------+------------------+-----------------+
+| "HeatPump"                              | "Cooling"                                  | "Aux Heating"                      |
++====================+====================+=======================+====================+==================+=================+
+| Independent        | Dependent          | Independent           | Depdendent         | Independent      | Dependent       |
++--------------------+--------------------+-----------------------+--------------------+------------------+-----------------+
+| * Indoor Dry Bulb  | * Fan Flow Rate    | * Evaporator Dry Bulb | * Fan Flow Rate    | * Mixed Dry Bulb | * Fan Flow Rate |
+| * Outdoor Dry Bulb | * Fan Power        | * Condenser DB/WB?    | * Fan Power        | * Heating Stage  | * Fan Power     |
+| * Fan Speed        | * Heating Capacity | * Fan Speed           | * Cooling Capacity |                  | * Heat Input    |
+| * Compressor Stage | * Total Power      | * Compressor Stage    |                    |                  | * Heat Output   |
++--------------------+--------------------+-----------------------+--------------------+------------------+-----------------+
+
+.. raw:: html
+
+    <font color="blue">
+  The biggest issue with this is how they are named.  If the aux heating can be the regular heating coil, then it should be named in conjunction with the actual physical coil and the type of object it will create in the model.
+    </font>
+
+OK, back.
+

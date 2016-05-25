@@ -1,0 +1,21 @@
+.. _map_processing:
+
+***************************
+Processing Performance Maps
+***************************
+
+Performance maps contain the data to characterize the performance of a component over varying conditions.  Multiple performance maps can be provided for the same component characterizing the same performance "curve".  In this case, data points that match independent variables will have the dependent variables averaged together.
+
+For each performance map found in the product package, the following steps are performed:
+
+* Create a new MapReader instance, determining which class type based on file extension (xls/xlsx)
+* Create a Map instance for this particular product category
+
+  * For RoofTop Units, see :ref:`rooftopunit_map_new`
+
+* Get resulting single map dataset and push it to master array of datasets
+* Merge all datasets of each given type together:
+  * Find all unique sets of independent variables
+  * For each unique set, average all dependent variable values into a single data point
+* Create curve (table) objects from final merged data set
+

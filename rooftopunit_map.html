@@ -1,0 +1,216 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RoofTop Unit (RTU) Map Processing &mdash; TPE2BCL 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="top" title="TPE2BCL 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Processing Performance Maps" href="map_processing.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="map_processing.html" title="Processing Performance Maps"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="map_processing.html"
+                        title="previous chapter">Processing Performance Maps</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/rooftopunit_map.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="rooftop-unit-rtu-map-processing">
+<span id="rooftopunit-map-new"></span><h1>RoofTop Unit (RTU) Map Processing<a class="headerlink" href="#rooftop-unit-rtu-map-processing" title="Permalink to this headline">¶</a></h1>
+<p>For reading performance maps, many steps are similar between all product categories.  This will go through the entire process, although some things will hopefully be abstracted out to a higher level later.</p>
+<p>The first step in processing the maps is to determine which type of map we are processing.  This essentially corresponds to two questions:</p>
+<ul class="simple">
+<li>Which underlying datapoint type will we be processing the data into?</li>
+<li>What EnergyPlus/OpenStudio components will we ultimately be making?</li>
+</ul>
+<p>The map processor has a filename of the map being processed.  The map processor uses the parameters defined in the csv file to determine which type of map it expects to be processing.  Currently it uses a simple match:</p>
+<ul class="simple">
+<li>If filename matches <code class="docutils literal"><span class="pre">PARAM_HPPERFORMANCEMAP</span></code>, which is &#8220;Heat Pump Performance Map&#8221;, the type is <code class="docutils literal"><span class="pre">MAP_TYPE_HEATPUMP</span></code></li>
+<li>If filename matches <code class="docutils literal"><span class="pre">PARAM_CLGPERFORMANCEMAP</span></code>, which is &#8220;Cooling Heating Performance Map&#8221;, the type is <code class="docutils literal"><span class="pre">MAP_TYPE_COOLING</span></code></li>
+<li>If filename matches <code class="docutils literal"><span class="pre">PARAM_AUXHTGPERFORMANCEMAP</span></code>, which is &#8220;Gas or Electric Heating Performance Map&#8221;, the type is <code class="docutils literal"><span class="pre">MAP_TYPE_AUX_HEATING</span></code></li>
+</ul>
+  <font color="blue">
+This is actually not the correct logic, and is currently being improved.  The actual logic should check other parameters in the csv file first, mainly what type of heating the unit uses, before deciding what the content of this performance map should be used to generate.  But we'll get back on track for now.
+  </font><p>The map reader then instantiates a class variable for storing all the data points found in this map.  Next the map reader reads the high level (meta) data about the component from the top portion of the map.</p>
+  <font color="blue">
+It does the same reading for every map type; are they really identical?
+  </font><p>The map reader then calls the appropriate datapoint reader based on the map type.  Currently it is:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">MAP_TYPE_HEATPUMP</span> <span class="pre">--&gt;</span> <span class="pre">read_aux_htg_map</span></code></li>
+<li><code class="docutils literal"><span class="pre">MAP_TYPE_COOLING</span> <span class="pre">--&gt;</span> <span class="pre">read_cooling_map</span></code></li>
+<li><code class="docutils literal"><span class="pre">MAP_TYPE_AUX_HTG</span> <span class="pre">--&gt;</span> <span class="pre">read_aux_htg_map</span></code></li>
+</ul>
+  <font color="blue">
+But it should actually be more intelligent.  It should be using the logic about the component to determine which type of datapoints we expect to be reading in.
+  </font><p>Each <code class="docutils literal"><span class="pre">read_*_map</span></code> reader does roughly the same operations, just reading in different data points for each type.</p>
+<ul class="simple">
+<li>Read necessary metadata from the map to determine expected datapoint conditions.</li>
+<li>Define constants for row numbers, column numbers, etc.</li>
+<li>Read each datapoint row:
+* Independent variables first
+* Then dependent variables
+* Check if dependent variables contain any nil values
+* Check if dependent variables contain any non-numeric values
+* Create datapoint instance from these values
+* Add datapoint to dataset array</li>
+<li>Report data to the log file</li>
+<li>If there is insufficient data in this map, set the <code class="docutils literal"><span class="pre">&#64;insufficient..</span></code> flag to true and return</li>
+</ul>
+<p>The actual data being read for each map type is listed here:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="17%" />
+<col width="19%" />
+<col width="17%" />
+<col width="15%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">&#8220;HeatPump&#8221;</th>
+<th class="head" colspan="2">&#8220;Cooling&#8221;</th>
+<th class="head" colspan="2">&#8220;Aux Heating&#8221;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Independent</td>
+<td>Dependent</td>
+<td>Independent</td>
+<td>Depdendent</td>
+<td>Independent</td>
+<td>Dependent</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>Indoor Dry Bulb</li>
+<li>Outdoor Dry Bulb</li>
+<li>Fan Speed</li>
+<li>Compressor Stage</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Fan Flow Rate</li>
+<li>Fan Power</li>
+<li>Heating Capacity</li>
+<li>Total Power</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Evaporator Dry Bulb</li>
+<li>Condenser DB/WB?</li>
+<li>Fan Speed</li>
+<li>Compressor Stage</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Fan Flow Rate</li>
+<li>Fan Power</li>
+<li>Cooling Capacity</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Mixed Dry Bulb</li>
+<li>Heating Stage</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Fan Flow Rate</li>
+<li>Fan Power</li>
+<li>Heat Input</li>
+<li>Heat Output</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+  <font color="blue">
+The biggest issue with this is how they are named.  If the aux heating can be the regular heating coil, then it should be named in conjunction with the actual physical coil and the type of object it will create in the model.
+  </font><p>OK, back.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="map_processing.html" title="Processing Performance Maps"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, DOE, NREL, Katherine Fleming, Daniel Studer, Edwin Lee.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.4.
+    </div>
+  </body>
+</html>

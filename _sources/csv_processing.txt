@@ -1,0 +1,9 @@
+.. _csv_processing:
+
+*************************
+Processing CSV Parameters
+*************************
+
+The CSV parameters are typically the performance data for a component at rated conditions.  Performance maps are used to characterize parameters that change dynamically based on conditions.  This isn't always the case, but it is the general idea.
+
+CSV parameters are processed simply.  Loop over each row in the csv file, read the parameter name, value, source, and other metadata into a list of parameters (internally a ParameterList class instance).
