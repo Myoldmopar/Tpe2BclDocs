@@ -6,6 +6,9 @@ Processing Performance Maps
 
 Performance maps contain the data to characterize the performance of a component over varying conditions.  Multiple performance maps can be provided for the same component characterizing the same performance "curve".  In this case, data points that match independent variables will have the dependent variables averaged together.
 
+Processing Steps
+================
+
 For each performance map found in the product package, the following steps are performed:
 
 * Create a new MapReader instance, determining which class type based on file extension (xls/xlsx)

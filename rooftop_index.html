@@ -1,0 +1,158 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RoofTop Unit Processing Example &mdash; TPE2BCL 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="top" title="TPE2BCL 0.1 documentation" href="index.html" />
+    <link rel="next" title="RoofTop Unit (RTU) Map Processing" href="rooftopunit_map.html" />
+    <link rel="prev" title="Processing Performance Maps" href="map_processing.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="rooftopunit_map.html" title="RoofTop Unit (RTU) Map Processing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="map_processing.html" title="Processing Performance Maps"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="map_processing.html"
+                        title="previous chapter">Processing Performance Maps</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="rooftopunit_map.html"
+                        title="next chapter">RoofTop Unit (RTU) Map Processing</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/rooftop_index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="rooftop-unit-processing-example">
+<span id="rooftop-index"></span><h1>RoofTop Unit Processing Example<a class="headerlink" href="#rooftop-unit-processing-example" title="Permalink to this headline">¶</a></h1>
+<p>As an example of processing a component, the details of the RoofTop Unit processor are provided here.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rooftopunit_map.html">RoofTop Unit (RTU) Map Processing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rooftopunit_map.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rooftopunit_map.html#determining-type-of-map-to-process">Determining Type of Map to Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rooftopunit_map.html#creating-dataset-array">Creating Dataset Array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rooftopunit_map.html#description-of-each-performance-map-translator">Description of Each Performance Map Translator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rooftopunit_map.html#indepdendent-and-dependent-variables-for-each-map-type">Indepdendent and Dependent Variables for Each Map Type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rooftop_idf.html">Writing IDF/OS Components for Rooftop Units</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rooftop_idf.html#merging-multiple-datasets">Merging Multiple Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rooftop_idf.html#remaining-steps">Remaining Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rooftop_base_idf.html">Writing &#8220;Base&#8221; IDF/OS Data for Rooftop Units</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rooftop_base_idf.html#purpose-goal">Purpose/Goal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rooftop_base_idf.html#process">Process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rooftop_map_idf.html">Writing &#8220;Map&#8221; IDF/OS Components for Rooftop Units</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rooftop_map_idf.html#switching-on-map-type">Switching on Map Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rooftop_map_idf.html#processing-heat-pump-or-cooling-objects">Processing &#8220;Heat Pump&#8221; or &#8220;Cooling&#8221; Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rooftop_fixing.html">Fixing up the Rooftop Unit Translator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rooftop_fixing.html#confusion-with-map-types">Confusion With Map Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rooftop_fixing.html#cooling-map">Cooling Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooftop_fixing.html#heat-pump-performance-map">Heat Pump Performance Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooftop_fixing.html#gas-or-electric-heating-performance-map">Gas or Electric Heating Performance Map</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rooftop_fixing.html#map-metadata-across-rtu-map-types">Map Metadata Across RTU Map Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rooftop_fixing.html#calling-appropriate-map-reader">Calling Appropriate Map Reader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rooftop_fixing.html#auxiliary-heating-coil-references">Auxiliary Heating Coil References</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="rooftopunit_map.html" title="RoofTop Unit (RTU) Map Processing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="map_processing.html" title="Processing Performance Maps"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, DOE, NREL, Katherine Fleming, Daniel Studer, Edwin Lee.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.4.
+    </div>
+  </body>
+</html>

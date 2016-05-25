@@ -1,8 +1,11 @@
-******************************
-Product Processor (High Level)
-******************************
+*****************
+Product Processor
+*****************
 
-The product processor is the highest level of the underlying translation library.  The processor has the reponsibility of creating the product instance and calling the appropriate managers to do the deeper translation work.  The basic steps involved are:
+The product processor is the highest level of the underlying translation library.  The processor has the reponsibility of creating the product instance and calling the appropriate managers to do the deeper translation work.
+
+Processing Steps
+================
 
 * Create an instance of the type based on the product category given by the user
 * Extract the product zip file and evaluate the contents of the extracted folder

@@ -1,0 +1,84 @@
+.. _fixing_rtu_maps:
+
+*************************************
+Fixing up the Rooftop Unit Translator
+*************************************
+
+The Rooftop unit translator has some issues.  In addition to the issues, there is _big_ room for improvement in terms of organizing the code, reducing repeated code, etc.  For now I'll just focus on fixing the issues.
+
+Confusion With Map Types
+========================
+
+To address the confusion with the maps, the data point TYPEs will be renamed to something more meaningful, matching the templates available on TPEx.  There are three templates available online:
+
+* Rooftop Unit Cooling Performance Map.xlsx
+* Rooftop Unit Heat Pump Performance Map.xlsx
+* Rooftop Unit Gas or Electric Heating Performance Map.xlsx
+
+Cooling Map
+-----------
+
+The cooling map is simple, there is only one.  So whenever we need to make a cooling coil performance curve, this is the source TYPE.  The data point can remain with its current name.
+
+The variables in the performance map match pretty well with the DataPoint definition.  The only issue I have is the naming of condenser temperature variable.  It can be DB or WB, so maybe just rename to "\*_temp".  Oh, and we aren't reading in SHR...should we?
+
+Heat Pump Performance Map
+-------------------------
+
+The heat pump map is used as the primary heating coil for cases where "air_source_heat_pump" is set to true.  The datapoint name implies the performance data includes information for modeling heat pump operation, which is accurate.
+
+The variables in the performance map are again a close match with the DataPoint definition.
+
+Gas or Electric Heating Performance Map
+---------------------------------------
+
+This performance map can be used in a few different scenarios:
+
+ - If "air_source_heat_pump" is true, and this type of map is also found, it defines the performance of the auxiliary heating coil
+ - If "air_source_heat_pump" is false, and this type of map is found, it defines the performance of the primary heating coil, and there is no auxiliary heating coil
+
+This is the core of confusion between map types.  The internal name for the datapoints of this map type is: ``RTUMapDataPointAuxHtg``, which implies it is always only for the auxiliary heating coil.  Highly incorrect.  The TYPE name will be changed to ``RTUMapDataPointGasElecHtg``, which will help clarify that it is simply used to generate a heating coil.  The placement of such coil is dependent on other parameters.
+
+The variables in the performance map are a perfect match to the DataPoint definition.
+
+.. raw:: html
+
+  <font color="red">Action Item: Rename TYPE: RTUMapDataPointAuxHtg</font>
+
+Map Metadata Across RTU Map Types
+=================================
+
+I made a comment in the docs about this because the metadata is read in before it switches between map types, and I just want to confirm it is actually the same location in all map types.
+
+.. raw:: html
+
+  <font color="red">Action item: Very metadata cell placement in all RTU map types</font>
+
+Calling Appropriate Map Reader
+==============================
+
+This comment was made because I was confused about how the csv parameters fit in with the different map types.  Now, I think this is fine.  The map constructor should simply look at the type of map being processed, and call the appropriate map reader.
+
+However, the confusing part is the naming of the actual map readers.  The term ``read_aux_heating_map`` is not appropriate here.  It should be ``read_elec_gas_heating_map`` or something like that, to imply that it is reading an electric/gas heating map, nothing to do with the actual coil placement in the RTU.
+
+.. raw:: html
+
+  <font color="red">Action Item: Rename read_aux_heating_map</font>
+
+Auxiliary Heating Coil References
+=================================
+
+There are other places in the translator where we use the term ``aux`` or ``auxiliary``.  These should be scrutinized heavily to determine if they are valid.  In most cases, they won't, because they refer to translating an electric/gas heating map into an underlying electric/gas data structure, and not the actual (auxiliary) placement of the coil in the RTU object.
+
+The only time it should be valid is when we are actually assigning the coil to the RTU.  Here is an overview of the fixed reader:
+
+* The map constructor should do what it already does, check the csv parameter for the type of map, and call the appropriate translator.
+* The translator will simply fill in the dataset array with a dataset of the appropriate datapoint type; so far so good.
+* When we go to write out components, we should translate each merged set of DataPoint TYPEs into an appropriate object instance; not worrying about placment yet.
+* Then when we have all the coils/etc. instantiated, we can then go ahead and assign them to the RTU in the appropriate locations.
+
+.. raw:: html
+
+  <font color="red">Action Item: DO THIS</font>
+
+

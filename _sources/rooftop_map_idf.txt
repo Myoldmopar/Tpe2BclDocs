@@ -4,6 +4,9 @@
 Writing "Map" IDF/OS Components for Rooftop Units
 *************************************************
 
+Switching on Map Type
+=====================
+
 The rooftop map writing function has a high level "case" statement, switching between three possible keywords:
 
 * "heat pump"
@@ -15,6 +18,9 @@ The rooftop map writing function has a high level "case" statement, switching be
     <font color="blue">
   This implies that it is generating maps for a particular type of coil, but we should really simply be switching on what type of data points we are given, because that defines the type of object we can make from it.  Then we should hook it up outside of this function to the right spot in the high level RTU object.
     </font>
+
+Processing "Heat Pump" or "Cooling" Objects
+===========================================
 
 The "heat pump" and "cooling" functionality are both very similar, with the "aux heating" being slightly different.  I see this being updated, so I'm only going to describe the process at a fairly high level for "heat pump" and "cooling".
 

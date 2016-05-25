@@ -27,7 +27,7 @@
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="top" title="TPE2BCL 0.1 documentation" href="index.html" />
     <link rel="next" title="Processing Performance Maps" href="map_processing.html" />
-    <link rel="prev" title="Product Processor (High Level)" href="product_processor.html" />
+    <link rel="prev" title="Product Processor" href="product_processor.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -44,16 +44,24 @@
           <a href="map_processing.html" title="Processing Performance Maps"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="product_processor.html" title="Product Processor (High Level)"
+          <a href="product_processor.html" title="Product Processor"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Processing CSV Parameters</a><ul>
+<li><a class="reference internal" href="#processing-steps">Processing Steps</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="product_processor.html"
-                        title="previous chapter">Product Processor (High Level)</a></p>
+                        title="previous chapter">Product Processor</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="map_processing.html"
                         title="next chapter">Processing Performance Maps</a></p>
@@ -88,7 +96,21 @@
   <div class="section" id="processing-csv-parameters">
 <span id="csv-processing"></span><h1>Processing CSV Parameters<a class="headerlink" href="#processing-csv-parameters" title="Permalink to this headline">¶</a></h1>
 <p>The CSV parameters are typically the performance data for a component at rated conditions.  Performance maps are used to characterize parameters that change dynamically based on conditions.  This isn&#8217;t always the case, but it is the general idea.</p>
-<p>CSV parameters are processed simply.  Loop over each row in the csv file, read the parameter name, value, source, and other metadata into a list of parameters (internally a ParameterList class instance).</p>
+<div class="section" id="processing-steps">
+<h2>Processing Steps<a class="headerlink" href="#processing-steps" title="Permalink to this headline">¶</a></h2>
+<p>Processing the CSV parameters is a pretty simple process:</p>
+<ul class="simple">
+<li>Loop over each row in the csv file</li>
+<li>Read parameter values:<ul>
+<li>Name</li>
+<li>Value</li>
+<li>Data Source</li>
+<li>Other metadata</li>
+</ul>
+</li>
+</ul>
+<p>This data goes into a list of parameters (internally a ParameterList class instance).</p>
+</div>
 </div>
 
 
@@ -107,7 +129,7 @@
           <a href="map_processing.html" title="Processing Performance Maps"
              >next</a> |</li>
         <li class="right" >
-          <a href="product_processor.html" title="Product Processor (High Level)"
+          <a href="product_processor.html" title="Product Processor"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
       </ul>

@@ -26,8 +26,9 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="top" title="TPE2BCL 0.1 documentation" href="index.html" />
+    <link rel="up" title="RoofTop Unit Processing Example" href="rooftop_index.html" />
     <link rel="next" title="Writing IDF/OS Components for Rooftop Units" href="rooftop_idf.html" />
-    <link rel="prev" title="Processing Performance Maps" href="map_processing.html" />
+    <link rel="prev" title="RoofTop Unit Processing Example" href="rooftop_index.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -44,16 +45,29 @@
           <a href="rooftop_idf.html" title="Writing IDF/OS Components for Rooftop Units"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="map_processing.html" title="Processing Performance Maps"
+          <a href="rooftop_index.html" title="RoofTop Unit Processing Example"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="rooftop_index.html" accesskey="U">RoofTop Unit Processing Example</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RoofTop Unit (RTU) Map Processing</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#determining-type-of-map-to-process">Determining Type of Map to Process</a></li>
+<li><a class="reference internal" href="#creating-dataset-array">Creating Dataset Array</a></li>
+<li><a class="reference internal" href="#description-of-each-performance-map-translator">Description of Each Performance Map Translator</a></li>
+<li><a class="reference internal" href="#indepdendent-and-dependent-variables-for-each-map-type">Indepdendent and Dependent Variables for Each Map Type</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="map_processing.html"
-                        title="previous chapter">Processing Performance Maps</a></p>
+  <p class="topless"><a href="rooftop_index.html"
+                        title="previous chapter">RoofTop Unit Processing Example</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="rooftop_idf.html"
                         title="next chapter">Writing IDF/OS Components for Rooftop Units</a></p>
@@ -87,7 +101,12 @@
             
   <div class="section" id="rooftop-unit-rtu-map-processing">
 <span id="rooftopunit-map-new"></span><h1>RoofTop Unit (RTU) Map Processing<a class="headerlink" href="#rooftop-unit-rtu-map-processing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>For reading performance maps, many steps are similar between all product categories.  This will go through the entire process, although some things will hopefully be abstracted out to a higher level later.</p>
+</div>
+<div class="section" id="determining-type-of-map-to-process">
+<h2>Determining Type of Map to Process<a class="headerlink" href="#determining-type-of-map-to-process" title="Permalink to this headline">¶</a></h2>
 <p>The first step in processing the maps is to determine which type of map we are processing.  This essentially corresponds to two questions:</p>
 <ul class="simple">
 <li>Which underlying datapoint type will we be processing the data into?</li>
@@ -101,7 +120,10 @@
 </ul>
   <font color="blue">
 This is actually not the correct logic, and is currently being improved.  The actual logic should check other parameters in the csv file first, mainly what type of heating the unit uses, before deciding what the content of this performance map should be used to generate.  But we'll get back on track for now.
-  </font><p>The map reader then instantiates a class variable for storing all the data points found in this map.  Next the map reader reads the high level (meta) data about the component from the top portion of the map.</p>
+  </font></div>
+<div class="section" id="creating-dataset-array">
+<h2>Creating Dataset Array<a class="headerlink" href="#creating-dataset-array" title="Permalink to this headline">¶</a></h2>
+<p>The map reader then instantiates a class variable for storing all the data points found in this map.  Next the map reader reads the high level (meta) data about the component from the top portion of the map.</p>
   <font color="blue">
 It does the same reading for every map type; are they really identical?
   </font><p>The map reader then calls the appropriate datapoint reader based on the map type.  Currently it is:</p>
@@ -112,20 +134,28 @@ It does the same reading for every map type; are they really identical?
 </ul>
   <font color="blue">
 But it should actually be more intelligent.  It should be using the logic about the component to determine which type of datapoints we expect to be reading in.
-  </font><p>Each <code class="docutils literal"><span class="pre">read_*_map</span></code> reader does roughly the same operations, just reading in different data points for each type.</p>
+  </font></div>
+<div class="section" id="description-of-each-performance-map-translator">
+<h2>Description of Each Performance Map Translator<a class="headerlink" href="#description-of-each-performance-map-translator" title="Permalink to this headline">¶</a></h2>
+<p>Each <code class="docutils literal"><span class="pre">read_*_map</span></code> reader does roughly the same operations, just reading in different data points for each type.</p>
 <ul class="simple">
 <li>Read necessary metadata from the map to determine expected datapoint conditions.</li>
 <li>Define constants for row numbers, column numbers, etc.</li>
-<li>Read each datapoint row:
-* Independent variables first
-* Then dependent variables
-* Check if dependent variables contain any nil values
-* Check if dependent variables contain any non-numeric values
-* Create datapoint instance from these values
-* Add datapoint to dataset array</li>
+<li>Read each datapoint row:<ul>
+<li>Independent variables first</li>
+<li>Then dependent variables</li>
+<li>Check if dependent variables contain any nil values</li>
+<li>Check if dependent variables contain any non-numeric values</li>
+<li>Create datapoint instance from these values</li>
+<li>Add datapoint to dataset array</li>
+</ul>
+</li>
 <li>Report data to the log file</li>
 <li>If there is insufficient data in this map, set the <code class="docutils literal"><span class="pre">&#64;insufficient..</span></code> flag to true and return</li>
 </ul>
+</div>
+<div class="section" id="indepdendent-and-dependent-variables-for-each-map-type">
+<h2>Indepdendent and Dependent Variables for Each Map Type<a class="headerlink" href="#indepdendent-and-dependent-variables-for-each-map-type" title="Permalink to this headline">¶</a></h2>
 <p>The actual data being read for each map type is listed here:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -134,7 +164,7 @@ But it should actually be more intelligent.  It should be using the logic about 
 <col width="19%" />
 <col width="17%" />
 <col width="15%" />
-<col width="14%" />
+<col width="16%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head" colspan="2">&#8220;HeatPump&#8221;</th>
@@ -152,6 +182,7 @@ But it should actually be more intelligent.  It should be using the logic about 
 </tr>
 <tr class="row-odd"><td><ul class="first last simple">
 <li>Indoor Dry Bulb</li>
+<li>Indoor Wet Bulb</li>
 <li>Outdoor Dry Bulb</li>
 <li>Fan Speed</li>
 <li>Compressor Stage</li>
@@ -159,6 +190,7 @@ But it should actually be more intelligent.  It should be using the logic about 
 </td>
 <td><ul class="first last simple">
 <li>Fan Flow Rate</li>
+<li>Static Pressure</li>
 <li>Fan Power</li>
 <li>Heating Capacity</li>
 <li>Total Power</li>
@@ -166,6 +198,7 @@ But it should actually be more intelligent.  It should be using the logic about 
 </td>
 <td><ul class="first last simple">
 <li>Evaporator Dry Bulb</li>
+<li>Evaporator Wet Bulb</li>
 <li>Condenser DB/WB?</li>
 <li>Fan Speed</li>
 <li>Compressor Stage</li>
@@ -173,17 +206,20 @@ But it should actually be more intelligent.  It should be using the logic about 
 </td>
 <td><ul class="first last simple">
 <li>Fan Flow Rate</li>
+<li>Static Pressure</li>
 <li>Fan Power</li>
 <li>Cooling Capacity</li>
 </ul>
 </td>
 <td><ul class="first last simple">
 <li>Mixed Dry Bulb</li>
+<li>Fan Speed</li>
 <li>Heating Stage</li>
 </ul>
 </td>
 <td><ul class="first last simple">
 <li>Fan Flow Rate</li>
+<li>Static Pressure</li>
 <li>Fan Power</li>
 <li>Heat Input</li>
 <li>Heat Output</li>
@@ -195,6 +231,7 @@ But it should actually be more intelligent.  It should be using the logic about 
   <font color="blue">
 The biggest issue with this is how they are named.  If the aux heating can be the regular heating coil, then it should be named in conjunction with the actual physical coil and the type of object it will create in the model.
   </font></div>
+</div>
 
 
           </div>
@@ -212,9 +249,10 @@ The biggest issue with this is how they are named.  If the aux heating can be th
           <a href="rooftop_idf.html" title="Writing IDF/OS Components for Rooftop Units"
              >next</a> |</li>
         <li class="right" >
-          <a href="map_processing.html" title="Processing Performance Maps"
+          <a href="rooftop_index.html" title="RoofTop Unit Processing Example"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="rooftop_index.html" >RoofTop Unit Processing Example</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

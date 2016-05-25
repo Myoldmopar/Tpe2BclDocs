@@ -4,9 +4,15 @@
 Writing "Base" IDF/OS Data for Rooftop Units
 ********************************************
 
+Purpose/Goal
+============
+
 The base idf writer for rooftop units has one main goal:
 
   Create the Rooftop Unit instance, and set as many parameters as possible without generating performance curves.
+
+Process
+=======
 
 This translator does this by following the following steps:
 

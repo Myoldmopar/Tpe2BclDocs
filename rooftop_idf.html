@@ -26,6 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="top" title="TPE2BCL 0.1 documentation" href="index.html" />
+    <link rel="up" title="RoofTop Unit Processing Example" href="rooftop_index.html" />
     <link rel="next" title="Writing “Base” IDF/OS Data for Rooftop Units" href="rooftop_base_idf.html" />
     <link rel="prev" title="RoofTop Unit (RTU) Map Processing" href="rooftopunit_map.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -46,11 +47,21 @@
         <li class="right" >
           <a href="rooftopunit_map.html" title="RoofTop Unit (RTU) Map Processing"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="rooftop_index.html" accesskey="U">RoofTop Unit Processing Example</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Writing IDF/OS Components for Rooftop Units</a><ul>
+<li><a class="reference internal" href="#merging-multiple-datasets">Merging Multiple Datasets</a></li>
+<li><a class="reference internal" href="#remaining-steps">Remaining Steps</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="rooftopunit_map.html"
                         title="previous chapter">RoofTop Unit (RTU) Map Processing</a></p>
@@ -87,12 +98,17 @@
             
   <div class="section" id="writing-idf-os-components-for-rooftop-units">
 <span id="rooftop-write-idf-stuff"></span><h1>Writing IDF/OS Components for Rooftop Units<a class="headerlink" href="#writing-idf-os-components-for-rooftop-units" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="merging-multiple-datasets">
+<h2>Merging Multiple Datasets<a class="headerlink" href="#merging-multiple-datasets" title="Permalink to this headline">¶</a></h2>
 <p>The rooftop idf writing function starts by creating three merged arrays:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">merged_hp_data_set</span></code>: An array of type <code class="docutils literal"><span class="pre">TpeBclCore::Products::RoofTopUnit::Map::RTUMapDataPointHP</span></code> with a key of &#8220;heat pump&#8221;</li>
 <li><code class="docutils literal"><span class="pre">merged_clg_data_set</span></code>: An array of type <code class="docutils literal"><span class="pre">TpeBclCore::Products::RoofTopUnit::Map::RTUMapDataPointClg</span></code> with a key of &#8220;cooling&#8221;</li>
 <li><code class="docutils literal"><span class="pre">merged_aux_htg_data_set</span></code>: An array of type <code class="docutils literal"><span class="pre">TpeBclCore::Products::RoofTopUnit::Map::RTUMapDataPointAuxHtg</span></code> with a key of &#8220;aux heating&#8221;</li>
 </ul>
+</div>
+<div class="section" id="remaining-steps">
+<h2>Remaining Steps<a class="headerlink" href="#remaining-steps" title="Permalink to this headline">¶</a></h2>
 <p>The remaining pieces appear simple enough:</p>
 <ul>
 <li><p class="first">Call a function <code class="docutils literal"><span class="pre">write_base_idf_objects</span></code> (see: <a class="reference internal" href="rooftop_base_idf.html#rooftop-write-base-idf-stuff"><span>Writing &#8220;Base&#8221; IDF/OS Data for Rooftop Units</span></a>) to write out the base parameters for the different objects:</p>
@@ -106,6 +122,7 @@
 <p>This function generates the curves for this particular &#8220;type&#8221; and places them on the appropriate components.</p>
 </li>
 </ul>
+</div>
 </div>
 
 
@@ -126,7 +143,8 @@
         <li class="right" >
           <a href="rooftopunit_map.html" title="RoofTop Unit (RTU) Map Processing"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="rooftop_index.html" >RoofTop Unit Processing Example</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

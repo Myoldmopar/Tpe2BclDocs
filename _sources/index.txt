@@ -6,6 +6,8 @@
 Welcome to TPE2BCL's documentation!
 ===================================
 
+This documentation covers the translation of components in Tpe2Bcl.  Currently it shows the high level overview of translating any component type, followed by a detailed walkthrough of map processing and EnergyPlus/OpenStudio object creation for the Rooftop Unit product category.
+
 Contents:
 
 .. toctree::
@@ -14,10 +16,7 @@ Contents:
    product_processor.rst 
    csv_processing.rst
    map_processing.rst
-   rooftopunit_map.rst
-   rooftop_idf.rst
-   rooftop_base_idf.rst
-   rooftop_map_idf.rst
+   rooftop_index.rst
 
-This documentation covers the translation of components in Tpe2Bcl.
+
 

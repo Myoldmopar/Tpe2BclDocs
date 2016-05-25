@@ -26,6 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="top" title="TPE2BCL 0.1 documentation" href="index.html" />
+    <link rel="up" title="RoofTop Unit Processing Example" href="rooftop_index.html" />
     <link rel="next" title="Writing “Map” IDF/OS Components for Rooftop Units" href="rooftop_map_idf.html" />
     <link rel="prev" title="Writing IDF/OS Components for Rooftop Units" href="rooftop_idf.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -46,11 +47,21 @@
         <li class="right" >
           <a href="rooftop_idf.html" title="Writing IDF/OS Components for Rooftop Units"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="rooftop_index.html" accesskey="U">RoofTop Unit Processing Example</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Writing &#8220;Base&#8221; IDF/OS Data for Rooftop Units</a><ul>
+<li><a class="reference internal" href="#purpose-goal">Purpose/Goal</a></li>
+<li><a class="reference internal" href="#process">Process</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="rooftop_idf.html"
                         title="previous chapter">Writing IDF/OS Components for Rooftop Units</a></p>
@@ -87,9 +98,14 @@
             
   <div class="section" id="writing-base-idf-os-data-for-rooftop-units">
 <span id="rooftop-write-base-idf-stuff"></span><h1>Writing &#8220;Base&#8221; IDF/OS Data for Rooftop Units<a class="headerlink" href="#writing-base-idf-os-data-for-rooftop-units" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose-goal">
+<h2>Purpose/Goal<a class="headerlink" href="#purpose-goal" title="Permalink to this headline">¶</a></h2>
 <p>The base idf writer for rooftop units has one main goal:</p>
 <blockquote>
 <div>Create the Rooftop Unit instance, and set as many parameters as possible without generating performance curves.</div></blockquote>
+</div>
+<div class="section" id="process">
+<h2>Process<a class="headerlink" href="#process" title="Permalink to this headline">¶</a></h2>
 <p>This translator does this by following the following steps:</p>
 <ul class="simple">
 <li>Check which type of heating this unit has, including whether it is a heat pump</li>
@@ -102,6 +118,7 @@ This is the number of compressor speeds, right?
 <li>The translator then creates the RTU object instance, assigning parameters as possible.</li>
 <li>The translator then finally creates the Fan object instance, assigning parameters and hooking it to the RTU.</li>
 </ul>
+</div>
 </div>
 
 
@@ -122,7 +139,8 @@ This is the number of compressor speeds, right?
         <li class="right" >
           <a href="rooftop_idf.html" title="Writing IDF/OS Components for Rooftop Units"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="rooftop_index.html" >RoofTop Unit Processing Example</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

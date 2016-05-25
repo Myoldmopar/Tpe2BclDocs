@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="top" title="TPE2BCL 0.1 documentation" href="index.html" />
-    <link rel="next" title="RoofTop Unit (RTU) Map Processing" href="rooftopunit_map.html" />
+    <link rel="next" title="RoofTop Unit Processing Example" href="rooftop_index.html" />
     <link rel="prev" title="Processing CSV Parameters" href="csv_processing.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -41,7 +41,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="rooftopunit_map.html" title="RoofTop Unit (RTU) Map Processing"
+          <a href="rooftop_index.html" title="RoofTop Unit Processing Example"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="csv_processing.html" title="Processing CSV Parameters"
@@ -51,12 +51,20 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Processing Performance Maps</a><ul>
+<li><a class="reference internal" href="#processing-steps">Processing Steps</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="csv_processing.html"
                         title="previous chapter">Processing CSV Parameters</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="rooftopunit_map.html"
-                        title="next chapter">RoofTop Unit (RTU) Map Processing</a></p>
+  <p class="topless"><a href="rooftop_index.html"
+                        title="next chapter">RoofTop Unit Processing Example</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -88,6 +96,8 @@
   <div class="section" id="processing-performance-maps">
 <span id="map-processing"></span><h1>Processing Performance Maps<a class="headerlink" href="#processing-performance-maps" title="Permalink to this headline">¶</a></h1>
 <p>Performance maps contain the data to characterize the performance of a component over varying conditions.  Multiple performance maps can be provided for the same component characterizing the same performance &#8220;curve&#8221;.  In this case, data points that match independent variables will have the dependent variables averaged together.</p>
+<div class="section" id="processing-steps">
+<h2>Processing Steps<a class="headerlink" href="#processing-steps" title="Permalink to this headline">¶</a></h2>
 <p>For each performance map found in the product package, the following steps are performed:</p>
 <ul class="simple">
 <li>Create a new MapReader instance, determining which class type based on file extension (xls/xlsx)</li>
@@ -101,6 +111,7 @@
 * For each unique set, average all dependent variable values into a single data point</li>
 <li>Create curve (table) objects from final merged data set</li>
 </ul>
+</div>
 </div>
 
 
@@ -116,7 +127,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="rooftopunit_map.html" title="RoofTop Unit (RTU) Map Processing"
+          <a href="rooftop_index.html" title="RoofTop Unit Processing Example"
              >next</a> |</li>
         <li class="right" >
           <a href="csv_processing.html" title="Processing CSV Parameters"

@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Product Processor (High Level) &mdash; TPE2BCL 0.1 documentation</title>
+    <title>Product Processor &mdash; TPE2BCL 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -51,6 +51,14 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Product Processor</a><ul>
+<li><a class="reference internal" href="#processing-steps">Processing Steps</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
                         title="previous chapter">Welcome to TPE2BCL&#8217;s documentation!</a></p>
@@ -85,9 +93,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="product-processor-high-level">
-<h1>Product Processor (High Level)<a class="headerlink" href="#product-processor-high-level" title="Permalink to this headline">¶</a></h1>
-<p>The product processor is the highest level of the underlying translation library.  The processor has the reponsibility of creating the product instance and calling the appropriate managers to do the deeper translation work.  The basic steps involved are:</p>
+  <div class="section" id="product-processor">
+<h1>Product Processor<a class="headerlink" href="#product-processor" title="Permalink to this headline">¶</a></h1>
+<p>The product processor is the highest level of the underlying translation library.  The processor has the reponsibility of creating the product instance and calling the appropriate managers to do the deeper translation work.</p>
+<div class="section" id="processing-steps">
+<h2>Processing Steps<a class="headerlink" href="#processing-steps" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Create an instance of the type based on the product category given by the user</li>
 <li>Extract the product zip file and evaluate the contents of the extracted folder</li>
@@ -95,6 +105,7 @@
 <li>Determine whether performance maps can and should be processed for this component; if so do map processing: <a class="reference internal" href="map_processing.html#map-processing"><span>Processing Performance Maps</span></a></li>
 <li>Call the product to generate the rest of the idf (OpenStudio) components (curves, etc.). As an example, here is the rooftop unit process: <a class="reference internal" href="rooftop_idf.html#rooftop-write-idf-stuff"><span>Writing IDF/OS Components for Rooftop Units</span></a></li>
 </ul>
+</div>
 </div>
 
 
