@@ -1,0 +1,25 @@
+.. _rooftop_write_base_idf_stuff:
+
+********************************************
+Writing "Base" IDF/OS Data for Rooftop Units
+********************************************
+
+The base idf writer for rooftop units has one main goal:
+
+  Create the Rooftop Unit instance, and set as many parameters as possible without generating performance curves.
+
+This translator does this by following the following steps:
+
+* Check which type of heating this unit has, including whether it is a heat pump
+* Get the number of heating or cooling speeds
+
+.. raw:: html
+
+    <font color="blue">
+  This is the number of compressor speeds, right?
+    </font>
+
+* Roughly speaking, for each speed, the translator reads the cooling/heating rated air flow rate at that speed and tracks the maximum flow rate.
+* The translator then creates the RTU object instance, assigning parameters as possible.
+* The translator then finally creates the Fan object instance, assigning parameters and hooking it to the RTU.
+

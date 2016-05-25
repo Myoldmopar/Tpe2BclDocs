@@ -1,0 +1,23 @@
+.. _rooftop_write_idf_stuff:
+
+*******************************************
+Writing IDF/OS Components for Rooftop Units
+*******************************************
+
+The rooftop idf writing function starts by creating three merged arrays:
+
+* ``merged_hp_data_set``: An array of type ``TpeBclCore::Products::RoofTopUnit::Map::RTUMapDataPointHP`` with a key of "heat pump"
+* ``merged_clg_data_set``: An array of type ``TpeBclCore::Products::RoofTopUnit::Map::RTUMapDataPointClg`` with a key of "cooling"
+* ``merged_aux_htg_data_set``: An array of type ``TpeBclCore::Products::RoofTopUnit::Map::RTUMapDataPointAuxHtg`` with a key of "aux heating"
+
+The remaining pieces appear simple enough:
+
+* Call a function ``write_base_idf_objects`` (see: :ref:`rooftop_write_base_idf_stuff`) to write out the base parameters for the different objects: 
+* Call a function ``write_map_idf_objects`` (see: :ref:`rooftop_write_map_idf_stuff`) three times, each time passing a parameter:
+
+  * "heat pump"
+  * "cooling"
+  * "aux heating"
+  
+  This function generates the curves for this particular "type" and places them on the appropriate components. 
+

@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Product Processor (High Level) &mdash; TPE2BCL 0.1 documentation</title>
+    <title>Writing IDF/OS Components for Rooftop Units &mdash; TPE2BCL 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="top" title="TPE2BCL 0.1 documentation" href="index.html" />
-    <link rel="next" title="Processing CSV Parameters" href="csv_processing.html" />
-    <link rel="prev" title="Welcome to TPE2BCL’s documentation!" href="index.html" />
+    <link rel="next" title="Writing “Base” IDF/OS Data for Rooftop Units" href="rooftop_base_idf.html" />
+    <link rel="prev" title="RoofTop Unit (RTU) Map Processing" href="rooftopunit_map.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -41,10 +41,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="csv_processing.html" title="Processing CSV Parameters"
+          <a href="rooftop_base_idf.html" title="Writing “Base” IDF/OS Data for Rooftop Units"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to TPE2BCL’s documentation!"
+          <a href="rooftopunit_map.html" title="RoofTop Unit (RTU) Map Processing"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
       </ul>
@@ -52,15 +52,15 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to TPE2BCL&#8217;s documentation!</a></p>
+  <p class="topless"><a href="rooftopunit_map.html"
+                        title="previous chapter">RoofTop Unit (RTU) Map Processing</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="csv_processing.html"
-                        title="next chapter">Processing CSV Parameters</a></p>
+  <p class="topless"><a href="rooftop_base_idf.html"
+                        title="next chapter">Writing &#8220;Base&#8221; IDF/OS Data for Rooftop Units</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/product_processor.txt"
+      <li><a href="_sources/rooftop_idf.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -85,15 +85,26 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="product-processor-high-level">
-<h1>Product Processor (High Level)<a class="headerlink" href="#product-processor-high-level" title="Permalink to this headline">¶</a></h1>
-<p>The product processor is the highest level of the underlying translation library.  The processor has the reponsibility of creating the product instance and calling the appropriate managers to do the deeper translation work.  The basic steps involved are:</p>
+  <div class="section" id="writing-idf-os-components-for-rooftop-units">
+<span id="rooftop-write-idf-stuff"></span><h1>Writing IDF/OS Components for Rooftop Units<a class="headerlink" href="#writing-idf-os-components-for-rooftop-units" title="Permalink to this headline">¶</a></h1>
+<p>The rooftop idf writing function starts by creating three merged arrays:</p>
 <ul class="simple">
-<li>Create an instance of the type based on the product category given by the user</li>
-<li>Extract the product zip file and evaluate the contents of the extracted folder</li>
-<li>Call the csv manager to translate the parameters found in the csv file into a usable parameter list within the translator: <a class="reference internal" href="csv_processing.html#csv-processing"><span>Processing CSV Parameters</span></a></li>
-<li>Determine whether performance maps can and should be processed for this component; if so do map processing: <a class="reference internal" href="map_processing.html#map-processing"><span>Processing Performance Maps</span></a></li>
-<li>Call the product to generate the rest of the idf (OpenStudio) components (curves, etc.). As an example, here is the rooftop unit process: <a class="reference internal" href="rooftop_idf.html#rooftop-write-idf-stuff"><span>Writing IDF/OS Components for Rooftop Units</span></a></li>
+<li><code class="docutils literal"><span class="pre">merged_hp_data_set</span></code>: An array of type <code class="docutils literal"><span class="pre">TpeBclCore::Products::RoofTopUnit::Map::RTUMapDataPointHP</span></code> with a key of &#8220;heat pump&#8221;</li>
+<li><code class="docutils literal"><span class="pre">merged_clg_data_set</span></code>: An array of type <code class="docutils literal"><span class="pre">TpeBclCore::Products::RoofTopUnit::Map::RTUMapDataPointClg</span></code> with a key of &#8220;cooling&#8221;</li>
+<li><code class="docutils literal"><span class="pre">merged_aux_htg_data_set</span></code>: An array of type <code class="docutils literal"><span class="pre">TpeBclCore::Products::RoofTopUnit::Map::RTUMapDataPointAuxHtg</span></code> with a key of &#8220;aux heating&#8221;</li>
+</ul>
+<p>The remaining pieces appear simple enough:</p>
+<ul>
+<li><p class="first">Call a function <code class="docutils literal"><span class="pre">write_base_idf_objects</span></code> (see: <a class="reference internal" href="rooftop_base_idf.html#rooftop-write-base-idf-stuff"><span>Writing &#8220;Base&#8221; IDF/OS Data for Rooftop Units</span></a>) to write out the base parameters for the different objects:</p>
+</li>
+<li><p class="first">Call a function <code class="docutils literal"><span class="pre">write_map_idf_objects</span></code> (see: <a class="reference internal" href="rooftop_map_idf.html#rooftop-write-map-idf-stuff"><span>Writing &#8220;Map&#8221; IDF/OS Components for Rooftop Units</span></a>) three times, each time passing a parameter:</p>
+<ul class="simple">
+<li>&#8220;heat pump&#8221;</li>
+<li>&#8220;cooling&#8221;</li>
+<li>&#8220;aux heating&#8221;</li>
+</ul>
+<p>This function generates the curves for this particular &#8220;type&#8221; and places them on the appropriate components.</p>
+</li>
 </ul>
 </div>
 
@@ -110,10 +121,10 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="csv_processing.html" title="Processing CSV Parameters"
+          <a href="rooftop_base_idf.html" title="Writing “Base” IDF/OS Data for Rooftop Units"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to TPE2BCL’s documentation!"
+          <a href="rooftopunit_map.html" title="RoofTop Unit (RTU) Map Processing"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
       </ul>

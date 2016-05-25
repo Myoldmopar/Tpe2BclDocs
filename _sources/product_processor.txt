@@ -8,3 +8,5 @@ The product processor is the highest level of the underlying translation library
 * Extract the product zip file and evaluate the contents of the extracted folder
 * Call the csv manager to translate the parameters found in the csv file into a usable parameter list within the translator: :ref:`csv_processing`
 * Determine whether performance maps can and should be processed for this component; if so do map processing: :ref:`map_processing`
+* Call the product to generate the rest of the idf (OpenStudio) components (curves, etc.). As an example, here is the rooftop unit process: :ref:`rooftop_write_idf_stuff`
+

@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to TPE2BCL’s documentation! &mdash; TPE2BCL 0.1 documentation</title>
+    <title>Writing “Base” IDF/OS Data for Rooftop Units &mdash; TPE2BCL 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -25,8 +25,9 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
-    <link rel="top" title="TPE2BCL 0.1 documentation" href="#" />
-    <link rel="next" title="Product Processor (High Level)" href="product_processor.html" />
+    <link rel="top" title="TPE2BCL 0.1 documentation" href="index.html" />
+    <link rel="next" title="Writing “Map” IDF/OS Components for Rooftop Units" href="rooftop_map_idf.html" />
+    <link rel="prev" title="Writing IDF/OS Components for Rooftop Units" href="rooftop_idf.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -40,20 +41,26 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="product_processor.html" title="Product Processor (High Level)"
+          <a href="rooftop_map_idf.html" title="Writing “Map” IDF/OS Components for Rooftop Units"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">TPE2BCL 0.1 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="rooftop_idf.html" title="Writing IDF/OS Components for Rooftop Units"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="rooftop_idf.html"
+                        title="previous chapter">Writing IDF/OS Components for Rooftop Units</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="product_processor.html"
-                        title="next chapter">Product Processor (High Level)</a></p>
+  <p class="topless"><a href="rooftop_map_idf.html"
+                        title="next chapter">Writing &#8220;Map&#8221; IDF/OS Components for Rooftop Units</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/index.txt"
+      <li><a href="_sources/rooftop_base_idf.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -78,21 +85,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-tpe2bcl-s-documentation">
-<h1>Welcome to TPE2BCL&#8217;s documentation!<a class="headerlink" href="#welcome-to-tpe2bcl-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="product_processor.html">Product Processor (High Level)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="csv_processing.html">Processing CSV Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="map_processing.html">Processing Performance Maps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rooftopunit_map.html">RoofTop Unit (RTU) Map Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rooftop_idf.html">Writing IDF/OS Components for Rooftop Units</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rooftop_base_idf.html">Writing &#8220;Base&#8221; IDF/OS Data for Rooftop Units</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rooftop_map_idf.html">Writing &#8220;Map&#8221; IDF/OS Components for Rooftop Units</a></li>
+  <div class="section" id="writing-base-idf-os-data-for-rooftop-units">
+<span id="rooftop-write-base-idf-stuff"></span><h1>Writing &#8220;Base&#8221; IDF/OS Data for Rooftop Units<a class="headerlink" href="#writing-base-idf-os-data-for-rooftop-units" title="Permalink to this headline">¶</a></h1>
+<p>The base idf writer for rooftop units has one main goal:</p>
+<blockquote>
+<div>Create the Rooftop Unit instance, and set as many parameters as possible without generating performance curves.</div></blockquote>
+<p>This translator does this by following the following steps:</p>
+<ul class="simple">
+<li>Check which type of heating this unit has, including whether it is a heat pump</li>
+<li>Get the number of heating or cooling speeds</li>
 </ul>
-</div>
-<p>This documentation covers the translation of components in Tpe2Bcl.</p>
+  <font color="blue">
+This is the number of compressor speeds, right?
+  </font><ul class="simple">
+<li>Roughly speaking, for each speed, the translator reads the cooling/heating rated air flow rate at that speed and tracks the maximum flow rate.</li>
+<li>The translator then creates the RTU object instance, assigning parameters as possible.</li>
+<li>The translator then finally creates the Fan object instance, assigning parameters and hooking it to the RTU.</li>
+</ul>
 </div>
 
 
@@ -108,9 +117,12 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="product_processor.html" title="Product Processor (High Level)"
+          <a href="rooftop_map_idf.html" title="Writing “Map” IDF/OS Components for Rooftop Units"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">TPE2BCL 0.1 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="rooftop_idf.html" title="Writing IDF/OS Components for Rooftop Units"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

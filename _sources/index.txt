@@ -15,6 +15,9 @@ Contents:
    csv_processing.rst
    map_processing.rst
    rooftopunit_map.rst
+   rooftop_idf.rst
+   rooftop_base_idf.rst
+   rooftop_map_idf.rst
 
 This documentation covers the translation of components in Tpe2Bcl.
 

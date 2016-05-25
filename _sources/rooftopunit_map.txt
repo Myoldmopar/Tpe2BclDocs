@@ -76,5 +76,3 @@ The actual data being read for each map type is listed here:
   The biggest issue with this is how they are named.  If the aux heating can be the regular heating coil, then it should be named in conjunction with the actual physical coil and the type of object it will create in the model.
     </font>
 
-OK, back.
-
