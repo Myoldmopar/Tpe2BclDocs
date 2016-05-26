@@ -18,7 +18,9 @@ For each performance map found in the product package, the following steps are p
 
 * Get resulting single map dataset and push it to master array of datasets
 * Merge all datasets of each given type together:
+
   * Find all unique sets of independent variables
   * For each unique set, average all dependent variable values into a single data point
+
 * Create curve (table) objects from final merged data set
 

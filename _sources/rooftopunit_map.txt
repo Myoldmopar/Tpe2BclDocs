@@ -21,36 +21,20 @@ The map processor has a filename of the map being processed.  The map processor 
 
 * If filename matches ``PARAM_HPPERFORMANCEMAP``, which is "Heat Pump Performance Map", the type is ``MAP_TYPE_HEATPUMP``
 * If filename matches ``PARAM_CLGPERFORMANCEMAP``, which is "Cooling Heating Performance Map", the type is ``MAP_TYPE_COOLING``
-* If filename matches ``PARAM_AUXHTGPERFORMANCEMAP``, which is "Gas or Electric Heating Performance Map", the type is ``MAP_TYPE_AUX_HEATING``
-
-.. raw:: html
-
-    <font color="blue">
-  This is actually not the correct logic, and is currently being improved.  The actual logic should check other parameters in the csv file first, mainly what type of heating the unit uses, before deciding what the content of this performance map should be used to generate.  But we'll get back on track for now.
-    </font>
+* If filename matches ``PARAM_GASELECHTGPERFORMANCEMAP``, which is "Gas or Electric Heating Performance Map", the type is ``MAP_TYPE_GASELEC_HEATING``
 
 Creating Dataset Array
 ======================
 
 The map reader then instantiates a class variable for storing all the data points found in this map.  Next the map reader reads the high level (meta) data about the component from the top portion of the map.
 
-.. raw:: html
-
-    <font color="blue">
-  It does the same reading for every map type; are they really identical?
-    </font>
-
 The map reader then calls the appropriate datapoint reader based on the map type.  Currently it is:
 
 * ``MAP_TYPE_HEATPUMP --> read_aux_htg_map``
 * ``MAP_TYPE_COOLING --> read_cooling_map``
-* ``MAP_TYPE_AUX_HTG --> read_aux_htg_map``
+* ``MAP_TYPE_GASELEC_HEATING --> read_elecgas_heating_map``
 
-.. raw:: html
-
-    <font color="blue">
-  But it should actually be more intelligent.  It should be using the logic about the component to determine which type of datapoints we expect to be reading in.
-    </font>
+Ultimately the product processor will merge all the performance map datasets together by type, so that there will be a maximum of one merged dataset for each of these types.
 
 Description of Each Performance Map Translator
 ==============================================
@@ -77,7 +61,7 @@ Indepdendent and Dependent Variables for Each Map Type
 The actual data being read for each map type is listed here:
 
 +--------------------+--------------------+-----------------------+--------------------+------------------+-------------------+
-| "HeatPump"                              | "Cooling"                                  | "Aux Heating"                        |
+| "HeatPump"                              | "Cooling"                                  | "Gas/Elec Heating"                   |
 +====================+====================+=======================+====================+==================+===================+
 | Independent        | Dependent          | Independent           | Depdendent         | Independent      | Dependent         |
 +--------------------+--------------------+-----------------------+--------------------+------------------+-------------------+
@@ -87,10 +71,3 @@ The actual data being read for each map type is listed here:
 | * Fan Speed        | * Heating Capacity | * Fan Speed           | * Cooling Capacity |                  | * Heat Input      |
 | * Compressor Stage | * Total Power      | * Compressor Stage    |                    |                  | * Heat Output     |
 +--------------------+--------------------+-----------------------+--------------------+------------------+-------------------+
-
-.. raw:: html
-
-    <font color="blue">
-  The biggest issue with this is how they are named.  If the aux heating can be the regular heating coil, then it should be named in conjunction with the actual physical coil and the type of object it will create in the model.
-    </font>
-

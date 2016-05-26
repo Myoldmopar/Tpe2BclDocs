@@ -11,28 +11,22 @@ The rooftop map writing function has a high level "case" statement, switching be
 
 * "heat pump"
 * "cooling"
-* "aux heating"
-
-.. raw:: html
-
-    <font color="blue">
-  This implies that it is generating maps for a particular type of coil, but we should really simply be switching on what type of data points we are given, because that defines the type of object we can make from it.  Then we should hook it up outside of this function to the right spot in the high level RTU object.
-    </font>
+* "gaselec heating"
 
 Processing "Heat Pump" or "Cooling" Objects
 ===========================================
 
-The "heat pump" and "cooling" functionality are both very similar, with the "aux heating" being slightly different.  I see this being updated, so I'm only going to describe the process at a fairly high level for "heat pump" and "cooling".
+The "heat pump" and "cooling" functionality are both very similar, with the "gaselec heating" being slightly different.
 
 * The translator starts by reading the number of heating/cooling stages and the number of fan speeds for this component.
 * The translator then creates the heating or cooling coil object instance
 * The translator down-selects from the merged data set it is given:
 
   * First it selects data to be used for the "function of air flow rate" curve(s) by only selecting data points that have independent variable temperatures that match the rated conditions.  For example, in heating, the rated temperatures are:
-  
+
     * Rated Indoor Dry Bulb Temperature = 70 F
     * Rated Outdoor Dry Bulb Temperature = 17 F
-  
+
     There must be data in the full, merged, performance map data set that have independent variables that match these points.
 
   * Second, it selects data to be used for the "function of temperature" curve(s) by only selecting data points that have independent variable flow rates that match the rated conditions.  For the translator, this simply finds all the data points that are at the maximum fan speed stage, since it is assumed for rating sake that the unit is at maximum fan speed operation.  There must be data in the full, merged, performance map data set that have independent variables that match this condition.
@@ -45,5 +39,13 @@ The "heat pump" and "cooling" functionality are both very similar, with the "aux
   * The translator then takes the cross section of these two arrays, which is expected to produce a single rated data point.  This data point is at rated temp, rated flow, at the current compressor stage.  This is considered the "nominal" data point for the current compressor stage.
   * The nominal data point is used to read some rated flow/other conditions for this compressor stage, and the down-selected arrays at this compressor stage are passed into a function to generate the actual curve/table objects.
   * A MultiSpeedStageData object instance is created to capture the performance at this compressor stage, with parameters and curves assigned as needed.
-  * This object instance is added to the heating/cooling coil object instance. 
+  * This object instance is added to the heating/cooling coil object instance.
 
+Processing "Gas/Elec Heating" Objects
+=====================================
+
+The gas or electric heating objects are processed in a similar fashion where a rated point is used to determine rated conditions.  The difference is that the parameters used to define gas or electric heating coils are simpler, based simply on an efficiency value of heat input/heat output.
+
+For gas coils, a multiple stage option exists, while for electric there is only a single stage coil.
+
+Finally, the gas/electric coils can either be the main (primary) coil in the RTU, or it can act as the supplemental heating coil in a heat pump system.  Because of this, the function checks the heat pump flag to determine whether to assign the coil using ``setHeatingCoil`` or ``setSupplementalHeatingCoil`` on the RTU.

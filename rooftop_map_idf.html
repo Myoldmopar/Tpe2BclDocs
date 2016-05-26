@@ -27,7 +27,6 @@
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="top" title="TPE2BCL 0.1 documentation" href="index.html" />
     <link rel="up" title="RoofTop Unit Processing Example" href="rooftop_index.html" />
-    <link rel="next" title="Fixing up the Rooftop Unit Translator" href="rooftop_fixing.html" />
     <link rel="prev" title="Writing “Base” IDF/OS Data for Rooftop Units" href="rooftop_base_idf.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -42,9 +41,6 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="rooftop_fixing.html" title="Fixing up the Rooftop Unit Translator"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
           <a href="rooftop_base_idf.html" title="Writing “Base” IDF/OS Data for Rooftop Units"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">TPE2BCL 0.1 documentation</a> &raquo;</li>
@@ -58,6 +54,7 @@
 <li><a class="reference internal" href="#">Writing &#8220;Map&#8221; IDF/OS Components for Rooftop Units</a><ul>
 <li><a class="reference internal" href="#switching-on-map-type">Switching on Map Type</a></li>
 <li><a class="reference internal" href="#processing-heat-pump-or-cooling-objects">Processing &#8220;Heat Pump&#8221; or &#8220;Cooling&#8221; Objects</a></li>
+<li><a class="reference internal" href="#processing-gas-elec-heating-objects">Processing &#8220;Gas/Elec Heating&#8221; Objects</a></li>
 </ul>
 </li>
 </ul>
@@ -65,9 +62,6 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="rooftop_base_idf.html"
                         title="previous chapter">Writing &#8220;Base&#8221; IDF/OS Data for Rooftop Units</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="rooftop_fixing.html"
-                        title="next chapter">Fixing up the Rooftop Unit Translator</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -104,14 +98,12 @@
 <ul class="simple">
 <li>&#8220;heat pump&#8221;</li>
 <li>&#8220;cooling&#8221;</li>
-<li>&#8220;aux heating&#8221;</li>
+<li>&#8220;gaselec heating&#8221;</li>
 </ul>
-  <font color="blue">
-This implies that it is generating maps for a particular type of coil, but we should really simply be switching on what type of data points we are given, because that defines the type of object we can make from it.  Then we should hook it up outside of this function to the right spot in the high level RTU object.
-  </font></div>
+</div>
 <div class="section" id="processing-heat-pump-or-cooling-objects">
 <h2>Processing &#8220;Heat Pump&#8221; or &#8220;Cooling&#8221; Objects<a class="headerlink" href="#processing-heat-pump-or-cooling-objects" title="Permalink to this headline">¶</a></h2>
-<p>The &#8220;heat pump&#8221; and &#8220;cooling&#8221; functionality are both very similar, with the &#8220;aux heating&#8221; being slightly different.  I see this being updated, so I&#8217;m only going to describe the process at a fairly high level for &#8220;heat pump&#8221; and &#8220;cooling&#8221;.</p>
+<p>The &#8220;heat pump&#8221; and &#8220;cooling&#8221; functionality are both very similar, with the &#8220;gaselec heating&#8221; being slightly different.</p>
 <ul>
 <li><p class="first">The translator starts by reading the number of heating/cooling stages and the number of fan speeds for this component.</p>
 </li>
@@ -143,6 +135,12 @@ This implies that it is generating maps for a particular type of coil, but we sh
 </li>
 </ul>
 </div>
+<div class="section" id="processing-gas-elec-heating-objects">
+<h2>Processing &#8220;Gas/Elec Heating&#8221; Objects<a class="headerlink" href="#processing-gas-elec-heating-objects" title="Permalink to this headline">¶</a></h2>
+<p>The gas or electric heating objects are processed in a similar fashion where a rated point is used to determine rated conditions.  The difference is that the parameters used to define gas or electric heating coils are simpler, based simply on an efficiency value of heat input/heat output.</p>
+<p>For gas coils, a multiple stage option exists, while for electric there is only a single stage coil.</p>
+<p>Finally, the gas/electric coils can either be the main (primary) coil in the RTU, or it can act as the supplemental heating coil in a heat pump system.  Because of this, the function checks the heat pump flag to determine whether to assign the coil using <code class="docutils literal"><span class="pre">setHeatingCoil</span></code> or <code class="docutils literal"><span class="pre">setSupplementalHeatingCoil</span></code> on the RTU.</p>
+</div>
 </div>
 
 
@@ -157,9 +155,6 @@ This implies that it is generating maps for a particular type of coil, but we sh
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="rooftop_fixing.html" title="Fixing up the Rooftop Unit Translator"
-             >next</a> |</li>
         <li class="right" >
           <a href="rooftop_base_idf.html" title="Writing “Base” IDF/OS Data for Rooftop Units"
              >previous</a> |</li>

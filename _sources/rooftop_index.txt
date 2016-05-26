@@ -12,5 +12,4 @@ As an example of processing a component, the details of the RoofTop Unit process
    rooftop_idf.rst
    rooftop_base_idf.rst
    rooftop_map_idf.rst
-   rooftop_fixing.rst
 

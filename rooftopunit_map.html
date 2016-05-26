@@ -116,25 +116,20 @@
 <ul class="simple">
 <li>If filename matches <code class="docutils literal"><span class="pre">PARAM_HPPERFORMANCEMAP</span></code>, which is &#8220;Heat Pump Performance Map&#8221;, the type is <code class="docutils literal"><span class="pre">MAP_TYPE_HEATPUMP</span></code></li>
 <li>If filename matches <code class="docutils literal"><span class="pre">PARAM_CLGPERFORMANCEMAP</span></code>, which is &#8220;Cooling Heating Performance Map&#8221;, the type is <code class="docutils literal"><span class="pre">MAP_TYPE_COOLING</span></code></li>
-<li>If filename matches <code class="docutils literal"><span class="pre">PARAM_AUXHTGPERFORMANCEMAP</span></code>, which is &#8220;Gas or Electric Heating Performance Map&#8221;, the type is <code class="docutils literal"><span class="pre">MAP_TYPE_AUX_HEATING</span></code></li>
+<li>If filename matches <code class="docutils literal"><span class="pre">PARAM_GASELECHTGPERFORMANCEMAP</span></code>, which is &#8220;Gas or Electric Heating Performance Map&#8221;, the type is <code class="docutils literal"><span class="pre">MAP_TYPE_GASELEC_HEATING</span></code></li>
 </ul>
-  <font color="blue">
-This is actually not the correct logic, and is currently being improved.  The actual logic should check other parameters in the csv file first, mainly what type of heating the unit uses, before deciding what the content of this performance map should be used to generate.  But we'll get back on track for now.
-  </font></div>
+</div>
 <div class="section" id="creating-dataset-array">
 <h2>Creating Dataset Array<a class="headerlink" href="#creating-dataset-array" title="Permalink to this headline">¶</a></h2>
 <p>The map reader then instantiates a class variable for storing all the data points found in this map.  Next the map reader reads the high level (meta) data about the component from the top portion of the map.</p>
-  <font color="blue">
-It does the same reading for every map type; are they really identical?
-  </font><p>The map reader then calls the appropriate datapoint reader based on the map type.  Currently it is:</p>
+<p>The map reader then calls the appropriate datapoint reader based on the map type.  Currently it is:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">MAP_TYPE_HEATPUMP</span> <span class="pre">--&gt;</span> <span class="pre">read_aux_htg_map</span></code></li>
 <li><code class="docutils literal"><span class="pre">MAP_TYPE_COOLING</span> <span class="pre">--&gt;</span> <span class="pre">read_cooling_map</span></code></li>
-<li><code class="docutils literal"><span class="pre">MAP_TYPE_AUX_HTG</span> <span class="pre">--&gt;</span> <span class="pre">read_aux_htg_map</span></code></li>
+<li><code class="docutils literal"><span class="pre">MAP_TYPE_GASELEC_HEATING</span> <span class="pre">--&gt;</span> <span class="pre">read_elecgas_heating_map</span></code></li>
 </ul>
-  <font color="blue">
-But it should actually be more intelligent.  It should be using the logic about the component to determine which type of datapoints we expect to be reading in.
-  </font></div>
+<p>Ultimately the product processor will merge all the performance map datasets together by type, so that there will be a maximum of one merged dataset for each of these types.</p>
+</div>
 <div class="section" id="description-of-each-performance-map-translator">
 <h2>Description of Each Performance Map Translator<a class="headerlink" href="#description-of-each-performance-map-translator" title="Permalink to this headline">¶</a></h2>
 <p>Each <code class="docutils literal"><span class="pre">read_*_map</span></code> reader does roughly the same operations, just reading in different data points for each type.</p>
@@ -169,7 +164,7 @@ But it should actually be more intelligent.  It should be using the logic about 
 <thead valign="bottom">
 <tr class="row-odd"><th class="head" colspan="2">&#8220;HeatPump&#8221;</th>
 <th class="head" colspan="2">&#8220;Cooling&#8221;</th>
-<th class="head" colspan="2">&#8220;Aux Heating&#8221;</th>
+<th class="head" colspan="2">&#8220;Gas/Elec Heating&#8221;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -228,9 +223,7 @@ But it should actually be more intelligent.  It should be using the logic about 
 </tr>
 </tbody>
 </table>
-  <font color="blue">
-The biggest issue with this is how they are named.  If the aux heating can be the regular heating coil, then it should be named in conjunction with the actual physical coil and the type of object it will create in the model.
-  </font></div>
+</div>
 </div>
 
 
