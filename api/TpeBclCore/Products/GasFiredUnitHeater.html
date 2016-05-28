@@ -104,7 +104,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>A simple module containing routines for writing transformer idf objects</p>
+<p>A simple module containing routines for writing transformer components</p>
 
 
   </div>
@@ -132,7 +132,7 @@ capacity</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Heating Input Capacity</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rated Heating Input Capacity</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="PARAM_GASEFFICIENCY-constant" class="">PARAM_GASEFFICIENCY =
           <div class="docstring">
@@ -148,7 +148,7 @@ capacity</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Gas Burner Efficiency</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rated Gas Burner Efficiency</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="PARAM_RATEDSUPPLYAIRFLOW-constant" class="">PARAM_RATEDSUPPLYAIRFLOW =
           <div class="docstring">
@@ -164,7 +164,7 @@ capacity</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Supply Airflow Rate</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rated Supply Airflow Rate</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="PARAM_FUELTYPE-constant" class="">PARAM_FUELTYPE =
           <div class="docstring">
@@ -180,7 +180,7 @@ capacity</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Fuel Type</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Fuel Type</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="PARAM_FANCONTROL-constant" class="">PARAM_FANCONTROL =
           <div class="docstring">
@@ -196,7 +196,7 @@ capacity</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Fan Control</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Fan Control</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="PARAM_PRESSURERISE-constant" class="">PARAM_PRESSURERISE =
           <div class="docstring">
@@ -212,7 +212,7 @@ capacity</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Supply Fan Pressure Rise</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Supply Fan Pressure Rise</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="PARAM_MOTOREFFICIENCY-constant" class="">PARAM_MOTOREFFICIENCY =
           <div class="docstring">
@@ -228,7 +228,7 @@ capacity</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Motor Efficiency</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Motor Efficiency</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
@@ -400,7 +400,7 @@ it is called once all product data has been interpreted.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#write_idf_stuff-class_method" title="write_idf_stuff (class method)">+ (Object) <strong>write_idf_stuff</strong>(product_data) </a>
+      <a href="#write_component-class_method" title="write_component (class method)">+ (Object) <strong>write_component</strong>(product_data) </a>
     
 
     
@@ -415,8 +415,8 @@ it is called once all product data has been interpreted.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Writes the gas-fired unit heater idf objects Overrides
-ProductBase.write_idf_stuff.</p>
+<p>Writes the gas-fired unit heater components Overrides
+ProductBase.write_component.</p>
 </div></span>
   
 </li>
@@ -482,27 +482,27 @@ Overrides ProductBase.csv_parameters</p>
       <pre class="lines">
 
 
+42
+43
+44
 45
 46
 47
 48
 49
-50
-51
-52
-53</pre>
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 42</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_csv_parameters'>csv_parameters</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='kw'>return</span><span class='lbracket'>[</span><span class='const'>PARAM_RATEDHEATCAP</span><span class='comma'>,</span>
-         <span class='const'>PARAM_GASEFFICIENCY</span><span class='comma'>,</span>
-         <span class='const'>PARAM_RATEDSUPPLYAIRFLOW</span><span class='comma'>,</span>
-         <span class='const'>PARAM_FUELTYPE</span><span class='comma'>,</span>
-         <span class='const'>PARAM_FANCONTROL</span><span class='comma'>,</span>
-         <span class='const'>PARAM_PRESSURERISE</span><span class='comma'>,</span>
-         <span class='const'>PARAM_MOTOREFFICIENCY</span><span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_csv_parameters'>csv_parameters</span>
+  <span class='lbracket'>[</span><span class='const'>PARAM_RATEDHEATCAP</span><span class='comma'>,</span>
+   <span class='const'>PARAM_GASEFFICIENCY</span><span class='comma'>,</span>
+   <span class='const'>PARAM_RATEDSUPPLYAIRFLOW</span><span class='comma'>,</span>
+   <span class='const'>PARAM_FUELTYPE</span><span class='comma'>,</span>
+   <span class='const'>PARAM_FANCONTROL</span><span class='comma'>,</span>
+   <span class='const'>PARAM_PRESSURERISE</span><span class='comma'>,</span>
+   <span class='const'>PARAM_MOTOREFFICIENCY</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -554,15 +554,15 @@ performance map Overrides ProductBase.expect_map?</p>
       <pre class="lines">
 
 
-58
-59
-60</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 55</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span>
+  <span class='kw'>false</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -614,6 +614,9 @@ ProductBase.get_bcl_parameters</p>
       <pre class="lines">
 
 
+62
+63
+64
 65
 66
 67
@@ -629,32 +632,29 @@ ProductBase.get_bcl_parameters</p>
 77
 78
 79
-80
-81
-82
-83</pre>
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_bcl_parameters'>get_bcl_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-    <span class='id identifier rubyid_params_to_include'>params_to_include</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_RATEDHEATCAP</span><span class='comma'>,</span>
-                         <span class='const'>PARAM_GASEFFICIENCY</span><span class='comma'>,</span>
-                         <span class='const'>PARAM_RATEDSUPPLYAIRFLOW</span><span class='comma'>,</span>
-                         <span class='const'>PARAM_FUELTYPE</span><span class='comma'>,</span>
-                         <span class='const'>PARAM_FANCONTROL</span><span class='comma'>,</span>
-                         <span class='const'>PARAM_PRESSURERISE</span><span class='comma'>,</span>
-                         <span class='const'>PARAM_MOTOREFFICIENCY</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_params_to_include'>params_to_include</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
-        <span class='id identifier rubyid_val'>val</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_val'>val</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Key BCL parameter, named &#39;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&#39;, was not found in the input.  Skipping...</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='kw'>else</span>
-            <span class='id identifier rubyid_parameters'>parameters</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_val'>val</span>
-        <span class='kw'>end</span>
+  <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_params_to_include'>params_to_include</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_RATEDHEATCAP</span><span class='comma'>,</span>
+                       <span class='const'>PARAM_GASEFFICIENCY</span><span class='comma'>,</span>
+                       <span class='const'>PARAM_RATEDSUPPLYAIRFLOW</span><span class='comma'>,</span>
+                       <span class='const'>PARAM_FUELTYPE</span><span class='comma'>,</span>
+                       <span class='const'>PARAM_FANCONTROL</span><span class='comma'>,</span>
+                       <span class='const'>PARAM_PRESSURERISE</span><span class='comma'>,</span>
+                       <span class='const'>PARAM_MOTOREFFICIENCY</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_params_to_include'>params_to_include</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
+    <span class='id identifier rubyid_val'>val</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_val'>val</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Key BCL parameter, named &#39;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&#39;, was not found in the input.  Skipping...</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_parameters'>parameters</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_val'>val</span>
     <span class='kw'>end</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_parameters'>parameters</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_parameters'>parameters</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -705,15 +705,15 @@ ProductBase.get_bcl_parameters</p>
       <pre class="lines">
 
 
-16
-17
-18</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 13</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Gas-Fired Unit Heaters</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Gas-Fired Unit Heaters</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -765,15 +765,15 @@ ProductBase.product_key</p>
       <pre class="lines">
 
 
-23
-24
-25</pre>
+20
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 20</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product_key'>product_key</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>gsfrdn</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product_key'>product_key</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gsfrdn</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -826,29 +826,18 @@ it is called once all product data has been interpreted</p>
       <pre class="lines">
 
 
+85
+86
+87
 88
 89
 90
 91
 92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107</pre>
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_suitable_for_bcl?'>suitable_for_bcl?</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_required_parameters'>required_parameters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_RATEDHEATCAP</span><span class='comma'>,</span>
@@ -857,18 +846,7 @@ it is called once all product data has been interpreted</p>
                          <span class='const'>PARAM_FANCONTROL</span><span class='comma'>,</span>
                          <span class='const'>PARAM_PRESSURERISE</span><span class='comma'>,</span>
                          <span class='const'>PARAM_MOTOREFFICIENCY</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_required_parameters'>required_parameters</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span>
-        <span class='kw'>end</span>
-    <span class='kw'>end</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
-        <span class='kw'>return</span> <span class='kw'>true</span>
-    <span class='kw'>else</span>
-        <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_status_message'>status_message</span> <span class='op'>=</span> <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_issue_missing_parameter_error'>issue_missing_parameter_error</span><span class='lparen'>(</span><span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='rparen'>)</span>
-        <span class='kw'>return</span> <span class='kw'>false</span>
-    <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='const'>ParameterList</span><span class='period'>.</span><span class='id identifier rubyid_validate_required_parameters'>validate_required_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='comma'>,</span> <span class='id identifier rubyid_required_parameters'>required_parameters</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -876,9 +854,9 @@ it is called once all product data has been interpreted</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="write_idf_stuff-class_method">
+  <h3 class="signature " id="write_component-class_method">
   
-    + (<tt>Object</tt>) <strong>write_idf_stuff</strong>(product_data) 
+    + (<tt>Object</tt>) <strong>write_component</strong>(product_data) 
   
 
   
@@ -887,8 +865,8 @@ it is called once all product data has been interpreted</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Writes the gas-fired unit heater idf objects Overrides
-ProductBase.write_idf_stuff</p>
+<p>Writes the gas-fired unit heater components Overrides
+ProductBase.write_component</p>
 
 
   </div>
@@ -908,7 +886,7 @@ ProductBase.write_idf_stuff</p>
       
         &mdash;
         <div class='inline'>
-<p>A product performance data structure used to write idf objects</p>
+<p>A product performance data structure used to write components</p>
 </div>
       
     </li>
@@ -922,6 +900,20 @@ ProductBase.write_idf_stuff</p>
       <pre class="lines">
 
 
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
 112
 113
 114
@@ -939,168 +931,42 @@ ProductBase.write_idf_stuff</p>
 126
 127
 128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199</pre>
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/products/GasFiredUnitHeaters.rb', line 98</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_idf_stuff'>write_idf_stuff</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
-
-  <span class='comment'># get parameters first
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_component'>write_component</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+  <span class='comment'># the rated flow rate, gas burn efficiency, and heating capacity really should be there, they are pretty core pieces of information
 </span>  <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDSUPPLYAIRFLOW</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='id identifier rubyid_rated_flow_rate_string'>rated_flow_rate_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_rated_flow_rate_string'>rated_flow_rate_string</span> <span class='op'>=</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
-  <span class='kw'>end</span>
-
-  <span class='id identifier rubyid_fan_control'>fan_control</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_FANCONTROL</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_fan_control'>fan_control</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_fan_control'>fan_control</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='id identifier rubyid_fan_control_string'>fan_control_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_fan_control_string'>fan_control_string</span> <span class='op'>=</span> <span class='id identifier rubyid_fan_control'>fan_control</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
-  <span class='kw'>end</span>
-
-  <span class='id identifier rubyid_pressure_rise'>pressure_rise</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_PRESSURERISE</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_pressure_rise'>pressure_rise</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_pressure_rise'>pressure_rise</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='id identifier rubyid_pressure_rise_string'>pressure_rise_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_pressure_rise_string'>pressure_rise_string</span> <span class='op'>=</span> <span class='id identifier rubyid_pressure_rise'>pressure_rise</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
-  <span class='kw'>end</span>
-
-  <span class='id identifier rubyid_motor_efficiency'>motor_efficiency</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_MOTOREFFICIENCY</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_motor_efficiency'>motor_efficiency</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_motor_efficiency'>motor_efficiency</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='id identifier rubyid_motor_efficiency_string'>motor_efficiency_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_motor_efficiency_string'>motor_efficiency_string</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_motor_efficiency'>motor_efficiency</span> <span class='op'>*</span> <span class='float'>0.01</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
-  <span class='kw'>end</span>
-
   <span class='id identifier rubyid_gas_efficiency'>gas_efficiency</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_GASEFFICIENCY</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_gas_efficiency'>gas_efficiency</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_gas_efficiency'>gas_efficiency</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='id identifier rubyid_gas_efficiency_string'>gas_efficiency_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_gas_efficiency_string'>gas_efficiency_string</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_gas_efficiency'>gas_efficiency</span> <span class='op'>*</span> <span class='float'>0.01</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
-  <span class='kw'>end</span>
-
   <span class='id identifier rubyid_rated_heat_cap'>rated_heat_cap</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDHEATCAP</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_rated_heat_cap'>rated_heat_cap</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_rated_heat_cap'>rated_heat_cap</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='id identifier rubyid_rated_heat_cap_string'>rated_heat_cap_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_rated_heat_cap_string'>rated_heat_cap_string</span> <span class='op'>=</span> <span class='id identifier rubyid_rated_heat_cap'>rated_heat_cap</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
-  <span class='kw'>end</span>
 
-    <span class='gvar'>$idf</span><span class='period'>.</span><span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
-ZoneHVAC:UnitHeater,
-  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_name'>product_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Name
-  ,                             !- Availability Schedule Name
-  ,                             !- Air Inlet Node Name
-  ,                             !- Air Outlet Node Name
-  Fan:ConstantVolume,           !- Supply Air Fan Object Type
-  Zone1UnitHeatFan,             !- Fan Name
-  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rated_flow_rate_string'>rated_flow_rate_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,    !- Maximum Supply Air Flow Rate (m3/s)
-  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_fan_control_string'>fan_control_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,        !- Fan Control Type
-  Coil:Heating:Gas,             !- Heating Coil Object Type
-  Zone1UnitHeatHeatingCoil,     !- Heating Coil Name
-  ,                             !- Maximum Hot Water or Steam Flow Rate (m3/s)
-  ,                             !- Minimum Hot Water or Steam Flow Rate (m3/s)
-  ;                             !- Heating Convergence Tolerance
+  <span class='comment'># these can be nil, since nil is falsy and we&#39;ll check each as we write them
+</span>  <span class='id identifier rubyid_fan_control'>fan_control</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_FANCONTROL</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_pressure_rise'>pressure_rise</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_PRESSURERISE</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_motor_efficiency'>motor_efficiency</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_MOTOREFFICIENCY</span><span class='rparen'>)</span>
 
-Fan:ConstantVolume,
-  Zone1UnitHeatFan,             !- Name
-  ,                             !- Availability Schedule Name
-  ,                             !- Fan Total Efficiency
-  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_pressure_rise_string'>pressure_rise_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,      !- Pressure Rise (Pa)
-  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rated_flow_rate_string'>rated_flow_rate_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,    !- Maximum Flow Rate (m3/s)
-  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_motor_efficiency_string'>motor_efficiency_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,   !- Motor Efficiency
-  ,                             !- Motor in Airstream Fraction
-  ,                             !- Fan Inlet Node Name
-  ;                             !- Fan Outlet Node Name
+  <span class='comment'># construct the fan
+</span>  <span class='id identifier rubyid_fan'>fan</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>FanConstantVolume</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_fan'>fan</span><span class='period'>.</span><span class='id identifier rubyid_setPressureRise'>setPressureRise</span><span class='lparen'>(</span><span class='id identifier rubyid_pressure_rise'>pressure_rise</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_pressure_rise'>pressure_rise</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_fan'>fan</span><span class='period'>.</span><span class='id identifier rubyid_setMotorEfficiency'>setMotorEfficiency</span><span class='lparen'>(</span><span class='id identifier rubyid_motor_efficiency'>motor_efficiency</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_motor_efficiency'>motor_efficiency</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_fan'>fan</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumFlowRate'>setMaximumFlowRate</span><span class='lparen'>(</span><span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
-Coil:Heating:Gas,
-  Zone1UnitHeatHeatingCoil,     !- Name
-  ,                             !- Availability Schedule Name
-  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gas_efficiency_string'>gas_efficiency_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,     !- Gas Burner Efficiency
-  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rated_heat_cap_string'>rated_heat_cap_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,     !- Nominal Capacity (W)
-  ,                             !- Air Inlet Node Name
-  ;                             !- Air Outlet Node Name
-          </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='comment'># construct the gas heating coil
+</span>  <span class='id identifier rubyid_coil'>coil</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>CoilHeatingGas</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_coil'>coil</span><span class='period'>.</span><span class='id identifier rubyid_setGasBurnerEfficiency'>setGasBurnerEfficiency</span><span class='lparen'>(</span><span class='id identifier rubyid_gas_efficiency'>gas_efficiency</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_gas_efficiency'>gas_efficiency</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_coil'>coil</span><span class='period'>.</span><span class='id identifier rubyid_setNominalCapacity'>setNominalCapacity</span><span class='lparen'>(</span><span class='id identifier rubyid_rated_heat_cap'>rated_heat_cap</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_rated_heat_cap'>rated_heat_cap</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
+  <span class='comment'># the unit heater object requires an availability schedule, so just create a constant 1 schedule
+</span>  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>ScheduleConstant</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_setValue'>setValue</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+
+  <span class='comment'># and finally the entire unit heater object
+</span>  <span class='gvar'>$unit_heater</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>ZoneHVACUnitHeater</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='comma'>,</span> <span class='id identifier rubyid_s'>s</span><span class='comma'>,</span> <span class='id identifier rubyid_fan'>fan</span><span class='comma'>,</span> <span class='id identifier rubyid_coil'>coil</span><span class='rparen'>)</span>
+  <span class='gvar'>$unit_heater</span><span class='period'>.</span><span class='id identifier rubyid_setName'>setName</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_name'>product_name</span><span class='rparen'>)</span>
+  <span class='gvar'>$unit_heater</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumSupplyAirFlowRate'>setMaximumSupplyAirFlowRate</span><span class='lparen'>(</span><span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='gvar'>$unit_heater</span><span class='period'>.</span><span class='id identifier rubyid_setFanControlType'>setFanControlType</span><span class='lparen'>(</span><span class='id identifier rubyid_fan_control'>fan_control</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_fan_control'>fan_control</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1112,7 +978,7 @@ Coil:Heating:Gas,
 </div>
 
     <div id="footer">
-  Generated on Thu May 26 09:58:11 2016 by
+  Generated on Sat May 28 09:32:51 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

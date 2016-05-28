@@ -129,7 +129,103 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tpe-bcl.osc</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tpe-bcl.osc</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="UNIT_TYPE_DIMENSIONLESS-constant" class="">UNIT_TYPE_DIMENSIONLESS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A (dimensionless) unit identifier used when writing IDF files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Dimensionless</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="UNIT_TYPE_TEMPERATURE-constant" class="">UNIT_TYPE_TEMPERATURE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A (temperature) unit identifier used when writing IDF files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Temperature</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="UNIT_TYPE_VOLUMETRICFLOW-constant" class="">UNIT_TYPE_VOLUMETRICFLOW =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A (volumetric flow rate) unit identifier used when writing IDF files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>VolumetricFlow</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="UNIT_TYPE_MASSFLOW-constant" class="">UNIT_TYPE_MASSFLOW =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A (mass flow rate) unit identifier used when writing IDF files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>MassFlow</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="UNIT_TYPE_DISTANCE-constant" class="">UNIT_TYPE_DISTANCE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A (distance) unit identifier used when writing IDF files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Distance</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="UNIT_TYPE_POWER-constant" class="">UNIT_TYPE_POWER =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A (power) unit identifier used when writing IDF files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Power</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
@@ -294,7 +390,7 @@ osm_written flag.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#write_one_indep_var_table-instance_method" title="#write_one_indep_var_table (instance method)">- (Object) <strong>write_one_indep_var_table</strong>(xy_data, unit_types, curve_type = &quot;Cubic&quot;) </a>
+      <a href="#write_one_indep_var_table-instance_method" title="#write_one_indep_var_table (instance method)">- (Object) <strong>write_one_indep_var_table</strong>(xy_data, unit_types, curve_type = &#39;Cubic&#39;) </a>
     
 
     
@@ -357,8 +453,7 @@ osm_written flag.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Writes a Table:TwoIndependentVariable object to the idf file based on given
-inputs.</p>
+<p>Creates a Table:TwoIndependentVariable object based on given inputs.</p>
 </div></span>
   
 </li>
@@ -402,7 +497,7 @@ inputs.</p>
       
         &mdash;
         <div class='inline'>
-<p>The directory in which to create the idf file</p>
+<p>The directory in which to create the osc file</p>
 </div>
       
     </li>
@@ -416,27 +511,23 @@ inputs.</p>
       <pre class="lines">
 
 
-88
-89
-90
-91
-92
-93
-94
-95
-96</pre>
+77
+78
+79
+80
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_parent_dir'>parent_dir</span><span class='rparen'>)</span>
-    <span class='ivar'>@parent_dir</span> <span class='op'>=</span> <span class='id identifier rubyid_parent_dir'>parent_dir</span>
-    <span class='kw'>unless</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='rparen'>)</span>
-        <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir'>mkdir</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-    <span class='ivar'>@osm_file_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='comma'>,</span> <span class='const'>OSM_FILE</span><span class='rparen'>)</span>
-    <span class='ivar'>@osm_model</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Model</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-    <span class='ivar'>@osm_written</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@parent_dir</span> <span class='op'>=</span> <span class='id identifier rubyid_parent_dir'>parent_dir</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir'>mkdir</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='rparen'>)</span>
+  <span class='ivar'>@osm_file_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='comma'>,</span> <span class='const'>OSM_FILE</span><span class='rparen'>)</span>
+  <span class='ivar'>@osm_model</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Model</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='ivar'>@osm_written</span> <span class='op'>=</span> <span class='kw'>false</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -476,12 +567,12 @@ inputs.</p>
       <pre class="lines">
 
 
-78
-79
-80</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_osm_file_path'>osm_file_path</span>
   <span class='ivar'>@osm_file_path</span>
@@ -519,12 +610,12 @@ inputs.</p>
       <pre class="lines">
 
 
-79
-80
-81</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_osm_model'>osm_model</span>
   <span class='ivar'>@osm_model</span>
@@ -562,12 +653,12 @@ inputs.</p>
       <pre class="lines">
 
 
-80
-81
-82</pre>
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_osm_written'>osm_written</span>
   <span class='ivar'>@osm_written</span>
@@ -611,7 +702,6 @@ osm_written flag</p>
       <pre class="lines">
 
 
-219
 220
 221
 222
@@ -630,30 +720,49 @@ osm_written flag</p>
 235
 236
 237
-238</pre>
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 219</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 220</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ndrnt</span><span class='tstring_end'>&quot;</span></span>
-        <span class='ivar'>@osm_model</span><span class='period'>.</span><span class='id identifier rubyid_getZoneHVACTerminalUnitVariableRefrigerantFlows'>getZoneHVACTerminalUnitVariableRefrigerantFlows</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_createComponent'>createComponent</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='ivar'>@osm_file_path</span><span class='rparen'>)</span>
-        <span class='ivar'>@osm_written</span> <span class='op'>=</span> <span class='kw'>true</span>
-    <span class='kw'>elsif</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tdrnt</span><span class='tstring_end'>&quot;</span></span>
-        <span class='ivar'>@osm_model</span><span class='period'>.</span><span class='id identifier rubyid_getAirConditionerVariableRefrigerantFlows'>getAirConditionerVariableRefrigerantFlows</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_createComponent'>createComponent</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='ivar'>@osm_file_path</span><span class='rparen'>)</span>
-        <span class='ivar'>@osm_written</span> <span class='op'>=</span> <span class='kw'>true</span>
-    <span class='kw'>elsif</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>htpmpw</span><span class='tstring_end'>&quot;</span></span>
-        <span class='ivar'>@osm_model</span><span class='period'>.</span><span class='id identifier rubyid_getWaterHeaterHeatPumps'>getWaterHeaterHeatPumps</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_createComponent'>createComponent</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='ivar'>@osm_file_path</span><span class='rparen'>)</span>
-        <span class='ivar'>@osm_written</span> <span class='op'>=</span> <span class='kw'>true</span>
-    <span class='kw'>elsif</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rftpnt</span><span class='tstring_end'>&quot;</span></span>
-        <span class='ivar'>@osm_model</span><span class='period'>.</span><span class='id identifier rubyid_getAirLoopHVACUnitarySystems'>getAirLoopHVACUnitarySystems</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_createComponent'>createComponent</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='ivar'>@osm_file_path</span><span class='rparen'>)</span>
-        <span class='ivar'>@osm_written</span> <span class='op'>=</span> <span class='kw'>true</span>
-    <span class='kw'>elsif</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nnslmp</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>slrplc</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>slmnrs</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nnslmn</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_key'>key</span>
-        <span class='ivar'>@osm_model</span><span class='period'>.</span><span class='id identifier rubyid_getLightss'>getLightss</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_createComponent'>createComponent</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='ivar'>@osm_file_path</span><span class='rparen'>)</span>
-        <span class='ivar'>@osm_written</span> <span class='op'>=</span> <span class='kw'>true</span>
-    <span class='kw'>else</span>
-        <span class='comment'># don&#39;t do anything until they have OSM capability
-</span>    <span class='kw'>end</span>
+  <span class='comment'># initialize obj to nothing, it will remain nil if we don&#39;t hit a valid entry, and assume we don&#39;t have an osc to write
+</span>  <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@osm_written</span> <span class='op'>=</span> <span class='kw'>true</span>
+
+  <span class='comment'># switch on the key to get an obj instance to create a component out of; if we hit one that doesn&#39;t have osc support, obj will be nil
+</span>  <span class='kw'>case</span> <span class='id identifier rubyid_key'>key</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ndrnt</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span>  <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='gvar'>$tu</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tdrnt</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span>  <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='gvar'>$acvrf</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>htpmpw</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span> <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='gvar'>$hpwh</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rftpnt</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span> <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='gvar'>$rtu</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nnslmp</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>slrplc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>slmnrs</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nnslmn</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span> <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='gvar'>$lights</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gsfrdn</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span> <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='gvar'>$unit_heater</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nvrtr</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span>  <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='gvar'>$inverter</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>htwtrb</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span> <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='gvar'>$boiler</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>phtvlt</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span> <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='gvar'>$pv</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rtdynm</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span> <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='gvar'>$pump</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stmblr</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span> <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='gvar'>$boiler</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rfrgrt</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span> <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='gvar'>$rcase</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lwvltg</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>then</span> <span class='comment'># no OpenStudio object for Transformer yet; see https://github.com/NREL/OpenStudio/blob/6c68e04c9585ee5431e2695a4c1135bdae215271/openstudiocore/src/model/ElectricLoadCenterDistribution.hpp#L46;
+</span>  <span class='kw'>else</span><span class='semicolon'>;</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ExProductCategoryNotImplemented</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Product did not have a close() entry for OpenStudio file output; either make an explicit block in the switch to ignore it, or add OS support</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># and then if we ended up with a valid obj, we must have an osc to write, so do it!
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_obj'>obj</span>
+    <span class='ivar'>@osm_written</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_createComponent'>createComponent</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='ivar'>@osm_file_path</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -663,7 +772,7 @@ osm_written flag</p>
       <div class="method_details ">
   <h3 class="signature " id="write_one_indep_var_table-instance_method">
   
-    - (<tt>Object</tt>) <strong>write_one_indep_var_table</strong>(xy_data, unit_types, curve_type = &quot;Cubic&quot;) 
+    - (<tt>Object</tt>) <strong>write_one_indep_var_table</strong>(xy_data, unit_types, curve_type = &#39;Cubic&#39;) 
   
 
   
@@ -723,6 +832,8 @@ filled with values from the UNIT_TYPE_* constants</p>
       <pre class="lines">
 
 
+121
+122
 123
 124
 125
@@ -762,52 +873,52 @@ filled with values from the UNIT_TYPE_* constants</p>
 159
 160
 161
-162
-163</pre>
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 121</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_write_one_indep_var_table'>write_one_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_xy_data'>xy_data</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='comma'>,</span> <span class='id identifier rubyid_curve_type'>curve_type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cubic</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_write_one_indep_var_table'>write_one_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_xy_data'>xy_data</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='comma'>,</span> <span class='id identifier rubyid_curve_type'>curve_type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Cubic</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='comment'># make sure there is *something* there first
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_xy_data'>xy_data</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Attempted to write one indep var table with empty array, returning quietly</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span>
+  <span class='kw'>end</span>
 
-    <span class='comment'># make sure there is *something* there first
-</span>    <span class='kw'>if</span> <span class='id identifier rubyid_xy_data'>xy_data</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;</span> <span class='int'>1</span>
-        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Attempted to write one indep var table with empty array, returning quietly</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='kw'>return</span>
+  <span class='comment'># check the values first and also get min/max values
+</span>  <span class='id identifier rubyid_minx'>minx</span> <span class='op'>=</span> <span class='int'>9_999_999_999</span>
+  <span class='id identifier rubyid_miny'>miny</span> <span class='op'>=</span> <span class='int'>9_999_999_999</span>
+  <span class='id identifier rubyid_maxx'>maxx</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>9_999_999_999</span>
+  <span class='id identifier rubyid_maxy'>maxy</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>9_999_999_999</span>
+  <span class='id identifier rubyid_xy_data'>xy_data</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_xy'>xy</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_xy'>xy</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='kw'>return</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='kw'>return</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='kw'>return</span>
     <span class='kw'>end</span>
+    <span class='id identifier rubyid_minx'>minx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_minx'>minx</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+    <span class='id identifier rubyid_miny'>miny</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_miny'>miny</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+    <span class='id identifier rubyid_maxx'>maxx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxx'>maxx</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+    <span class='id identifier rubyid_maxy'>maxy</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxy'>maxy</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+  <span class='kw'>end</span>
 
-    <span class='comment'># check the values first and also get min/max values
-</span>    <span class='id identifier rubyid_minx'>minx</span><span class='comma'>,</span> <span class='id identifier rubyid_miny'>miny</span> <span class='op'>=</span> <span class='int'>9999999999</span><span class='comma'>,</span> <span class='int'>9999999999</span>
-    <span class='id identifier rubyid_maxx'>maxx</span><span class='comma'>,</span> <span class='id identifier rubyid_maxy'>maxy</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>9999999999</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>9999999999</span>
-    <span class='id identifier rubyid_xy_data'>xy_data</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_xy'>xy</span><span class='op'>|</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_xy'>xy</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='kw'>return</span>
-        <span class='kw'>elsif</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='kw'>return</span>
-        <span class='kw'>elsif</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='kw'>return</span>
-        <span class='kw'>end</span>
-        <span class='id identifier rubyid_minx'>minx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_minx'>minx</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
-        <span class='id identifier rubyid_miny'>miny</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_miny'>miny</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
-        <span class='id identifier rubyid_maxx'>maxx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxx'>maxx</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
-        <span class='id identifier rubyid_maxy'>maxy</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxy'>maxy</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
-    <span class='kw'>end</span>
+  <span class='id identifier rubyid_this_table'>this_table</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>TableMultiVariableLookup</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setCurveType'>setCurveType</span><span class='lparen'>(</span><span class='id identifier rubyid_curve_type'>curve_type</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setInterpolationMethod'>setInterpolationMethod</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LinearInterpolationOfTable</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumValueofX1'>setMinimumValueofX1</span><span class='lparen'>(</span><span class='id identifier rubyid_minx'>minx</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumValueofX1'>setMaximumValueofX1</span><span class='lparen'>(</span><span class='id identifier rubyid_maxx'>maxx</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumTableOutput'>setMinimumTableOutput</span><span class='lparen'>(</span><span class='id identifier rubyid_miny'>miny</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumTableOutput'>setMaximumTableOutput</span><span class='lparen'>(</span><span class='id identifier rubyid_maxy'>maxy</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setInputUnitTypeforX1'>setInputUnitTypeforX1</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setOutputUnitType'>setOutputUnitType</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setNormalizationReference'>setNormalizationReference</span><span class='lparen'>(</span><span class='float'>1.0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_xy_data'>xy_data</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_xy'>xy</span><span class='op'>|</span>
+    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_addPoint'>addPoint</span><span class='lparen'>(</span><span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_this_table'>this_table</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>TableMultiVariableLookup</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setCurveType'>setCurveType</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_curve_type'>curve_type</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setInterpolationMethod'>setInterpolationMethod</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>LinearInterpolationOfTable</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumValueofX1'>setMinimumValueofX1</span><span class='lparen'>(</span><span class='id identifier rubyid_minx'>minx</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumValueofX1'>setMaximumValueofX1</span><span class='lparen'>(</span><span class='id identifier rubyid_maxx'>maxx</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumTableOutput'>setMinimumTableOutput</span><span class='lparen'>(</span><span class='id identifier rubyid_miny'>miny</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumTableOutput'>setMaximumTableOutput</span><span class='lparen'>(</span><span class='id identifier rubyid_maxy'>maxy</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setInputUnitTypeforX1'>setInputUnitTypeforX1</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setOutputUnitType'>setOutputUnitType</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setNormalizationReference'>setNormalizationReference</span><span class='lparen'>(</span><span class='float'>1.0</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_xy_data'>xy_data</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_xy'>xy</span><span class='op'>|</span>
-        <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_addPoint'>addPoint</span><span class='lparen'>(</span><span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-
-    <span class='kw'>return</span> <span class='id identifier rubyid_this_table'>this_table</span>
+  <span class='id identifier rubyid_this_table'>this_table</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -921,28 +1032,24 @@ filled with values from the UNIT_TYPE_* constants</p>
 113
 114
 115
-116
-117
-118</pre>
+116</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_curve'>this_curve</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>CurveQuadratic</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setCoefficient1Constant'>setCoefficient1Constant</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setCoefficient2x'>setCoefficient2x</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setCoefficient3xPOW2'>setCoefficient3xPOW2</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumValueofx'>setMinimumValueofx</span><span class='lparen'>(</span><span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumValueofx'>setMaximumValueofx</span><span class='lparen'>(</span><span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumCurveOutput'>setMinimumCurveOutput</span><span class='lparen'>(</span><span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumCurveOutput'>setMaximumCurveOutput</span><span class='lparen'>(</span><span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setInputUnitTypeforX'>setInputUnitTypeforX</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setOutputUnitType'>setOutputUnitType</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 
-    <span class='id identifier rubyid_this_curve'>this_curve</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>CurveQuadratic</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setCoefficient1Constant'>setCoefficient1Constant</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setCoefficient2x'>setCoefficient2x</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setCoefficient3xPOW2'>setCoefficient3xPOW2</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumValueofx'>setMinimumValueofx</span><span class='lparen'>(</span><span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumValueofx'>setMaximumValueofx</span><span class='lparen'>(</span><span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumCurveOutput'>setMinimumCurveOutput</span><span class='lparen'>(</span><span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumCurveOutput'>setMaximumCurveOutput</span><span class='lparen'>(</span><span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setInputUnitTypeforX'>setInputUnitTypeforX</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_curve'>this_curve</span><span class='period'>.</span><span class='id identifier rubyid_setOutputUnitType'>setOutputUnitType</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-
-    <span class='kw'>return</span> <span class='id identifier rubyid_this_curve'>this_curve</span>
-
+  <span class='id identifier rubyid_this_curve'>this_curve</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -961,8 +1068,8 @@ filled with values from the UNIT_TYPE_* constants</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Writes a Table:TwoIndependentVariable object to the idf file based on given
-inputs.  Limits are assumed for now.</p>
+<p>Creates a Table:TwoIndependentVariable object based on given inputs. 
+Limits are assumed for now.</p>
 
 
   </div>
@@ -1014,6 +1121,8 @@ filled with values from the UNIT_TYPE_* constants</p>
       <pre class="lines">
 
 
+167
+168
 169
 170
 171
@@ -1061,58 +1170,62 @@ filled with values from the UNIT_TYPE_* constants</p>
 213
 214
 215
-216</pre>
+216
+217</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 167</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+  <span class='comment'># make sure there is *something* there first
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Attempted to write two indep var table with empty array, returning quietly</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span>
+  <span class='kw'>end</span>
 
-    <span class='comment'># make sure there is *something* there first
-</span>    <span class='kw'>if</span> <span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;</span> <span class='int'>1</span>
-        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Attempted to write two indep var table with empty array, returning quietly</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='kw'>return</span>
+  <span class='comment'># check the values first and also get min/max values
+</span>  <span class='id identifier rubyid_minx'>minx</span> <span class='op'>=</span> <span class='int'>9_999_999_999</span>
+  <span class='id identifier rubyid_miny'>miny</span> <span class='op'>=</span> <span class='int'>9_999_999_999</span>
+  <span class='id identifier rubyid_minz'>minz</span> <span class='op'>=</span> <span class='int'>9_999_999_999</span>
+  <span class='id identifier rubyid_maxx'>maxx</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>9_999_999_999</span>
+  <span class='id identifier rubyid_maxy'>maxy</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>9_999_999_999</span>
+  <span class='id identifier rubyid_maxz'>maxz</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>9_999_999_999</span>
+  <span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_xyz'>xyz</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='kw'>return</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='kw'>return</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='kw'>return</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='kw'>return</span>
     <span class='kw'>end</span>
+    <span class='id identifier rubyid_minx'>minx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_minx'>minx</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+    <span class='id identifier rubyid_miny'>miny</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_miny'>miny</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+    <span class='id identifier rubyid_minz'>minz</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_minz'>minz</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+    <span class='id identifier rubyid_maxx'>maxx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxx'>maxx</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+    <span class='id identifier rubyid_maxy'>maxy</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxy'>maxy</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+    <span class='id identifier rubyid_maxz'>maxz</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxz'>maxz</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+  <span class='kw'>end</span>
 
-    <span class='comment'># check the values first and also get min/max values
-</span>    <span class='id identifier rubyid_minx'>minx</span><span class='comma'>,</span> <span class='id identifier rubyid_miny'>miny</span><span class='comma'>,</span> <span class='id identifier rubyid_minz'>minz</span> <span class='op'>=</span> <span class='int'>9999999999</span><span class='comma'>,</span> <span class='int'>9999999999</span><span class='comma'>,</span> <span class='int'>9999999999</span>
-    <span class='id identifier rubyid_maxx'>maxx</span><span class='comma'>,</span> <span class='id identifier rubyid_maxy'>maxy</span><span class='comma'>,</span> <span class='id identifier rubyid_maxz'>maxz</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>9999999999</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>9999999999</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>9999999999</span>
-    <span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_xyz'>xyz</span><span class='op'>|</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='kw'>return</span>
-        <span class='kw'>elsif</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='kw'>return</span>
-        <span class='kw'>elsif</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='kw'>return</span>
-        <span class='kw'>elsif</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='kw'>return</span>
-        <span class='kw'>end</span>
-        <span class='id identifier rubyid_minx'>minx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_minx'>minx</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
-        <span class='id identifier rubyid_miny'>miny</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_miny'>miny</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
-        <span class='id identifier rubyid_minz'>minz</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_minz'>minz</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
-        <span class='id identifier rubyid_maxx'>maxx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxx'>maxx</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
-        <span class='id identifier rubyid_maxy'>maxy</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxy'>maxy</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
-        <span class='id identifier rubyid_maxz'>maxz</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxz'>maxz</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
-    <span class='kw'>end</span>
+  <span class='id identifier rubyid_this_table'>this_table</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>TableMultiVariableLookup</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setCurveType'>setCurveType</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>BiQuadratic</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setInterpolationMethod'>setInterpolationMethod</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LinearInterpolationOfTable</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumValueofX1'>setMinimumValueofX1</span><span class='lparen'>(</span><span class='id identifier rubyid_minx'>minx</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumValueofX1'>setMaximumValueofX1</span><span class='lparen'>(</span><span class='id identifier rubyid_maxx'>maxx</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumValueofX2'>setMinimumValueofX2</span><span class='lparen'>(</span><span class='id identifier rubyid_miny'>miny</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumValueofX2'>setMaximumValueofX2</span><span class='lparen'>(</span><span class='id identifier rubyid_maxy'>maxy</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumTableOutput'>setMinimumTableOutput</span><span class='lparen'>(</span><span class='id identifier rubyid_minz'>minz</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumTableOutput'>setMaximumTableOutput</span><span class='lparen'>(</span><span class='id identifier rubyid_maxz'>maxz</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setInputUnitTypeforX1'>setInputUnitTypeforX1</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setInputUnitTypeforX2'>setInputUnitTypeforX2</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setOutputUnitType'>setOutputUnitType</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setNormalizationReference'>setNormalizationReference</span><span class='lparen'>(</span><span class='float'>1.0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_xyz'>xyz</span><span class='op'>|</span>
+    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_addPoint'>addPoint</span><span class='lparen'>(</span><span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_this_table'>this_table</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>TableMultiVariableLookup</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setCurveType'>setCurveType</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>BiQuadratic</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setInterpolationMethod'>setInterpolationMethod</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>LinearInterpolationOfTable</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumValueofX1'>setMinimumValueofX1</span><span class='lparen'>(</span><span class='id identifier rubyid_minx'>minx</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumValueofX1'>setMaximumValueofX1</span><span class='lparen'>(</span><span class='id identifier rubyid_maxx'>maxx</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumValueofX2'>setMinimumValueofX2</span><span class='lparen'>(</span><span class='id identifier rubyid_miny'>miny</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumValueofX2'>setMaximumValueofX2</span><span class='lparen'>(</span><span class='id identifier rubyid_maxy'>maxy</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMinimumTableOutput'>setMinimumTableOutput</span><span class='lparen'>(</span><span class='id identifier rubyid_minz'>minz</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setMaximumTableOutput'>setMaximumTableOutput</span><span class='lparen'>(</span><span class='id identifier rubyid_maxz'>maxz</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setInputUnitTypeforX1'>setInputUnitTypeforX1</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setInputUnitTypeforX2'>setInputUnitTypeforX2</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setOutputUnitType'>setOutputUnitType</span><span class='lparen'>(</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_setNormalizationReference'>setNormalizationReference</span><span class='lparen'>(</span><span class='float'>1.0</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_xyz'>xyz</span><span class='op'>|</span>
-        <span class='id identifier rubyid_this_table'>this_table</span><span class='period'>.</span><span class='id identifier rubyid_addPoint'>addPoint</span><span class='lparen'>(</span><span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-
-    <span class='kw'>return</span> <span class='id identifier rubyid_this_table'>this_table</span>
+  <span class='id identifier rubyid_this_table'>this_table</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1124,7 +1237,7 @@ filled with values from the UNIT_TYPE_* constants</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May 26 09:58:09 2016 by
+  Generated on Sat May 28 09:32:49 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

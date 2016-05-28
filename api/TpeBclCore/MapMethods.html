@@ -250,6 +250,14 @@ same independent variables</p>
       <pre class="lines">
 
 
+133
+134
+135
+136
+137
+138
+139
+140
 141
 142
 143
@@ -300,79 +308,69 @@ same independent variables</p>
 188
 189
 190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200</pre>
+191</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/UtilityFunctions.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/UtilityFunctions.rb', line 133</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_average_some_data_points'>average_some_data_points</span><span class='lparen'>(</span><span class='id identifier rubyid_data_points'>data_points</span><span class='comma'>,</span> <span class='id identifier rubyid_data_point_type'>data_point_type</span><span class='rparen'>)</span>
-    <span class='comment'># OK, so data_points is a list
-</span>    <span class='comment'># The first index is the index of the data point
-</span>    <span class='comment'># Each data point in the list is also an array
-</span>    <span class='comment'># The first index (0) in each data point is a DataSourceType
-</span>    <span class='comment'># The second index (1) in each data point is the actual ProductInverterMapDataPoint
+  <span class='comment'># OK, so data_points is a list
+</span>  <span class='comment'># The first index is the index of the data point
+</span>  <span class='comment'># Each data point in the list is also an array
+</span>  <span class='comment'># The first index (0) in each data point is a DataSourceType
+</span>  <span class='comment'># The second index (1) in each data point is the actual ProductInverterMapDataPoint
 </span>
-    <span class='comment'># Array of independent variable values to create data point
-</span>    <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>=</span> <span class='id identifier rubyid_data_points'>data_points</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_get_independent_vars'>get_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span>
-    <span class='comment'># Get an array containing names of independent variables
-</span>    <span class='id identifier rubyid_independent_vars_names'>independent_vars_names</span> <span class='op'>=</span> <span class='id identifier rubyid_data_points'>data_points</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_get_independent_vars'>get_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
-    <span class='comment'># Get an array containing names of dependent variables
-</span>    <span class='id identifier rubyid_dependent_vars_names'>dependent_vars_names</span> <span class='op'>=</span> <span class='id identifier rubyid_data_points'>data_points</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_get_dependent_vars'>get_dependent_vars</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
+  <span class='comment'># Array of independent variable values to create data point
+</span>  <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>=</span> <span class='id identifier rubyid_data_points'>data_points</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_get_independent_vars'>get_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span>
+  <span class='comment'># Get an array containing names of independent variables
+</span>  <span class='id identifier rubyid_independent_vars_names'>independent_vars_names</span> <span class='op'>=</span> <span class='id identifier rubyid_data_points'>data_points</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_get_independent_vars'>get_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
+  <span class='comment'># Get an array containing names of dependent variables
+</span>  <span class='id identifier rubyid_dependent_vars_names'>dependent_vars_names</span> <span class='op'>=</span> <span class='id identifier rubyid_data_points'>data_points</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_get_dependent_vars'>get_dependent_vars</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
 
-    <span class='comment'># Initialize hash for averaging dependent variables
-</span>    <span class='id identifier rubyid_dependent_vars'>dependent_vars</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-    <span class='id identifier rubyid_dependent_vars_names'>dependent_vars_names</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_var'>var</span><span class='op'>|</span>
-        <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>numerator</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>denominator</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='rbrace'>}</span>
-    <span class='kw'>end</span>
+  <span class='comment'># Initialize hash for averaging dependent variables
+</span>  <span class='id identifier rubyid_dependent_vars'>dependent_vars</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_dependent_vars_names'>dependent_vars_names</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_var'>var</span><span class='op'>|</span>
+    <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numerator</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>denominator</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='int'>0</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_data_points'>data_points</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_point'>point</span><span class='op'>|</span>
-        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Found a map data point to average</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_weight'>weight</span> <span class='op'>=</span> <span class='const'>DataSource</span><span class='op'>::</span><span class='const'>WEIGHTBYSOURCETYPE</span><span class='lbracket'>[</span><span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
-        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Data source type = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, Weight = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_weight'>weight</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-
-        <span class='id identifier rubyid_dependent_vars_names'>dependent_vars_names</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_var'>var</span><span class='op'>|</span>
-            <span class='kw'>if</span> <span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='id identifier rubyid_var'>var</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-                <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var'>var</span><span class='embexpr_end'>}</span><span class='tstring_content'> is nil, and will not be included in the average</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-            <span class='kw'>else</span>
-                <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var'>var</span><span class='embexpr_end'>}</span><span class='tstring_content'> = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='id identifier rubyid_var'>var</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-                <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>numerator</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='id identifier rubyid_weight'>weight</span> <span class='op'>*</span> <span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='id identifier rubyid_var'>var</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span>
-                <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>denominator</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='id identifier rubyid_weight'>weight</span>
-            <span class='kw'>end</span>
-        <span class='kw'>end</span>
-    <span class='kw'>end</span>
+  <span class='id identifier rubyid_data_points'>data_points</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_point'>point</span><span class='op'>|</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Found a map data point to average</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_weight'>weight</span> <span class='op'>=</span> <span class='const'>DataSource</span><span class='op'>::</span><span class='const'>WEIGHTBYSOURCETYPE</span><span class='lbracket'>[</span><span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Data source type = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, Weight = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_weight'>weight</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 
     <span class='id identifier rubyid_dependent_vars_names'>dependent_vars_names</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_var'>var</span><span class='op'>|</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>numerator</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>0</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>After averaging, this data point had missing data and will not be included in curve/table generation</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-            <span class='kw'>return</span> <span class='kw'>nil</span>
-        <span class='kw'>end</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='id identifier rubyid_var'>var</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var'>var</span><span class='embexpr_end'>}</span><span class='tstring_content'> is nil, and will not be included in the average</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var'>var</span><span class='embexpr_end'>}</span><span class='tstring_content'> = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='id identifier rubyid_var'>var</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numerator</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='id identifier rubyid_weight'>weight</span> <span class='op'>*</span> <span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='id identifier rubyid_var'>var</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span>
+        <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>denominator</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='id identifier rubyid_weight'>weight</span>
+      <span class='kw'>end</span>
     <span class='kw'>end</span>
+  <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_dependent_vars_avg'>dependent_vars_avg</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Data point has been averaged</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_dependent_vars_names'>dependent_vars_names</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_var'>var</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>numerator</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>0</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>After averaging, this data point had missing data and will not be included in curve/table generation</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-            <span class='kw'>return</span> <span class='kw'>nil</span>
-        <span class='kw'>else</span>
-            <span class='id identifier rubyid_dependent_vars_avg'>dependent_vars_avg</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>numerator</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>/</span> <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>denominator</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Resulting </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var'>var</span><span class='embexpr_end'>}</span><span class='tstring_content'> = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_dependent_vars_avg'>dependent_vars_avg</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='kw'>end</span>
+  <span class='id identifier rubyid_dependent_vars_names'>dependent_vars_names</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_var'>var</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numerator</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>0</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>After averaging, this data point had missing data and will not be included in curve/table generation</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='kw'>nil</span>
     <span class='kw'>end</span>
+  <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_averaged_data_point'>averaged_data_point</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point_type'>data_point_type</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_independent_vars'>independent_vars</span><span class='comma'>,</span> <span class='id identifier rubyid_dependent_vars_avg'>dependent_vars_avg</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_dependent_vars_avg'>dependent_vars_avg</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Data point has been averaged</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_dependent_vars_names'>dependent_vars_names</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_var'>var</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numerator</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>0</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>After averaging, this data point had missing data and will not be included in curve/table generation</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='kw'>nil</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_dependent_vars_avg'>dependent_vars_avg</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numerator</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>/</span> <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>denominator</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Resulting </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var'>var</span><span class='embexpr_end'>}</span><span class='tstring_content'> = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_dependent_vars_avg'>dependent_vars_avg</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
 
-    <span class='kw'>return</span> <span class='id identifier rubyid_averaged_data_point'>averaged_data_point</span>
+  <span class='id identifier rubyid_averaged_data_point'>averaged_data_point</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point_type'>data_point_type</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_independent_vars'>independent_vars</span><span class='comma'>,</span> <span class='id identifier rubyid_dependent_vars_avg'>dependent_vars_avg</span><span class='rparen'>)</span>
 
+  <span class='id identifier rubyid_averaged_data_point'>averaged_data_point</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -477,6 +475,12 @@ averaging</p>
       <pre class="lines">
 
 
+94
+95
+96
+97
+98
+99
 100
 101
 102
@@ -504,54 +508,44 @@ averaging</p>
 124
 125
 126
-127
-128
-129
-130
-131
-132
-133
-134
-135</pre>
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/UtilityFunctions.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/UtilityFunctions.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_merge_multiple_maps'>merge_multiple_maps</span><span class='lparen'>(</span><span class='id identifier rubyid_data_sets'>data_sets</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_data_point_type'>data_point_type</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>merging multiple </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_type'>type</span><span class='embexpr_end'>}</span><span class='tstring_content'> maps</span><span class='tstring_end'>&quot;</span></span>
-    <span class='comment'># first just put all the points in one big array
-</span>    <span class='id identifier rubyid_all_data_points'>all_data_points</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_data_sets'>data_sets</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_this_map'>this_map</span><span class='op'>|</span>
-        <span class='id identifier rubyid_this_map'>this_map</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='op'>|</span>
-                <span class='kw'>if</span> <span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='id identifier rubyid_data_point_type'>data_point_type</span><span class='rparen'>)</span>
-                    <span class='id identifier rubyid_all_data_points'>all_data_points</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_this_map'>this_map</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-                <span class='kw'>else</span>
-                    <span class='comment'># incorrect data point type...skip
-</span>                <span class='kw'>end</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>merging multiple </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_type'>type</span><span class='embexpr_end'>}</span><span class='tstring_content'> maps</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># first just put all the points in one big array
+</span>  <span class='id identifier rubyid_all_data_points'>all_data_points</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_data_sets'>data_sets</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_this_map'>this_map</span><span class='op'>|</span>
+    <span class='id identifier rubyid_this_map'>this_map</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='op'>|</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='id identifier rubyid_data_point_type'>data_point_type</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_all_data_points'>all_data_points</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_this_map'>this_map</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='rbracket'>]</span><span class='rparen'>)</span>
         <span class='kw'>end</span>
     <span class='kw'>end</span>
-    <span class='comment'># then loop over this list, and find the unique independent variable combinations
-</span>    <span class='id identifier rubyid_unique_independent_vars'>unique_independent_vars</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_all_data_points'>all_data_points</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='op'>|</span>
-        <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>=</span> <span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_get_independent_vars'>get_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span>
-        <span class='kw'>if</span> <span class='op'>!</span> <span class='id identifier rubyid_unique_independent_vars'>unique_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_independent_vars'>independent_vars</span><span class='rparen'>)</span>
-            <span class='id identifier rubyid_unique_independent_vars'>unique_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_independent_vars'>independent_vars</span><span class='rparen'>)</span>
-        <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='comment'># then loop over this list, and find the unique independent variable combinations
+</span>  <span class='id identifier rubyid_unique_independent_vars'>unique_independent_vars</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_all_data_points'>all_data_points</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='op'>|</span>
+    <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>=</span> <span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_get_independent_vars'>get_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span>
+    <span class='kw'>unless</span> <span class='id identifier rubyid_unique_independent_vars'>unique_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_independent_vars'>independent_vars</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_unique_independent_vars'>unique_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_independent_vars'>independent_vars</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-    <span class='comment'># now loop over the independent variable combinations and do the averaging
-</span>    <span class='id identifier rubyid_final_data_set'>final_data_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_unique_independent_vars'>unique_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_these_independent_vars'>these_independent_vars</span><span class='op'>|</span>
-        <span class='id identifier rubyid_matched_data_points'>matched_data_points</span> <span class='op'>=</span> <span class='id identifier rubyid_all_data_points'>all_data_points</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_data_point'>data_point</span><span class='op'>|</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_get_independent_vars'>get_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span> <span class='op'>==</span> <span class='id identifier rubyid_these_independent_vars'>these_independent_vars</span> <span class='rbrace'>}</span>
-        <span class='id identifier rubyid_average_point'>average_point</span> <span class='op'>=</span> <span class='id identifier rubyid_average_some_data_points'>average_some_data_points</span><span class='lparen'>(</span><span class='id identifier rubyid_matched_data_points'>matched_data_points</span><span class='comma'>,</span> <span class='id identifier rubyid_data_point_type'>data_point_type</span><span class='rparen'>)</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_average_point'>average_point</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nil averaged data point encountered, not included in final dataset</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='kw'>else</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Data point averaged successfully, added to final dataset</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-            <span class='id identifier rubyid_final_data_set'>final_data_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_average_point'>average_point</span><span class='rparen'>)</span>
-        <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='comment'># now loop over the independent variable combinations and do the averaging
+</span>  <span class='id identifier rubyid_final_data_set'>final_data_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_unique_independent_vars'>unique_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_these_independent_vars'>these_independent_vars</span><span class='op'>|</span>
+    <span class='id identifier rubyid_matched_data_points'>matched_data_points</span> <span class='op'>=</span> <span class='id identifier rubyid_all_data_points'>all_data_points</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_data_point'>data_point</span><span class='op'>|</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_get_independent_vars'>get_independent_vars</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span> <span class='op'>==</span> <span class='id identifier rubyid_these_independent_vars'>these_independent_vars</span> <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_average_point'>average_point</span> <span class='op'>=</span> <span class='id identifier rubyid_average_some_data_points'>average_some_data_points</span><span class='lparen'>(</span><span class='id identifier rubyid_matched_data_points'>matched_data_points</span><span class='comma'>,</span> <span class='id identifier rubyid_data_point_type'>data_point_type</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_average_point'>average_point</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Nil averaged data point encountered, not included in final dataset</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Data point averaged successfully, added to final dataset</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_final_data_set'>final_data_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_average_point'>average_point</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-    <span class='comment'># return the final set
-</span>    <span class='kw'>return</span> <span class='id identifier rubyid_final_data_set'>final_data_set</span>
+  <span class='kw'>end</span>
+  <span class='comment'># return the final set
+</span>  <span class='id identifier rubyid_final_data_set'>final_data_set</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -563,7 +557,7 @@ averaging</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May 26 09:58:08 2016 by
+  Generated on Sat May 28 09:32:48 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

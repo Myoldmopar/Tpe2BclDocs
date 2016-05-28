@@ -129,7 +129,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tpe-bcl.log</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tpe-bcl.log</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
@@ -164,35 +164,6 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Returns the value of attribute log_file_path.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#os_version-instance_method" title="#os_version (instance method)">- (Object) <strong>os_version</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute os_version.</p>
 </div></span>
   
 </li>
@@ -386,27 +357,23 @@ parameters, instead of repeating the code in each product.</p>
       <pre class="lines">
 
 
-26
-27
-28
-29
-30
-31
-32
-33
-34</pre>
+20
+21
+22
+23
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_parent_dir'>parent_dir</span><span class='rparen'>)</span>
-    <span class='ivar'>@parent_dir</span> <span class='op'>=</span> <span class='id identifier rubyid_parent_dir'>parent_dir</span>
-    <span class='kw'>unless</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='rparen'>)</span>
-        <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir'>mkdir</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-    <span class='ivar'>@log_file_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='comma'>,</span> <span class='const'>LOG_FILE</span><span class='rparen'>)</span>
-    <span class='ivar'>@log_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='ivar'>@log_file_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>TPE -&gt; BCL PRODUCT LOG FILE</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@parent_dir</span> <span class='op'>=</span> <span class='id identifier rubyid_parent_dir'>parent_dir</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir'>mkdir</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='rparen'>)</span>
+  <span class='ivar'>@log_file_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='comma'>,</span> <span class='const'>LOG_FILE</span><span class='rparen'>)</span>
+  <span class='ivar'>@log_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='ivar'>@log_file_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TPE -&gt; BCL PRODUCT LOG FILE</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -446,58 +413,15 @@ parameters, instead of repeating the code in each product.</p>
       <pre class="lines">
 
 
-12
-13
-14</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_file_path'>log_file_path</span>
   <span class='ivar'>@log_file_path</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="os_version-instance_method">
-  
-    - (<tt>Object</tt>) <strong>os_version</strong>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the value of attribute os_version</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-13
-14
-15</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 13</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_os_version'>os_version</span>
-  <span class='ivar'>@os_version</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -537,17 +461,17 @@ parameters, instead of repeating the code in each product.</p>
       <pre class="lines">
 
 
-37
-38
-39
-40</pre>
+29
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 29</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='ivar'>@log_file</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
-    <span class='ivar'>@log_file</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span>
+  <span class='ivar'>@log_file</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+  <span class='ivar'>@log_file</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -601,35 +525,35 @@ parameters, instead of repeating the code in each product</p>
       <pre class="lines">
 
 
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
 60
 61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72</pre>
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_issue_missing_parameter_error'>issue_missing_parameter_error</span><span class='lparen'>(</span><span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='rparen'>)</span>
-			<span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This product is missing key performance parameter definitions which make it unsuitable for pushing to the BCL.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-			<span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Missing parameters include:</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-			<span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
-				<span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_param'>param</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-			<span class='kw'>end</span>
-			<span class='id identifier rubyid_string'>string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This product is missing key performance parameter definitions which make it unsuitable for pushing to the BCL.\n</span><span class='tstring_end'>&quot;</span></span>
-			<span class='id identifier rubyid_string'>string</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Missing parameters include:\n</span><span class='tstring_end'>&quot;</span></span>
-			<span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
-				<span class='id identifier rubyid_string'>string</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_param'>param</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
-			<span class='kw'>end</span>
-			<span class='kw'>return</span> <span class='id identifier rubyid_string'>string</span>
+  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>This product is missing key performance parameter definitions which make it unsuitable for pushing to the BCL.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Missing parameters include:</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
+    <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_param'>param</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_string'>string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This product is missing key performance parameter definitions which make it unsuitable for pushing to the BCL.\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_string'>string</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Missing parameters include:\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
+    <span class='id identifier rubyid_string'>string</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_param'>param</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_string'>string</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -701,21 +625,17 @@ well, do this before fatal-ing out</p>
       <pre class="lines">
 
 
-51
-52
-53
-54
-55
-56</pre>
+43
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 43</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_also_to_console'>also_to_console</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
-    <span class='ivar'>@log_file</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>+</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_also_to_console'>also_to_console</span>
-        <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_message'>message</span>
-    <span class='kw'>end</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_also_to_console'>also_to_console</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='ivar'>@log_file</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>+</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_message'>message</span> <span class='kw'>if</span> <span class='id identifier rubyid_also_to_console'>also_to_console</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -767,15 +687,15 @@ in log files</p>
       <pre class="lines">
 
 
-44
-45
-46</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 36</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_prefix'>prefix</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> -- </span><span class='embexpr_beg'>#{</span><span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%Y%m%d%H%M%S</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'> -- </span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_prefix'>prefix</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> -- </span><span class='embexpr_beg'>#{</span><span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%Y%m%d%H%M%S</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'> -- </span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -787,7 +707,7 @@ in log files</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May 26 09:58:09 2016 by
+  Generated on Sat May 28 09:32:49 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

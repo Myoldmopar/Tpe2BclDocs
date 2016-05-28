@@ -104,7 +104,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>A simple module containing routines for writing pump idf objects</p>
+<p>A simple module containing routines for writing pump components</p>
 
 
   </div>
@@ -131,7 +131,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Flow Rate</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rated Flow Rate</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="PARAM_RATEDPUMPHEAD-constant" class="">PARAM_RATEDPUMPHEAD =
           <div class="docstring">
@@ -147,7 +147,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Pump Head</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rated Pump Head</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="PARAM_RATEDMOTORPOWER-constant" class="">PARAM_RATEDMOTORPOWER =
           <div class="docstring">
@@ -163,7 +163,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Motor Power</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rated Motor Power</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
@@ -336,7 +336,7 @@ ProductBase.suitable_for_bcl?.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#write_idf_stuff-class_method" title="write_idf_stuff (class method)">+ (Object) <strong>write_idf_stuff</strong>(product_data) </a>
+      <a href="#write_component-class_method" title="write_component (class method)">+ (Object) <strong>write_component</strong>(product_data) </a>
     
 
     
@@ -351,7 +351,7 @@ ProductBase.suitable_for_bcl?.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Overrides ProductBase.write_idf_stuff.</p>
+<p>Overrides ProductBase.write_component.</p>
 </div></span>
   
 </li>
@@ -417,19 +417,19 @@ Overrides the ProductBase.csv_parameters</p>
       <pre class="lines">
 
 
+36
+37
+38
 39
-40
-41
-42
-43</pre>
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 36</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_csv_parameters'>csv_parameters</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='const'>PARAM_RATEDFLOWRATE</span><span class='comma'>,</span>
-          <span class='const'>PARAM_RATEDPUMPHEAD</span><span class='comma'>,</span>
-          <span class='const'>PARAM_RATEDMOTORPOWER</span><span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_csv_parameters'>csv_parameters</span>
+  <span class='lbracket'>[</span><span class='const'>PARAM_RATEDFLOWRATE</span><span class='comma'>,</span>
+   <span class='const'>PARAM_RATEDPUMPHEAD</span><span class='comma'>,</span>
+   <span class='const'>PARAM_RATEDMOTORPOWER</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -481,15 +481,15 @@ performance map Overrides ProductBase.expect_map?</p>
       <pre class="lines">
 
 
-48
-49
-50</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 45</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='comment'># for now...
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span>
+  <span class='kw'>false</span> <span class='comment'># for now...
 </span><span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -541,6 +541,9 @@ ProductBase.get_bcl_parameters</p>
       <pre class="lines">
 
 
+52
+53
+54
 55
 56
 57
@@ -552,13 +555,10 @@ ProductBase.get_bcl_parameters</p>
 63
 64
 65
-66
-67
-68
-69</pre>
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_bcl_parameters'>get_bcl_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -573,7 +573,7 @@ ProductBase.get_bcl_parameters</p>
       <span class='id identifier rubyid_parameters'>parameters</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_val'>val</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_parameters'>parameters</span>
+  <span class='id identifier rubyid_parameters'>parameters</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -624,15 +624,15 @@ ProductBase.get_bcl_parameters</p>
       <pre class="lines">
 
 
-18
-19
-20</pre>
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 15</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rotodynamic Pumps</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Rotodynamic Pumps</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -684,15 +684,15 @@ ProductBase.product_key</p>
       <pre class="lines">
 
 
-25
-26
-27</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 22</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product_key'>product_key</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rtdynm</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product_key'>product_key</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rtdynm</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -746,43 +746,21 @@ ProductBase.suitable_for_bcl?</p>
       <pre class="lines">
 
 
+72
+73
+74
 75
 76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91</pre>
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_suitable_for_bcl?'>suitable_for_bcl?</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_required_parameters'>required_parameters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_RATEDFLOWRATE</span><span class='comma'>,</span>
                          <span class='const'>PARAM_RATEDPUMPHEAD</span><span class='comma'>,</span>
                          <span class='const'>PARAM_RATEDMOTORPOWER</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_required_parameters'>required_parameters</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
-		  <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-<span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span>
- <span class='kw'>end</span>
-		<span class='kw'>end</span>
-		<span class='kw'>if</span> <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
-		  <span class='kw'>return</span> <span class='kw'>true</span>
-		<span class='kw'>else</span>
-		  <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_status_message'>status_message</span> <span class='op'>=</span> <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_issue_missing_parameter_error'>issue_missing_parameter_error</span><span class='lparen'>(</span><span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='rparen'>)</span>
-		  <span class='kw'>return</span> <span class='kw'>false</span>
-		<span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='const'>ParameterList</span><span class='period'>.</span><span class='id identifier rubyid_validate_required_parameters'>validate_required_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='comma'>,</span> <span class='id identifier rubyid_required_parameters'>required_parameters</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -790,9 +768,9 @@ ProductBase.suitable_for_bcl?</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="write_idf_stuff-class_method">
+  <h3 class="signature " id="write_component-class_method">
   
-    + (<tt>Object</tt>) <strong>write_idf_stuff</strong>(product_data) 
+    + (<tt>Object</tt>) <strong>write_component</strong>(product_data) 
   
 
   
@@ -801,7 +779,7 @@ ProductBase.suitable_for_bcl?</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Overrides ProductBase.write_idf_stuff</p>
+<p>Overrides ProductBase.write_component</p>
 
 
   </div>
@@ -821,7 +799,7 @@ ProductBase.suitable_for_bcl?</p>
       
         &mdash;
         <div class='inline'>
-<p>A product performance data structure used to write idf objects</p>
+<p>A product performance data structure used to write components</p>
 </div>
       
     </li>
@@ -835,99 +813,31 @@ ProductBase.suitable_for_bcl?</p>
       <pre class="lines">
 
 
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139</pre>
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 81</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_idf_stuff'>write_idf_stuff</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
-
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_component'>write_component</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDFLOWRATE</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='id identifier rubyid_rated_flow_rate_string'>rated_flow_rate_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_rated_flow_rate_string'>rated_flow_rate_string</span> <span class='op'>=</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
-  <span class='kw'>end</span>
-
   <span class='id identifier rubyid_rated_pump_head'>rated_pump_head</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDPUMPHEAD</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_rated_pump_head'>rated_pump_head</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_rated_pump_head'>rated_pump_head</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='id identifier rubyid_rated_pump_head_string'>rated_pump_head_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_rated_pump_head_string'>rated_pump_head_string</span> <span class='op'>=</span> <span class='id identifier rubyid_rated_pump_head'>rated_pump_head</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
-  <span class='kw'>end</span>
-
   <span class='id identifier rubyid_rated_power_consumption'>rated_power_consumption</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDMOTORPOWER</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_rated_power_consumption'>rated_power_consumption</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_rated_power_consumption'>rated_power_consumption</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='id identifier rubyid_rated_power_consumption_string'>rated_power_consumption_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_rated_power_consumption_string'>rated_power_consumption_string</span> <span class='op'>=</span> <span class='id identifier rubyid_rated_power_consumption'>rated_power_consumption</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
-  <span class='kw'>end</span>
 
-  <span class='gvar'>$idf</span><span class='period'>.</span><span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
-
-  Pump:VariableSpeed,
-    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_name'>product_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>,       !- Name
-    ,                                   !- Inlet Node Name
-    ,                                   !- Outlet Node Name
-    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rated_flow_rate_string'>rated_flow_rate_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,          !- Rated Flow Rate {m3/s}
-    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rated_pump_head_string'>rated_pump_head_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,          !- Rated Pump Head {Pa}
-    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rated_power_consumption_string'>rated_power_consumption_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,  !- Rated Power Consumption {W}
-    ,                                   !- Motor Efficiency
-    ,                                   !- Fraction of Motor Inefficiencies to Fluid Stream
-    ,                                   !- Coefficient 1 of the Part Load Performance Curve
-    ,                                   !- Coefficient 2 of the Part Load Performance Curve
-    ,                                   !- Coefficient 3 of the Part Load Performance Curve
-    ,                                   !- Coefficient 4 of the Part Load Performance Curve
-    ,                                   !- Minimum Flow Rate {m3/s}
-    ,                                   !- Pump Control Type
-  </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='gvar'>$pump</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>PumpVariableSpeed</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='rparen'>)</span>
+  <span class='gvar'>$pump</span><span class='period'>.</span><span class='id identifier rubyid_setname'>setname</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_name'>product_name</span><span class='rparen'>)</span>
+  <span class='gvar'>$pump</span><span class='period'>.</span><span class='id identifier rubyid_setRatedFlowRate'>setRatedFlowRate</span><span class='lparen'>(</span><span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='gvar'>$pump</span><span class='period'>.</span><span class='id identifier rubyid_setRatedPumpHead'>setRatedPumpHead</span><span class='lparen'>(</span><span class='id identifier rubyid_rated_pump_head'>rated_pump_head</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_rated_pump_head'>rated_pump_head</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='gvar'>$pump</span><span class='period'>.</span><span class='id identifier rubyid_setRatedPowerConsumption'>setRatedPowerConsumption</span><span class='lparen'>(</span><span class='id identifier rubyid_rated_power_consumption'>rated_power_consumption</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_rated_power_consumption'>rated_power_consumption</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -939,7 +849,7 @@ ProductBase.suitable_for_bcl?</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May 26 09:58:10 2016 by
+  Generated on Sat May 28 09:32:50 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

@@ -197,6 +197,19 @@ and processing</p>
   
 </ul>
 
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="ExNoZipFile.html" title="TpeBclCore::ExNoZipFile (class)">ExNoZipFile</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -204,6 +217,14 @@ and processing</p>
       <pre class="lines">
 
 
+67
+68
+69
+70
+71
+72
+73
+74
 75
 76
 77
@@ -347,206 +368,162 @@ and processing</p>
 215
 216
 217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244</pre>
+218</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ProductProcessor.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/ProductProcessor.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='comma'>,</span> <span class='id identifier rubyid_skipUnZipping'>skipUnZipping</span><span class='rparen'>)</span>
+  <span class='comment'># initialize some search tokens
+</span>  <span class='id identifier rubyid_ext_map'>ext_map</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.xls</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.xlsx</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_dot_dirs'>dot_dirs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>..</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
 
-    <span class='comment'># initialize some search tokens
-</span>    <span class='id identifier rubyid_ext_map'>ext_map</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.xls</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.xlsx</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_dot_dirs'>dot_dirs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>..</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='comment'># initialize some configuration specific filenames, etc.
+</span>  <span class='id identifier rubyid_zip_file_name'>zip_file_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>product.zip</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_csv_file_name'>csv_file_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>product.csv</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_unzip_directory'>unzip_directory</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zip_data</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_output_directory'>output_directory</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>output</span><span class='tstring_end'>&#39;</span></span>
 
-    <span class='comment'># initialize some configuration specific filenames, etc.
-</span>    <span class='id identifier rubyid_zip_file_name'>zip_file_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>product.zip</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_csv_file_name'>csv_file_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>product.csv</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_unzip_directory'>unzip_directory</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>zip_data</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_output_directory'>output_directory</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>output</span><span class='tstring_end'>&quot;</span></span>
+  <span class='comment'># check for additional product performance data zip file
+</span>  <span class='id identifier rubyid_maybe_zip_file'>maybe_zip_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_process_directory'>process_directory</span><span class='comma'>,</span> <span class='id identifier rubyid_zip_file_name'>zip_file_name</span><span class='rparen'>)</span>
 
-    <span class='comment'># check for additional product performance data zip file
-</span>    <span class='id identifier rubyid_maybe_zip_file'>maybe_zip_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_process_directory'>process_directory</span><span class='comma'>,</span> <span class='id identifier rubyid_zip_file_name'>zip_file_name</span><span class='rparen'>)</span>
+  <span class='comment'># create a path to the unzipped folder
+</span>  <span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_process_directory'>process_directory</span><span class='comma'>,</span> <span class='id identifier rubyid_unzip_directory'>unzip_directory</span><span class='rparen'>)</span>
 
-    <span class='comment'># create a path to the unzipped folder
-</span>    <span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_process_directory'>process_directory</span><span class='comma'>,</span> <span class='id identifier rubyid_unzip_directory'>unzip_directory</span><span class='rparen'>)</span>
+  <span class='comment'># throw an error if the file doesn&#39;t exist
+</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ExNoZipFile</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Zip file doesn&#39;t exist; expected it @ `</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_maybe_zip_file'>maybe_zip_file</span><span class='embexpr_end'>}</span><span class='tstring_content'>`</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_maybe_zip_file'>maybe_zip_file</span><span class='rparen'>)</span>
 
-    <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_maybe_zip_file'>maybe_zip_file</span><span class='rparen'>)</span>
+  <span class='comment'># continue processing
+</span>  <span class='kw'>unless</span> <span class='id identifier rubyid_skipUnZipping'>skipUnZipping</span>
 
-        <span class='kw'>if</span> <span class='kw'>not</span> <span class='id identifier rubyid_skipUnZipping'>skipUnZipping</span>
+    <span class='comment'># check if it already exists
+</span>    <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm_rf'>rm_rf</span><span class='lparen'>(</span><span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span><span class='rparen'>)</span>
 
-            <span class='comment'># check if it already exists
-</span>            <span class='kw'>if</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span><span class='rparen'>)</span>
-                <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm_rf'>rm_rf</span><span class='lparen'>(</span><span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span><span class='rparen'>)</span>
-            <span class='kw'>end</span>
-
-            <span class='comment'># unzip the folder
-</span>            <span class='const'>Zipper</span><span class='op'>::</span><span class='id identifier rubyid_unzip_file'>unzip_file</span><span class='lparen'>(</span><span class='id identifier rubyid_maybe_zip_file'>maybe_zip_file</span><span class='comma'>,</span> <span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span><span class='rparen'>)</span>
-
-        <span class='kw'>end</span>
-
-        <span class='comment'># at this point we can set up the output directory so we can dump files there as needed
-</span>        <span class='id identifier rubyid_output_folder'>output_folder</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_process_directory'>process_directory</span><span class='comma'>,</span> <span class='id identifier rubyid_output_directory'>output_directory</span><span class='rparen'>)</span>
-        <span class='comment'># check if it already exists
-</span>        <span class='kw'>if</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_output_folder'>output_folder</span><span class='rparen'>)</span>
-            <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm_rf'>rm_rf</span><span class='lparen'>(</span><span class='id identifier rubyid_output_folder'>output_folder</span><span class='rparen'>)</span>
-        <span class='kw'>end</span>
-        <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir'>mkdir</span><span class='lparen'>(</span><span class='id identifier rubyid_output_folder'>output_folder</span><span class='rparen'>)</span>
-
-        <span class='comment'># yes, yes, yes, hush, it&#39;s not great, but good for interim improvements
-</span>        <span class='gvar'>$log</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_output_folder'>output_folder</span><span class='rparen'>)</span>
-        <span class='gvar'>$idf</span> <span class='op'>=</span> <span class='const'>IdfWriter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_output_folder'>output_folder</span><span class='rparen'>)</span>
-        <span class='gvar'>$osm</span> <span class='op'>=</span> <span class='const'>OSMWriter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_output_folder'>output_folder</span><span class='rparen'>)</span>
-        <span class='comment'>##### log file can now be written to #####
-</span>
-        <span class='comment'># there should be a single subdirectory within this unzipped folder
-</span>        <span class='comment'># this variable stores a search string glob
-</span>        <span class='id identifier rubyid_search_path'>search_path</span> <span class='op'>=</span> <span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/*</span><span class='tstring_end'>&quot;</span></span>
-        <span class='comment'># on Windows we have to ensure that no backslashes go into Dir, or they will be escaped
-</span>        <span class='comment'># ruby is smart enough to put in backslashes, but that causes issues here
-</span>        <span class='kw'>if</span> <span class='const'>OS</span><span class='period'>.</span><span class='id identifier rubyid_is_this_windows?'>is_this_windows?</span>
-            <span class='id identifier rubyid_search_path'>search_path</span><span class='period'>.</span><span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\\</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-        <span class='kw'>end</span>
-        <span class='id identifier rubyid_files'>files</span> <span class='op'>=</span> <span class='const'>Dir</span><span class='lbracket'>[</span><span class='id identifier rubyid_search_path'>search_path</span><span class='rbracket'>]</span>
-        <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_equal?'>equal?</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Product zip file not properly structured.</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Number of files/directories in zip root is not equal to 1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Zip file should have a single subdirectory in zip root</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Aborting...</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-            <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ExBadZipStructure</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Product zip file not properly structured</span><span class='tstring_end'>&quot;</span></span>
-        <span class='kw'>else</span>
-            <span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span> <span class='op'>=</span> <span class='id identifier rubyid_files'>files</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
-        <span class='kw'>end</span>
-
-        <span class='comment'># check if the csv file exists -- check both versions
-</span>        <span class='id identifier rubyid_maybe_csv_path'>maybe_csv_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span><span class='comma'>,</span> <span class='id identifier rubyid_csv_file_name'>csv_file_name</span><span class='rparen'>)</span>
-        <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_maybe_csv_path'>maybe_csv_path</span><span class='rparen'>)</span>
-            <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span> <span class='op'>=</span> <span class='id identifier rubyid_maybe_csv_path'>maybe_csv_path</span>
-        <span class='kw'>end</span>
-
-        <span class='comment'># loop over all performance directories, getting xls, xlsx files and other payloads in each
-</span>        <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_foreach'>foreach</span><span class='lparen'>(</span><span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
-
-            <span class='comment'># skip . and ..
-</span>            <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_dot_dirs'>dot_dirs</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
-
-            <span class='comment'># check if this item is a directory
-</span>            <span class='id identifier rubyid_sub_dir_maybe'>sub_dir_maybe</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span><span class='comma'>,</span> <span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
-            <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_directory?'>directory?</span><span class='lparen'>(</span><span class='id identifier rubyid_sub_dir_maybe'>sub_dir_maybe</span><span class='rparen'>)</span>
-
-                <span class='comment'># recurse all items in this directory
-</span>                <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_foreach'>foreach</span><span class='lparen'>(</span><span class='id identifier rubyid_sub_dir_maybe'>sub_dir_maybe</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_subitem'>subitem</span><span class='op'>|</span>
-
-                    <span class='comment'># skip . and ..
-</span>                    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_dot_dirs'>dot_dirs</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_subitem'>subitem</span><span class='rparen'>)</span>
-
-                    <span class='comment'># store paths to payloads and maps
-</span>                    <span class='kw'>if</span> <span class='id identifier rubyid_subitem'>subitem</span><span class='period'>.</span><span class='id identifier rubyid_end_with?'>end_with?</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_ext_map'>ext_map</span><span class='rparen'>)</span>
-                        <span class='id identifier rubyid_parent_dir_name'>parent_dir_name</span> <span class='op'>=</span> <span class='id identifier rubyid_sub_dir_maybe'>sub_dir_maybe</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
-                        <span class='id identifier rubyid_this_map_source_type'>this_map_source_type</span> <span class='op'>=</span> <span class='const'>DataSource</span><span class='period'>.</span><span class='id identifier rubyid_get_source_type_from_dir_name'>get_source_type_from_dir_name</span><span class='lparen'>(</span><span class='id identifier rubyid_parent_dir_name'>parent_dir_name</span><span class='rparen'>)</span>
-                        <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='lbracket'>[</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_sub_dir_maybe'>sub_dir_maybe</span><span class='comma'>,</span> <span class='id identifier rubyid_subitem'>subitem</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_this_map_source_type'>this_map_source_type</span>
-                    <span class='kw'>end</span>
-
-                <span class='kw'>end</span>
-
-            <span class='kw'>end</span>
-
-        <span class='kw'>end</span>
-
-    <span class='kw'>else</span>
-
-        <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ExNoZipFile</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Zip file doesn&#39;t exist; expected it @ `</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_maybe_zip_file'>maybe_zip_file</span><span class='embexpr_end'>}</span><span class='tstring_content'>`</span><span class='tstring_end'>&quot;</span></span>
+    <span class='comment'># unzip the folder
+</span>    <span class='const'>Zipper</span><span class='period'>.</span><span class='id identifier rubyid_unzip_file'>unzip_file</span><span class='lparen'>(</span><span class='id identifier rubyid_maybe_zip_file'>maybe_zip_file</span><span class='comma'>,</span> <span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span><span class='rparen'>)</span>
 
     <span class='kw'>end</span>
 
-    <span class='comment'># spew what was found from the directory scan
-</span>    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SUMMARIZING FILE STRUCTURE</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span>
-    <span class='kw'>unless</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Found a csv file product_data. &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-    <span class='kw'>unless</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-        <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_map_path'>map_path</span><span class='comma'>,</span> <span class='id identifier rubyid_map_type'>map_type</span><span class='op'>|</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Found a map file @ &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_map_path'>map_path</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='comment'># at this point we can set up the output directory so we can dump files there as needed
+</span>  <span class='id identifier rubyid_output_folder'>output_folder</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_process_directory'>process_directory</span><span class='comma'>,</span> <span class='id identifier rubyid_output_directory'>output_directory</span><span class='rparen'>)</span>
+  <span class='comment'># check if it already exists
+</span>  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm_rf'>rm_rf</span><span class='lparen'>(</span><span class='id identifier rubyid_output_folder'>output_folder</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_output_folder'>output_folder</span><span class='rparen'>)</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir'>mkdir</span><span class='lparen'>(</span><span class='id identifier rubyid_output_folder'>output_folder</span><span class='rparen'>)</span>
+
+  <span class='comment'># yes, yes, yes, hush, it&#39;s not great, but good for interim improvements
+</span>  <span class='gvar'>$log</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_output_folder'>output_folder</span><span class='rparen'>)</span>
+  <span class='gvar'>$osm</span> <span class='op'>=</span> <span class='const'>OSMWriter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_output_folder'>output_folder</span><span class='rparen'>)</span>
+  <span class='comment'>##### log file can now be written to #####
+</span>
+  <span class='comment'># there should be a single subdirectory within this unzipped folder
+</span>  <span class='comment'># this variable stores a search string glob
+</span>  <span class='id identifier rubyid_search_path'>search_path</span> <span class='op'>=</span> <span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/*</span><span class='tstring_end'>&#39;</span></span>
+  <span class='comment'># on Windows we have to ensure that no backslashes go into Dir, or they will be escaped
+</span>  <span class='comment'># ruby is smart enough to put in backslashes, but that causes issues here
+</span>  <span class='id identifier rubyid_search_path'>search_path</span><span class='period'>.</span><span class='id identifier rubyid_tr!'>tr!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\\</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='const'>OS</span><span class='period'>.</span><span class='id identifier rubyid_is_this_windows?'>is_this_windows?</span>
+  <span class='id identifier rubyid_files'>files</span> <span class='op'>=</span> <span class='const'>Dir</span><span class='lbracket'>[</span><span class='id identifier rubyid_search_path'>search_path</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_equal?'>equal?</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Product zip file not properly structured.</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Number of files/directories in zip root is not equal to 1</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Zip file should have a single subdirectory in zip root</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Aborting...</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ExBadZipStructure</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Product zip file not properly structured</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span> <span class='op'>=</span> <span class='id identifier rubyid_files'>files</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># check if the csv file exists
+</span>  <span class='id identifier rubyid_maybe_csv_path'>maybe_csv_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span><span class='comma'>,</span> <span class='id identifier rubyid_csv_file_name'>csv_file_name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span> <span class='op'>=</span> <span class='id identifier rubyid_maybe_csv_path'>maybe_csv_path</span> <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_maybe_csv_path'>maybe_csv_path</span><span class='rparen'>)</span>
+
+  <span class='comment'># loop over all performance directories, getting xls, xlsx files and other payloads in each
+</span>  <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_foreach'>foreach</span><span class='lparen'>(</span><span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
+    <span class='comment'># skip . and ..
+</span>    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_dot_dirs'>dot_dirs</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+
+    <span class='comment'># check if this item is a directory
+</span>    <span class='id identifier rubyid_sub_dir_maybe'>sub_dir_maybe</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_unzipped_folder'>unzipped_folder</span><span class='comma'>,</span> <span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_directory?'>directory?</span><span class='lparen'>(</span><span class='id identifier rubyid_sub_dir_maybe'>sub_dir_maybe</span><span class='rparen'>)</span>
+
+      <span class='comment'># recurse all items in this directory
+</span>      <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_foreach'>foreach</span><span class='lparen'>(</span><span class='id identifier rubyid_sub_dir_maybe'>sub_dir_maybe</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_subitem'>subitem</span><span class='op'>|</span>
+        <span class='comment'># skip . and ..
+</span>        <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_dot_dirs'>dot_dirs</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_subitem'>subitem</span><span class='rparen'>)</span>
+
+        <span class='comment'># store paths to payloads and maps
+</span>        <span class='kw'>if</span> <span class='id identifier rubyid_subitem'>subitem</span><span class='period'>.</span><span class='id identifier rubyid_end_with?'>end_with?</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_ext_map'>ext_map</span><span class='rparen'>)</span>
+          <span class='id identifier rubyid_parent_dir_name'>parent_dir_name</span> <span class='op'>=</span> <span class='id identifier rubyid_sub_dir_maybe'>sub_dir_maybe</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+          <span class='id identifier rubyid_this_map_source_type'>this_map_source_type</span> <span class='op'>=</span> <span class='const'>DataSource</span><span class='period'>.</span><span class='id identifier rubyid_get_source_type_from_dir_name'>get_source_type_from_dir_name</span><span class='lparen'>(</span><span class='id identifier rubyid_parent_dir_name'>parent_dir_name</span><span class='rparen'>)</span>
+          <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='lbracket'>[</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_sub_dir_maybe'>sub_dir_maybe</span><span class='comma'>,</span> <span class='id identifier rubyid_subitem'>subitem</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_this_map_source_type'>this_map_source_type</span>
         <span class='kw'>end</span>
-    <span class='kw'>end</span>
-
-    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>about to process csv at: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-
-    <span class='kw'>unless</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-
-        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PARSING CSV</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span> <span class='op'>=</span> <span class='const'>ReaderCSV</span><span class='period'>.</span><span class='id identifier rubyid_get_csv_parameters'>get_csv_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span><span class='comma'>,</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='rparen'>)</span>
-
-        <span class='comment'># once we have read the csv file, we should have a good idea of whether it is suitable for writing idf/osms
-</span>        <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_skip_this_product'>skip_this_product</span> <span class='op'>=</span> <span class='op'>!</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_suitable_for_bcl?'>suitable_for_bcl?</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
-        <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_skip_this_product'>skip_this_product</span>
+      <span class='kw'>end</span>
 
     <span class='kw'>end</span>
+  <span class='kw'>end</span>
 
-    <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span> <span class='kw'>and</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>   <span class='comment'># true/true
+  <span class='comment'># spew what was found from the directory scan
+</span>  <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SUMMARIZING FILE STRUCTURE</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Found a csv file product_data. &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_map_path'>map_path</span><span class='comma'>,</span> <span class='id identifier rubyid__map_type'>_map_type</span><span class='op'>|</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Found a map file @ &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_map_path'>map_path</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>about to process csv at: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>PARSING CSV</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span> <span class='op'>=</span> <span class='const'>ReaderCSV</span><span class='period'>.</span><span class='id identifier rubyid_get_csv_parameters'>get_csv_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_csv_path'>csv_path</span><span class='rparen'>)</span>
+
+    <span class='comment'># once we have read the csv file, we should have a good idea of whether it is suitable for writing components
+</span>    <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_skip_this_product'>skip_this_product</span> <span class='op'>=</span> <span class='op'>!</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_suitable_for_bcl?'>suitable_for_bcl?</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_skip_this_product'>skip_this_product</span>
+
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='comment'># true/true
 </span>
-        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This product has map capabilities implemented, but no map was found ... aborting this product.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_skip_this_product'>skip_this_product</span> <span class='op'>=</span> <span class='kw'>true</span>
-        <span class='kw'>return</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>This product has map capabilities implemented, but no map was found ... aborting this product.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_skip_this_product'>skip_this_product</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='kw'>return</span>
 
-    <span class='kw'>elsif</span> <span class='op'>!</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span> <span class='kw'>and</span> <span class='op'>!</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>  <span class='comment'>#false/false
+  <span class='kw'>elsif</span> <span class='op'>!</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='comment'># false/false
 </span>
-        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This product has NO map capability, but yet the map list was non-empty ... strange ... skipping the maps.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>This product has NO map capability, but yet the map list was non-empty ... strange ... skipping the maps.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
-    <span class='kw'>elsif</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span> <span class='kw'>and</span> <span class='op'>!</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>  <span class='comment'>#true/false
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>  <span class='comment'># true/false
 </span>
-        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This product has map capability, and at least one map found, happy day!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>This product has map capability, and at least one map found, happy day!</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
-        <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_this_map'>this_map</span><span class='comma'>,</span> <span class='id identifier rubyid_map_source_type'>map_source_type</span><span class='op'>|</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Instantiating map_parser for map @ &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_this_map'>this_map</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-            <span class='id identifier rubyid_this_map_file_name'>this_map_file_name</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='id identifier rubyid_this_map'>this_map</span><span class='rparen'>)</span>
-            <span class='id identifier rubyid_this_map_reader_instance'>this_map_reader_instance</span> <span class='op'>=</span> <span class='const'>MapReader</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_this_map'>this_map</span><span class='comma'>,</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='comma'>,</span> <span class='id identifier rubyid_map_source_type'>map_source_type</span><span class='comma'>,</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='comma'>,</span> <span class='id identifier rubyid_this_map_file_name'>this_map_file_name</span><span class='rparen'>)</span>
-            <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_maps'>data_from_maps</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_this_map_reader_instance'>this_map_reader_instance</span><span class='period'>.</span><span class='id identifier rubyid_map_source_type'>map_source_type</span><span class='comma'>,</span> <span class='id identifier rubyid_this_map_reader_instance'>this_map_reader_instance</span><span class='period'>.</span><span class='id identifier rubyid_this_map_data_set'>this_map_data_set</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_this_map_reader_instance'>this_map_reader_instance</span><span class='period'>.</span><span class='id identifier rubyid_insufficient_data_points'>insufficient_data_points</span>
-        <span class='kw'>end</span>
-
-        <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_maps'>data_from_maps</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>While maps were encountered, it seems problems were encountered during processing them.  Perhaps missing or malformed data was encountered.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ultimately, no map data was processed successfully, and will not be included</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The IDF may still contain references to map data such as curves that are not available based on this missing map data.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='kw'>end</span>
-
-    <span class='kw'>elsif</span> <span class='op'>!</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span> <span class='kw'>and</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>  <span class='comment'>#false/true
-</span>
-        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This product has no map capability...and no maps found...that&#39;s good news.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-
+    <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_this_map'>this_map</span><span class='comma'>,</span> <span class='id identifier rubyid_map_source_type'>map_source_type</span><span class='op'>|</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Instantiating map_parser for map @ &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_this_map'>this_map</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_this_map_file_name'>this_map_file_name</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='id identifier rubyid_this_map'>this_map</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_this_map_reader_instance'>this_map_reader_instance</span> <span class='op'>=</span> <span class='const'>MapReader</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_this_map'>this_map</span><span class='comma'>,</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='comma'>,</span> <span class='id identifier rubyid_map_source_type'>map_source_type</span><span class='comma'>,</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='comma'>,</span> <span class='id identifier rubyid_this_map_file_name'>this_map_file_name</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_maps'>data_from_maps</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_this_map_reader_instance'>this_map_reader_instance</span><span class='period'>.</span><span class='id identifier rubyid_map_source_type'>map_source_type</span><span class='comma'>,</span> <span class='id identifier rubyid_this_map_reader_instance'>this_map_reader_instance</span><span class='period'>.</span><span class='id identifier rubyid_this_map_data_set'>this_map_data_set</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_this_map_reader_instance'>this_map_reader_instance</span><span class='period'>.</span><span class='id identifier rubyid_insufficient_data_points'>insufficient_data_points</span>
     <span class='kw'>end</span>
 
-    <span class='comment'># write all idf stuff
-</span>    <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_write_idf_stuff'>write_idf_stuff</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_maps'>data_from_maps</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>While maps were encountered, it seems problems were encountered during processing them.  Perhaps missing or malformed data was encountered.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Ultimately, no map data was processed successfully, and will not be included</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The IDF may still contain references to map data such as curves that are not available based on this missing map data.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_skip_this_product'>skip_this_product</span> <span class='op'>=</span> <span class='op'>!</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_suitable_for_bcl?'>suitable_for_bcl?</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='op'>!</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_maps_found_list'>maps_found_list</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>  <span class='comment'># false/true
+</span>
+    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This product has no map capability...and no maps found...that&#39;s good news.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 
+  <span class='kw'>end</span>
+
+  <span class='comment'># write the component
+</span>  <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_write_component'>write_component</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+
+  <span class='comment'># and assign the final skip value for the caller
+</span>  <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_skip_this_product'>skip_this_product</span> <span class='op'>=</span> <span class='op'>!</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_suitable_for_bcl?'>suitable_for_bcl?</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -559,7 +536,7 @@ and processing</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May 26 09:58:09 2016 by
+  Generated on Sat May 28 09:32:49 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

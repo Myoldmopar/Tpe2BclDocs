@@ -295,226 +295,216 @@ Excelx.new</p>
       <pre class="lines">
 
 
-551
-552
-553
-554
-555
-556
-557
-558
-559
-560
-561
-562
-563
-564
-565
-566
-567
-568
-569
-570
-571
-572
-573
-574
-575
-576
-577
-578
-579
-580
-581
-582
-583
-584
-585
-586
-587
-588
-589
-590
-591
-592
-593
-594
-595
-596
-597
-598
-599
-600
-601
-602
-603
-604
-605
-606
-607
-608
-609
-610
-611
-612
-613
-614
-615
-616
-617
-618
-619
-620
-621
-622
-623
-624
-625
-626
-627
-628
-629
-630
-631
-632
-633
-634
-635
-636
-637
-638
-639
-640
-641
-642
-643
-644
-645
-646
-647
-648
-649
-650
-651
-652
-653
-654
-655
-656
-657
-658
-659</pre>
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/HeatPumpWaterHeater.rb', line 551</span>
+      <pre class="code"><span class="info file"># File 'lib/products/HeatPumpWaterHeater.rb', line 264</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='comma'>,</span> <span class='id identifier rubyid_csv_data'>csv_data</span><span class='comma'>,</span> <span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='rparen'>)</span>
+  <span class='comment'># read in the meta data
+</span>  <span class='id identifier rubyid_owner'>owner</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_brand'>brand</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>4</span><span class='comma'>,</span> <span class='int'>4</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_product_line'>product_line</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>5</span><span class='comma'>,</span> <span class='int'>4</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_model'>model</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>6</span><span class='comma'>,</span> <span class='int'>4</span><span class='rparen'>)</span>
 
-    <span class='comment'># read in the meta data
-</span>    <span class='id identifier rubyid_owner'>owner</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_brand'>brand</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>4</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_product_line'>product_line</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>5</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_model'>model</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>6</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
+  <span class='comment'># instantiate the base class with common data
+</span>  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_owner'>owner</span><span class='comma'>,</span> <span class='id identifier rubyid_brand'>brand</span><span class='comma'>,</span> <span class='id identifier rubyid_product_line'>product_line</span><span class='comma'>,</span> <span class='id identifier rubyid_model'>model</span><span class='rparen'>)</span>
+  <span class='ivar'>@type_clg_or_htg_or_defrost</span> <span class='op'>=</span> <span class='kw'>nil</span>
 
-    <span class='comment'># instantiate the base class with common data
-</span>    <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_owner'>owner</span><span class='comma'>,</span> <span class='id identifier rubyid_brand'>brand</span><span class='comma'>,</span> <span class='id identifier rubyid_product_line'>product_line</span><span class='comma'>,</span> <span class='id identifier rubyid_model'>model</span><span class='rparen'>)</span>
-    <span class='ivar'>@type_clg_or_htg_or_defrost</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='comment'># next we need to read in HPWH specific data
+</span>  <span class='comment'># first instantiate the main data point array
+</span>  <span class='ivar'>@this_data_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
-    <span class='comment'># next we need to read in HPWH specific data
-</span>    <span class='comment'># first instantiate the main data point array
-</span>    <span class='ivar'>@this_data_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='comment'># get the rated COP and capacity first to scale the values in the map
+</span>  <span class='id identifier rubyid_rated_cop'>rated_cop</span> <span class='op'>=</span> <span class='id identifier rubyid_csv_data'>csv_data</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDCOP</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_rated_cap'>rated_cap</span> <span class='op'>=</span> <span class='id identifier rubyid_csv_data'>csv_data</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDCAPACITY</span><span class='rparen'>)</span>
 
-    <span class='comment'># get the rated COP and capacity first to scale the values in the map
-</span>    <span class='id identifier rubyid_rated_cop'>rated_cop</span> <span class='op'>=</span> <span class='id identifier rubyid_csv_data'>csv_data</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDCOP</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_rated_cap'>rated_cap</span> <span class='op'>=</span> <span class='id identifier rubyid_csv_data'>csv_data</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDCAPACITY</span><span class='rparen'>)</span>
+  <span class='comment'># set reading bounds and other parameters, and start reading data
+</span>  <span class='id identifier rubyid_first_row_of_data'>first_row_of_data</span> <span class='op'>=</span> <span class='int'>11</span>
+  <span class='id identifier rubyid_last_row_of_data'>last_row_of_data</span>  <span class='op'>=</span> <span class='int'>40</span>
+  <span class='id identifier rubyid_column_capacity'>column_capacity</span>   <span class='op'>=</span> <span class='int'>4</span>
+  <span class='id identifier rubyid_column_power_in'>column_power_in</span>   <span class='op'>=</span> <span class='int'>5</span>
+  <span class='kw'>for</span> <span class='id identifier rubyid_row'>row</span> <span class='kw'>in</span> <span class='id identifier rubyid_first_row_of_data'>first_row_of_data</span><span class='op'>..</span><span class='id identifier rubyid_last_row_of_data'>last_row_of_data</span>
 
-    <span class='comment'># set reading bounds and other parameters, and start reading data
-</span>    <span class='id identifier rubyid_first_row_of_data'>first_row_of_data</span> <span class='op'>=</span> <span class='int'>11</span>
-    <span class='id identifier rubyid_last_row_of_data'>last_row_of_data</span>  <span class='op'>=</span> <span class='int'>40</span>
-    <span class='id identifier rubyid_column_capacity'>column_capacity</span>   <span class='op'>=</span> <span class='int'>4</span>
-    <span class='id identifier rubyid_column_power_in'>column_power_in</span>   <span class='op'>=</span> <span class='int'>5</span>
-    <span class='kw'>for</span> <span class='id identifier rubyid_row'>row</span> <span class='kw'>in</span> <span class='id identifier rubyid_first_row_of_data'>first_row_of_data</span><span class='op'>..</span><span class='id identifier rubyid_last_row_of_data'>last_row_of_data</span>
+    <span class='comment'># create array for independent and dependent variables
+</span>    <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_dependent_vars'>dependent_vars</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
-        <span class='comment'># create array for independent and dependent variables
-</span>        <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_dependent_vars'>dependent_vars</span>   <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='comment'># deduce air entering temp algorithmically...user CANT change the template
+</span>    <span class='kw'>case</span> <span class='id identifier rubyid_row'>row</span>
+    <span class='kw'>when</span> <span class='int'>11</span><span class='comma'>,</span> <span class='int'>17</span><span class='comma'>,</span> <span class='int'>23</span><span class='comma'>,</span> <span class='int'>29</span><span class='comma'>,</span> <span class='int'>35</span> <span class='kw'>then</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span> <span class='op'>-</span><span class='float'>9.4</span>
+    <span class='kw'>when</span> <span class='int'>12</span><span class='comma'>,</span> <span class='int'>18</span><span class='comma'>,</span> <span class='int'>24</span><span class='comma'>,</span> <span class='int'>30</span><span class='comma'>,</span> <span class='int'>36</span> <span class='kw'>then</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span>  <span class='float'>2.8</span>
+    <span class='kw'>when</span> <span class='int'>13</span><span class='comma'>,</span> <span class='int'>19</span><span class='comma'>,</span> <span class='int'>25</span><span class='comma'>,</span> <span class='int'>31</span><span class='comma'>,</span> <span class='int'>37</span> <span class='kw'>then</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span>  <span class='float'>6.4</span>
+    <span class='kw'>when</span> <span class='int'>14</span><span class='comma'>,</span> <span class='int'>20</span><span class='comma'>,</span> <span class='int'>26</span><span class='comma'>,</span> <span class='int'>32</span><span class='comma'>,</span> <span class='int'>38</span> <span class='kw'>then</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span>  <span class='float'>13.6</span>
+    <span class='kw'>when</span> <span class='int'>15</span><span class='comma'>,</span> <span class='int'>21</span><span class='comma'>,</span> <span class='int'>27</span><span class='comma'>,</span> <span class='int'>33</span><span class='comma'>,</span> <span class='int'>39</span> <span class='kw'>then</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span>  <span class='float'>21.8</span>
+    <span class='kw'>when</span> <span class='int'>16</span><span class='comma'>,</span> <span class='int'>22</span><span class='comma'>,</span> <span class='int'>28</span><span class='comma'>,</span> <span class='int'>34</span><span class='comma'>,</span> <span class='int'>40</span> <span class='kw'>then</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span>  <span class='float'>23.9</span>
+    <span class='kw'>end</span>
 
-        <span class='comment'># deduce air entering temp algorithmically...user CANT change the template
-</span>        <span class='kw'>case</span> <span class='id identifier rubyid_row'>row</span>
-        <span class='kw'>when</span> <span class='int'>11</span><span class='comma'>,</span> <span class='int'>17</span><span class='comma'>,</span> <span class='int'>23</span><span class='comma'>,</span> <span class='int'>29</span><span class='comma'>,</span> <span class='int'>35</span><span class='semicolon'>;</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span> <span class='op'>-</span><span class='float'>9.4</span>
-        <span class='kw'>when</span> <span class='int'>12</span><span class='comma'>,</span> <span class='int'>18</span><span class='comma'>,</span> <span class='int'>24</span><span class='comma'>,</span> <span class='int'>30</span><span class='comma'>,</span> <span class='int'>36</span><span class='semicolon'>;</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span>  <span class='float'>2.8</span>
-        <span class='kw'>when</span> <span class='int'>13</span><span class='comma'>,</span> <span class='int'>19</span><span class='comma'>,</span> <span class='int'>25</span><span class='comma'>,</span> <span class='int'>31</span><span class='comma'>,</span> <span class='int'>37</span><span class='semicolon'>;</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span>  <span class='float'>6.4</span>
-        <span class='kw'>when</span> <span class='int'>14</span><span class='comma'>,</span> <span class='int'>20</span><span class='comma'>,</span> <span class='int'>26</span><span class='comma'>,</span> <span class='int'>32</span><span class='comma'>,</span> <span class='int'>38</span><span class='semicolon'>;</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span>  <span class='float'>13.6</span>
-        <span class='kw'>when</span> <span class='int'>15</span><span class='comma'>,</span> <span class='int'>21</span><span class='comma'>,</span> <span class='int'>27</span><span class='comma'>,</span> <span class='int'>33</span><span class='comma'>,</span> <span class='int'>39</span><span class='semicolon'>;</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span>  <span class='float'>21.8</span>
-        <span class='kw'>when</span> <span class='int'>16</span><span class='comma'>,</span> <span class='int'>22</span><span class='comma'>,</span> <span class='int'>28</span><span class='comma'>,</span> <span class='int'>34</span><span class='comma'>,</span> <span class='int'>40</span><span class='semicolon'>;</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span>  <span class='float'>23.9</span>
-        <span class='kw'>end</span>
+    <span class='comment'># deduce condensing temp algorithmically...user CANT change the template
+</span>    <span class='kw'>case</span> <span class='id identifier rubyid_row'>row</span>
+    <span class='kw'>when</span> <span class='int'>11</span><span class='op'>..</span><span class='int'>16</span> <span class='kw'>then</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span> <span class='float'>12.8</span>
+    <span class='kw'>when</span> <span class='int'>17</span><span class='op'>..</span><span class='int'>22</span> <span class='kw'>then</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span> <span class='float'>26.7</span>
+    <span class='kw'>when</span> <span class='int'>23</span><span class='op'>..</span><span class='int'>28</span> <span class='kw'>then</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span> <span class='float'>37.8</span>
+    <span class='kw'>when</span> <span class='int'>29</span><span class='op'>..</span><span class='int'>34</span> <span class='kw'>then</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span> <span class='float'>48.9</span>
+    <span class='kw'>when</span> <span class='int'>35</span><span class='op'>..</span><span class='int'>40</span> <span class='kw'>then</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span> <span class='float'>60.0</span>
+    <span class='kw'>end</span>
 
-        <span class='comment'># deduce condensing temp algorithmically...user CANT change the template
-</span>        <span class='kw'>case</span> <span class='id identifier rubyid_row'>row</span>
-        <span class='kw'>when</span> <span class='int'>11</span><span class='op'>..</span><span class='int'>16</span><span class='semicolon'>;</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span> <span class='float'>12.8</span>
-        <span class='kw'>when</span> <span class='int'>17</span><span class='op'>..</span><span class='int'>22</span><span class='semicolon'>;</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span> <span class='float'>26.7</span>
-        <span class='kw'>when</span> <span class='int'>23</span><span class='op'>..</span><span class='int'>28</span><span class='semicolon'>;</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span> <span class='float'>37.8</span>
-        <span class='kw'>when</span> <span class='int'>29</span><span class='op'>..</span><span class='int'>34</span><span class='semicolon'>;</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span> <span class='float'>48.9</span>
-        <span class='kw'>when</span> <span class='int'>35</span><span class='op'>..</span><span class='int'>40</span><span class='semicolon'>;</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span> <span class='op'>&lt;&lt;</span> <span class='float'>60.0</span>
-        <span class='kw'>end</span>
+    <span class='comment'># read the dependent variables
+</span>    <span class='id identifier rubyid_capacity'>capacity</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_column_capacity'>column_capacity</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_power_in'>power_in</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_column_power_in'>column_power_in</span><span class='rparen'>)</span>
 
-        <span class='comment'># read the dependent variables
-</span>        <span class='id identifier rubyid_capacity'>capacity</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_column_capacity'>column_capacity</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_power_in'>power_in</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_column_power_in'>column_power_in</span><span class='rparen'>)</span>
-
+    <span class='id identifier rubyid_valid_point'>valid_point</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>for</span> <span class='id identifier rubyid_item'>item</span> <span class='kw'>in</span> <span class='lbracket'>[</span><span class='id identifier rubyid_capacity'>capacity</span><span class='comma'>,</span> <span class='id identifier rubyid_power_in'>power_in</span><span class='rbracket'>]</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='comment'># blank, leave it alone for now
+</span>      <span class='kw'>elsif</span> <span class='op'>!</span><span class='const'>Numerics</span><span class='period'>.</span><span class='id identifier rubyid_parameter_is_numeric?'>parameter_is_numeric?</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+        <span class='comment'># non-numerics, skip it
+</span>        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Found non-numerics in map data: [</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_capacity'>capacity</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_power_in'>power_in</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
         <span class='id identifier rubyid_valid_point'>valid_point</span> <span class='op'>=</span> <span class='kw'>false</span>
-        <span class='kw'>for</span> <span class='id identifier rubyid_item'>item</span> <span class='kw'>in</span> <span class='lbracket'>[</span><span class='id identifier rubyid_capacity'>capacity</span><span class='comma'>,</span> <span class='id identifier rubyid_power_in'>power_in</span><span class='rbracket'>]</span>
-            <span class='kw'>if</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-                <span class='comment'># blank, leave it alone for now
-</span>            <span class='kw'>elsif</span> <span class='op'>!</span><span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_parameter_is_numeric?'>parameter_is_numeric?</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
-                <span class='comment'># non-numerics, skip it
-</span>                <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Found non-numerics in map data: [</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_capacity'>capacity</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_power_in'>power_in</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-                <span class='id identifier rubyid_valid_point'>valid_point</span> <span class='op'>=</span> <span class='kw'>false</span>
-                <span class='kw'>break</span>
-            <span class='kw'>else</span>
-                <span class='comment'># good to go
-</span>                <span class='id identifier rubyid_valid_point'>valid_point</span> <span class='op'>=</span> <span class='kw'>true</span>
-            <span class='kw'>end</span>
-        <span class='kw'>end</span>
-        <span class='kw'>next</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_valid_point'>valid_point</span>
-
-        <span class='comment'># calculate the COP for this state
-</span>        <span class='id identifier rubyid_this_cop'>this_cop</span> <span class='op'>=</span> <span class='kw'>nil</span>
-        <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_capacity'>capacity</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>and</span> <span class='op'>!</span><span class='id identifier rubyid_power_in'>power_in</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='id identifier rubyid_this_cop'>this_cop</span> <span class='op'>=</span> <span class='id identifier rubyid_capacity'>capacity</span> <span class='op'>/</span> <span class='id identifier rubyid_power_in'>power_in</span>
-        <span class='kw'>end</span>
-
-        <span class='comment'># scale from rated conditions
-</span>        <span class='kw'>if</span> <span class='id identifier rubyid_capacity'>capacity</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='id identifier rubyid_dependent_vars'>dependent_vars</span> <span class='op'>&lt;&lt;</span> <span class='kw'>nil</span>
-        <span class='kw'>else</span>
-            <span class='id identifier rubyid_dependent_vars'>dependent_vars</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_capacity'>capacity</span> <span class='op'>/</span> <span class='id identifier rubyid_rated_cap'>rated_cap</span>
-        <span class='kw'>end</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_this_cop'>this_cop</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-            <span class='id identifier rubyid_dependent_vars'>dependent_vars</span> <span class='op'>&lt;&lt;</span> <span class='kw'>nil</span>
-        <span class='kw'>else</span>
-            <span class='id identifier rubyid_dependent_vars'>dependent_vars</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_this_cop'>this_cop</span> <span class='op'>/</span> <span class='id identifier rubyid_rated_cop'>rated_cop</span>
-        <span class='kw'>end</span>
-
-        <span class='comment'># create a new data point
-</span>        <span class='id identifier rubyid_this_data_point'>this_data_point</span> <span class='op'>=</span> <span class='const'>HPWHMapDataPoint</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_independent_vars'>independent_vars</span><span class='comma'>,</span> <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='rparen'>)</span>
-
-        <span class='comment'># add it to the main dataset hash
-</span>        <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='rparen'>)</span>
-
+        <span class='kw'>break</span>
+      <span class='kw'>else</span>
+        <span class='comment'># good to go
+</span>        <span class='id identifier rubyid_valid_point'>valid_point</span> <span class='op'>=</span> <span class='kw'>true</span>
+      <span class='kw'>end</span>
     <span class='kw'>end</span>
+    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_valid_point'>valid_point</span>
 
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># print base map data
-</span>    <span class='const'>HPWHMapDataPoint</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span> <span class='comment'># print class-level header line
-</span>    <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span> <span class='rbrace'>}</span> <span class='comment'># print all data points data
+    <span class='comment'># calculate the COP for this state
+</span>    <span class='id identifier rubyid_this_cop'>this_cop</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='id identifier rubyid_this_cop'>this_cop</span> <span class='op'>=</span> <span class='id identifier rubyid_capacity'>capacity</span> <span class='op'>/</span> <span class='id identifier rubyid_power_in'>power_in</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_capacity'>capacity</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_power_in'>power_in</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+    <span class='comment'># scale from rated conditions
+</span>    <span class='id identifier rubyid_dependent_vars'>dependent_vars</span> <span class='op'>&lt;&lt;</span> <span class='kw'>if</span> <span class='id identifier rubyid_capacity'>capacity</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+                        <span class='kw'>nil</span>
+                      <span class='kw'>else</span>
+                        <span class='id identifier rubyid_capacity'>capacity</span> <span class='op'>/</span> <span class='id identifier rubyid_rated_cap'>rated_cap</span>
+                      <span class='kw'>end</span>
+    <span class='id identifier rubyid_dependent_vars'>dependent_vars</span> <span class='op'>&lt;&lt;</span> <span class='kw'>if</span> <span class='id identifier rubyid_this_cop'>this_cop</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+                        <span class='kw'>nil</span>
+                      <span class='kw'>else</span>
+                        <span class='id identifier rubyid_this_cop'>this_cop</span> <span class='op'>/</span> <span class='id identifier rubyid_rated_cop'>rated_cop</span>
+                      <span class='kw'>end</span>
+
+    <span class='comment'># create a new data point
+</span>    <span class='id identifier rubyid_this_data_point'>this_data_point</span> <span class='op'>=</span> <span class='const'>HPWHMapDataPoint</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_independent_vars'>independent_vars</span><span class='comma'>,</span> <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='rparen'>)</span>
+
+    <span class='comment'># add it to the main dataset hash
+</span>    <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='rparen'>)</span>
+
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_spew'>spew</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'># print base map data
+</span>  <span class='const'>HPWHMapDataPoint</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span> <span class='comment'># print class-level header line
+</span>  <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:spew</span><span class='rparen'>)</span> <span class='comment'># print all data points data
 </span>
-    <span class='comment'># throw an error if the number of data points is not sufficient
-</span>    <span class='id identifier rubyid_map_template_max_data_points'>map_template_max_data_points</span> <span class='op'>=</span> <span class='int'>30</span>
-    <span class='kw'>if</span> <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='id identifier rubyid_map_template_max_data_points'>map_template_max_data_points</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>&lt;</span> <span class='float'>0.25</span>
-        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Insufficient data points for found this map file: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='ivar'>@insufficient_data_points</span> <span class='op'>=</span> <span class='kw'>true</span>
-        <span class='kw'>return</span>
-    <span class='kw'>end</span>
+  <span class='comment'># throw an error if the number of data points is not sufficient
+</span>  <span class='id identifier rubyid_map_template_max_data_points'>map_template_max_data_points</span> <span class='op'>=</span> <span class='int'>30</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='id identifier rubyid_map_template_max_data_points'>map_template_max_data_points</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>&lt;</span> <span class='float'>0.25</span>
+  <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Insufficient data points for found this map file: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@insufficient_data_points</span> <span class='op'>=</span> <span class='kw'>true</span>
 
 <span class='kw'>end</span></pre>
     </td>
@@ -555,12 +545,12 @@ Excelx.new</p>
       <pre class="lines">
 
 
-501
-502
-503</pre>
+216
+217
+218</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/HeatPumpWaterHeater.rb', line 501</span>
+      <pre class="code"><span class="info file"># File 'lib/products/HeatPumpWaterHeater.rb', line 216</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_this_data_set'>this_data_set</span>
   <span class='ivar'>@this_data_set</span>
@@ -598,12 +588,12 @@ Excelx.new</p>
       <pre class="lines">
 
 
-502
-503
-504</pre>
+217
+218
+219</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/HeatPumpWaterHeater.rb', line 502</span>
+      <pre class="code"><span class="info file"># File 'lib/products/HeatPumpWaterHeater.rb', line 217</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type_clg_or_htg_or_defrost'>type_clg_or_htg_or_defrost</span>
   <span class='ivar'>@type_clg_or_htg_or_defrost</span>
@@ -619,7 +609,7 @@ Excelx.new</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May 26 09:58:11 2016 by
+  Generated on Sat May 28 09:32:51 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

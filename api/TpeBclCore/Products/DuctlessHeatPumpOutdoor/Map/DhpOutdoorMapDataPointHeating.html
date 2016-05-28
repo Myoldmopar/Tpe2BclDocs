@@ -735,51 +735,51 @@ Celsius</p>
       <pre class="lines">
 
 
-436
-437
-438
-439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456</pre>
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 436</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 279</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_combination_ratio'>combination_ratio</span><span class='comma'>,</span> <span class='id identifier rubyid_outdoor_dry_bulb_temp'>outdoor_dry_bulb_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_outdoor_wet_bulb_temp'>outdoor_wet_bulb_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_indoor_dry_bulb_temp'>indoor_dry_bulb_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_heating_capacity'>heating_capacity</span><span class='comma'>,</span> <span class='id identifier rubyid_compressor_power'>compressor_power</span><span class='comma'>,</span> <span class='id identifier rubyid_fan_power'>fan_power</span><span class='comma'>,</span> <span class='id identifier rubyid_avg_rated_heating_capacity'>avg_rated_heating_capacity</span><span class='comma'>,</span> <span class='id identifier rubyid_avg_rated_energy_input'>avg_rated_energy_input</span><span class='rparen'>)</span>
-    <span class='ivar'>@combination_ratio</span>     <span class='op'>=</span> <span class='id identifier rubyid_combination_ratio'>combination_ratio</span>
-    <span class='ivar'>@outdoor_dry_bulb_temp</span> <span class='op'>=</span> <span class='id identifier rubyid_outdoor_dry_bulb_temp'>outdoor_dry_bulb_temp</span>
-    <span class='ivar'>@outdoor_wet_bulb_temp</span> <span class='op'>=</span> <span class='id identifier rubyid_outdoor_wet_bulb_temp'>outdoor_wet_bulb_temp</span>
-    <span class='ivar'>@indoor_dry_bulb_temp</span>  <span class='op'>=</span> <span class='id identifier rubyid_indoor_dry_bulb_temp'>indoor_dry_bulb_temp</span>
-    <span class='ivar'>@heating_capacity</span>      <span class='op'>=</span> <span class='id identifier rubyid_heating_capacity'>heating_capacity</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_heating_capacity'>heating_capacity</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-        <span class='ivar'>@heating_capacity_frac</span> <span class='op'>=</span> <span class='kw'>nil</span>
-    <span class='kw'>else</span>
-        <span class='ivar'>@heating_capacity_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_heating_capacity'>heating_capacity</span> <span class='op'>/</span> <span class='id identifier rubyid_avg_rated_heating_capacity'>avg_rated_heating_capacity</span>
-    <span class='kw'>end</span>
-    <span class='ivar'>@compressor_power</span>      <span class='op'>=</span> <span class='id identifier rubyid_compressor_power'>compressor_power</span>
-    <span class='ivar'>@fan_power</span>             <span class='op'>=</span> <span class='id identifier rubyid_fan_power'>fan_power</span>
-    <span class='ivar'>@rated_energy_input</span>    <span class='op'>=</span> <span class='id identifier rubyid_avg_rated_energy_input'>avg_rated_energy_input</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_compressor_power'>compressor_power</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>or</span> <span class='id identifier rubyid_fan_power'>fan_power</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-        <span class='ivar'>@energy_input</span>      <span class='op'>=</span> <span class='kw'>nil</span>
-    <span class='kw'>else</span>
-        <span class='ivar'>@energy_input</span>      <span class='op'>=</span> <span class='id identifier rubyid_compressor_power'>compressor_power</span> <span class='op'>+</span> <span class='id identifier rubyid_fan_power'>fan_power</span>
-    <span class='kw'>end</span>
-    <span class='ivar'>@product_rated_htg_cap</span> <span class='op'>=</span> <span class='id identifier rubyid_avg_rated_heating_capacity'>avg_rated_heating_capacity</span>
+  <span class='ivar'>@combination_ratio</span> <span class='op'>=</span> <span class='id identifier rubyid_combination_ratio'>combination_ratio</span>
+  <span class='ivar'>@outdoor_dry_bulb_temp</span> <span class='op'>=</span> <span class='id identifier rubyid_outdoor_dry_bulb_temp'>outdoor_dry_bulb_temp</span>
+  <span class='ivar'>@outdoor_wet_bulb_temp</span> <span class='op'>=</span> <span class='id identifier rubyid_outdoor_wet_bulb_temp'>outdoor_wet_bulb_temp</span>
+  <span class='ivar'>@indoor_dry_bulb_temp</span>  <span class='op'>=</span> <span class='id identifier rubyid_indoor_dry_bulb_temp'>indoor_dry_bulb_temp</span>
+  <span class='ivar'>@heating_capacity</span>      <span class='op'>=</span> <span class='id identifier rubyid_heating_capacity'>heating_capacity</span>
+  <span class='ivar'>@heating_capacity_frac</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_heating_capacity'>heating_capacity</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='kw'>nil</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_heating_capacity'>heating_capacity</span> <span class='op'>/</span> <span class='id identifier rubyid_avg_rated_heating_capacity'>avg_rated_heating_capacity</span>
+                           <span class='kw'>end</span>
+  <span class='ivar'>@compressor_power</span>      <span class='op'>=</span> <span class='id identifier rubyid_compressor_power'>compressor_power</span>
+  <span class='ivar'>@fan_power</span>             <span class='op'>=</span> <span class='id identifier rubyid_fan_power'>fan_power</span>
+  <span class='ivar'>@rated_energy_input</span>    <span class='op'>=</span> <span class='id identifier rubyid_avg_rated_energy_input'>avg_rated_energy_input</span>
+  <span class='ivar'>@energy_input</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_compressor_power'>compressor_power</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='id identifier rubyid_fan_power'>fan_power</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+                    <span class='kw'>nil</span>
+                  <span class='kw'>else</span>
+                    <span class='id identifier rubyid_compressor_power'>compressor_power</span> <span class='op'>+</span> <span class='id identifier rubyid_fan_power'>fan_power</span>
+                  <span class='kw'>end</span>
+  <span class='ivar'>@product_rated_htg_cap</span> <span class='op'>=</span> <span class='id identifier rubyid_avg_rated_heating_capacity'>avg_rated_heating_capacity</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -819,12 +819,12 @@ Celsius</p>
       <pre class="lines">
 
 
-416
-417
-418</pre>
+259
+260
+261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 416</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 259</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_combination_ratio'>combination_ratio</span>
   <span class='ivar'>@combination_ratio</span>
@@ -862,12 +862,12 @@ Celsius</p>
       <pre class="lines">
 
 
-422
-423
-424</pre>
+265
+266
+267</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 422</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 265</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_compressor_power'>compressor_power</span>
   <span class='ivar'>@compressor_power</span>
@@ -905,12 +905,12 @@ Celsius</p>
       <pre class="lines">
 
 
-425
-426
-427</pre>
+268
+269
+270</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 425</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 268</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_energy_input'>energy_input</span>
   <span class='ivar'>@energy_input</span>
@@ -948,12 +948,12 @@ Celsius</p>
       <pre class="lines">
 
 
-423
-424
-425</pre>
+266
+267
+268</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 423</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 266</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fan_power'>fan_power</span>
   <span class='ivar'>@fan_power</span>
@@ -991,12 +991,12 @@ Celsius</p>
       <pre class="lines">
 
 
-420
-421
-422</pre>
+263
+264
+265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 420</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 263</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_heating_capacity'>heating_capacity</span>
   <span class='ivar'>@heating_capacity</span>
@@ -1034,12 +1034,12 @@ Celsius</p>
       <pre class="lines">
 
 
-421
-422
-423</pre>
+264
+265
+266</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 421</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 264</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_heating_capacity_frac'>heating_capacity_frac</span>
   <span class='ivar'>@heating_capacity_frac</span>
@@ -1077,12 +1077,12 @@ Celsius</p>
       <pre class="lines">
 
 
-419
-420
-421</pre>
+262
+263
+264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 419</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 262</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_indoor_dry_bulb_temp'>indoor_dry_bulb_temp</span>
   <span class='ivar'>@indoor_dry_bulb_temp</span>
@@ -1120,12 +1120,12 @@ Celsius</p>
       <pre class="lines">
 
 
-417
-418
-419</pre>
+260
+261
+262</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 417</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 260</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_outdoor_dry_bulb_temp'>outdoor_dry_bulb_temp</span>
   <span class='ivar'>@outdoor_dry_bulb_temp</span>
@@ -1163,12 +1163,12 @@ Celsius</p>
       <pre class="lines">
 
 
-418
-419
-420</pre>
+261
+262
+263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 418</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 261</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_outdoor_wet_bulb_temp'>outdoor_wet_bulb_temp</span>
   <span class='ivar'>@outdoor_wet_bulb_temp</span>
@@ -1206,12 +1206,12 @@ Celsius</p>
       <pre class="lines">
 
 
-426
-427
-428</pre>
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 426</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 269</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_product_rated_htg_cap'>product_rated_htg_cap</span>
   <span class='ivar'>@product_rated_htg_cap</span>
@@ -1249,12 +1249,12 @@ Celsius</p>
       <pre class="lines">
 
 
-424
-425
-426</pre>
+267
+268
+269</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 424</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 267</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rated_energy_input'>rated_energy_input</span>
   <span class='ivar'>@rated_energy_input</span>
@@ -1298,17 +1298,17 @@ header, not actual values</p>
       <pre class="lines">
 
 
-476
-477
-478
-479</pre>
+319
+320
+321
+322</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 476</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 319</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Variable values read from map:</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>f(combination_ratio, outdoor_dry_bulb_temp, outdoor_wet_bulb_temp, indoor_dry_bulb_temp) = {heating_capacity, compressor_power, fan_power}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span>
+  <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Variable values read from map:</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>f(combination_ratio, outdoor_dry_bulb_temp, outdoor_wet_bulb_temp, indoor_dry_bulb_temp) = {heating_capacity, compressor_power, fan_power}</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1366,19 +1366,19 @@ energy_input</p>
       <pre class="lines">
 
 
-469
-470
-471
-472
-473</pre>
+312
+313
+314
+315
+316</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 469</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 312</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_dependent_vars'>get_dependent_vars</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>heating_capacity</span><span class='tstring_end'>&quot;</span></span>  <span class='op'>=&gt;</span> <span class='ivar'>@heating_capacity</span><span class='comma'>,</span>
-            <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>compressor_power</span><span class='tstring_end'>&quot;</span></span>      <span class='op'>=&gt;</span> <span class='ivar'>@compressor_power</span><span class='comma'>,</span>
-            <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fan_power</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@fan_power</span> <span class='rbrace'>}</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_dependent_vars'>get_dependent_vars</span>
+  <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>heating_capacity</span><span class='tstring_end'>&#39;</span></span>  <span class='op'>=&gt;</span> <span class='ivar'>@heating_capacity</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>compressor_power</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@compressor_power</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fan_power</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@fan_power</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1430,21 +1430,21 @@ outdoor_dry_bulb_temp, outdoor_wet_bulb_temp, indoor_dry_bulb_temp</p>
       <pre class="lines">
 
 
-460
-461
-462
-463
-464
-465</pre>
+303
+304
+305
+306
+307
+308</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 460</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 303</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_independent_vars'>get_independent_vars</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>combination_ratio</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@combination_ratio</span><span class='comma'>,</span>
-            <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>outdoor_dry_bulb_temp</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@outdoor_dry_bulb_temp</span><span class='comma'>,</span>
-            <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>outdoor_wet_bulb_temp</span><span class='tstring_end'>&quot;</span></span>  <span class='op'>=&gt;</span> <span class='ivar'>@outdoor_wet_bulb_temp</span><span class='comma'>,</span>
-            <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>indoor_dry_bulb_temp</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@indoor_dry_bulb_temp</span> <span class='rbrace'>}</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_independent_vars'>get_independent_vars</span>
+  <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>combination_ratio</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@combination_ratio</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>outdoor_dry_bulb_temp</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@outdoor_dry_bulb_temp</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>outdoor_wet_bulb_temp</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@outdoor_wet_bulb_temp</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>indoor_dry_bulb_temp</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@indoor_dry_bulb_temp</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1478,15 +1478,15 @@ values.  May call class-level first for a header</p>
       <pre class="lines">
 
 
-482
-483
-484</pre>
+325
+326
+327</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 482</span>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 325</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_spew'>spew</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>f(</span><span class='embexpr_beg'>#{</span><span class='ivar'>@combination_ratio</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@outdoor_dry_bulb_temp</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@outdoor_wet_bulb_temp</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_indoor_dry_bulb_temp'>indoor_dry_bulb_temp</span><span class='embexpr_end'>}</span><span class='tstring_content'>) = {</span><span class='embexpr_beg'>#{</span><span class='ivar'>@heating_capacity</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@compressor_power</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_fan_power'>fan_power</span><span class='embexpr_end'>}</span><span class='tstring_content'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_spew'>spew</span>
+  <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>f(</span><span class='embexpr_beg'>#{</span><span class='ivar'>@combination_ratio</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@outdoor_dry_bulb_temp</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@outdoor_wet_bulb_temp</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_indoor_dry_bulb_temp'>indoor_dry_bulb_temp</span><span class='embexpr_end'>}</span><span class='tstring_content'>) = {</span><span class='embexpr_beg'>#{</span><span class='ivar'>@heating_capacity</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@compressor_power</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_fan_power'>fan_power</span><span class='embexpr_end'>}</span><span class='tstring_content'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1498,7 +1498,7 @@ values.  May call class-level first for a header</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May 26 09:58:12 2016 by
+  Generated on Sat May 28 09:32:52 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

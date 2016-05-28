@@ -137,7 +137,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#make_cooling_curves-class_method" title="make_cooling_curves (class method)">+ (Object) <strong>make_cooling_curves</strong>(data_for_func_flow_curve, data_for_func_temp_curve, cool_cap_x, cool_cop_x, discrete_fan_speeds, speed, rated_flow_rate) </a>
+      <a href="#make_cooling_curves-class_method" title="make_cooling_curves (class method)">+ (Object) <strong>make_cooling_curves</strong>(data_for_func_flow_curve, data_for_func_temp_curve, cool_cap_x, cool_cop_x, rated_flow_rate) </a>
     
 
     
@@ -161,7 +161,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#make_heatpump_curves-class_method" title="make_heatpump_curves (class method)">+ (Object) <strong>make_heatpump_curves</strong>(data_for_func_flow_curve, data_for_func_temp_curve, heat_cap_x, heat_cop_x, discrete_fan_speeds, speed, rated_flow_rate) </a>
+      <a href="#make_heatpump_curves-class_method" title="make_heatpump_curves (class method)">+ (Object) <strong>make_heatpump_curves</strong>(data_for_func_flow_curve, data_for_func_temp_curve, heat_cap_x, heat_cop_x, rated_flow_rate) </a>
     
 
     
@@ -223,7 +223,7 @@
       
         &mdash;
         <div class='inline'>
-<p>A product performance data structure used to write idf object</p>
+<p>A product performance data structure used to write object</p>
 </div>
       
     </li>
@@ -240,7 +240,7 @@
         &mdash;
         <div class='inline'>
 <p>A gas or electric heating data set, after being post-processed with
-merging, to be written to the idf</p>
+merging, to be written to the osc</p>
 </div>
       
     </li>
@@ -273,6 +273,47 @@ conditions for each stage with the stage name as a key</p>
       <pre class="lines">
 
 
+893
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
 934
 935
 936
@@ -285,109 +326,64 @@ conditions for each stage with the stage name as a key</p>
 943
 944
 945
-946
-947
-948
-949
-950
-951
-952
-953
-954
-955
-956
-957
-958
-959
-960
-961
-962
-963
-964
-965
-966
-967
-968
-969
-970
-971
-972
-973
-974
-975
-976
-977
-978
-979
-980
-981
-982
-983
-984
-985
-986
-987
-988
-989</pre>
+946</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/RoofTopUnits.rb', line 934</span>
+      <pre class="code"><span class="info file"># File 'lib/products/RoofTopUnits.rb', line 893</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_gaselec_htg_rated_data_points'>get_gaselec_htg_rated_data_points</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='comma'>,</span> <span class='id identifier rubyid_merged_gaselec_htg_data_set'>merged_gaselec_htg_data_set</span><span class='rparen'>)</span>
+  <span class='comment'># set the rated conditions
+</span>  <span class='id identifier rubyid_rated_mixed_entering_db_temp'>rated_mixed_entering_db_temp</span> <span class='op'>=</span> <span class='op'>-</span><span class='float'>6.667</span>
+  <span class='comment'># find out number of speeds
+</span>  <span class='id identifier rubyid_heating_staging'>heating_staging</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_HEATINGSTAGING</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_NUMHEATINGSTAGES</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_heating_staging'>heating_staging</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_heating_staging'>heating_staging</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Single Stage</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>=</span> <span class='int'>1</span>
+    <span class='comment'># number of heating stages = number of heating stages
+</span>  <span class='kw'>end</span>
 
-    <span class='comment'># set the rated conditions
-</span>    <span class='id identifier rubyid_rated_mixed_entering_db_temp'>rated_mixed_entering_db_temp</span> <span class='op'>=</span> <span class='op'>-</span><span class='float'>6.667</span>
-    <span class='comment'># find out number of speeds
-</span>    <span class='id identifier rubyid_heating_staging'>heating_staging</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_HEATINGSTAGING</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_NUMHEATINGSTAGES</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_heating_staging'>heating_staging</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-        <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>=</span> <span class='int'>0</span>
-    <span class='kw'>elsif</span> <span class='id identifier rubyid_heating_staging'>heating_staging</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Single Stage</span><span class='tstring_end'>&quot;</span></span>
-        <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>=</span> <span class='int'>1</span>
-    <span class='kw'>else</span> <span class='comment'># number of heating stages = number of heating stages
-</span>    <span class='kw'>end</span>
+  <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
 
-    <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>&gt;=</span> <span class='int'>1</span>
+    <span class='comment'># create array of speed 1 data points
+</span>    <span class='id identifier rubyid_gaselec_htg_data_set_speed_1'>gaselec_htg_data_set_speed_1</span> <span class='op'>=</span> <span class='id identifier rubyid_merged_gaselec_htg_data_set'>merged_gaselec_htg_data_set</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_heating_stage'>heating_stage</span> <span class='op'>==</span> <span class='int'>1</span> <span class='rbrace'>}</span>
+    <span class='comment'># pick out data points at rated conditions
+</span>    <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_1'>gaselec_htg_data_point_at_rated_conditions_1</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_set_speed_1'>gaselec_htg_data_set_speed_1</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_mixed_entering_db_temp'>mixed_entering_db_temp</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='id identifier rubyid_rated_mixed_entering_db_temp'>rated_mixed_entering_db_temp</span> <span class='rbrace'>}</span>
+    <span class='comment'># add data points to correct array in hash
+</span>    <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stage1</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_1'>gaselec_htg_data_point_at_rated_conditions_1</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>==</span> <span class='int'>1</span>
+    <span class='comment'># add speed 1 rated data points to speed 2
+</span>    <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stage2</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_1'>gaselec_htg_data_point_at_rated_conditions_1</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>&gt;=</span> <span class='int'>2</span>
+    <span class='comment'># create array of speed 2 data points
+</span>    <span class='id identifier rubyid_gaselec_htg_data_set_speed_2'>gaselec_htg_data_set_speed_2</span> <span class='op'>=</span> <span class='id identifier rubyid_merged_gaselec_htg_data_set'>merged_gaselec_htg_data_set</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_heating_stage'>heating_stage</span> <span class='op'>==</span> <span class='int'>2</span> <span class='rbrace'>}</span>
+    <span class='comment'># pick out data points at rated conditions
+</span>    <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_2'>gaselec_htg_data_point_at_rated_conditions_2</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_set_speed_2'>gaselec_htg_data_set_speed_2</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_mixed_entering_db_temp'>mixed_entering_db_temp</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='id identifier rubyid_rated_mixed_entering_db_temp'>rated_mixed_entering_db_temp</span> <span class='rbrace'>}</span>
+    <span class='comment'># add data points to correct array in hash
+</span>    <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stage2</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_2'>gaselec_htg_data_point_at_rated_conditions_2</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>&gt;=</span> <span class='int'>3</span>
+    <span class='comment'># create array of speed 3 data points
+</span>    <span class='id identifier rubyid_gaselec_htg_data_set_speed_3'>gaselec_htg_data_set_speed_3</span> <span class='op'>=</span> <span class='id identifier rubyid_merged_gaselec_htg_data_set'>merged_gaselec_htg_data_set</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_heating_stage'>heating_stage</span> <span class='op'>==</span> <span class='int'>3</span> <span class='rbrace'>}</span>
+    <span class='comment'># pick out data points at rated conditions
+</span>    <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_3'>gaselec_htg_data_point_at_rated_conditions_3</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_set_speed_3'>gaselec_htg_data_set_speed_3</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_mixed_entering_db_temp'>mixed_entering_db_temp</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='id identifier rubyid_rated_mixed_entering_db_temp'>rated_mixed_entering_db_temp</span> <span class='rbrace'>}</span>
+    <span class='comment'># add data points to correct array in hash
+</span>    <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stage3</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_3'>gaselec_htg_data_point_at_rated_conditions_3</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>&gt;=</span> <span class='int'>4</span>
+    <span class='comment'># create array of speed 4 data points
+</span>    <span class='id identifier rubyid_gaselec_htg_data_set_speed_4'>gaselec_htg_data_set_speed_4</span> <span class='op'>=</span> <span class='id identifier rubyid_merged_gaselec_htg_data_set'>merged_gaselec_htg_data_set</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_heating_stage'>heating_stage</span> <span class='op'>==</span> <span class='int'>4</span> <span class='rbrace'>}</span>
+    <span class='comment'># pick out data points at rated conditions
+</span>    <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_4'>gaselec_htg_data_point_at_rated_conditions_4</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_set_speed_4'>gaselec_htg_data_set_speed_4</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_mixed_entering_db_temp'>mixed_entering_db_temp</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='id identifier rubyid_rated_mixed_entering_db_temp'>rated_mixed_entering_db_temp</span> <span class='rbrace'>}</span>
+    <span class='comment'># add data points to correct array in hash
+</span>    <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stage4</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_4'>gaselec_htg_data_point_at_rated_conditions_4</span>
+  <span class='kw'>end</span>
 
-    <span class='kw'>if</span> <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>&gt;=</span> <span class='int'>1</span>
-        <span class='comment'># create array of speed 1 data points
-</span>        <span class='id identifier rubyid_gaselec_htg_data_set_speed_1'>gaselec_htg_data_set_speed_1</span> <span class='op'>=</span> <span class='id identifier rubyid_merged_gaselec_htg_data_set'>merged_gaselec_htg_data_set</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_heating_stage'>heating_stage</span> <span class='op'>==</span> <span class='int'>1</span><span class='rbrace'>}</span>
-        <span class='comment'># pick out data points at rated conditions
-</span>        <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_1'>gaselec_htg_data_point_at_rated_conditions_1</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_set_speed_1'>gaselec_htg_data_set_speed_1</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_mixed_entering_db_temp'>mixed_entering_db_temp</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='id identifier rubyid_rated_mixed_entering_db_temp'>rated_mixed_entering_db_temp</span> <span class='rbrace'>}</span>
-        <span class='comment'># add data points to correct array in hash
-</span>        <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stage1</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_1'>gaselec_htg_data_point_at_rated_conditions_1</span>
-    <span class='kw'>end</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>==</span> <span class='int'>1</span>
-        <span class='comment'># add speed 1 rated data points to speed 2
-</span>        <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stage2</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_1'>gaselec_htg_data_point_at_rated_conditions_1</span>
-    <span class='kw'>end</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>&gt;=</span> <span class='int'>2</span>
-        <span class='comment'># create array of speed 2 data points
-</span>        <span class='id identifier rubyid_gaselec_htg_data_set_speed_2'>gaselec_htg_data_set_speed_2</span> <span class='op'>=</span> <span class='id identifier rubyid_merged_gaselec_htg_data_set'>merged_gaselec_htg_data_set</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_heating_stage'>heating_stage</span> <span class='op'>==</span> <span class='int'>2</span><span class='rbrace'>}</span>
-        <span class='comment'># pick out data points at rated conditions
-</span>        <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_2'>gaselec_htg_data_point_at_rated_conditions_2</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_set_speed_2'>gaselec_htg_data_set_speed_2</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_mixed_entering_db_temp'>mixed_entering_db_temp</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='id identifier rubyid_rated_mixed_entering_db_temp'>rated_mixed_entering_db_temp</span> <span class='rbrace'>}</span>
-        <span class='comment'># add data points to correct array in hash
-</span>        <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stage2</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_2'>gaselec_htg_data_point_at_rated_conditions_2</span>
-    <span class='kw'>end</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>&gt;=</span> <span class='int'>3</span>
-        <span class='comment'># create array of speed 3 data points
-</span>        <span class='id identifier rubyid_gaselec_htg_data_set_speed_3'>gaselec_htg_data_set_speed_3</span> <span class='op'>=</span> <span class='id identifier rubyid_merged_gaselec_htg_data_set'>merged_gaselec_htg_data_set</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_heating_stage'>heating_stage</span> <span class='op'>==</span> <span class='int'>3</span><span class='rbrace'>}</span>
-        <span class='comment'># pick out data points at rated conditions
-</span>        <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_3'>gaselec_htg_data_point_at_rated_conditions_3</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_set_speed_3'>gaselec_htg_data_set_speed_3</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_mixed_entering_db_temp'>mixed_entering_db_temp</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='id identifier rubyid_rated_mixed_entering_db_temp'>rated_mixed_entering_db_temp</span> <span class='rbrace'>}</span>
-        <span class='comment'># add data points to correct array in hash
-</span>        <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stage3</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_3'>gaselec_htg_data_point_at_rated_conditions_3</span>
-    <span class='kw'>end</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_number_of_heating_stages'>number_of_heating_stages</span> <span class='op'>&gt;=</span> <span class='int'>4</span>
-        <span class='comment'># create array of speed 4 data points
-</span>        <span class='id identifier rubyid_gaselec_htg_data_set_speed_4'>gaselec_htg_data_set_speed_4</span> <span class='op'>=</span> <span class='id identifier rubyid_merged_gaselec_htg_data_set'>merged_gaselec_htg_data_set</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_heating_stage'>heating_stage</span> <span class='op'>==</span> <span class='int'>4</span><span class='rbrace'>}</span>
-        <span class='comment'># pick out data points at rated conditions
-</span>        <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_4'>gaselec_htg_data_point_at_rated_conditions_4</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_set_speed_4'>gaselec_htg_data_set_speed_4</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_pnt'>pnt</span><span class='op'>|</span> <span class='id identifier rubyid_pnt'>pnt</span><span class='period'>.</span><span class='id identifier rubyid_mixed_entering_db_temp'>mixed_entering_db_temp</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='id identifier rubyid_rated_mixed_entering_db_temp'>rated_mixed_entering_db_temp</span> <span class='rbrace'>}</span>
-        <span class='comment'># add data points to correct array in hash
-</span>        <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stage4</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_gaselec_htg_data_point_at_rated_conditions_4'>gaselec_htg_data_point_at_rated_conditions_4</span>
-    <span class='kw'>end</span>
-
-    <span class='kw'>return</span> <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span>
-
+  <span class='id identifier rubyid_rated_gaselec_htg_data_points'>rated_gaselec_htg_data_points</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -397,7 +393,7 @@ conditions for each stage with the stage name as a key</p>
       <div class="method_details ">
   <h3 class="signature " id="make_cooling_curves-class_method">
   
-    + (<tt>Object</tt>) <strong>make_cooling_curves</strong>(data_for_func_flow_curve, data_for_func_temp_curve, cool_cap_x, cool_cop_x, discrete_fan_speeds, speed, rated_flow_rate) 
+    + (<tt>Object</tt>) <strong>make_cooling_curves</strong>(data_for_func_flow_curve, data_for_func_temp_curve, cool_cap_x, cool_cop_x, rated_flow_rate) 
   
 
   
@@ -483,7 +479,7 @@ for the function of flow curve</p>
   
     <li>
       
-        <span class='name'>discrete_fan_speeds</span>
+        <span class='name'>rated_flow_rate</span>
       
       
         <span class='type'>(<tt>Fixnum</tt>)</span>
@@ -492,23 +488,7 @@ for the function of flow curve</p>
       
         &mdash;
         <div class='inline'>
-<p>Number of discrete fan speeds</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>speed</span>
-      
-      
-        <span class='type'>(<tt>Fixnum</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>Defines compressor stage x</p>
+<p>The rated flow rate for this stagej</p>
 </div>
       
     </li>
@@ -522,6 +502,54 @@ for the function of flow curve</p>
       <pre class="lines">
 
 
+1038
+1039
+1040
+1041
+1042
+1043
+1044
+1045
+1046
+1047
+1048
+1049
+1050
+1051
+1052
+1053
+1054
+1055
+1056
+1057
+1058
+1059
+1060
+1061
+1062
+1063
+1064
+1065
+1066
+1067
+1068
+1069
+1070
+1071
+1072
+1073
+1074
+1075
+1076
+1077
+1078
+1079
+1080
+1081
+1082
+1083
+1084
+1085
 1086
 1087
 1088
@@ -572,161 +600,109 @@ for the function of flow curve</p>
 1133
 1134
 1135
-1136
-1137
-1138
-1139
-1140
-1141
-1142
-1143
-1144
-1145
-1146
-1147
-1148
-1149
-1150
-1151
-1152
-1153
-1154
-1155
-1156
-1157
-1158
-1159
-1160
-1161
-1162
-1163
-1164
-1165
-1166
-1167
-1168
-1169
-1170
-1171
-1172
-1173
-1174
-1175
-1176
-1177
-1178
-1179
-1180
-1181
-1182
-1183
-1184
-1185
-1186</pre>
+1136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/RoofTopUnits.rb', line 1086</span>
+      <pre class="code"><span class="info file"># File 'lib/products/RoofTopUnits.rb', line 1038</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_make_cooling_curves'>make_cooling_curves</span><span class='lparen'>(</span><span class='id identifier rubyid_data_for_func_flow_curve'>data_for_func_flow_curve</span><span class='comma'>,</span> <span class='id identifier rubyid_data_for_func_temp_curve'>data_for_func_temp_curve</span><span class='comma'>,</span> <span class='id identifier rubyid_cool_cap_x'>cool_cap_x</span><span class='comma'>,</span> <span class='id identifier rubyid_cool_cop_x'>cool_cop_x</span><span class='comma'>,</span> <span class='id identifier rubyid_discrete_fan_speeds'>discrete_fan_speeds</span><span class='comma'>,</span> <span class='id identifier rubyid_speed'>speed</span><span class='comma'>,</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_make_cooling_curves'>make_cooling_curves</span><span class='lparen'>(</span><span class='id identifier rubyid_data_for_func_flow_curve'>data_for_func_flow_curve</span><span class='comma'>,</span> <span class='id identifier rubyid_data_for_func_temp_curve'>data_for_func_temp_curve</span><span class='comma'>,</span> <span class='id identifier rubyid_cool_cap_x'>cool_cap_x</span><span class='comma'>,</span> <span class='id identifier rubyid_cool_cop_x'>cool_cop_x</span><span class='comma'>,</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='rparen'>)</span>
+  <span class='comment'># pick out data points at highest fan speed for function of temperature curves
+</span>  <span class='id identifier rubyid_this_cc_ft_set'>this_cc_ft_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_data_for_func_temp_curve'>data_for_func_temp_curve</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_data_point'>data_point</span><span class='op'>|</span>
+    <span class='comment'># create set of cooling capacities
+</span>    <span class='id identifier rubyid_cooling_cap_frac'>cooling_cap_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_clg_cap'>gross_total_clg_cap</span> <span class='op'>/</span> <span class='id identifier rubyid_cool_cap_x'>cool_cap_x</span> <span class='comment'># normalize cooling capacity
+</span>    <span class='id identifier rubyid_this_cc_ft_set'>this_cc_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_evap_entering_wb_temp'>evap_entering_wb_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_cond_entering_db_wb_temp'>cond_entering_db_wb_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_cooling_cap_frac'>cooling_cap_frac</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='comment'># create set of energy input ratios
+</span>    <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_cool_cop_x'>cool_cop_x</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_power_draw'>gross_power_draw</span> <span class='op'>-</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_supply_fan_power_draw'>supply_fan_power_draw</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_clg_cap'>gross_total_clg_cap</span> <span class='comment'># normalize EIR
+</span>    <span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_evap_entering_wb_temp'>evap_entering_wb_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_cond_entering_db_wb_temp'>cond_entering_db_wb_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
-    <span class='comment'># pick out data points at highest fan speed for function of temperature curves
-</span>    <span class='id identifier rubyid_this_cc_ft_set'>this_cc_ft_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_data_for_func_temp_curve'>data_for_func_temp_curve</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_data_point'>data_point</span><span class='op'>|</span>
-        <span class='comment'># create set of cooling capacities
-</span>        <span class='id identifier rubyid_cooling_cap_frac'>cooling_cap_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_clg_cap'>gross_total_clg_cap</span> <span class='op'>/</span> <span class='id identifier rubyid_cool_cap_x'>cool_cap_x</span> <span class='comment'># normalize cooling capacity
-</span>        <span class='id identifier rubyid_this_cc_ft_set'>this_cc_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_evap_entering_wb_temp'>evap_entering_wb_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_cond_entering_db_wb_temp'>cond_entering_db_wb_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_cooling_cap_frac'>cooling_cap_frac</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-        <span class='comment'># create set of energy input ratios
-</span>        <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_cool_cop_x'>cool_cop_x</span> <span class='op'>*</span> <span class='lparen'>(</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_power_draw'>gross_power_draw</span> <span class='op'>-</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_supply_fan_power_draw'>supply_fan_power_draw</span> <span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_clg_cap'>gross_total_clg_cap</span> <span class='comment'># normalize EIR
-</span>        <span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_evap_entering_wb_temp'>evap_entering_wb_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_cond_entering_db_wb_temp'>cond_entering_db_wb_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
+  <span class='comment'># pick out flow fractions for each fan speed
+</span>  <span class='id identifier rubyid_this_cc_ff_set'>this_cc_ff_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_unique_fan_speeds'>unique_fan_speeds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_data_for_func_flow_curve'>data_for_func_flow_curve</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_data_point'>data_point</span><span class='op'>|</span>
+    <span class='id identifier rubyid_flow_fraction'>flow_fraction</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_supply_fan_flow_rate'>supply_fan_flow_rate</span> <span class='op'>/</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span>
+    <span class='comment'># create set of cooling capacities
+</span>    <span class='id identifier rubyid_cooling_cap_frac'>cooling_cap_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_clg_cap'>gross_total_clg_cap</span> <span class='op'>/</span> <span class='id identifier rubyid_cool_cap_x'>cool_cap_x</span> <span class='comment'># normalize cooling capacity
+</span>    <span class='id identifier rubyid_this_cc_ff_set'>this_cc_ff_set</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_flow_fraction'>flow_fraction</span><span class='comma'>,</span> <span class='id identifier rubyid_cooling_cap_frac'>cooling_cap_frac</span><span class='rbracket'>]</span>
+    <span class='comment'># create set of energy input ratios
+</span>    <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_cool_cop_x'>cool_cop_x</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_power_draw'>gross_power_draw</span> <span class='op'>-</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_supply_fan_power_draw'>supply_fan_power_draw</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_clg_cap'>gross_total_clg_cap</span> <span class='comment'># normalize EIR
+</span>    <span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_flow_fraction'>flow_fraction</span><span class='comma'>,</span> <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
 
-    <span class='comment'># pick out flow fractions for each fan speed
-</span>    <span class='id identifier rubyid_this_cc_ff_set'>this_cc_ff_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_unique_fan_speeds'>unique_fan_speeds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_data_for_func_flow_curve'>data_for_func_flow_curve</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_data_point'>data_point</span><span class='op'>|</span>
-        <span class='id identifier rubyid_flow_fraction'>flow_fraction</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_supply_fan_flow_rate'>supply_fan_flow_rate</span> <span class='op'>/</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span>
-        <span class='comment'># create set of cooling capacities
-</span>        <span class='id identifier rubyid_cooling_cap_frac'>cooling_cap_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_clg_cap'>gross_total_clg_cap</span> <span class='op'>/</span> <span class='id identifier rubyid_cool_cap_x'>cool_cap_x</span> <span class='comment'># normalize cooling capacity
-</span>        <span class='id identifier rubyid_this_cc_ff_set'>this_cc_ff_set</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_flow_fraction'>flow_fraction</span><span class='comma'>,</span> <span class='id identifier rubyid_cooling_cap_frac'>cooling_cap_frac</span><span class='rbracket'>]</span>
-        <span class='comment'># create set of energy input ratios
-</span>        <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_cool_cop_x'>cool_cop_x</span> <span class='op'>*</span> <span class='lparen'>(</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_power_draw'>gross_power_draw</span> <span class='op'>-</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_supply_fan_power_draw'>supply_fan_power_draw</span> <span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_clg_cap'>gross_total_clg_cap</span> <span class='comment'># normalize EIR
-</span>        <span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_flow_fraction'>flow_fraction</span><span class='comma'>,</span> <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span><span class='rbracket'>]</span>
-    <span class='kw'>end</span>
+  <span class='id identifier rubyid_stage_curves'>stage_curves</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
-    <span class='id identifier rubyid_stage_curves'>stage_curves</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-
-    <span class='comment'># HPACCoolCapFT Speed x,           !- Total Cooling Capacity Function of Temperature Curve Name
-</span>    <span class='comment'># TCC = f(T_coil_wb, T_condenser_db_wb)
-</span>    <span class='kw'>if</span> <span class='id identifier rubyid_this_cc_ft_set'>this_cc_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
-        <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_ccft_table_curve'>ccft_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_cc_ft_set'>this_cc_ft_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_ccft_table_curve'>ccft_table_curve</span>
-    <span class='kw'>else</span>
-        <span class='id identifier rubyid_coefficients'>coefficients</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_x_bounds'>x_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_y_bounds'>y_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-
-    <span class='comment'># HPACCoolCapFF Speed x,           !- Total Cooling Capacity Function of Flow Fraction Curve Name
-</span>    <span class='comment'># TCC = f(flow_fraction)
-</span>    <span class='kw'>if</span> <span class='id identifier rubyid_this_cc_ff_set'>this_cc_ff_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
-        <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_ccff_table_curve'>ccff_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_one_indep_var_table'>write_one_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_cc_ff_set'>this_cc_ff_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Quadratic</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_ccff_table_curve'>ccff_table_curve</span>
-    <span class='kw'>else</span>
-        <span class='id identifier rubyid_coefficients'>coefficients</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_x_bounds'>x_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_y_bounds'>y_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-
-    <span class='comment'># HPACCoolEIRFT Speed x,           !- Energy Input Ratio Function of Temperature Curve Name
-</span>    <span class='comment'># EIR = f(T_coil_wb, T_condenser_db_wb)
-</span>    <span class='kw'>if</span> <span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
-        <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_eirft_table_curve'>eirft_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_eirft_table_curve'>eirft_table_curve</span>
-    <span class='kw'>else</span>
-        <span class='id identifier rubyid_coefficients'>coefficients</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_x_bounds'>x_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_y_bounds'>y_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-
-    <span class='comment'># HPACCoolEIRFF Speed x,           !- Energy Input Ratio Function of FLow Fraction Curve Name
-</span>    <span class='comment'># EIR = f(flow_fraction)
-</span>    <span class='kw'>if</span> <span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
-        <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_eirff_table_curve'>eirff_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_one_indep_var_table'>write_one_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Quadratic</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_eirff_table_curve'>eirff_table_curve</span>
-    <span class='kw'>else</span>
-        <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_coefficients'>coefficients</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_x_bounds'>x_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_y_bounds'>y_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-
-    <span class='comment'># HPACCoolPLFFPLR Speed x,         !- Part Load Fraction Function of Part Load Ratio
-</span>    <span class='comment'># PLF = f(PLR)
-</span>    <span class='id identifier rubyid_coefficients'>coefficients</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='float'>0.85</span><span class='comma'>,</span> <span class='float'>0.15</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='comment'># HPACCoolCapFT Speed x,           !- Total Cooling Capacity Function of Temperature Curve Name
+</span>  <span class='comment'># TCC = f(T_coil_wb, T_condenser_db_wb)
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_this_cc_ft_set'>this_cc_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_ccft_table_curve'>ccft_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_cc_ft_set'>this_cc_ft_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_ccft_table_curve'>ccft_table_curve</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_coefficients'>coefficients</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_x_bounds'>x_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_y_bounds'>y_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='float'>0.7</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_y_bounds'>y_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_plf_curve'>plf_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_plf_curve'>plf_curve</span>
+  <span class='comment'># HPACCoolCapFF Speed x,           !- Total Cooling Capacity Function of Flow Fraction Curve Name
+</span>  <span class='comment'># TCC = f(flow_fraction)
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_this_cc_ff_set'>this_cc_ff_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_ccff_table_curve'>ccff_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_one_indep_var_table'>write_one_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_cc_ff_set'>this_cc_ff_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Quadratic</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_ccff_table_curve'>ccff_table_curve</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_coefficients'>coefficients</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_x_bounds'>x_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_y_bounds'>y_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
-    <span class='comment'># stage data requires waste heat function of temp curve..
-</span>    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_waste_heat_recovery'>waste_heat_recovery</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_waste_heat_recovery'>waste_heat_recovery</span>
+  <span class='comment'># HPACCoolEIRFT Speed x,           !- Energy Input Ratio Function of Temperature Curve Name
+</span>  <span class='comment'># EIR = f(T_coil_wb, T_condenser_db_wb)
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_eirft_table_curve'>eirft_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_eirft_table_curve'>eirft_table_curve</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_coefficients'>coefficients</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_x_bounds'>x_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_y_bounds'>y_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
-    <span class='kw'>return</span> <span class='id identifier rubyid_stage_curves'>stage_curves</span>
+  <span class='comment'># HPACCoolEIRFF Speed x,           !- Energy Input Ratio Function of FLow Fraction Curve Name
+</span>  <span class='comment'># EIR = f(flow_fraction)
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_eirff_table_curve'>eirff_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_one_indep_var_table'>write_one_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Quadratic</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_eirff_table_curve'>eirff_table_curve</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_coefficients'>coefficients</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_x_bounds'>x_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_y_bounds'>y_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
+  <span class='comment'># HPACCoolPLFFPLR Speed x,         !- Part Load Fraction Function of Part Load Ratio
+</span>  <span class='comment'># PLF = f(PLR)
+</span>  <span class='id identifier rubyid_coefficients'>coefficients</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='float'>0.85</span><span class='comma'>,</span> <span class='float'>0.15</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_x_bounds'>x_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_y_bounds'>y_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='float'>0.7</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_plf_curve'>plf_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_plf_curve'>plf_curve</span>
+
+  <span class='comment'># stage data requires waste heat function of temp curve..
+</span>  <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_waste_heat_recovery'>waste_heat_recovery</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_waste_heat_recovery'>waste_heat_recovery</span>
+
+  <span class='id identifier rubyid_stage_curves'>stage_curves</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -736,7 +712,7 @@ for the function of flow curve</p>
       <div class="method_details ">
   <h3 class="signature " id="make_heatpump_curves-class_method">
   
-    + (<tt>Object</tt>) <strong>make_heatpump_curves</strong>(data_for_func_flow_curve, data_for_func_temp_curve, heat_cap_x, heat_cop_x, discrete_fan_speeds, speed, rated_flow_rate) 
+    + (<tt>Object</tt>) <strong>make_heatpump_curves</strong>(data_for_func_flow_curve, data_for_func_temp_curve, heat_cap_x, heat_cop_x, rated_flow_rate) 
   
 
   
@@ -822,38 +798,6 @@ the function of temperature curve</p>
   
     <li>
       
-        <span class='name'>discrete_fan_speeds</span>
-      
-      
-        <span class='type'>(<tt>Fixnum</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>Number of discrete fan speeds</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>speed</span>
-      
-      
-        <span class='type'>(<tt>Fixnum</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>Defines compressor stage x</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
         <span class='name'>rated_flow_rate</span>
       
       
@@ -872,6 +816,51 @@ the function of temperature curve</p>
       <pre class="lines">
 
 
+954
+955
+956
+957
+958
+959
+960
+961
+962
+963
+964
+965
+966
+967
+968
+969
+970
+971
+972
+973
+974
+975
+976
+977
+978
+979
+980
+981
+982
+983
+984
+985
+986
+987
+988
+989
+990
+991
+992
+993
+994
+995
+996
+997
+998
 999
 1000
 1001
@@ -903,136 +892,87 @@ the function of temperature curve</p>
 1027
 1028
 1029
-1030
-1031
-1032
-1033
-1034
-1035
-1036
-1037
-1038
-1039
-1040
-1041
-1042
-1043
-1044
-1045
-1046
-1047
-1048
-1049
-1050
-1051
-1052
-1053
-1054
-1055
-1056
-1057
-1058
-1059
-1060
-1061
-1062
-1063
-1064
-1065
-1066
-1067
-1068
-1069
-1070
-1071
-1072
-1073
-1074
-1075
-1076
-1077</pre>
+1030</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/RoofTopUnits.rb', line 999</span>
+      <pre class="code"><span class="info file"># File 'lib/products/RoofTopUnits.rb', line 954</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_make_heatpump_curves'>make_heatpump_curves</span><span class='lparen'>(</span><span class='id identifier rubyid_data_for_func_flow_curve'>data_for_func_flow_curve</span><span class='comma'>,</span> <span class='id identifier rubyid_data_for_func_temp_curve'>data_for_func_temp_curve</span><span class='comma'>,</span> <span class='id identifier rubyid_heat_cap_x'>heat_cap_x</span><span class='comma'>,</span> <span class='id identifier rubyid_heat_cop_x'>heat_cop_x</span><span class='comma'>,</span> <span class='id identifier rubyid_discrete_fan_speeds'>discrete_fan_speeds</span><span class='comma'>,</span> <span class='id identifier rubyid_speed'>speed</span><span class='comma'>,</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_make_heatpump_curves'>make_heatpump_curves</span><span class='lparen'>(</span><span class='id identifier rubyid_data_for_func_flow_curve'>data_for_func_flow_curve</span><span class='comma'>,</span> <span class='id identifier rubyid_data_for_func_temp_curve'>data_for_func_temp_curve</span><span class='comma'>,</span> <span class='id identifier rubyid_heat_cap_x'>heat_cap_x</span><span class='comma'>,</span> <span class='id identifier rubyid_heat_cop_x'>heat_cop_x</span><span class='comma'>,</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='rparen'>)</span>
+  <span class='comment'># pick out data points at highest fan speed for function of temperature curves
+</span>  <span class='id identifier rubyid_this_hc_ft_set'>this_hc_ft_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_data_for_func_temp_curve'>data_for_func_temp_curve</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_data_point'>data_point</span><span class='op'>|</span>
+    <span class='comment'># create set of heating capacities
+</span>    <span class='id identifier rubyid_heating_cap_frac'>heating_cap_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_htg_cap'>gross_total_htg_cap</span> <span class='op'>/</span> <span class='id identifier rubyid_heat_cap_x'>heat_cap_x</span> <span class='comment'># normalize heating capacity
+</span>    <span class='id identifier rubyid_this_hc_ft_set'>this_hc_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_indr_coil_entering_db_temp'>indr_coil_entering_db_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_outdr_coil_entering_db_temp'>outdr_coil_entering_db_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_heating_cap_frac'>heating_cap_frac</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='comment'># create set of energy input ratios
+</span>    <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_heat_cop_x'>heat_cop_x</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_power_draw'>gross_power_draw</span> <span class='op'>-</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_supply_fan_power_draw'>supply_fan_power_draw</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_htg_cap'>gross_total_htg_cap</span>
+    <span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_indr_coil_entering_db_temp'>indr_coil_entering_db_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_outdr_coil_entering_db_temp'>outdr_coil_entering_db_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
-    <span class='comment'># pick out data points at highest fan speed for function of temperature curves
-</span>    <span class='id identifier rubyid_this_hc_ft_set'>this_hc_ft_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_data_for_func_temp_curve'>data_for_func_temp_curve</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_data_point'>data_point</span><span class='op'>|</span>
-        <span class='comment'># create set of heating capacities
-</span>        <span class='id identifier rubyid_heating_cap_frac'>heating_cap_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_htg_cap'>gross_total_htg_cap</span> <span class='op'>/</span> <span class='id identifier rubyid_heat_cap_x'>heat_cap_x</span> <span class='comment'># normalize heating capacity
-</span>        <span class='id identifier rubyid_this_hc_ft_set'>this_hc_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_indr_coil_entering_db_temp'>indr_coil_entering_db_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_outdr_coil_entering_db_temp'>outdr_coil_entering_db_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_heating_cap_frac'>heating_cap_frac</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-        <span class='comment'># create set of energy input ratios
-</span>        <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_heat_cop_x'>heat_cop_x</span> <span class='op'>*</span> <span class='lparen'>(</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_power_draw'>gross_power_draw</span> <span class='op'>-</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_supply_fan_power_draw'>supply_fan_power_draw</span> <span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_htg_cap'>gross_total_htg_cap</span>
-        <span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_indr_coil_entering_db_temp'>indr_coil_entering_db_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_outdr_coil_entering_db_temp'>outdr_coil_entering_db_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-   <span class='kw'>end</span>
+  <span class='comment'># pick out flow fractions for each fan speed
+</span>  <span class='id identifier rubyid_this_hc_ff_set'>this_hc_ff_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_data_for_func_flow_curve'>data_for_func_flow_curve</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_data_point'>data_point</span><span class='op'>|</span>
+    <span class='id identifier rubyid_flow_fraction'>flow_fraction</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_supply_fan_flow_rate'>supply_fan_flow_rate</span> <span class='op'>/</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span>
+    <span class='comment'># create set of heating capacities
+</span>    <span class='id identifier rubyid_heating_cap_frac'>heating_cap_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_htg_cap'>gross_total_htg_cap</span> <span class='op'>/</span> <span class='id identifier rubyid_heat_cap_x'>heat_cap_x</span> <span class='comment'># normalize cooling capacity
+</span>    <span class='id identifier rubyid_this_hc_ff_set'>this_hc_ff_set</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_flow_fraction'>flow_fraction</span><span class='comma'>,</span> <span class='id identifier rubyid_heating_cap_frac'>heating_cap_frac</span><span class='rbracket'>]</span>
+    <span class='comment'># create set of energy input ratios
+</span>    <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_heat_cop_x'>heat_cop_x</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_power_draw'>gross_power_draw</span> <span class='op'>-</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_supply_fan_power_draw'>supply_fan_power_draw</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_htg_cap'>gross_total_htg_cap</span> <span class='comment'># normalize EIR
+</span>    <span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_flow_fraction'>flow_fraction</span><span class='comma'>,</span> <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
 
-   <span class='comment'># pick out flow fractions for each fan speed
-</span>    <span class='id identifier rubyid_this_hc_ff_set'>this_hc_ff_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_data_for_func_flow_curve'>data_for_func_flow_curve</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_data_point'>data_point</span><span class='op'>|</span>
-        <span class='id identifier rubyid_flow_fraction'>flow_fraction</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_supply_fan_flow_rate'>supply_fan_flow_rate</span> <span class='op'>/</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span>
-        <span class='comment'># create set of heating capacities
-</span>        <span class='id identifier rubyid_heating_cap_frac'>heating_cap_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_htg_cap'>gross_total_htg_cap</span> <span class='op'>/</span> <span class='id identifier rubyid_heat_cap_x'>heat_cap_x</span> <span class='comment'># normalize cooling capacity
-</span>        <span class='id identifier rubyid_this_hc_ff_set'>this_hc_ff_set</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_flow_fraction'>flow_fraction</span><span class='comma'>,</span> <span class='id identifier rubyid_heating_cap_frac'>heating_cap_frac</span><span class='rbracket'>]</span>
-        <span class='comment'># create set of energy input ratios
-</span>        <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span> <span class='op'>=</span> <span class='id identifier rubyid_heat_cop_x'>heat_cop_x</span> <span class='op'>*</span> <span class='lparen'>(</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_power_draw'>gross_power_draw</span> <span class='op'>-</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_supply_fan_power_draw'>supply_fan_power_draw</span> <span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_data_point'>data_point</span><span class='period'>.</span><span class='id identifier rubyid_gross_total_htg_cap'>gross_total_htg_cap</span> <span class='comment'># normalize EIR
-</span>        <span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_flow_fraction'>flow_fraction</span><span class='comma'>,</span> <span class='id identifier rubyid_energy_input_ratio_frac'>energy_input_ratio_frac</span><span class='rbracket'>]</span>
-    <span class='kw'>end</span>
+  <span class='id identifier rubyid_stage_curves'>stage_curves</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
-    <span class='id identifier rubyid_stage_curves'>stage_curves</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='comment'># HPACHeatCapFT Speed x,           !- Total Heating Capacity Function of Temperature Curve Name
+</span>  <span class='comment'># THC = f(T_indoor_db, T_outdoor_db)
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_this_hc_ft_set'>this_hc_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_hcft_table_curve'>hcft_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_hc_ft_set'>this_hc_ft_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_hcft_table_curve'>hcft_table_curve</span>
+  <span class='kw'>end</span>
 
-    <span class='comment'># HPACHeatCapFT Speed x,           !- Total Heating Capacity Function of Temperature Curve Name
-</span>    <span class='comment'># THC = f(T_indoor_db, T_outdoor_db)
-</span>    <span class='kw'>if</span> <span class='id identifier rubyid_this_hc_ft_set'>this_hc_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
-        <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_hcft_table_curve'>hcft_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_hc_ft_set'>this_hc_ft_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_hcft_table_curve'>hcft_table_curve</span>
-    <span class='kw'>end</span>
+  <span class='comment'># HPACHeatCapFF Speed x,           !- Total Heating Capacity Function of Flow Fraction Curve Name
+</span>  <span class='comment'># THC = f(flow_fraction)
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_this_hc_ff_set'>this_hc_ff_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_hcff_table_curve'>hcff_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_one_indep_var_table'>write_one_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_hc_ff_set'>this_hc_ff_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Quadratic</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_hcff_table_curve'>hcff_table_curve</span>
+  <span class='kw'>end</span>
 
-    <span class='comment'># HPACHeatCapFF Speed x,           !- Total Heating Capacity Function of Flow Fraction Curve Name
-</span>    <span class='comment'># THC = f(flow_fraction)
-</span>    <span class='kw'>if</span> <span class='id identifier rubyid_this_hc_ff_set'>this_hc_ff_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
-        <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_hcff_table_curve'>hcff_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_one_indep_var_table'>write_one_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_hc_ff_set'>this_hc_ff_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Quadratic</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_hcff_table_curve'>hcff_table_curve</span>
-    <span class='kw'>end</span>
+  <span class='comment'># HPACHeatEIRFT Speed x,           !- Energy Input Ratio Function of Temperature Curve Name
+</span>  <span class='comment'># EIR = f(T_indoor_db, T_outdoor_db)
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_eirft_table_curve'>eirft_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_eirft_table_curve'>eirft_table_curve</span>
+  <span class='kw'>end</span>
 
-    <span class='comment'># HPACHeatEIRFT Speed x,           !- Energy Input Ratio Function of Temperature Curve Name
-</span>    <span class='comment'># EIR = f(T_indoor_db, T_outdoor_db)
-</span>    <span class='kw'>if</span> <span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
-        <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_eirft_table_curve'>eirft_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_eir_ft_set'>this_eir_ft_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_eirft_table_curve'>eirft_table_curve</span>
-    <span class='kw'>end</span>
+  <span class='comment'># HPACHeatEIRFF Speed x,           !- Energy Input Ratio Function of FLow Fraction Curve Name
+</span>  <span class='comment'># EIR = f(flow_fraction)
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_eirff_table_curve'>eirff_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_one_indep_var_table'>write_one_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Quadratic</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_eirff_table_curve'>eirff_table_curve</span>
+  <span class='kw'>end</span>
 
-    <span class='comment'># HPACHeatEIRFF Speed x,           !- Energy Input Ratio Function of FLow Fraction Curve Name
-</span>    <span class='comment'># EIR = f(flow_fraction)
-</span>    <span class='kw'>if</span> <span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
-        <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_eirff_table_curve'>eirff_table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_one_indep_var_table'>write_one_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_this_eir_ff_set'>this_eir_ff_set</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Quadratic</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_eirff_table_curve'>eirff_table_curve</span>
-    <span class='kw'>end</span>
+  <span class='comment'># HPACHeatPLFFPLR Speed x,         !- Part Load Fraction Function of Part Load Ratio
+</span>  <span class='comment'># PLF = f(PLR)
+</span>  <span class='id identifier rubyid_coefficients'>coefficients</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='float'>0.85</span><span class='comma'>,</span> <span class='float'>0.15</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_x_bounds'>x_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_y_bounds'>y_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='float'>0.7</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
 
-    <span class='comment'># HPACHeatPLFFPLR Speed x,         !- Part Load Fraction Function of Part Load Ratio
-</span>    <span class='comment'># PLF = f(PLR)
-</span>    <span class='id identifier rubyid_coefficients'>coefficients</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='float'>0.85</span><span class='comma'>,</span> <span class='float'>0.15</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_x_bounds'>x_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_y_bounds'>y_bounds</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='float'>0.7</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_plf_curve'>plf_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_plf_curve'>plf_curve</span>
 
-    <span class='id identifier rubyid_plf_curve'>plf_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_quadratic_curve'>write_quadratic_curve</span><span class='lparen'>(</span><span class='id identifier rubyid_coefficients'>coefficients</span><span class='comma'>,</span> <span class='id identifier rubyid_x_bounds'>x_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_y_bounds'>y_bounds</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_plf_curve'>plf_curve</span>
+  <span class='comment'># stage data requires waste heat function of temp curve..
+</span>  <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>OSMWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_waste_heat_recovery'>waste_heat_recovery</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_waste_heat_recovery'>waste_heat_recovery</span>
 
-    <span class='comment'># stage data requires waste heat function of temp curve..
-</span>    <span class='id identifier rubyid_unit_types'>unit_types</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_waste_heat_recovery'>waste_heat_recovery</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_stage_curves'>stage_curves</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_waste_heat_recovery'>waste_heat_recovery</span>
-
-    <span class='kw'>return</span> <span class='id identifier rubyid_stage_curves'>stage_curves</span>
-
+  <span class='id identifier rubyid_stage_curves'>stage_curves</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1044,7 +984,7 @@ the function of temperature curve</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May 26 09:58:08 2016 by
+  Generated on Sat May 28 09:32:48 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

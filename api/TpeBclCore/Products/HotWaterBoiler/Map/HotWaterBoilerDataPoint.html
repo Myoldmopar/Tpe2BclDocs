@@ -447,15 +447,15 @@ values.</p>
       <pre class="lines">
 
 
-139
-140
-141
-142
-143
-144</pre>
+123
+124
+125
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 123</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_independent_vars'>independent_vars</span><span class='comma'>,</span> <span class='id identifier rubyid_dependent_vars'>dependent_vars</span><span class='rparen'>)</span>
   <span class='ivar'>@flow_rate</span>           <span class='op'>=</span> <span class='id identifier rubyid_independent_vars'>independent_vars</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
@@ -501,12 +501,12 @@ values.</p>
       <pre class="lines">
 
 
-132
-133
-134</pre>
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 116</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_entering_water_temp'>entering_water_temp</span>
   <span class='ivar'>@entering_water_temp</span>
@@ -544,12 +544,12 @@ values.</p>
       <pre class="lines">
 
 
-131
-132
-133</pre>
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flow_rate'>flow_rate</span>
   <span class='ivar'>@flow_rate</span>
@@ -587,12 +587,12 @@ values.</p>
       <pre class="lines">
 
 
-133
-134
-135</pre>
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_input_power'>input_power</span>
   <span class='ivar'>@input_power</span>
@@ -630,12 +630,12 @@ values.</p>
       <pre class="lines">
 
 
-134
-135
-136</pre>
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 134</span>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_leaving_water_temp'>leaving_water_temp</span>
   <span class='ivar'>@leaving_water_temp</span>
@@ -679,17 +679,17 @@ header, not actual values</p>
       <pre class="lines">
 
 
-161
-162
-163
-164</pre>
+145
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 145</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Variable values read from the map:</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>f(flow_rate, entering_water_temp) = {input_power, leaving_water_temp}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span>
+  <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Variable values read from the map:</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>f(flow_rate, entering_water_temp) = {input_power, leaving_water_temp}</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -747,17 +747,17 @@ leaving_water_temp</p>
       <pre class="lines">
 
 
-155
-156
-157
-158</pre>
+139
+140
+141
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 155</span>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 139</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_dependent_vars'>get_dependent_vars</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>input_power</span><span class='tstring_end'>&quot;</span></span>        <span class='op'>=&gt;</span> <span class='ivar'>@input_power</span><span class='comma'>,</span>
-          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>leaving_water_temp</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@leaving_water_temp</span><span class='rbrace'>}</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_dependent_vars'>get_dependent_vars</span>
+  <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input_power</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@input_power</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>leaving_water_temp</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@leaving_water_temp</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -809,17 +809,17 @@ entering_water_temp</p>
       <pre class="lines">
 
 
-148
-149
-150
-151</pre>
+132
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 148</span>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 132</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_independent_vars'>get_independent_vars</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>flow_rate</span><span class='tstring_end'>&quot;</span></span>           <span class='op'>=&gt;</span> <span class='ivar'>@flow_rate</span><span class='comma'>,</span>
-          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>entering_water_temp</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@entering_water_temp</span><span class='rbrace'>}</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_independent_vars'>get_independent_vars</span>
+  <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>flow_rate</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@flow_rate</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>entering_water_temp</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='ivar'>@entering_water_temp</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -853,14 +853,14 @@ values. May call class-level first for header</p>
       <pre class="lines">
 
 
-167
-168
-169</pre>
+151
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 151</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_spew'>spew</span><span class='lparen'>(</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_spew'>spew</span>
   <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>f(</span><span class='embexpr_beg'>#{</span><span class='ivar'>@flow_rate</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@entering_water_temp</span><span class='embexpr_end'>}</span><span class='tstring_content'>) = {</span><span class='embexpr_beg'>#{</span><span class='ivar'>@input_power</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@leaving_water_temp</span><span class='embexpr_end'>}</span><span class='tstring_content'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -873,7 +873,7 @@ values. May call class-level first for header</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May 26 09:58:10 2016 by
+  Generated on Sat May 28 09:32:50 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

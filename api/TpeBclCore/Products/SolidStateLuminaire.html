@@ -104,7 +104,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>A simple module containing routines for writing SSL Luminaire idf objects</p>
+<p>A simple module containing routines for writing SSL Luminaire components</p>
 
 
   </div>
@@ -131,14 +131,13 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Total Luminous Flux</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Total Luminous Flux</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="PARAM_INPUTPOWER-constant" class="">PARAM_INPUTPOWER =
           <div class="docstring">
   <div class="discussion">
     
-<p>Defines the SSL Luminaire parameter for input power…this parameter gets
-mapped to the idf for lighting power</p>
+<p>Defines the SSL Luminaire parameter for input power</p>
 
 
   </div>
@@ -148,7 +147,7 @@ mapped to the idf for lighting power</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Input Power</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Input Power</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="PARAM_CORRELATEDCOLORTEMP-constant" class="">PARAM_CORRELATEDCOLORTEMP =
           <div class="docstring">
@@ -164,7 +163,7 @@ mapped to the idf for lighting power</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Correlated Color Temperature</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Correlated Color Temperature</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="PARAM_INPUTPOWERFACTOR-constant" class="">PARAM_INPUTPOWERFACTOR =
           <div class="docstring">
@@ -180,7 +179,7 @@ mapped to the idf for lighting power</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Input Power Factor</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Input Power Factor</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="PARAM_THD-constant" class="">PARAM_THD =
           <div class="docstring">
@@ -196,7 +195,7 @@ mapped to the idf for lighting power</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Total Harmonic Distortion</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Total Harmonic Distortion</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
@@ -369,7 +368,7 @@ ProductBase.suitable_for_bcl?.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#write_idf_stuff-class_method" title="write_idf_stuff (class method)">+ (Object) <strong>write_idf_stuff</strong>(product_data) </a>
+      <a href="#write_component-class_method" title="write_component (class method)">+ (Object) <strong>write_component</strong>(product_data) </a>
     
 
     
@@ -384,7 +383,7 @@ ProductBase.suitable_for_bcl?.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Writes the SSL luminaire idf objects Overrides ProductBase.write_idf_stuff.</p>
+<p>Writes the SSL luminaire components Overrides ProductBase.write_component.</p>
 </div></span>
   
 </li>
@@ -450,23 +449,23 @@ Overrides ProductBase.csv_parameters</p>
       <pre class="lines">
 
 
+38
+39
+40
 41
 42
 43
-44
-45
-46
-47</pre>
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_csv_parameters'>csv_parameters</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='const'>PARAM_INITIALLUMINOUSFLUX</span><span class='comma'>,</span>
-            <span class='const'>PARAM_INPUTPOWER</span><span class='comma'>,</span>
-            <span class='const'>PARAM_CORRELATEDCOLORTEMP</span><span class='comma'>,</span>
-            <span class='const'>PARAM_INPUTPOWERFACTOR</span><span class='comma'>,</span>
-						<span class='const'>PARAM_THD</span><span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_csv_parameters'>csv_parameters</span>
+  <span class='lbracket'>[</span><span class='const'>PARAM_INITIALLUMINOUSFLUX</span><span class='comma'>,</span>
+   <span class='const'>PARAM_INPUTPOWER</span><span class='comma'>,</span>
+   <span class='const'>PARAM_CORRELATEDCOLORTEMP</span><span class='comma'>,</span>
+   <span class='const'>PARAM_INPUTPOWERFACTOR</span><span class='comma'>,</span>
+   <span class='const'>PARAM_THD</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -518,15 +517,15 @@ performance map Overrides ProductBase.expect_map?</p>
       <pre class="lines">
 
 
-52
-53
-54</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 49</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span>
+  <span class='kw'>false</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -578,25 +577,25 @@ ProductBase.get_bcl_parameters</p>
       <pre class="lines">
 
 
+56
+57
+58
 59
 60
 61
 62
-63
-64
-65
-66</pre>
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_bcl_parameters'>get_bcl_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-    <span class='id identifier rubyid_params_to_include'>params_to_include</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_INPUTPOWER</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_params_to_include'>params_to_include</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
-        <span class='id identifier rubyid_parameters'>parameters</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_parameters'>parameters</span>
+  <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_params_to_include'>params_to_include</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_INPUTPOWER</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_params_to_include'>params_to_include</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
+    <span class='id identifier rubyid_parameters'>parameters</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_parameters'>parameters</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -647,15 +646,15 @@ ProductBase.get_bcl_parameters</p>
       <pre class="lines">
 
 
-16
-17
-18</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 13</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SSL Luminaires</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSL Luminaires</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -707,15 +706,15 @@ ProductBase.product_key</p>
       <pre class="lines">
 
 
-23
-24
-25</pre>
+20
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 20</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product_key'>product_key</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>slmnrs</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product_key'>product_key</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>slmnrs</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -769,29 +768,17 @@ ProductBase.suitable_for_bcl?</p>
       <pre class="lines">
 
 
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81</pre>
+69
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_suitable_for_bcl?'>suitable_for_bcl?</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-        <span class='kw'>return</span> <span class='kw'>false</span>
-    <span class='kw'>end</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_INPUTPOWER</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-        <span class='kw'>return</span> <span class='kw'>false</span>
-    <span class='kw'>else</span>
-        <span class='kw'>return</span> <span class='kw'>true</span>
-    <span class='kw'>end</span>
+  <span class='id identifier rubyid_required_parameters'>required_parameters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_INPUTPOWER</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='const'>ParameterList</span><span class='period'>.</span><span class='id identifier rubyid_validate_required_parameters'>validate_required_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='comma'>,</span> <span class='id identifier rubyid_required_parameters'>required_parameters</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -799,9 +786,9 @@ ProductBase.suitable_for_bcl?</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="write_idf_stuff-class_method">
+  <h3 class="signature " id="write_component-class_method">
   
-    + (<tt>Object</tt>) <strong>write_idf_stuff</strong>(product_data) 
+    + (<tt>Object</tt>) <strong>write_component</strong>(product_data) 
   
 
   
@@ -810,7 +797,7 @@ ProductBase.suitable_for_bcl?</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Writes the SSL luminaire idf objects Overrides ProductBase.write_idf_stuff</p>
+<p>Writes the SSL luminaire components Overrides ProductBase.write_component</p>
 
 
   </div>
@@ -830,7 +817,7 @@ ProductBase.suitable_for_bcl?</p>
       
         &mdash;
         <div class='inline'>
-<p>A product performance data structure used to write idf objects</p>
+<p>A product performance data structure used to write components</p>
 </div>
       
     </li>
@@ -844,59 +831,23 @@ ProductBase.suitable_for_bcl?</p>
       <pre class="lines">
 
 
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112</pre>
+79
+80
+81
+82
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/products/SolidStateLuminaires.rb', line 79</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_idf_stuff'>write_idf_stuff</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_component'>write_component</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lighting_watts'>lighting_watts</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_INPUTPOWER</span><span class='rparen'>)</span>
 
-    <span class='id identifier rubyid_lighting_watts'>lighting_watts</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_INPUTPOWER</span><span class='rparen'>)</span>
-
-    <span class='id identifier rubyid_lights_def'>lights_def</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>LightsDefinition</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_lights_def'>lights_def</span><span class='period'>.</span><span class='id identifier rubyid_setLightingLevel'>setLightingLevel</span><span class='lparen'>(</span><span class='id identifier rubyid_lighting_watts'>lighting_watts</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_lights'>lights</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Lights</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_lights_def'>lights_def</span><span class='rparen'>)</span>
-
-    <span class='gvar'>$idf</span><span class='period'>.</span><span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
-  Lights,
-    ,                   !- Name
-    ,                   !- Zone or ZoneList Name
-    ,                   !- Schedule Name
-    LightingLevel,      !- Design Level Calculation Method
-    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_lighting_watts'>lighting_watts</span><span class='embexpr_end'>}</span><span class='tstring_content'>,  !- Lighting Level {W}
-    ,                   !- Watts per Zone Floor Area {W/m2}
-    ,                   !- Watts per Person {W/person}
-    ,                   !- Return Air Fraction
-    ,                   !- Fraction Radiant
-    ,                   !- Fraction Visible
-    ,                   !- Fraction Replaceable
-    ;                   !- End-Use Subcategory
-    </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-
+  <span class='id identifier rubyid_lights_def'>lights_def</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>LightsDefinition</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lights_def'>lights_def</span><span class='period'>.</span><span class='id identifier rubyid_setLightingLevel'>setLightingLevel</span><span class='lparen'>(</span><span class='id identifier rubyid_lighting_watts'>lighting_watts</span><span class='rparen'>)</span>
+  <span class='gvar'>$lights</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Lights</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_lights_def'>lights_def</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -908,7 +859,7 @@ ProductBase.suitable_for_bcl?</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May 26 09:58:11 2016 by
+  Generated on Sat May 28 09:32:51 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>
