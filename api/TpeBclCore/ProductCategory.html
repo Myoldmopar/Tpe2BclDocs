@@ -1,0 +1,999 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: TpeBclCore::ProductCategory
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (P)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../TpeBclCore.html" title="TpeBclCore (module)">TpeBclCore</a></span></span>
+     &raquo; 
+    <span class="title">ProductCategory</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: TpeBclCore::ProductCategory
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">TpeBclCore::ProductCategory</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/ProductCategory.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Defines a product category, plus all category-related variables such as
+parameter names</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="LAMPSNONSSL-constant" class="">LAMPSNONSSL =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The pointer index for the NonSSL lamp product category</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='op'>-</span><span class='int'>1</span></pre></dd>
+      
+        <dt id="PARAMS_LAMPSNONSSL-constant" class="">PARAMS_LAMPSNONSSL =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The list of parameter names implemented for the NonSSL lamp product
+category</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Initial Luminous Flux</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Input Power</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Correlated Color Temperature</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Life</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Light Source Type</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Extra Parameter</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>6</span><span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="HEATPUMPWATERHEATER-constant" class="">HEATPUMPWATERHEATER =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The pointer index for the heat pump water heater product category</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='op'>-</span><span class='int'>2</span></pre></dd>
+      
+        <dt id="PARAMS_HPWATERHEATER-constant" class="">PARAMS_HPWATERHEATER =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The list of parameter names implemented for the heat pump water heater
+product category</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Capacity</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Tank Volume</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Actual Tank Volume</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Storage Tank Height</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Required Height Necessary for Installation</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Coefficient of Performance</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Heat Pump Sensible Heat Ratio</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Refrigerant Designation</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Upper Supplemental Heater Capacity</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Lower Supplemental Heater Capacity</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Parasitic Fuel Consumption Rate</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Inlet Air Dry-Bulb Temperature</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Inlet Air Wet Bulb Temperature</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Air Volumetric Flow Rate</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Off-Cycle Heat Loss Coefficient</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Minimum Ambient Air Temperature for Compressor Operation</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Heat Pump Fan Total Efficiency</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>17</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Heat Pump Fan Rated Power Input</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>18</span><span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="DUCTLESSHP_INDOOR-constant" class="">DUCTLESSHP_INDOOR =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The pointer index for the ductless-heat-pump indoor unit product category</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='op'>-</span><span class='int'>3</span></pre></dd>
+      
+        <dt id="PARAMS_DHP_INDOOR-constant" class="">PARAMS_DHP_INDOOR =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The list of parameter names implemented for the ductless heat pump indoor
+unit – INCOMPLETE</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Cooling Capacity</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Cooling Sensible Heat Ratio</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Heating Capacity</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span> 
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Working Refrigerant</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span> 
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Mounting Technique</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span> 
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Cooling Air Flow Rate</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span> 
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Heating Air Flow Rate</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span> 
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Total Fan Efficiency</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span> 
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Fan Power Input</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span> 
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cooling Performance Map</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span> 
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Heating Performance Map</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>11</span><span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="DUCTLESSHP_OUTDOOR-constant" class="">DUCTLESSHP_OUTDOOR =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The pointer index for the ductless-heat-pump outdoor unit product category</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='op'>-</span><span class='int'>4</span></pre></dd>
+      
+        <dt id="PARAMS_DHP_OUTDOOR-constant" class="">PARAMS_DHP_OUTDOOR =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The list of parameter names implemented for the ductless heat pump outdoor
+unit – INCOMPLETE</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Capacity</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Something</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='int'>2</span><span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="IMPLEMENTED_CATEGORIES-constant" class="">IMPLEMENTED_CATEGORIES =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A convenient list of implemented categories with read-able metadata</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='const'>SingleProductCategory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>LAMPSNONSSL</span><span class='comma'>,</span>         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nnslmp</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Non-SSL Lamps</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>                   <span class='const'>PARAMS_LAMPSNONSSL</span><span class='rparen'>)</span><span class='comma'>,</span>
+<span class='const'>SingleProductCategory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>HEATPUMPWATERHEATER</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>htpmpw</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Heat Pump Water Heater</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>          <span class='const'>PARAMS_HPWATERHEATER</span><span class='rparen'>)</span><span class='comma'>,</span>
+<span class='const'>SingleProductCategory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>DUCTLESSHP_INDOOR</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ndrnt</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ductless Heat Pump Indoor Unit</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>  <span class='const'>PARAMS_DHP_INDOOR</span><span class='rparen'>)</span><span class='comma'>,</span>
+<span class='const'>SingleProductCategory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>DUCTLESSHP_OUTDOOR</span><span class='comma'>,</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ductless Heat Pump Outdoor Unit</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>PARAMS_DHP_OUTDOOR</span><span class='rparen'>)</span><span class='rbracket'>]</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#type_num-instance_method" title="#type_num (instance method)">- (Object) <strong>type_num</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute type_num.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_category_index_from_string-class_method" title="get_category_index_from_string (class method)">+ (FixNum) <strong>get_category_index_from_string</strong>(string_category) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This routine returns the product category integer index given a token that
+is found in the xml file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_parameter_listings_for_category-class_method" title="get_parameter_listings_for_category (class method)">+ (Object) <strong>get_parameter_listings_for_category</strong>(product_category) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This routine returns the parameter list for a specified product category.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_allowed_categories-class_method" title="list_allowed_categories (class method)">+ (Object) <strong>list_allowed_categories</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This routine logs (outputs) the currently allowed category names.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_allowed_keys-class_method" title="list_allowed_keys (class method)">+ (Object) <strong>list_allowed_keys</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This routine logs (outputs) the currently allowed category keys.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expect_map%3F-instance_method" title="#expect_map? (instance method)">- (Boolean) <strong>expect_map?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Defines whether or not this product category instance expects a map file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (ProductCategory) <strong>initialize</strong>(type_num) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new product category instance.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="TpeBclCore::ProductCategory (class)">ProductCategory</a></span></tt>) <strong>initialize</strong>(type_num) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new product category instance</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>type_num</span>
+      
+      
+        <span class='type'>(<tt>FixNum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The product category pointer num, can be found by passing the appropriate
+string to get_category_index_from_string</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ProductCategory.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_type_num'>type_num</span><span class='rparen'>)</span>
+    <span class='ivar'>@type_num</span> <span class='op'>=</span> <span class='id identifier rubyid_type_num'>type_num</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="type_num-instance_method">
+  
+    - (<tt>Object</tt>) <strong>type_num</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute type_num</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ProductCategory.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_type_num'>type_num</span>
+  <span class='ivar'>@type_num</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="get_category_index_from_string-class_method">
+  
+    + (<tt>FixNum</tt>) <strong>get_category_index_from_string</strong>(string_category) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This routine returns the product category integer index given a token that
+is found in the xml file</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>string_category</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The token representation of this product category</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>FixNum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns the integer index for a given product category string</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ProductCategory.rb', line 134</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_category_index_from_string'>get_category_index_from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_string_category'>string_category</span><span class='rparen'>)</span>
+    <span class='const'>IMPLEMENTED_CATEGORIES</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_string_category'>string_category</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span> <span class='op'>==</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_string_key'>string_key</span>
+            <span class='kw'>return</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_index_number'>index_number</span>
+        <span class='kw'>end</span>            
+    <span class='rbrace'>}</span>
+    <span class='const'>Out</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid product category string found in xml ...</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='const'>Out</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Entered string = &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_string_category'>string_category</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39; ...</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='const'>Out</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Allowable entries include (case-INsensitive): ...</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='const'>ProductCategory</span><span class='period'>.</span><span class='id identifier rubyid_list_allowed_categories'>list_allowed_categories</span>
+    <span class='id identifier rubyid_exit'>exit</span> <span class='const'>ExitCodes</span><span class='op'>::</span><span class='const'>ERR_INVALIDPRODCATEGORY</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_parameter_listings_for_category-class_method">
+  
+    + (<tt>Object</tt>) <strong>get_parameter_listings_for_category</strong>(product_category) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This routine returns the parameter list for a specified product category</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>product_category</span>
+      
+      
+        <span class='type'>(<tt>FixNum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The product category integer index as specified in ProductCategory</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>A list of parameter name and indeces</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ProductCategory.rb', line 118</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_listings_for_category'>get_parameter_listings_for_category</span><span class='lparen'>(</span><span class='id identifier rubyid_product_category'>product_category</span><span class='rparen'>)</span>
+    <span class='const'>IMPLEMENTED_CATEGORIES</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_product_category'>product_category</span> <span class='op'>==</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_index_number'>index_number</span>
+            <span class='kw'>return</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_parameter_list'>parameter_list</span>
+        <span class='kw'>end</span>
+    <span class='rbrace'>}</span>
+    <span class='const'>Out</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Implementation Error: Invalid product category index in ProductCategory.get_parameter_listings_for_category ...</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='const'>Out</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Argument index = &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39; ...</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='const'>Out</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Allowable indices include: ...</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='const'>ProductCategory</span><span class='period'>.</span><span class='id identifier rubyid_list_allowed_keys'>list_allowed_keys</span>
+    <span class='id identifier rubyid_exit'>exit</span> <span class='const'>ExitCodes</span><span class='op'>::</span><span class='const'>DIAG_INVALIDPRODCATEGORY</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_allowed_categories-class_method">
+  
+    + (<tt>Object</tt>) <strong>list_allowed_categories</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This routine logs (outputs) the currently allowed category names</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148
+149
+150</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ProductCategory.rb', line 148</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_list_allowed_categories'>list_allowed_categories</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='const'>IMPLEMENTED_CATEGORIES</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='op'>|</span> <span class='const'>Out</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> Allowed key: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_allowed_keys-class_method">
+  
+    + (<tt>Object</tt>) <strong>list_allowed_keys</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This routine logs (outputs) the currently allowed category keys</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+153
+154
+155</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ProductCategory.rb', line 153</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_list_allowed_keys'>list_allowed_keys</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='const'>IMPLEMENTED_CATEGORIES</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='op'>|</span> <span class='const'>Out</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> Allowed key: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="expect_map?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>expect_map?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Defines whether or not this product category instance expects a map file</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns true if this product category would expect to have a performance
+map file</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ProductCategory.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_expect_map?'>expect_map?</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='comment'># now do product-category specific configuring
+</span>    <span class='kw'>case</span> <span class='ivar'>@type_num</span>
+    <span class='kw'>when</span> <span class='const'>LAMPSNONSSL</span>
+        <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>when</span> <span class='const'>HEATPUMPWATERHEATER</span>
+        <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Mon Nov 11 10:10:20 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: TpeBclCore::IDFHPWH
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (I)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../TpeBclCore.html" title="TpeBclCore (module)">TpeBclCore</a></span></span>
+     &raquo; 
+    <span class="title">IDFHPWH</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: TpeBclCore::IDFHPWH
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/IDFHeatPumpWaterHeater.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A simple module containing routines for writing heat pump water heater idf
+objects</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_idf_object-class_method" title="write_idf_object (class method)">+ (Object) <strong>write_idf_object</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Writes the heat pump water heater idf objects.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="write_idf_object-class_method">
+  
+    + (<tt>Object</tt>) <strong>write_idf_object</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes the heat pump water heater idf objects</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/IDFHeatPumpWaterHeater.rb', line 9</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_idf_object'>write_idf_object</span><span class='lparen'>(</span><span class='rparen'>)</span>
+
+    <span class='const'>Out</span><span class='period'>.</span><span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+    
+  ! Values that must be filled in later:
+  !   &lt;water_inlet_node&gt; 
+  !   &lt;water_outlet_node&gt; 
+  !   &lt;air_inlet_node&gt; 
+  !   &lt;air_outlet_node&gt; 
+  !   &lt;zone_name&gt; 
+  !   &lt;heating_capacity&gt; 
+  !   &lt;use_flow_rate&gt; 
+  !   &lt;air_inlet_node_maybe_not&gt; 
+  !   &lt;air_outlet_node_maybe_not&gt; 
+    
+  WaterHeater:HeatPump,
+    HeatPumpWaterHeater,     !- Name
+    ,                        !- Availability Schedule Name
+    HPWHTempSch,             !- Compressor Setpoint Temperature Schedule Name
+    ,                        !- Dead Band Temperature Difference {deltaC}
+    &lt;water_inlet_node&gt;,      !- Condenser Water Inlet Node Name
+    &lt;water_outlet_node&gt;,     !- Condenser Water Outlet Node Name
+    autocalculate,           !- Condenser Water Flow Rate {m3/s}
+    autocalculate,           !- Evaporator Air Flow Rate {m3/s}
+    ZoneAirOnly,             !- Inlet Air Configuration
+    &lt;air_inlet_node&gt;,        !- Air Inlet Node Name
+    &lt;air_outlet_node&gt;,       !- Air Outlet Node Name
+    ,                        !- Outdoor Air Node Name
+    ,                        !- Exhaust Air Node Name
+    ,                        !- Inlet Air Temperature Schedule Name
+    ,                        !- Inlet Air Humidity Schedule Name
+    &lt;zone_name&gt;,             !- Inlet Air Zone Name
+    WaterHeater:Mixed,       !- Tank Object Type
+    HPWHTank,                !- Tank Name
+    ,                        !- Tank Use Side Inlet Node Name
+    ,                        !- Tank Use Side Outlet Node Name
+    Coil:WaterHeating:AirToWaterHeatPump,  !- DX Coil Object Type
+    HPWHDXCoil,              !- DX Coil Name
+    ,                        !- Minimum Inlet Air Temperature for Compressor Operation {C}
+    Zone,                    !- Compressor Location
+    ,                        !- Compressor Ambient Temperature Schedule Name
+    Fan:OnOff,               !- Fan Object Type
+    HPWHFan;    
+
+  WaterHeater:Mixed,
+    HPWHTank,                !- Name
+    autosize,                !- Tank Volume {m3}
+    HPWHTempSch,             !- Setpoint Temperature Schedule Name
+    ,                        !- Deadband Temperature Difference {deltaC}
+    82.2222,                 !- Maximum Temperature Limit {C}
+    ,                        !- Heater Control Type
+    &lt;heating_capacity&gt;,      !- Heater Maximum Capacity {W}
+    0,                       !- Heater Minimum Capacity {W}
+    ,                        !- Heater Ignition Minimum Flow Rate {m3/s}
+    ,                        !- Heater Ignition Delay {s}
+    Electricity,             !- Heater Fuel Type
+    0.95,                    !- Heater Thermal Efficiency
+    ,                        !- Part Load Factor Curve Name
+    ,                        !- Off Cycle Parasitic Fuel Consumption Rate {W}
+    Electricity,             !- Off Cycle Parasitic Fuel Type
+    ,                        !- Off Cycle Parasitic Heat Fraction to Tank
+    ,                        !- On Cycle Parasitic Fuel Consumption Rate {W}
+    Electricity,             !- On Cycle Parasitic Fuel Type
+    ,                        !- On Cycle Parasitic Heat Fraction to Tank
+    Zone,                    !- Ambient Temperature Indicator
+    ,                        !- Ambient Temperature Schedule Name
+    &lt;zone_name&gt;,             !- Ambient Temperature Zone Name
+    ,                        !- Ambient Temperature Outdoor Air Node Name
+    2.0,                     !- Off Cycle Loss Coefficient to Ambient Temperature {W/K}
+    1.0,                     !- Off Cycle Loss Fraction to Zone
+    2.0,                     !- On Cycle Loss Coefficient to Ambient Temperature {W/K}
+    1.0,                     !- On Cycle Loss Fraction to Zone
+    &lt;use_flow_rate&gt;,         !- Peak Use Flow Rate {m3/s}
+    Hot Water Demand Schedule,  !- Use Flow Rate Fraction Schedule Name
+    ,                        !- Cold Water Supply Temperature Schedule Name
+    ,                        !- Use Side Inlet Node Name
+    ,                        !- Use Side Outlet Node Name
+    ,                        !- Use Side Effectiveness
+    &lt;water_outlet_node&gt;,     !- Source Side Inlet Node Name
+    &lt;water_inlet_node&gt;,      !- Source Side Outlet Node Name
+    0.95;                    !- Source Side Effectiveness
+
+  Coil:WaterHeating:AirToWaterHeatPump,
+    HPWHDXCoil,              !- Name
+    &lt;heating_capacity&gt;,      !- Rated Heating Capacity {W}
+    ,                        !- Rated COP {W/W}
+    ,                        !- Rated Sensible Heat Ratio
+    ,                        !- Rated Evaporator Inlet Air Dry-Bulb Temperature {C}
+    ,                        !- Rated Evaporator Inlet Air Wet-Bulb Temperature {C}
+    ,                        !- Rated Condenser Inlet Water Temperature {C}
+    autocalculate,           !- Rated Evaporator Air Flow Rate {m3/s}
+    autocalculate,           !- Rated Condenser Water Flow Rate {m3/s}
+    No,                      !- Evaporator Fan Power Included in Rated COP
+    No,                      !- Condenser Pump Power Included in Rated COP
+    No,                      !- Condenser Pump Heat Included in Rated Heating Capacity and Rated COP
+    ,                        !- Condenser Water Pump Power {W}
+    ,                        !- Fraction of Condenser Pump Heat to Water
+    &lt;air_inlet_node_maybe_not&gt;,   !- Evaporator Air Inlet Node Name
+    &lt;air_outlet_node_maybe_not&gt;, !- Evaporator Air Outlet Node Name
+    &lt;water_inlet_node&gt;,      !- Condenser Water Inlet Node Name
+    &lt;water_outlet_node&gt;,     !- Condenser Water Outlet Node Name
+    ,                        !- Crankcase Heater Capacity {W}
+    ,                        !- Maximum Ambient Temperature for Crankcase Heater Operation {C}
+    WetBulbTemperature,      !- Evaporator Air Temperature Type for Curve Objects
+    HPWHHeatingCapFTemp,     !- Heating Capacity Function of Temperature Curve Name
+    HPWHHeatingCapFFlowFrac, !- Heating Capacity Function of Air Flow Fraction Curve Name
+    ,                        !- Heating Capacity Function of Water Flow Fraction Curve Name
+    HPWHHeatingCOPFTemp,     !- Heating COP Function of Temperature Curve Name
+    HPWHHeatingCapFFlowFrac, !- Heating COP Function of Air Flow Fraction Curve Name
+    ,                        !- Heating COP Function of Water Flow Fraction Curve Name
+    ;                        !- Part Load Fraction Correlation Curve Name
+
+  Fan:OnOff,
+    HPWHFan,                 !- Name
+    ,                        !- Availability Schedule Name
+    ,                        !- Fan Efficiency
+    100.0,                   !- Pressure Rise {Pa}
+    autosize,                !- Maximum Flow Rate {m3/s}
+    ,                        !- Motor Efficiency
+    ,                        !- Motor In Airstream Fraction
+    &lt;fan_inlet_node&gt;,        !- Air Inlet Node Name
+    &lt;fan_outlet_node&gt;;       !- Air Outlet Node Name
+
+  Curve:Biquadratic,
+    HPWHHeatingCapFTemp,     !- Name
+    0.369827,                !- Coefficient1 Constant
+    0.043341,                !- Coefficient2 x
+    -0.00023,                !- Coefficient3 x**2
+    0.000466,                !- Coefficient4 y
+    0.000026,                !- Coefficient5 y**2
+    -0.00027,                !- Coefficient6 x*y
+    0.0,                     !- Minimum Value of x
+    40.0,                    !- Maximum Value of x
+    20.0,                    !- Minimum Value of y
+    90.0,                    !- Maximum Value of y
+    ,                        !- Minimum Curve Output
+    ,                        !- Maximum Curve Output
+    Temperature,             !- Input Unit Type for X
+    Temperature,             !- Input Unit Type for Y
+    Dimensionless;           !- Output Unit Type
+
+  Curve:Biquadratic,
+    HPWHHeatingCOPFTemp,     !- Name
+    1.19713,                 !- Coefficient1 Constant
+    0.077849,                !- Coefficient2 x
+    -0.0000016,              !- Coefficient3 x**2
+    -0.02675,                !- Coefficient4 y
+    0.000296,                !- Coefficient5 y**2
+    -0.00112,                !- Coefficient6 x*y
+    0.0,                     !- Minimum Value of x
+    40.0,                    !- Maximum Value of x
+    20.0,                    !- Minimum Value of y
+    90.0,                    !- Maximum Value of y
+    ,                        !- Minimum Curve Output
+    ,                        !- Maximum Curve Output
+    Temperature,             !- Input Unit Type for X
+    Temperature,             !- Input Unit Type for Y
+    Dimensionless;           !- Output Unit Type
+
+  Schedule:Compact,
+    HPWHTempSch,             !- Name
+    Any Number,              !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,60.0;       !- Field 3
+    </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Fri Nov  8 13:48:25 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,1322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: TpeBclCore::Products::PVModule
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!TpeBclCore/Products/PVModule.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (P)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../TpeBclCore.html" title="TpeBclCore (module)">TpeBclCore</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Products.html" title="TpeBclCore::Products (module)">Products</a></span></span>
+     &raquo; 
+    <span class="title">PVModule</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: TpeBclCore::Products::PVModule
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="ProductBaseClass.html" title="TpeBclCore::Products::ProductBaseClass (class)">ProductBaseClass</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="ProductBaseClass.html" title="TpeBclCore::Products::ProductBaseClass (class)">ProductBaseClass</a></span></li>
+          
+            <li class="next">TpeBclCore::Products::PVModule</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/products/PVModules.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A simple module containing routines for writing PV Module idf objects</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="PVModule/Map.html" title="TpeBclCore::Products::PVModule::Map (class)">Map</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="PARAM_MODULEEFFICIENCY-constant" class="">PARAM_MODULEEFFICIENCY =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the PV Module parameter for module efficiency</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Module Efficiency</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_RATEDPOWER-constant" class="">PARAM_RATEDPOWER =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the PV Module parameter for rated power</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Power</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_CELLTYPE-constant" class="">PARAM_CELLTYPE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the PV Module parameter for cell material/type</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cell Material/Type</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_NUMBEROFCELLS-constant" class="">PARAM_NUMBEROFCELLS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the PV Module parameter for total number of cells</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Total Number of Cells</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_SOLARCELLAREA-constant" class="">PARAM_SOLARCELLAREA =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the PV Module parameter for solar cell area</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Solar Cell Area</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_NOMOPERATINGCELLTEMP-constant" class="">PARAM_NOMOPERATINGCELLTEMP =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the PV Module parameter for nominal operating cell temp</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nominal Operating Cell Temperature</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_SHORTCKTCURRENTTEMPCOEF-constant" class="">PARAM_SHORTCKTCURRENTTEMPCOEF =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the PV Module parameter for short circuit current temp coefficient</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Short Circuit Current Temperature Coefficient</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_OPENCKTVOLTAGETEMPCOEF-constant" class="">PARAM_OPENCKTVOLTAGETEMPCOEF =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the PV Module parameter for open circuit voltage temp coefficient</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Open Circuit Voltage Temperature Coefficient</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_MAXPOWERTEMPCOEF-constant" class="">PARAM_MAXPOWERTEMPCOEF =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the PV Module parameter for maximum power temp coefficient</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Maximum Power Temperature Coefficient</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#csv_parameters-class_method" title="csv_parameters (class method)">+ (Array&lt;String&gt;) <strong>csv_parameters</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the list of csv parameters established for this product category
+Overrides ProducBase.csv_parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expect_map%3F-class_method" title="expect_map? (class method)">+ (Boolean) <strong>expect_map?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns whether or not this product category is set up for including a
+performance map Overrides ProductBase.expect_map?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_bcl_parameters-class_method" title="get_bcl_parameters (class method)">+ ({String=&gt;FixNum}) <strong>get_bcl_parameters</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the parameters that could be included in the BCL Overrides
+ProductBase.get_bcl_parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-class_method" title="name (class method)">+ (String) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the name of this product category Overrides ProductBase.name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#product_key-class_method" title="product_key (class method)">+ (String) <strong>product_key</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the TPE product key string for this product category Overrides
+ProductBase.product_key.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#suitable_for_bcl%3F-class_method" title="suitable_for_bcl? (class method)">+ (Boolean) <strong>suitable_for_bcl?</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Used to determine if the data entered for this product is suitable for
+mapping to the BCL Any number of rules could be enforced in this routine,
+as it is called once all product data has been interpreted Overrides
+ProductBase.suitable_for_bcl?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_idf_stuff-class_method" title="write_idf_stuff (class method)">+ (Object) <strong>write_idf_stuff</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Overrides ProductBase.write_idf_stuff.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_map_idf_objects-class_method" title="write_map_idf_objects (class method)">+ (Object) <strong>write_map_idf_objects</strong>(product_data, merged_data_set, type) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This routine writes the map-based idf objects for this component.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="csv_parameters-class_method">
+  
+    + (<tt>Array&lt;String&gt;</tt>) <strong>csv_parameters</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the list of csv parameters established for this product category
+Overrides ProducBase.csv_parameters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A list of csv parameter names</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/PVModules.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_csv_parameters'>csv_parameters</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='const'>PARAM_MODULEEFFICIENCY</span><span class='comma'>,</span>
+            <span class='const'>PARAM_RATEDPOWER</span><span class='comma'>,</span>
+            <span class='const'>PARAM_CELLTYPE</span><span class='comma'>,</span>
+            <span class='const'>PARAM_NUMBEROFCELLS</span><span class='comma'>,</span>
+            <span class='const'>PARAM_SOLARCELLAREA</span><span class='comma'>,</span>
+            <span class='const'>PARAM_NOMOPERATINGCELLTEMP</span><span class='comma'>,</span>
+            <span class='const'>PARAM_SHORTCKTCURRENTTEMPCOEF</span><span class='comma'>,</span>
+            <span class='const'>PARAM_OPENCKTVOLTAGETEMPCOEF</span><span class='comma'>,</span>
+            <span class='const'>PARAM_MAXPOWERTEMPCOEF</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expect_map?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>expect_map?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns whether or not this product category is set up for including a
+performance map Overrides ProductBase.expect_map?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>True if this product category expects a map, or false if not</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/PVModules.rb', line 68</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_bcl_parameters-class_method">
+  
+    + (<tt>{String=&gt;FixNum}</tt>) <strong>get_bcl_parameters</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the parameters that could be included in the BCL Overrides
+ProductBase.get_bcl_parameters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>{String=&gt;FixNum}</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns a hash mapping parameter names with averaged values</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/PVModules.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_bcl_parameters'>get_bcl_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_params_to_include'>params_to_include</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_CELLTYPE</span><span class='comma'>,</span>
+                         <span class='const'>PARAM_NUMBEROFCELLS</span><span class='comma'>,</span>
+                         <span class='const'>PARAM_SOLARCELLAREA</span><span class='comma'>,</span>
+                         <span class='const'>PARAM_NOMOPERATINGCELLTEMP</span><span class='comma'>,</span>
+                         <span class='const'>PARAM_SHORTCKTCURRENTTEMPCOEF</span><span class='comma'>,</span>
+                         <span class='const'>PARAM_OPENCKTVOLTAGETEMPCOEF</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_params_to_include'>params_to_include</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
+        <span class='id identifier rubyid_val'>val</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_val'>val</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Key BCL parameter, named &#39;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&#39;, was not found in the input.  Skipping...</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='kw'>else</span>
+            <span class='id identifier rubyid_parameters'>parameters</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_val'>val</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_parameters'>parameters</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="name-class_method">
+  
+    + (<tt>String</tt>) <strong>name</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the name of this product category Overrides ProductBase.name</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of this product category</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/PVModules.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Photovoltaic Modules</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="product_key-class_method">
+  
+    + (<tt>String</tt>) <strong>product_key</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the TPE product key string for this product category Overrides
+ProductBase.product_key</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The product key for this product category</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/PVModules.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product_key'>product_key</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>phtvlt</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="suitable_for_bcl?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>suitable_for_bcl?</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Used to determine if the data entered for this product is suitable for
+mapping to the BCL Any number of rules could be enforced in this routine,
+as it is called once all product data has been interpreted Overrides
+ProductBase.suitable_for_bcl?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns true if the product is suitable for pushing, false if not.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/PVModules.rb', line 98</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_suitable_for_bcl?'>suitable_for_bcl?</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_required_parameters'>required_parameters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_SOLARCELLAREA</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_required_parameters'>required_parameters</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
+        <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>else</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This product is missing key performance parameter definitions which make it unsuitable for pushing to the BCL.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Missing parameters include:</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
+            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_param'>param</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+        <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_idf_stuff-class_method">
+  
+    + (<tt>Object</tt>) <strong>write_idf_stuff</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Overrides ProductBase.write_idf_stuff</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>product_data</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../SingleProductData.html" title="TpeBclCore::SingleProductData (class)">SingleProductData</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A product performance data structure used to write idf objects</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+253
+254
+255
+256
+257
+258
+259
+260
+261</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/PVModules.rb', line 253</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_idf_stuff'>write_idf_stuff</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+
+    <span class='comment'># merge multiple maps
+</span>    <span class='id identifier rubyid_merged_data_set'>merged_data_set</span> <span class='op'>=</span> <span class='const'>TpeBclCore</span><span class='op'>::</span><span class='const'>MapMethods</span><span class='period'>.</span><span class='id identifier rubyid_merge_multiple_maps'>merge_multiple_maps</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_maps'>data_from_maps</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>TpeBclCore</span><span class='op'>::</span><span class='const'>Products</span><span class='op'>::</span><span class='const'>PVModule</span><span class='op'>::</span><span class='const'>Map</span><span class='op'>::</span><span class='const'>PVModuleMapDataPoint</span><span class='rparen'>)</span>
+
+    <span class='comment'># write map idf objects
+</span>    <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_write_map_idf_objects'>write_map_idf_objects</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='comma'>,</span> <span class='id identifier rubyid_merged_data_set'>merged_data_set</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_map_idf_objects-class_method">
+  
+    + (<tt>Object</tt>) <strong>write_map_idf_objects</strong>(product_data, merged_data_set, type) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This routine writes the map-based idf objects for this component</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>product_data</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>merged_data_set</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;DataPoint&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A data set, after being post-processed with merging, to be written to the
+idf</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/PVModules.rb', line 266</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_map_idf_objects'>write_map_idf_objects</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='comma'>,</span> <span class='id identifier rubyid_merged_data_set'>merged_data_set</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='rparen'>)</span>
+
+    <span class='comment'># get parameters first
+</span>    <span class='id identifier rubyid_module_efficiency'>module_efficiency</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_MODULEEFFICIENCY</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_module_efficiency'>module_efficiency</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_module_efficiency'>module_efficiency</span> <span class='op'>=</span> <span class='kw'>false</span>
+        <span class='id identifier rubyid_module_efficiency_string'>module_efficiency_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_module_efficiency_string'>module_efficiency_string</span> <span class='op'>=</span> <span class='id identifier rubyid_module_efficiency'>module_efficiency</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_rated_power'>rated_power</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDPOWER</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_rated_power'>rated_power</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_rated_power'>rated_power</span> <span class='op'>=</span> <span class='kw'>false</span>
+        <span class='id identifier rubyid_rated_power_string'>rated_power_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_rated_power_string'>rated_power_string</span> <span class='op'>=</span> <span class='id identifier rubyid_rated_power'>rated_power</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_cell_type'>cell_type</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_CELLTYPE</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_cell_type'>cell_type</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_cell_type'>cell_type</span> <span class='op'>=</span> <span class='kw'>false</span>
+        <span class='id identifier rubyid_cell_type_string'>cell_type_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_cell_type_string'>cell_type_string</span> <span class='op'>=</span> <span class='id identifier rubyid_cell_type'>cell_type</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_number_of_cells'>number_of_cells</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_NUMBEROFCELLS</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_number_of_cells'>number_of_cells</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_number_of_cells'>number_of_cells</span> <span class='op'>=</span> <span class='kw'>false</span>
+        <span class='id identifier rubyid_number_of_cells_string'>number_of_cells_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_number_of_cells_string'>number_of_cells_string</span> <span class='op'>=</span> <span class='id identifier rubyid_number_of_cells'>number_of_cells</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_solar_cell_area_sqcm'>solar_cell_area_sqcm</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_SOLARCELLAREA</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_solar_cell_area'>solar_cell_area</span> <span class='op'>=</span> <span class='id identifier rubyid_solar_cell_area_sqcm'>solar_cell_area_sqcm</span><span class='op'>*</span><span class='float'>0.0001</span><span class='op'>*</span><span class='id identifier rubyid_number_of_cells'>number_of_cells</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_solar_cell_area'>solar_cell_area</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_solar_cell_area'>solar_cell_area</span> <span class='op'>=</span> <span class='kw'>false</span>
+        <span class='id identifier rubyid_solar_cell_area_string'>solar_cell_area_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_solar_cell_area_string'>solar_cell_area_string</span> <span class='op'>=</span> <span class='id identifier rubyid_solar_cell_area'>solar_cell_area</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_nom_operating_cell_temp'>nom_operating_cell_temp</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_NOMOPERATINGCELLTEMP</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_nom_operating_cell_temp'>nom_operating_cell_temp</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_nom_operating_cell_temp'>nom_operating_cell_temp</span> <span class='op'>=</span> <span class='kw'>false</span>
+        <span class='id identifier rubyid_nom_operating_cell_temp_string'>nom_operating_cell_temp_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_nom_operating_cell_temp_string'>nom_operating_cell_temp_string</span> <span class='op'>=</span> <span class='id identifier rubyid_nom_operating_cell_temp'>nom_operating_cell_temp</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_max_power_temp_coef'>max_power_temp_coef</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_MAXPOWERTEMPCOEF</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_max_power_temp_coef'>max_power_temp_coef</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_max_power_temp_coef'>max_power_temp_coef</span> <span class='op'>=</span> <span class='kw'>false</span>
+        <span class='id identifier rubyid_max_power_temp_coef_string'>max_power_temp_coef_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_max_power_temp_coef_string'>max_power_temp_coef_string</span> <span class='op'>=</span> <span class='id identifier rubyid_max_power_temp_coef'>max_power_temp_coef</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_merged_data_set'>merged_data_set</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_short_ckt_current'>short_ckt_current</span><span class='comma'>,</span> <span class='id identifier rubyid_open_ckt_voltage'>open_ckt_voltage</span><span class='comma'>,</span> <span class='id identifier rubyid_current_at_max_power'>current_at_max_power</span><span class='comma'>,</span> <span class='id identifier rubyid_voltage_at_max_power'>voltage_at_max_power</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_short_ckt_current'>short_ckt_current</span>    <span class='op'>=</span> <span class='id identifier rubyid_merged_data_set'>merged_data_set</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_short_ckt_current'>short_ckt_current</span>
+        <span class='id identifier rubyid_open_ckt_voltage'>open_ckt_voltage</span>     <span class='op'>=</span> <span class='id identifier rubyid_merged_data_set'>merged_data_set</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_open_ckt_voltage'>open_ckt_voltage</span>
+        <span class='id identifier rubyid_current_at_max_power'>current_at_max_power</span> <span class='op'>=</span> <span class='id identifier rubyid_merged_data_set'>merged_data_set</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_current_at_max_power'>current_at_max_power</span>
+        <span class='id identifier rubyid_voltage_at_max_power'>voltage_at_max_power</span> <span class='op'>=</span> <span class='id identifier rubyid_merged_data_set'>merged_data_set</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_voltage_at_max_power'>voltage_at_max_power</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_short_ckt_current_temp_coef'>short_ckt_current_temp_coef</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_SHORTCKTCURRENTTEMPCOEF</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_short_ckt_current_temp_coef'>short_ckt_current_temp_coef</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='id identifier rubyid_short_ckt_current_temp_coef'>short_ckt_current_temp_coef</span> <span class='op'>=</span> <span class='kw'>false</span>
+      <span class='id identifier rubyid_short_ckt_current_temp_coef_string'>short_ckt_current_temp_coef_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_short_ckt_current_temp_coef_string'>short_ckt_current_temp_coef_string</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='float'>0.01</span> <span class='op'>*</span> <span class='id identifier rubyid_short_ckt_current_temp_coef'>short_ckt_current_temp_coef</span> <span class='op'>*</span> <span class='id identifier rubyid_short_ckt_current'>short_ckt_current</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_open_ckt_voltage_temp_coef'>open_ckt_voltage_temp_coef</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_OPENCKTVOLTAGETEMPCOEF</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_open_ckt_voltage_temp_coef'>open_ckt_voltage_temp_coef</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='id identifier rubyid_open_ckt_voltage_temp_coef'>open_ckt_voltage_temp_coef</span> <span class='op'>=</span> <span class='kw'>false</span>
+      <span class='id identifier rubyid_open_ckt_voltage_temp_coef_string'>open_ckt_voltage_temp_coef_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_open_ckt_voltage_temp_coef_string'>open_ckt_voltage_temp_coef_string</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='float'>0.01</span> <span class='op'>*</span> <span class='id identifier rubyid_open_ckt_voltage_temp_coef'>open_ckt_voltage_temp_coef</span> <span class='op'>*</span> <span class='id identifier rubyid_open_ckt_voltage'>open_ckt_voltage</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='kw'>end</span>
+
+    <span class='gvar'>$idf</span><span class='period'>.</span><span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+
+  PhotovoltaicPerformance:EquivalentOne-Diode,
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_name'>product_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>,           !- Name
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cell_type_string'>cell_type_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,                    !- cell Type
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_number_of_cells_string'>number_of_cells_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,              !- cells in series [-]
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_solar_cell_area_string'>solar_cell_area_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,              !- module area [m2]
+    ,                                       !- tau alpha product at normal incidence [-]
+    ,                                       !- electron bandgap [eV]
+    ,                                       !- shunt resistance [ohms]
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_short_ckt_current'>short_ckt_current</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'>,              !- short circuit current at reference conditions [A]
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_open_ckt_voltage'>open_ckt_voltage</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'>,               !- open circuit voltage at reference conditions [V]
+    25,                                     !- temperature at reference conditions [C]
+    1000,                                   !- radiation at reference conditions [W/m2]
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_current_at_max_power'>current_at_max_power</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'>,           !- current at max power [A]
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_voltage_at_max_power'>voltage_at_max_power</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='tstring_content'>,           !- voltage at max power [V]
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_short_ckt_current_temp_coef_string'>short_ckt_current_temp_coef_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,  !- temperature coefficient of short circuit current [A/K]
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_open_ckt_voltage_temp_coef_string'>open_ckt_voltage_temp_coef_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,   !- temperature coefficient of open circuit voltage [V/K]
+    ,                                       !- ambient temperature at NOCT [C]
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_nom_operating_cell_temp_string'>nom_operating_cell_temp_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,      !- cell temperature at NOCT [C]
+    ,                                       !- radiation at NOCT [W/m2]
+    ,                                       !- heat loss coefficient [W/m2.K]
+    ;                                       !- total heat capacity (only used in TC mode 1)
+    </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu May 26 09:58:09 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

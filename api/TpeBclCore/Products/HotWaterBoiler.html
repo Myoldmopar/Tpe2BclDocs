@@ -1,0 +1,1380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: TpeBclCore::Products::HotWaterBoiler
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!TpeBclCore/Products/HotWaterBoiler.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (H)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../TpeBclCore.html" title="TpeBclCore (module)">TpeBclCore</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Products.html" title="TpeBclCore::Products (module)">Products</a></span></span>
+     &raquo; 
+    <span class="title">HotWaterBoiler</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: TpeBclCore::Products::HotWaterBoiler
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="ProductBaseClass.html" title="TpeBclCore::Products::ProductBaseClass (class)">ProductBaseClass</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="ProductBaseClass.html" title="TpeBclCore::Products::ProductBaseClass (class)">ProductBaseClass</a></span></li>
+          
+            <li class="next">TpeBclCore::Products::HotWaterBoiler</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/products/HotWaterBoilers.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A simple module containing routines for writing Hot Water Boiler idf
+objects</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="HotWaterBoiler/Map.html" title="TpeBclCore::Products::HotWaterBoiler::Map (class)">Map</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="PARAM_INPUTPOWER-constant" class="">PARAM_INPUTPOWER =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Hot Water Boiler parameter for input power</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Input Power</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_FUELEFFICIENCY-constant" class="">PARAM_FUELEFFICIENCY =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Hot Water Boiler parameter for annual fuel utilization
+efficiency</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Annual Fuel Utilization Efficiency</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_THERMALEFFICIENCY-constant" class="">PARAM_THERMALEFFICIENCY =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Hot Water Boiler parameter for thermal efficiency</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Thermal Efficiency</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_COMBUSTIONEFFICIENCY-constant" class="">PARAM_COMBUSTIONEFFICIENCY =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Hot Water Boiler parameter for combustion efficiency</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Combustion Efficiency</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_FUELTYPE-constant" class="">PARAM_FUELTYPE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Hot Water Boiler parameter for fuel type</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Fuel Type</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_INPUTPOWERCONTROL-constant" class="">PARAM_INPUTPOWERCONTROL =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Hot Water Boiler parameter for input power control</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Input Power Control</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_NUMDISCRETEHTGSTAGES-constant" class="">PARAM_NUMDISCRETEHTGSTAGES =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Hot Water Boiler parameter for number of discrete heating
+stages</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Number of Discrete Heating Stages</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_TURNDOWNRATIO-constant" class="">PARAM_TURNDOWNRATIO =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Hot Water Boiler parameter for turndown ratio</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Turndown Ratio</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_MINFLOWRATE-constant" class="">PARAM_MINFLOWRATE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Hot Water Boiler parameter for minimum flow rate</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Minimum FLow Rate</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_MAXFLOWRATE-constant" class="">PARAM_MAXFLOWRATE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Hot Water Boiler parameter for maximum flow rate</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Maximum Flow Rate</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_MINFEEDWATERTEMP-constant" class="">PARAM_MINFEEDWATERTEMP =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Hot Water Boiler parameter for minimum feedwater temperature</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Minimum Feedwater Temperature</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_CONDENSINGOPERATION-constant" class="">PARAM_CONDENSINGOPERATION =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Hot Water Boiler parameter for condensing operation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Condensing Operation</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#csv_parameters-class_method" title="csv_parameters (class method)">+ (Array&lt;String&gt;) <strong>csv_parameters</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the list of csv parameters established for this product category
+Overrides ProductBase.csv_parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expect_map%3F-class_method" title="expect_map? (class method)">+ (Boolean) <strong>expect_map?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns whether or not this product category is set up for including a
+performance map Overrides ProductBase.expect_map?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_bcl_parameters-class_method" title="get_bcl_parameters (class method)">+ ({String=&gt;FixNum}) <strong>get_bcl_parameters</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the parameters that could be included in the BCL Overrides
+ProductBase.get_bcl_parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-class_method" title="name (class method)">+ (String) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the name of this product category Overrides ProductBase.name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#product_key-class_method" title="product_key (class method)">+ (String) <strong>product_key</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the TPE product key string for this product category Overrides
+ProductBase.product_key.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#suitable_for_bcl%3F-class_method" title="suitable_for_bcl? (class method)">+ (Boolean) <strong>suitable_for_bcl?</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Used to determine if the data entered for this product is suitable for
+mapping to the BCL Any number of rules could be enforced in this routine,
+as it is called once all product data has been interpreted Overrides
+ProductBase.suitable_for_bcl?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_base_idf_objects-class_method" title="write_base_idf_objects (class method)">+ (Object) <strong>write_base_idf_objects</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Writes the base idf object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_idf_stuff-class_method" title="write_idf_stuff (class method)">+ (Object) <strong>write_idf_stuff</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Overrides ProductBase.write_idf_stuff.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_map_based_idf_objects-class_method" title="write_map_based_idf_objects (class method)">+ (Object) <strong>write_map_based_idf_objects</strong>(product_data, merged_data_set) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This routine writes the map-based idf objects for this component.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="csv_parameters-class_method">
+  
+    + (<tt>Array&lt;String&gt;</tt>) <strong>csv_parameters</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the list of csv parameters established for this product category
+Overrides ProductBase.csv_parameters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A list of csv parameter names</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_csv_parameters'>csv_parameters</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='const'>PARAM_INPUTPOWER</span><span class='comma'>,</span>
+          <span class='const'>PARAM_FUELEFFICIENCY</span><span class='comma'>,</span>
+          <span class='const'>PARAM_THERMALEFFICIENCY</span><span class='comma'>,</span>
+          <span class='const'>PARAM_COMBUSTIONEFFICIENCY</span><span class='comma'>,</span>
+          <span class='const'>PARAM_FUELTYPE</span><span class='comma'>,</span>
+          <span class='const'>PARAM_INPUTPOWERCONTROL</span><span class='comma'>,</span>
+          <span class='const'>PARAM_NUMDISCRETEHTGSTAGES</span><span class='comma'>,</span>
+          <span class='const'>PARAM_TURNDOWNRATIO</span><span class='comma'>,</span>
+          <span class='const'>PARAM_MINFLOWRATE</span><span class='comma'>,</span>
+          <span class='const'>PARAM_MAXFLOWRATE</span><span class='comma'>,</span>
+          <span class='const'>PARAM_MINFEEDWATERTEMP</span><span class='comma'>,</span>
+          <span class='const'>PARAM_CONDENSINGOPERATION</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expect_map?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>expect_map?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns whether or not this product category is set up for including a
+performance map Overrides ProductBase.expect_map?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>True if this product category expects a map, or false if not</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 77</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_bcl_parameters-class_method">
+  
+    + (<tt>{String=&gt;FixNum}</tt>) <strong>get_bcl_parameters</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the parameters that could be included in the BCL Overrides
+ProductBase.get_bcl_parameters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>{String=&gt;FixNum}</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns a hash mqapping parameter names with averaged values</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_bcl_parameters'>get_bcl_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_params_to_include'>params_to_include</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_INPUTPOWER</span><span class='comma'>,</span>
+                       <span class='const'>PARAM_THERMALEFFICIENCY</span><span class='comma'>,</span>
+                       <span class='const'>PARAM_FUELTYPE</span><span class='comma'>,</span>
+                       <span class='const'>PARAM_MAXFLOWRATE</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_params_to_include'>params_to_include</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
+    <span class='id identifier rubyid_val'>val</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_val'>val</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Key BCL parameter, named &#39;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&#39;, was not found in the input.  Skipping...</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_parameters'>parameters</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_val'>val</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="name-class_method">
+  
+    + (<tt>String</tt>) <strong>name</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the name of this product category Overrides ProductBase.name</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of this product category</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hot-Water Boilers</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="product_key-class_method">
+  
+    + (<tt>String</tt>) <strong>product_key</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the TPE product key string for this product category Overrides
+ProductBase.product_key</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The product key for this product category</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product_key'>product_key</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>htwtrb</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="suitable_for_bcl?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>suitable_for_bcl?</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Used to determine if the data entered for this product is suitable for
+mapping to the BCL Any number of rules could be enforced in this routine,
+as it is called once all product data has been interpreted Overrides
+ProductBase.suitable_for_bcl?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns true if the product is suitable for pushing, false if not</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 104</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_suitable_for_bcl?'>suitable_for_bcl?</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_required_parameters'>required_parameters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_INPUTPOWER</span><span class='comma'>,</span>
+                         <span class='const'>PARAM_THERMALEFFICIENCY</span><span class='comma'>,</span>
+                         <span class='const'>PARAM_FUELTYPE</span><span class='comma'>,</span>
+                         <span class='const'>PARAM_MAXFLOWRATE</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_required_parameters'>required_parameters</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_status_message'>status_message</span> <span class='op'>=</span> <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_issue_missing_parameter_error'>issue_missing_parameter_error</span><span class='lparen'>(</span><span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_base_idf_objects-class_method">
+  
+    + (<tt>Object</tt>) <strong>write_base_idf_objects</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes the base idf object</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>product_data</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../SingleProductData.html" title="TpeBclCore::SingleProductData (class)">SingleProductData</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A product performance data structure used to write idf objects</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 293</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_base_idf_objects'>write_base_idf_objects</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_fuel_type'>fuel_type</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_FUELTYPE</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_fuel_type'>fuel_type</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_fuel_type'>fuel_type</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='id identifier rubyid_fuel_type_string'>fuel_type_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_fuel_type_string'>fuel_type_string</span> <span class='op'>=</span> <span class='id identifier rubyid_fuel_type'>fuel_type</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_input_power'>input_power</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_INPUTPOWER</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_input_power'>input_power</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_input_power'>input_power</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_input_power'>input_power</span> <span class='op'>=</span> <span class='id identifier rubyid_input_power'>input_power</span> <span class='op'>*</span> <span class='int'>1000</span> <span class='comment'># convert to watts
+</span>  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_thermal_efficiency'>thermal_efficiency</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_THERMALEFFICIENCY</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_thermal_efficiency'>thermal_efficiency</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_thermal_efficiency'>thermal_efficiency</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='id identifier rubyid_thermal_efficiency_string'>thermal_efficiency_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_thermal_efficiency_string'>thermal_efficiency_string</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_thermal_efficiency'>thermal_efficiency</span> <span class='op'>*</span> <span class='float'>0.01</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_input_power'>input_power</span> <span class='kw'>and</span> <span class='id identifier rubyid_thermal_efficiency'>thermal_efficiency</span>
+    <span class='id identifier rubyid_nominal_capacity'>nominal_capacity</span> <span class='op'>=</span> <span class='id identifier rubyid_input_power'>input_power</span> <span class='op'>*</span> <span class='id identifier rubyid_thermal_efficiency'>thermal_efficiency</span> <span class='op'>*</span> <span class='float'>0.01</span>
+    <span class='id identifier rubyid_nominal_capacity_string'>nominal_capacity_string</span> <span class='op'>=</span> <span class='id identifier rubyid_nominal_capacity'>nominal_capacity</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_nominal_capacity'>nominal_capacity</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='id identifier rubyid_nominal_capacity_string'>nominal_capacity_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_max_flow_rate'>max_flow_rate</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_MAXFLOWRATE</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_max_flow_rate'>max_flow_rate</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_max_flow_rate'>max_flow_rate</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='id identifier rubyid_max_flow_rate_string'>max_flow_rate_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_max_flow_rate_string'>max_flow_rate_string</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_max_flow_rate'>max_flow_rate</span> <span class='op'>*</span> <span class='float'>0.001</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>end</span>
+
+
+  <span class='gvar'>$idf</span><span class='period'>.</span><span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+Boiler:HotWater
+  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_name'>product_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Boiler Name
+  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_fuel_type_string'>fuel_type_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,          !- Fuel Type
+  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_nominal_capacity_string'>nominal_capacity_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,   !- Nominal Capacity (W)
+  EnteringBoiler,               !- Efficiency Curve Temperature Evaluation Variable
+  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_thermal_efficiency_string'>thermal_efficiency_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>  !- Nominal Thermal Efficiency
+  CondensingBoilerEff,          !- Boiler Efficiency Curve Name
+  ,                             !- Design Boiler Water Outlet Temp (C)
+  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_max_flow_rate_string'>max_flow_rate_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,      !- Max Design Boiler Water Flow Rate (m3/s)
+  ,                             !- Minimum Part Load Ratio
+  ,                             !- Maximum Part Load Ratio
+  ,                             !- Optimum Part Load Ratio
+  ,                             !- Boiler Water Inlet Node
+  ,                             !- Boiler Water Outlet Node
+  ,                             !- Temp Upper Limit Water Outlet (C)
+  ,                             !- Boiler Flow Mode
+  ;                             !- Parasitic Electric Load (W)
+  </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_idf_stuff-class_method">
+  
+    + (<tt>Object</tt>) <strong>write_idf_stuff</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Overrides ProductBase.write_idf_stuff</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>product_data</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../SingleProductData.html" title="TpeBclCore::SingleProductData (class)">SingleProductData</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A product performance data structure used to write idf objects</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 278</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_idf_stuff'>write_idf_stuff</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+
+  <span class='comment'># first write base idf
+</span>  <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_write_base_idf_objects'>write_base_idf_objects</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+
+  <span class='comment'># merge multiple maps
+</span>  <span class='id identifier rubyid_merged_data_set'>merged_data_set</span> <span class='op'>=</span> <span class='const'>TpeBclCore</span><span class='op'>::</span><span class='const'>MapMethods</span><span class='period'>.</span><span class='id identifier rubyid_merge_multiple_maps'>merge_multiple_maps</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_maps'>data_from_maps</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>TpeBclCore</span><span class='op'>::</span><span class='const'>Products</span><span class='op'>::</span><span class='const'>HotWaterBoiler</span><span class='op'>::</span><span class='const'>Map</span><span class='op'>::</span><span class='const'>HotWaterBoilerDataPoint</span><span class='rparen'>)</span>
+
+  <span class='comment'># write map idf objects
+</span>  <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_category'>product_category</span><span class='period'>.</span><span class='id identifier rubyid_write_map_based_idf_objects'>write_map_based_idf_objects</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='comma'>,</span> <span class='id identifier rubyid_merged_data_set'>merged_data_set</span><span class='rparen'>)</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_map_based_idf_objects-class_method">
+  
+    + (<tt>Object</tt>) <strong>write_map_based_idf_objects</strong>(product_data, merged_data_set) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This routine writes the map-based idf objects for this component</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>merged_data_set</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;DataPoint&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A data set, after being post-processed with merging, to be written to the
+idf</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/HotWaterBoilers.rb', line 358</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span> <span class='id identifier rubyid_write_map_based_idf_objects'>write_map_based_idf_objects</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='comma'>,</span> <span class='id identifier rubyid_merged_data_set'>merged_data_set</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_units_array'>units_array</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_TEMPERATURE</span><span class='comma'>,</span> <span class='const'>IdfWriter</span><span class='op'>::</span><span class='const'>UNIT_TYPE_DIMENSIONLESS</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_input_power'>input_power</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_INPUTPOWER</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_thermal_efficiency'>thermal_efficiency</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_THERMALEFFICIENCY</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='float'>0.01</span> <span class='comment'># convert to decimal
+</span>  <span class='id identifier rubyid_qnom'>qnom</span> <span class='op'>=</span> <span class='id identifier rubyid_input_power'>input_power</span> <span class='op'>*</span> <span class='id identifier rubyid_thermal_efficiency'>thermal_efficiency</span>
+  <span class='id identifier rubyid_values'>values</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_merged_data_set'>merged_data_set</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_datum'>datum</span><span class='op'>|</span>
+    <span class='id identifier rubyid_q'>q</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_datum'>datum</span><span class='period'>.</span><span class='id identifier rubyid_flow_rate'>flow_rate</span> <span class='op'>*</span> <span class='int'>968</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='float'>4.203</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_datum'>datum</span><span class='period'>.</span><span class='id identifier rubyid_leaving_water_temp'>leaving_water_temp</span> <span class='op'>-</span> <span class='id identifier rubyid_datum'>datum</span><span class='period'>.</span><span class='id identifier rubyid_entering_water_temp'>entering_water_temp</span><span class='rparen'>)</span> <span class='comment'># q = (m/t)*Cp*dT
+</span>    <span class='id identifier rubyid_plr'>plr</span> <span class='op'>=</span> <span class='id identifier rubyid_q'>q</span> <span class='op'>/</span> <span class='id identifier rubyid_qnom'>qnom</span>
+    <span class='id identifier rubyid_efficiency'>efficiency</span> <span class='op'>=</span> <span class='id identifier rubyid_q'>q</span> <span class='op'>/</span> <span class='id identifier rubyid_datum'>datum</span><span class='period'>.</span><span class='id identifier rubyid_input_power'>input_power</span>
+    <span class='id identifier rubyid_normalized_efficiency'>normalized_efficiency</span> <span class='op'>=</span> <span class='id identifier rubyid_efficiency'>efficiency</span> <span class='op'>/</span> <span class='id identifier rubyid_thermal_efficiency'>thermal_efficiency</span>
+    <span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_plr'>plr</span><span class='comma'>,</span> <span class='id identifier rubyid_datum'>datum</span><span class='period'>.</span><span class='id identifier rubyid_entering_water_temp'>entering_water_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_normalized_efficiency'>normalized_efficiency</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='gvar'>$idf</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_values'>values</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CondensingBoilerEff</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_units_array'>units_array</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_table_curve'>table_curve</span> <span class='op'>=</span> <span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_values'>values</span><span class='comma'>,</span> <span class='id identifier rubyid_units_array'>units_array</span><span class='rparen'>)</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu May 26 09:58:10 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

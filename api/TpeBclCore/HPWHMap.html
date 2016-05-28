@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: TpeBclCore::HPWHMap
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (H)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../TpeBclCore.html" title="TpeBclCore (module)">TpeBclCore</a></span></span>
+     &raquo; 
+    <span class="title">HPWHMap</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: TpeBclCore::HPWHMap
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="CommonMap.html" title="TpeBclCore::CommonMap (class)">CommonMap</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="CommonMap.html" title="TpeBclCore::CommonMap (class)">CommonMap</a></span></li>
+          
+            <li class="next">TpeBclCore::HPWHMap</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/ReaderMap.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Defines a map specific to the heat pump water heater product category</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="HPWHMap/HPWHMapDataPoint.html" title="TpeBclCore::HPWHMap::HPWHMapDataPoint (class)">HPWHMapDataPoint</a></span>
+    
+  
+</p>
+
+
+
+
+
+
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="CommonMap.html" title="TpeBclCore::CommonMap (class)">CommonMap</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="CommonMap.html#brand-instance_method" title="TpeBclCore::CommonMap#brand (method)">#brand</a></span>, <span class='object_link'><a href="CommonMap.html#hash_master-instance_method" title="TpeBclCore::CommonMap#hash_master (method)">#hash_master</a></span>, <span class='object_link'><a href="CommonMap.html#model-instance_method" title="TpeBclCore::CommonMap#model (method)">#model</a></span>, <span class='object_link'><a href="CommonMap.html#owner-instance_method" title="TpeBclCore::CommonMap#owner (method)">#owner</a></span>, <span class='object_link'><a href="CommonMap.html#product_line-instance_method" title="TpeBclCore::CommonMap#product_line (method)">#product_line</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_xy_data-instance_method" title="#get_xy_data (instance method)">- (Object) <strong>get_xy_data</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the independent variable data for this map, basically the A matrix
+in y = A x.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_z_data_from_string-instance_method" title="#get_z_data_from_string (instance method)">- (Object) <strong>get_z_data_from_string</strong>(z_string) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the dependent variable data for a single variable name, basically
+the y vector in y = A x.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (HPWHMap) <strong>initialize</strong>(map_spreadsheet_object) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Instantiates this heat pump water heater map object.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="CommonMap.html" title="TpeBclCore::CommonMap (class)">CommonMap</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="CommonMap.html#spew-instance_method" title="TpeBclCore::CommonMap#spew (method)">#spew</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="TpeBclCore::HPWHMap (class)">HPWHMap</a></span></tt>) <strong>initialize</strong>(map_spreadsheet_object) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Instantiates this heat pump water heater map object</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>map_spreadsheet_object</span>
+      
+      
+        <span class='type'>(<tt>Roo-Spreadsheet-Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A “Roo gem” spreadsheet instance, created with either Excel.new or
+Excelx.new</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ReaderMap.rb', line 131</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='rparen'>)</span>
+    
+    <span class='comment'># read in the meta data
+</span>    <span class='id identifier rubyid_owner'>owner</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span> 
+    <span class='id identifier rubyid_brand'>brand</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>4</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_product_line'>product_line</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>5</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_model'>model</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>6</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
+    
+    <span class='comment'># instantiate the base class with common data
+</span>    <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_owner'>owner</span><span class='comma'>,</span> <span class='id identifier rubyid_brand'>brand</span><span class='comma'>,</span> <span class='id identifier rubyid_product_line'>product_line</span><span class='comma'>,</span> <span class='id identifier rubyid_model'>model</span><span class='rparen'>)</span>
+    
+    <span class='comment'># next we need to read in HPWH specific data
+</span>    <span class='comment'># first instantiate some hashes
+</span>    <span class='ivar'>@data_set_master</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='comment'>#@hash_master = Hash.new(nil)
+</span>    <span class='comment'>#[0.25, 0.5, 0.75, 1.0].each { |x| @hash_master[x] = Hash.new(nil) }
+</span>    
+    <span class='comment'># set reading bounds and other parameters, and start reading data
+</span>    <span class='id identifier rubyid_first_row_of_data'>first_row_of_data</span> <span class='op'>=</span> <span class='int'>10</span>
+    <span class='id identifier rubyid_last_row_of_data'>last_row_of_data</span>  <span class='op'>=</span> <span class='int'>37</span>
+    <span class='id identifier rubyid_column_capacity_fraction'>column_capacity_fraction</span> <span class='op'>=</span> <span class='int'>4</span>
+    <span class='id identifier rubyid_column_power_in_fraction'>column_power_in_fraction</span> <span class='op'>=</span> <span class='int'>5</span>
+    <span class='id identifier rubyid_column_heating_cop_frac'>column_heating_cop_frac</span>  <span class='op'>=</span> <span class='int'>6</span>
+    <span class='kw'>for</span> <span class='id identifier rubyid_row'>row</span> <span class='kw'>in</span> <span class='id identifier rubyid_first_row_of_data'>first_row_of_data</span><span class='op'>..</span><span class='id identifier rubyid_last_row_of_data'>last_row_of_data</span>
+        
+        <span class='comment'># deduce air entering temp algorithmically...user CANT change the template
+</span>        <span class='kw'>case</span> <span class='id identifier rubyid_row'>row</span>
+        <span class='kw'>when</span> <span class='int'>10</span><span class='comma'>,</span> <span class='int'>17</span><span class='comma'>,</span> <span class='int'>24</span><span class='comma'>,</span> <span class='int'>31</span><span class='semicolon'>;</span> <span class='id identifier rubyid_air_temp'>air_temp</span> <span class='op'>=</span> <span class='float'>4.4</span>
+        <span class='kw'>when</span> <span class='int'>11</span><span class='comma'>,</span> <span class='int'>18</span><span class='comma'>,</span> <span class='int'>25</span><span class='comma'>,</span> <span class='int'>32</span><span class='semicolon'>;</span> <span class='id identifier rubyid_air_temp'>air_temp</span> <span class='op'>=</span> <span class='int'>10</span>
+        <span class='kw'>when</span> <span class='int'>12</span><span class='comma'>,</span> <span class='int'>19</span><span class='comma'>,</span> <span class='int'>26</span><span class='comma'>,</span> <span class='int'>33</span><span class='semicolon'>;</span> <span class='id identifier rubyid_air_temp'>air_temp</span> <span class='op'>=</span> <span class='float'>15.6</span>
+        <span class='kw'>when</span> <span class='int'>13</span><span class='comma'>,</span> <span class='int'>20</span><span class='comma'>,</span> <span class='int'>27</span><span class='comma'>,</span> <span class='int'>34</span><span class='semicolon'>;</span> <span class='id identifier rubyid_air_temp'>air_temp</span> <span class='op'>=</span> <span class='float'>21.1</span>
+        <span class='kw'>when</span> <span class='int'>14</span><span class='comma'>,</span> <span class='int'>21</span><span class='comma'>,</span> <span class='int'>28</span><span class='comma'>,</span> <span class='int'>35</span><span class='semicolon'>;</span> <span class='id identifier rubyid_air_temp'>air_temp</span> <span class='op'>=</span> <span class='float'>26.7</span>
+        <span class='kw'>when</span> <span class='int'>15</span><span class='comma'>,</span> <span class='int'>22</span><span class='comma'>,</span> <span class='int'>29</span><span class='comma'>,</span> <span class='int'>36</span><span class='semicolon'>;</span> <span class='id identifier rubyid_air_temp'>air_temp</span> <span class='op'>=</span> <span class='float'>32.2</span>
+        <span class='kw'>when</span> <span class='int'>16</span><span class='comma'>,</span> <span class='int'>23</span><span class='comma'>,</span> <span class='int'>30</span><span class='comma'>,</span> <span class='int'>37</span><span class='semicolon'>;</span> <span class='id identifier rubyid_air_temp'>air_temp</span> <span class='op'>=</span> <span class='float'>37.8</span>
+        <span class='kw'>end</span>
+     
+        <span class='comment'># deduce flow frac algorithmically...user CANT change the template
+</span>        <span class='kw'>case</span> <span class='id identifier rubyid_row'>row</span>
+        <span class='kw'>when</span> <span class='int'>10</span><span class='op'>..</span><span class='int'>16</span><span class='semicolon'>;</span> <span class='id identifier rubyid_flow_fraction'>flow_fraction</span> <span class='op'>=</span> <span class='float'>0.25</span>
+        <span class='kw'>when</span> <span class='int'>17</span><span class='op'>..</span><span class='int'>23</span><span class='semicolon'>;</span> <span class='id identifier rubyid_flow_fraction'>flow_fraction</span> <span class='op'>=</span> <span class='float'>0.5</span>
+        <span class='kw'>when</span> <span class='int'>24</span><span class='op'>..</span><span class='int'>30</span><span class='semicolon'>;</span> <span class='id identifier rubyid_flow_fraction'>flow_fraction</span> <span class='op'>=</span> <span class='float'>0.75</span>
+        <span class='kw'>when</span> <span class='int'>31</span><span class='op'>..</span><span class='int'>37</span><span class='semicolon'>;</span> <span class='id identifier rubyid_flow_fraction'>flow_fraction</span> <span class='op'>=</span> <span class='float'>1.0</span>
+        <span class='kw'>end</span>
+                    
+        <span class='comment'># read the dependent variables
+</span>        <span class='id identifier rubyid_capacity_fraction'>capacity_fraction</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span><span class='id identifier rubyid_column_capacity_fraction'>column_capacity_fraction</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_power_in_fraction'>power_in_fraction</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span><span class='id identifier rubyid_column_power_in_fraction'>column_power_in_fraction</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_heating_cop_frac'>heating_cop_frac</span>  <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span><span class='id identifier rubyid_column_heating_cop_frac'>column_heating_cop_frac</span><span class='rparen'>)</span>
+        
+        <span class='comment'># TODO: validate inputs, enforcing numerics
+</span>        
+        <span class='comment'># create a new data point
+</span>        <span class='id identifier rubyid_this_data_point'>this_data_point</span> <span class='op'>=</span> <span class='const'>HPWHMapDataPoint</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_air_temp'>air_temp</span><span class='comma'>,</span> 
+                                               <span class='id identifier rubyid_flow_fraction'>flow_fraction</span><span class='comma'>,</span> 
+                                               <span class='id identifier rubyid_capacity_fraction'>capacity_fraction</span><span class='comma'>,</span> 
+                                               <span class='id identifier rubyid_power_in_fraction'>power_in_fraction</span><span class='comma'>,</span> 
+                                               <span class='id identifier rubyid_heating_cop_frac'>heating_cop_frac</span><span class='rparen'>)</span>
+
+        <span class='comment'># add it to the main dataset hash
+</span>        <span class='ivar'>@data_set_master</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='rparen'>)</span>
+
+    <span class='kw'>end</span>
+            
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># print base map data
+</span>    <span class='const'>HPWHMapDataPoint</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span> <span class='comment'># print class-level header line
+</span>    <span class='ivar'>@data_set_master</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span> <span class='rbrace'>}</span> <span class='comment'># print all data points data
+</span>            
+    <span class='ivar'>@num_observations</span> <span class='op'>=</span> <span class='ivar'>@data_set_master</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
+    
+    <span class='comment'># create the X matrix, as we&#39;ll only need to do that once.
+</span>    <span class='comment'># this method returns a matrix where each row is [1.0, x_1, x_2], which
+</span>    <span class='comment'>#  imposes a curve fit of the form Y = a + b x_1 + c x_2
+</span>    <span class='id identifier rubyid_matrix_X'>matrix_X</span> <span class='op'>=</span> <span class='const'>Matrix</span><span class='period'>.</span><span class='id identifier rubyid_rows'>rows</span><span class='lparen'>(</span><span class='id identifier rubyid_get_xy_data'>get_xy_data</span><span class='rparen'>)</span>
+    
+    <span class='comment'># each call to CalculateMatrixSystemWithLeastSquares will perform some redundant operations on X
+</span>    <span class='comment'>#  BUT, X is going to be relatively small, and it&#39;s likely only doing it three times
+</span>    <span class='comment'>#  I believe it is worth the overhead to keep it all isolated in that little box, and just pass X and y
+</span>    
+    <span class='comment'># calculate least squares coefficients for capacity fraction
+</span>    <span class='id identifier rubyid_vector_y'>vector_y</span> <span class='op'>=</span> <span class='const'>Matrix</span><span class='period'>.</span><span class='id identifier rubyid_column_vector'>column_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_get_z_data_from_string'>get_z_data_from_string</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>capacity_fraction</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_vector_x'>vector_x</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_calculate_matrix_system_with_least_squares'>calculate_matrix_system_with_least_squares</span><span class='lparen'>(</span><span class='id identifier rubyid_matrix_X'>matrix_X</span><span class='comma'>,</span> <span class='id identifier rubyid_vector_y'>vector_y</span><span class='rparen'>)</span>
+    <span class='const'>Out</span><span class='period'>.</span><span class='id identifier rubyid_write_curve_quadlinear'>write_curve_quadlinear</span><span class='lparen'>(</span><span class='id identifier rubyid_vector_x'>vector_x</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CapacityFractionCurve</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    
+    <span class='comment'># calculate least squares coefficients for power input fraction
+</span>    <span class='id identifier rubyid_vector_y'>vector_y</span> <span class='op'>=</span> <span class='const'>Matrix</span><span class='period'>.</span><span class='id identifier rubyid_column_vector'>column_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_get_z_data_from_string'>get_z_data_from_string</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>power_in_fraction</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_vector_x'>vector_x</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_calculate_matrix_system_with_least_squares'>calculate_matrix_system_with_least_squares</span><span class='lparen'>(</span><span class='id identifier rubyid_matrix_X'>matrix_X</span><span class='comma'>,</span> <span class='id identifier rubyid_vector_y'>vector_y</span><span class='rparen'>)</span>
+    <span class='const'>Out</span><span class='period'>.</span><span class='id identifier rubyid_write_curve_quadlinear'>write_curve_quadlinear</span><span class='lparen'>(</span><span class='id identifier rubyid_vector_x'>vector_x</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PowerInputFractionCurve</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    
+    <span class='comment'># calculate least squares coefficients for heating cop fraction
+</span>    <span class='id identifier rubyid_vector_y'>vector_y</span> <span class='op'>=</span> <span class='const'>Matrix</span><span class='period'>.</span><span class='id identifier rubyid_column_vector'>column_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_get_z_data_from_string'>get_z_data_from_string</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>heating_cop_frac</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_vector_x'>vector_x</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_calculate_matrix_system_with_least_squares'>calculate_matrix_system_with_least_squares</span><span class='lparen'>(</span><span class='id identifier rubyid_matrix_X'>matrix_X</span><span class='comma'>,</span> <span class='id identifier rubyid_vector_y'>vector_y</span><span class='rparen'>)</span>
+    <span class='const'>Out</span><span class='period'>.</span><span class='id identifier rubyid_write_curve_quadlinear'>write_curve_quadlinear</span><span class='lparen'>(</span><span class='id identifier rubyid_vector_x'>vector_x</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HeatingCOPFractionCurve</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                            
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="get_xy_data-instance_method">
+  
+    - (<tt>Object</tt>) <strong>get_xy_data</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the independent variable data for this map, basically the A matrix
+in y = A x</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>A 2D array, where the outer index is the row of the matrix</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+228
+229
+230
+231
+232
+233
+234</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ReaderMap.rb', line 228</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_xy_data'>get_xy_data</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='ivar'>@data_set_master</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_datum'>datum</span><span class='op'>|</span>
+        <span class='id identifier rubyid_out'>out</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='float'>1.0</span><span class='comma'>,</span> <span class='id identifier rubyid_datum'>datum</span><span class='period'>.</span><span class='id identifier rubyid_air_temp'>air_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_datum'>datum</span><span class='period'>.</span><span class='id identifier rubyid_flow_frac'>flow_frac</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_out'>out</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_z_data_from_string-instance_method">
+  
+    - (<tt>Object</tt>) <strong>get_z_data_from_string</strong>(z_string) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the dependent variable data for a single variable name, basically
+the y vector in y = A x</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>z_string</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The string variable name for the variable requested: capacity_fraction,
+power_in_fraction, heating_cop_frac</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>A 1D array of variable data</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+239
+240
+241
+242
+243
+244
+245
+246</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ReaderMap.rb', line 239</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_z_data_from_string'>get_z_data_from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_z_string'>z_string</span><span class='rparen'>)</span>
+    <span class='comment'># returns just the single column of data for all observations
+</span>    <span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='ivar'>@data_set_master</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_datum'>datum</span><span class='op'>|</span>
+        <span class='id identifier rubyid_out'>out</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_datum'>datum</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_z_string'>z_string</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_out'>out</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Fri Nov  8 13:48:25 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

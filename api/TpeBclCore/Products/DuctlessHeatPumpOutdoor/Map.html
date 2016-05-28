@@ -1,0 +1,1911 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: TpeBclCore::Products::DuctlessHeatPumpOutdoor::Map
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!TpeBclCore/Products/DuctlessHeatPumpOutdoor/Map.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (M)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../TpeBclCore.html" title="TpeBclCore (module)">TpeBclCore</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Products.html" title="TpeBclCore::Products (module)">Products</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../DuctlessHeatPumpOutdoor.html" title="TpeBclCore::Products::DuctlessHeatPumpOutdoor (class)">DuctlessHeatPumpOutdoor</a></span></span>
+     &raquo; 
+    <span class="title">Map</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: TpeBclCore::Products::DuctlessHeatPumpOutdoor::Map
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../../CommonMap.html" title="TpeBclCore::CommonMap (class)">CommonMap</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="../../CommonMap.html" title="TpeBclCore::CommonMap (class)">CommonMap</a></span></li>
+          
+            <li class="next">TpeBclCore::Products::DuctlessHeatPumpOutdoor::Map</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/products/DuctlessHeatPumpOutdoor.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Defines a map specific to the outdoor unit product category</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Map/DhpOutdoorMapDataPointCooling.html" title="TpeBclCore::Products::DuctlessHeatPumpOutdoor::Map::DhpOutdoorMapDataPointCooling (class)">DhpOutdoorMapDataPointCooling</a></span>, <span class='object_link'><a href="Map/DhpOutdoorMapDataPointDefrost.html" title="TpeBclCore::Products::DuctlessHeatPumpOutdoor::Map::DhpOutdoorMapDataPointDefrost (class)">DhpOutdoorMapDataPointDefrost</a></span>, <span class='object_link'><a href="Map/DhpOutdoorMapDataPointHeating.html" title="TpeBclCore::Products::DuctlessHeatPumpOutdoor::Map::DhpOutdoorMapDataPointHeating (class)">DhpOutdoorMapDataPointHeating</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="MAP_TYPE_COOLING-constant" class="">MAP_TYPE_COOLING =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A symbolic enumeration for cooling performance map type</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      
+        <dt id="MAP_TYPE_HEATING-constant" class="">MAP_TYPE_HEATING =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A symbolic enumeration for heating performance map type</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>2</span></pre></dd>
+      
+        <dt id="MAP_TYPE_DEFROST-constant" class="">MAP_TYPE_DEFROST =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A symbolic enumeration for defrost performance map type</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>3</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#this_data_set-instance_method" title="#this_data_set (instance method)">- (Object) <strong>this_data_set</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute this_data_set.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#type_clg_or_htg_or_defrost-instance_method" title="#type_clg_or_htg_or_defrost (instance method)">- (Object) <strong>type_clg_or_htg_or_defrost</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute type_clg_or_htg_or_defrost.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../../CommonMap.html" title="TpeBclCore::CommonMap (class)">CommonMap</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../CommonMap.html#brand-instance_method" title="TpeBclCore::CommonMap#brand (method)">#brand</a></span>, <span class='object_link'><a href="../../CommonMap.html#insufficient_data_points-instance_method" title="TpeBclCore::CommonMap#insufficient_data_points (method)">#insufficient_data_points</a></span>, <span class='object_link'><a href="../../CommonMap.html#model-instance_method" title="TpeBclCore::CommonMap#model (method)">#model</a></span>, <span class='object_link'><a href="../../CommonMap.html#owner-instance_method" title="TpeBclCore::CommonMap#owner (method)">#owner</a></span>, <span class='object_link'><a href="../../CommonMap.html#product_line-instance_method" title="TpeBclCore::CommonMap#product_line (method)">#product_line</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_combination_ratio_row_from_row_num_clg-instance_method" title="#get_combination_ratio_row_from_row_num_clg (instance method)">- (FixNum) <strong>get_combination_ratio_row_from_row_num_clg</strong>(row) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A utility function for retreiving the combination ratio for a given row in
+the spreadsheet.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_combination_ratio_row_from_row_num_htg-instance_method" title="#get_combination_ratio_row_from_row_num_htg (instance method)">- (FixNum) <strong>get_combination_ratio_row_from_row_num_htg</strong>(row) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A utility function for retreiving the combination ratio for a given row in
+the spreadsheet.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Map) <strong>initialize</strong>(map_spreadsheet_object, csv_data, map_file_name) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Instantiates this heat pump water heater map object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_cooling_map-instance_method" title="#read_cooling_map (instance method)">- (Object) <strong>read_cooling_map</strong>(map_file_name, map_spreadsheet_object, rated_cooling_capacity, rated_energy_input) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs interpretation of the data found in the cooling performance map
+for DHP-indoors.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_defrost_map-instance_method" title="#read_defrost_map (instance method)">- (Object) <strong>read_defrost_map</strong>(map_file_name, map_spreadsheet_object) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs interpretation of the data found in the defrost performance map
+for DHP-indoors.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_heating_map-instance_method" title="#read_heating_map (instance method)">- (Object) <strong>read_heating_map</strong>(map_file_name, map_spreadsheet_object, rated_heating_capacity, rated_energy_input) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs interpretation of the data found in the cooling performance map
+for DHP-indoors.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../../CommonMap.html" title="TpeBclCore::CommonMap (class)">CommonMap</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../CommonMap.html#spew-instance_method" title="TpeBclCore::CommonMap#spew (method)">#spew</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="TpeBclCore::Products::DuctlessHeatPumpOutdoor::Map (class)">Map</a></span></tt>) <strong>initialize</strong>(map_spreadsheet_object, csv_data, map_file_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Instantiates this heat pump water heater map object</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>map_spreadsheet_object</span>
+      
+      
+        <span class='type'>(<tt>Roo-Spreadsheet-Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A “Roo gem” spreadsheet instance, created with either Excel.new or
+Excelx.new</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 529</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='comma'>,</span> <span class='id identifier rubyid_csv_data'>csv_data</span><span class='comma'>,</span> <span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='rparen'>)</span>
+
+    <span class='comment'># need to try to infer the type of map from the csv data
+</span>    <span class='ivar'>@type_clg_or_htg_or_defrost</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+    <span class='comment'># try to match to cooling performance map variables
+</span>    <span class='id identifier rubyid_csv_data'>csv_data</span><span class='period'>.</span><span class='id identifier rubyid_get_parameters_by_descriptor'>get_parameters_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_COOLINGPERFORMANCEMAP</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_param'>param</span><span class='period'>.</span><span class='id identifier rubyid_param_value'>param_value</span> <span class='op'>==</span> <span class='id identifier rubyid_map_file_name'>map_file_name</span>
+            <span class='ivar'>@type_clg_or_htg_or_defrost</span> <span class='op'>=</span> <span class='const'>MAP_TYPE_COOLING</span>
+            <span class='kw'>break</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># try to match to heating performance map variables
+</span>    <span class='id identifier rubyid_csv_data'>csv_data</span><span class='period'>.</span><span class='id identifier rubyid_get_parameters_by_descriptor'>get_parameters_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_HEATINGPERFORMANCEMAP</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_param'>param</span><span class='period'>.</span><span class='id identifier rubyid_param_value'>param_value</span> <span class='op'>==</span> <span class='id identifier rubyid_map_file_name'>map_file_name</span>
+            <span class='ivar'>@type_clg_or_htg_or_defrost</span> <span class='op'>=</span> <span class='const'>MAP_TYPE_HEATING</span>
+            <span class='kw'>break</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># try to match to heating performance map variables
+</span>    <span class='id identifier rubyid_csv_data'>csv_data</span><span class='period'>.</span><span class='id identifier rubyid_get_parameters_by_descriptor'>get_parameters_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_DEFROSTPERFORMANCEMAP</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_param'>param</span><span class='period'>.</span><span class='id identifier rubyid_param_value'>param_value</span> <span class='op'>==</span> <span class='id identifier rubyid_map_file_name'>map_file_name</span>
+            <span class='ivar'>@type_clg_or_htg_or_defrost</span> <span class='op'>=</span> <span class='const'>MAP_TYPE_DEFROST</span>
+            <span class='kw'>break</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># report on success or failure
+</span>    <span class='kw'>if</span> <span class='ivar'>@type_clg_or_htg_or_defrost</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not infer performance map type (htg/clg/defrost) for ductless heat pump outdoor unit</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>File name to match: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Aborting ...</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ExCouldntGetMapType</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not infer performance map type for DHP outdoor unit</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_type'>type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>umm</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>case</span> <span class='ivar'>@type_clg_or_htg_or_defrost</span>
+        <span class='kw'>when</span> <span class='const'>MAP_TYPE_COOLING</span>
+            <span class='id identifier rubyid_type'>type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cooling</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>when</span> <span class='const'>MAP_TYPE_HEATING</span>
+            <span class='id identifier rubyid_type'>type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>heating</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>when</span> <span class='const'>MAP_TYPE_DEFROST</span>
+            <span class='id identifier rubyid_type'>type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>defrost</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>else</span>
+            <span class='comment'>#umm
+</span>        <span class='kw'>end</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Map type (filename = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>) inferred as type: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_type'>type</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># next we need to read in specific data
+</span>    <span class='comment'># first instantiate the main data point array
+</span>    <span class='ivar'>@this_data_set</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+    <span class='comment'># then read in meta and actual data based on the map type
+</span>    <span class='kw'>case</span> <span class='ivar'>@type_clg_or_htg_or_defrost</span>
+    <span class='kw'>when</span> <span class='const'>MAP_TYPE_COOLING</span>
+
+        <span class='comment'># read in the meta data
+</span>        <span class='id identifier rubyid_owner'>owner</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_brand'>brand</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>4</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_product_line'>product_line</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>5</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_model'>model</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>6</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
+
+        <span class='comment'># instantiate the base class with common data
+</span>        <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_owner'>owner</span><span class='comma'>,</span> <span class='id identifier rubyid_brand'>brand</span><span class='comma'>,</span> <span class='id identifier rubyid_product_line'>product_line</span><span class='comma'>,</span> <span class='id identifier rubyid_model'>model</span><span class='rparen'>)</span>
+
+        <span class='id identifier rubyid_avg_cooling_capacity'>avg_cooling_capacity</span> <span class='op'>=</span> <span class='id identifier rubyid_csv_data'>csv_data</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDCOOLINGCAPACITY</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_avg_cooling_capacity'>avg_cooling_capacity</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>1</span> <span class='kw'>if</span> <span class='id identifier rubyid_avg_cooling_capacity'>avg_cooling_capacity</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='comment'># should be enforced separately
+</span>        <span class='id identifier rubyid_avg_cooling_cop'>avg_cooling_cop</span> <span class='op'>=</span> <span class='id identifier rubyid_csv_data'>csv_data</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDCOOLINGCOP</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_avg_cooling_cop'>avg_cooling_cop</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>1</span> <span class='kw'>if</span> <span class='id identifier rubyid_avg_cooling_cop'>avg_cooling_cop</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='comment'># should be enforced separately
+</span>        <span class='id identifier rubyid_avg_rated_energy_input'>avg_rated_energy_input</span> <span class='op'>=</span> <span class='id identifier rubyid_avg_cooling_capacity'>avg_cooling_capacity</span> <span class='op'>/</span> <span class='id identifier rubyid_avg_cooling_cop'>avg_cooling_cop</span>
+        <span class='id identifier rubyid_read_cooling_map'>read_cooling_map</span><span class='lparen'>(</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='comma'>,</span> <span class='id identifier rubyid_avg_cooling_capacity'>avg_cooling_capacity</span><span class='comma'>,</span> <span class='id identifier rubyid_avg_rated_energy_input'>avg_rated_energy_input</span><span class='rparen'>)</span>
+
+    <span class='kw'>when</span> <span class='const'>MAP_TYPE_HEATING</span>
+
+        <span class='comment'># read in the meta data
+</span>        <span class='id identifier rubyid_owner'>owner</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_brand'>brand</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>4</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_product_line'>product_line</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>5</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_model'>model</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>6</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span>
+
+        <span class='comment'># instantiate the base class with common data
+</span>        <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_owner'>owner</span><span class='comma'>,</span> <span class='id identifier rubyid_brand'>brand</span><span class='comma'>,</span> <span class='id identifier rubyid_product_line'>product_line</span><span class='comma'>,</span> <span class='id identifier rubyid_model'>model</span><span class='rparen'>)</span>
+
+        <span class='id identifier rubyid_avg_heating_capacity'>avg_heating_capacity</span> <span class='op'>=</span> <span class='id identifier rubyid_csv_data'>csv_data</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDHEATINGCAPACITY</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_avg_heating_capacity'>avg_heating_capacity</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>1</span> <span class='kw'>if</span> <span class='id identifier rubyid_avg_heating_capacity'>avg_heating_capacity</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='comment'># should be enforced separately
+</span>        <span class='id identifier rubyid_avg_heating_cop'>avg_heating_cop</span> <span class='op'>=</span> <span class='id identifier rubyid_csv_data'>csv_data</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDHEATINGCOP</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_avg_heating_cop'>avg_heating_cop</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>1</span> <span class='kw'>if</span> <span class='id identifier rubyid_avg_heating_cop'>avg_heating_cop</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='comment'># should be enforced separately
+</span>        <span class='id identifier rubyid_avg_rated_energy_input'>avg_rated_energy_input</span> <span class='op'>=</span> <span class='id identifier rubyid_avg_heating_capacity'>avg_heating_capacity</span> <span class='op'>/</span> <span class='id identifier rubyid_avg_heating_cop'>avg_heating_cop</span>
+        <span class='id identifier rubyid_read_heating_map'>read_heating_map</span><span class='lparen'>(</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='comma'>,</span> <span class='id identifier rubyid_avg_heating_capacity'>avg_heating_capacity</span><span class='comma'>,</span> <span class='id identifier rubyid_avg_rated_energy_input'>avg_rated_energy_input</span><span class='rparen'>)</span>
+
+    <span class='kw'>when</span> <span class='const'>MAP_TYPE_DEFROST</span>
+
+        <span class='comment'># read in the meta data
+</span>        <span class='id identifier rubyid_owner'>owner</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span><span class='int'>3</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_brand'>brand</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>4</span><span class='comma'>,</span><span class='int'>3</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_product_line'>product_line</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>5</span><span class='comma'>,</span><span class='int'>3</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_model'>model</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='int'>6</span><span class='comma'>,</span><span class='int'>3</span><span class='rparen'>)</span>
+
+        <span class='comment'># instantiate the base class with common data
+</span>        <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_owner'>owner</span><span class='comma'>,</span> <span class='id identifier rubyid_brand'>brand</span><span class='comma'>,</span> <span class='id identifier rubyid_product_line'>product_line</span><span class='comma'>,</span> <span class='id identifier rubyid_model'>model</span><span class='rparen'>)</span>
+
+        <span class='comment'># read in the map data
+</span>        <span class='id identifier rubyid_read_defrost_map'>read_defrost_map</span><span class='lparen'>(</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='rparen'>)</span>
+
+    <span class='kw'>else</span>
+        <span class='comment'>#WHAT?
+</span>    <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="this_data_set-instance_method">
+  
+    - (<tt>Object</tt>) <strong>this_data_set</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute this_data_set</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+335
+336
+337</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 335</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_this_data_set'>this_data_set</span>
+  <span class='ivar'>@this_data_set</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="type_clg_or_htg_or_defrost-instance_method">
+  
+    - (<tt>Object</tt>) <strong>type_clg_or_htg_or_defrost</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute type_clg_or_htg_or_defrost</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+336
+337
+338</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 336</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_type_clg_or_htg_or_defrost'>type_clg_or_htg_or_defrost</span>
+  <span class='ivar'>@type_clg_or_htg_or_defrost</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="get_combination_ratio_row_from_row_num_clg-instance_method">
+  
+    - (<tt>FixNum</tt>) <strong>get_combination_ratio_row_from_row_num_clg</strong>(row) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A utility function for retreiving the combination ratio for a given row in
+the spreadsheet</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>row</span>
+      
+      
+        <span class='type'>(<tt>FixNum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The actual row in the spreadsheet file</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>FixNum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns the combination ratio for the given row in the spreadsheet</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 644</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_combination_ratio_row_from_row_num_clg'>get_combination_ratio_row_from_row_num_clg</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='rparen'>)</span>
+    <span class='kw'>case</span> <span class='id identifier rubyid_row'>row</span>
+    <span class='kw'>when</span> <span class='int'>13</span><span class='op'>..</span><span class='int'>34</span>
+        <span class='kw'>return</span> <span class='int'>13</span>
+    <span class='kw'>when</span> <span class='int'>35</span><span class='op'>..</span><span class='int'>56</span>
+        <span class='kw'>return</span> <span class='int'>35</span>
+    <span class='kw'>when</span> <span class='int'>57</span><span class='op'>..</span><span class='int'>78</span>
+        <span class='kw'>return</span> <span class='int'>57</span>
+    <span class='kw'>when</span> <span class='int'>79</span><span class='op'>..</span><span class='int'>100</span>
+        <span class='kw'>return</span> <span class='int'>79</span>
+    <span class='kw'>when</span> <span class='int'>101</span><span class='op'>..</span><span class='int'>122</span>
+        <span class='kw'>return</span> <span class='int'>101</span>
+    <span class='kw'>when</span> <span class='int'>123</span><span class='op'>..</span><span class='int'>144</span>
+        <span class='kw'>return</span> <span class='int'>123</span>
+    <span class='kw'>when</span> <span class='int'>145</span><span class='op'>..</span><span class='int'>166</span>
+        <span class='kw'>return</span> <span class='int'>145</span>
+    <span class='kw'>when</span> <span class='int'>167</span><span class='op'>..</span><span class='int'>188</span>
+        <span class='kw'>return</span> <span class='int'>167</span>
+    <span class='kw'>when</span> <span class='int'>189</span><span class='op'>..</span><span class='int'>210</span>
+        <span class='kw'>return</span> <span class='int'>189</span>
+    <span class='kw'>else</span>
+        <span class='comment'># fail...bad row num
+</span>    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_combination_ratio_row_from_row_num_htg-instance_method">
+  
+    - (<tt>FixNum</tt>) <strong>get_combination_ratio_row_from_row_num_htg</strong>(row) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A utility function for retreiving the combination ratio for a given row in
+the spreadsheet</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>row</span>
+      
+      
+        <span class='type'>(<tt>FixNum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The actual row in the spreadsheet file</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>FixNum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns the combination ratio for the given row in the spreadsheet</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 821</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_combination_ratio_row_from_row_num_htg'>get_combination_ratio_row_from_row_num_htg</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='rparen'>)</span>
+    <span class='kw'>case</span> <span class='id identifier rubyid_row'>row</span>
+    <span class='kw'>when</span> <span class='int'>13</span><span class='op'>..</span><span class='int'>27</span>
+        <span class='kw'>return</span> <span class='int'>13</span>
+    <span class='kw'>when</span> <span class='int'>28</span><span class='op'>..</span><span class='int'>42</span>
+        <span class='kw'>return</span> <span class='int'>28</span>
+    <span class='kw'>when</span> <span class='int'>43</span><span class='op'>..</span><span class='int'>57</span>
+        <span class='kw'>return</span> <span class='int'>43</span>
+    <span class='kw'>when</span> <span class='int'>58</span><span class='op'>..</span><span class='int'>72</span>
+        <span class='kw'>return</span> <span class='int'>58</span>
+    <span class='kw'>when</span> <span class='int'>73</span><span class='op'>..</span><span class='int'>87</span>
+        <span class='kw'>return</span> <span class='int'>73</span>
+    <span class='kw'>when</span> <span class='int'>88</span><span class='op'>..</span><span class='int'>102</span>
+        <span class='kw'>return</span> <span class='int'>88</span>
+    <span class='kw'>when</span> <span class='int'>103</span><span class='op'>..</span><span class='int'>117</span>
+        <span class='kw'>return</span> <span class='int'>103</span>
+    <span class='kw'>when</span> <span class='int'>118</span><span class='op'>..</span><span class='int'>132</span>
+        <span class='kw'>return</span> <span class='int'>118</span>
+    <span class='kw'>when</span> <span class='int'>133</span><span class='op'>..</span><span class='int'>147</span>
+        <span class='kw'>return</span> <span class='int'>133</span>
+    <span class='kw'>else</span>
+        <span class='comment'># fail...bad row num
+</span>    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="read_cooling_map-instance_method">
+  
+    - (<tt>Object</tt>) <strong>read_cooling_map</strong>(map_file_name, map_spreadsheet_object, rated_cooling_capacity, rated_energy_input) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs interpretation of the data found in the cooling performance map
+for DHP-indoors</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>map_spreadsheet_object</span>
+      
+      
+        <span class='type'>(<tt>Roo-Spreadsheet-Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A “Roo gem” spreadsheet instance, created with either Excel.new or
+Excelx.new</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 671</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_read_cooling_map'>read_cooling_map</span><span class='lparen'>(</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='comma'>,</span> <span class='id identifier rubyid_rated_cooling_capacity'>rated_cooling_capacity</span><span class='comma'>,</span> <span class='id identifier rubyid_rated_energy_input'>rated_energy_input</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_first_row_of_data'>first_row_of_data</span> <span class='op'>=</span> <span class='int'>13</span>
+    <span class='id identifier rubyid_last_row_of_data'>last_row_of_data</span>  <span class='op'>=</span> <span class='int'>210</span>
+    <span class='id identifier rubyid_num_columns_indoor_temps'>num_columns_indoor_temps</span> <span class='op'>=</span> <span class='int'>7</span>
+    <span class='id identifier rubyid_row_for_indoor_temps'>row_for_indoor_temps</span> <span class='op'>=</span> <span class='int'>11</span>
+    <span class='id identifier rubyid_col_for_indoor_temp'>col_for_indoor_temp</span> <span class='op'>=</span> <span class='tlambda'>-&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='tlambeg'>{</span><span class='int'>3</span><span class='op'>*</span><span class='id identifier rubyid_col'>col</span><span class='op'>+</span><span class='int'>1</span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_col_for_comb_ratio'>col_for_comb_ratio</span> <span class='op'>=</span> <span class='int'>2</span>
+    <span class='id identifier rubyid_col_for_oadb'>col_for_oadb</span> <span class='op'>=</span> <span class='int'>3</span>
+
+
+    <span class='kw'>for</span> <span class='id identifier rubyid_col'>col</span> <span class='kw'>in</span> <span class='int'>1</span><span class='op'>..</span><span class='id identifier rubyid_num_columns_indoor_temps'>num_columns_indoor_temps</span>
+
+        <span class='comment'># process indoor db/wb cell contents
+</span>        <span class='id identifier rubyid_in_air_column_index'>in_air_column_index</span> <span class='op'>=</span> <span class='id identifier rubyid_col_for_indoor_temp'>col_for_indoor_temp</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_cell_contents'>cell_contents</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row_for_indoor_temps'>row_for_indoor_temps</span><span class='comma'>,</span> <span class='id identifier rubyid_in_air_column_index'>in_air_column_index</span><span class='rparen'>)</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_cell_contents'>cell_contents</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nil found for indoor air temp data in cooling map at cell (</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_row_for_indoor_temps'>row_for_indoor_temps</span><span class='embexpr_end'>}</span><span class='tstring_content'>,</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_in_air_column_index'>in_air_column_index</span><span class='embexpr_end'>}</span><span class='tstring_content'>), skipping this column of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+            <span class='kw'>next</span>
+        <span class='kw'>end</span>
+        <span class='comment'># we expect the data to be in the following form:
+</span>        <span class='comment'>#      20.0°C / 13.9°C
+</span>        <span class='comment'># so we&#39;ll split it right here, then use the utility function to process each individually
+</span>        <span class='id identifier rubyid_slash_index'>slash_index</span> <span class='op'>=</span> <span class='id identifier rubyid_cell_contents'>cell_contents</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_slash_index'>slash_index</span> <span class='op'>&lt;</span> <span class='int'>1</span>
+            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Malformed db/wb string in cooling map for these contents: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cell_contents'>cell_contents</span><span class='embexpr_end'>}</span><span class='tstring_content'>; expected slash delimiter between wb/db; skipping this column of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+            <span class='kw'>next</span>
+        <span class='kw'>end</span>
+        <span class='id identifier rubyid_db_string'>db_string</span> <span class='op'>=</span> <span class='id identifier rubyid_cell_contents'>cell_contents</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_slash_index'>slash_index</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_wb_string'>wb_string</span> <span class='op'>=</span> <span class='id identifier rubyid_cell_contents'>cell_contents</span><span class='lbracket'>[</span><span class='id identifier rubyid_slash_index'>slash_index</span><span class='op'>+</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_strip_degree_units'>strip_degree_units</span><span class='lparen'>(</span><span class='id identifier rubyid_db_string'>db_string</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_wb'>wb</span> <span class='op'>=</span> <span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_strip_degree_units'>strip_degree_units</span><span class='lparen'>(</span><span class='id identifier rubyid_wb_string'>wb_string</span><span class='rparen'>)</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>or</span> <span class='id identifier rubyid_wb'>wb</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Something went awry with the dry-bulb/wet-bulb data for this string: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cell_contents'>cell_contents</span><span class='embexpr_end'>}</span><span class='tstring_content'>; check log; skipping this column of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+            <span class='kw'>next</span>
+        <span class='kw'>end</span>
+        <span class='id identifier rubyid_in_air_db_wb'>in_air_db_wb</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>db</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_db'>db</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_wb'>wb</span><span class='rbrace'>}</span>
+
+        <span class='kw'>for</span> <span class='id identifier rubyid_row'>row</span> <span class='kw'>in</span> <span class='id identifier rubyid_first_row_of_data'>first_row_of_data</span><span class='op'>..</span><span class='id identifier rubyid_last_row_of_data'>last_row_of_data</span>
+
+            <span class='comment'># process combination ratio for this row
+</span>            <span class='id identifier rubyid_comb_ratio_row'>comb_ratio_row</span> <span class='op'>=</span> <span class='id identifier rubyid_get_combination_ratio_row_from_row_num_clg'>get_combination_ratio_row_from_row_num_clg</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_comb_ratio_row'>comb_ratio_row</span><span class='comma'>,</span> <span class='id identifier rubyid_col_for_comb_ratio'>col_for_comb_ratio</span><span class='rparen'>)</span>
+            <span class='kw'>if</span> <span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+                <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nil found for combination ratio in cooling map at cell (</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_comb_ratio_row'>comb_ratio_row</span><span class='embexpr_end'>}</span><span class='tstring_content'>,</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_col_for_comb_ratio'>col_for_comb_ratio</span><span class='embexpr_end'>}</span><span class='tstring_content'>), skipping this row of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                <span class='kw'>next</span>
+            <span class='kw'>end</span>
+            <span class='kw'>if</span> <span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_parameter_is_numeric?'>parameter_is_numeric?</span><span class='lparen'>(</span><span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span><span class='rparen'>)</span>
+                <span class='id identifier rubyid_combination_ratio'>combination_ratio</span> <span class='op'>=</span> <span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span><span class='rparen'>)</span>
+            <span class='kw'>else</span>
+                <span class='comment'># we expect the data to be in the following form:
+</span>                <span class='comment'>#   50%
+</span>                <span class='comment'># so we&#39;ll take off the percent sign and divide by 100
+</span>                <span class='id identifier rubyid_percent_index'>percent_index</span> <span class='op'>=</span> <span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                <span class='kw'>if</span> <span class='id identifier rubyid_percent_index'>percent_index</span> <span class='op'>&lt;</span> <span class='int'>1</span>
+                    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Malformed combination ratio string in cooling map for these contents: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span><span class='embexpr_end'>}</span><span class='tstring_content'>; expected percent sign; skipping this column of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                    <span class='kw'>next</span>
+                <span class='kw'>end</span>
+                <span class='id identifier rubyid_comb_ratio_percent_string'>comb_ratio_percent_string</span> <span class='op'>=</span> <span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_percent_index'>percent_index</span><span class='rbracket'>]</span>
+                <span class='kw'>if</span> <span class='op'>!</span><span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_parameter_is_numeric?'>parameter_is_numeric?</span><span class='lparen'>(</span><span class='id identifier rubyid_comb_ratio_percent_string'>comb_ratio_percent_string</span><span class='rparen'>)</span>
+                    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid numerics for combination ratio substring: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_comb_ratio_percent_string'>comb_ratio_percent_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>; should include only numerics at this point in parsing; skipping this row of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                    <span class='kw'>next</span>
+                <span class='kw'>end</span>
+                <span class='id identifier rubyid_combination_ratio'>combination_ratio</span> <span class='op'>=</span> <span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_comb_ratio_percent_string'>comb_ratio_percent_string</span><span class='rparen'>)</span><span class='op'>/</span><span class='int'>100</span>
+            <span class='kw'>end</span>
+
+            <span class='comment'># process outdoor db for this row
+</span>            <span class='id identifier rubyid_out_air_db'>out_air_db</span> <span class='op'>=</span> <span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_strip_degree_units'>strip_degree_units</span><span class='lparen'>(</span><span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span><span class='id identifier rubyid_col_for_oadb'>col_for_oadb</span><span class='rparen'>)</span><span class='rparen'>)</span>
+            <span class='kw'>if</span> <span class='id identifier rubyid_out_air_db'>out_air_db</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+                <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nil found for outdoor dry bulb in cooling map at cell (</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_row'>row</span><span class='embexpr_end'>}</span><span class='tstring_content'>,</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_col_for_oadb'>col_for_oadb</span><span class='embexpr_end'>}</span><span class='tstring_content'>), skipping this row of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                <span class='kw'>next</span>
+            <span class='kw'>end</span>
+
+            <span class='comment'># read in the dependent variable cells first
+</span>            <span class='id identifier rubyid_cell_cooling_capacity'>cell_cooling_capacity</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='int'>3</span><span class='op'>*</span><span class='id identifier rubyid_col'>col</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_cell_compressor_power'>cell_compressor_power</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='int'>3</span><span class='op'>*</span><span class='id identifier rubyid_col'>col</span> <span class='op'>+</span> <span class='int'>2</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_cell_fan_power'>cell_fan_power</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='int'>3</span><span class='op'>*</span><span class='id identifier rubyid_col'>col</span> <span class='op'>+</span> <span class='int'>3</span><span class='rparen'>)</span>
+
+            <span class='comment'># initialize the values
+</span>            <span class='id identifier rubyid_cooling_capacity'>cooling_capacity</span> <span class='op'>=</span> <span class='int'>0</span>
+            <span class='id identifier rubyid_compressor_power'>compressor_power</span> <span class='op'>=</span> <span class='int'>0</span>
+            <span class='id identifier rubyid_fan_power'>fan_power</span>        <span class='op'>=</span> <span class='int'>0</span>
+
+            <span class='comment'># read the dependent variables
+</span>            <span class='id identifier rubyid_cooling_capacity'>cooling_capacity</span> <span class='op'>=</span> <span class='id identifier rubyid_cell_cooling_capacity'>cell_cooling_capacity</span> <span class='op'>*</span> <span class='int'>1000</span> <span class='kw'>unless</span> <span class='id identifier rubyid_cell_cooling_capacity'>cell_cooling_capacity</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='id identifier rubyid_compressor_power'>compressor_power</span> <span class='op'>=</span> <span class='id identifier rubyid_cell_compressor_power'>cell_compressor_power</span> <span class='op'>*</span> <span class='int'>1000</span> <span class='kw'>unless</span> <span class='id identifier rubyid_cell_compressor_power'>cell_compressor_power</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='id identifier rubyid_fan_power'>fan_power</span>        <span class='op'>=</span> <span class='id identifier rubyid_cell_fan_power'>cell_fan_power</span> <span class='op'>*</span> <span class='int'>1000</span> <span class='kw'>unless</span> <span class='id identifier rubyid_cell_fan_power'>cell_fan_power</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+            <span class='comment'># we should allow blanks since multiple maps might be unionized to get a full set
+</span>            <span class='comment'># we&#39;ll still check for non-numerics though
+</span>            <span class='id identifier rubyid_valid_point'>valid_point</span> <span class='op'>=</span> <span class='kw'>true</span>
+            <span class='kw'>for</span> <span class='id identifier rubyid_item'>item</span> <span class='kw'>in</span> <span class='lbracket'>[</span><span class='id identifier rubyid_cooling_capacity'>cooling_capacity</span><span class='comma'>,</span> <span class='id identifier rubyid_compressor_power'>compressor_power</span><span class='comma'>,</span> <span class='id identifier rubyid_fan_power'>fan_power</span><span class='rbracket'>]</span>
+                <span class='kw'>if</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+                    <span class='comment'># blank, ok for now
+</span>                <span class='kw'>elsif</span> <span class='op'>!</span><span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_parameter_is_numeric?'>parameter_is_numeric?</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+                    <span class='comment'># non-numeric, error
+</span>                    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Found non-numerics in map data: [</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cooling_capacity'>cooling_capacity</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_compressor_power'>compressor_power</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_fan_power'>fan_power</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                    <span class='id identifier rubyid_valid_point'>valid_point</span> <span class='op'>=</span> <span class='kw'>false</span>
+                <span class='kw'>else</span>
+                    <span class='comment'># ok, good to go
+</span>                <span class='kw'>end</span>
+            <span class='kw'>end</span>
+            <span class='kw'>next</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_valid_point'>valid_point</span>
+
+            <span class='comment'># also eliminate zero entries
+</span>            <span class='kw'>next</span> <span class='kw'>if</span> <span class='lbracket'>[</span><span class='id identifier rubyid_cooling_capacity'>cooling_capacity</span><span class='comma'>,</span> <span class='id identifier rubyid_compressor_power'>compressor_power</span><span class='comma'>,</span> <span class='id identifier rubyid_fan_power'>fan_power</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_all?'>all?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>==</span> <span class='int'>0</span> <span class='rbrace'>}</span>
+
+            <span class='comment'># create a new data point
+</span>            <span class='id identifier rubyid_this_data_point'>this_data_point</span> <span class='op'>=</span> <span class='const'>DhpOutdoorMapDataPointCooling</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_combination_ratio'>combination_ratio</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_out_air_db'>out_air_db</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_in_air_db_wb'>in_air_db_wb</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>db</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_in_air_db_wb'>in_air_db_wb</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_cooling_capacity'>cooling_capacity</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_compressor_power'>compressor_power</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_fan_power'>fan_power</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_rated_cooling_capacity'>rated_cooling_capacity</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_rated_energy_input'>rated_energy_input</span><span class='rparen'>)</span>
+
+            <span class='comment'># add it to the main dataset hash
+</span>            <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='rparen'>)</span>
+
+        <span class='kw'>end</span>
+
+    <span class='kw'>end</span>
+
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># print base map data
+</span>    <span class='const'>DhpOutdoorMapDataPointCooling</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span> <span class='comment'># print class-level header line
+</span>    <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span> <span class='rbrace'>}</span> <span class='comment'># print all data points data
+</span>
+    <span class='comment'># throw an error if the number of data points is not sufficient
+</span>    <span class='id identifier rubyid_map_template_max_data_points'>map_template_max_data_points</span> <span class='op'>=</span> <span class='int'>198</span>
+    <span class='kw'>if</span> <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='id identifier rubyid_map_template_max_data_points'>map_template_max_data_points</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>&lt;</span> <span class='float'>0.01</span> <span class='comment'>#0.25
+</span>        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Insufficient data points found for this map file: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='ivar'>@insufficient_data_points</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='kw'>return</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># validate that it contains at least a few points for CR=1
+</span>    <span class='id identifier rubyid_cr_one_values'>cr_one_values</span> <span class='op'>=</span> <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_val'>val</span><span class='op'>|</span> <span class='id identifier rubyid_val'>val</span><span class='period'>.</span><span class='id identifier rubyid_combination_ratio'>combination_ratio</span> <span class='op'>==</span> <span class='int'>1</span> <span class='rbrace'>}</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_cr_one_values'>cr_one_values</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;</span> <span class='int'>3</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Insufficient data points at CR = 1 for this map file: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='ivar'>@insufficient_data_points</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='kw'>return</span>
+    <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="read_defrost_map-instance_method">
+  
+    - (<tt>Object</tt>) <strong>read_defrost_map</strong>(map_file_name, map_spreadsheet_object) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs interpretation of the data found in the defrost performance map
+for DHP-indoors</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>map_spreadsheet_object</span>
+      
+      
+        <span class='type'>(<tt>Roo-Spreadsheet-Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A “Roo gem” spreadsheet instance, created with either Excel.new or
+Excelx.new</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+994
+995
+996
+997
+998
+999
+1000
+1001
+1002
+1003
+1004
+1005
+1006
+1007
+1008
+1009
+1010
+1011
+1012
+1013
+1014
+1015
+1016
+1017
+1018
+1019
+1020
+1021
+1022
+1023
+1024
+1025
+1026
+1027
+1028
+1029
+1030
+1031
+1032
+1033
+1034
+1035
+1036
+1037
+1038
+1039
+1040
+1041
+1042
+1043</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 994</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_read_defrost_map'>read_defrost_map</span><span class='lparen'>(</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_first_row_of_data'>first_row_of_data</span> <span class='op'>=</span> <span class='int'>11</span>
+    <span class='id identifier rubyid_last_row_of_data'>last_row_of_data</span>  <span class='op'>=</span> <span class='int'>17</span>
+    <span class='id identifier rubyid_outdoor_temps'>outdoor_temps</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span><span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span><span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>3</span><span class='comma'>,</span><span class='int'>5</span><span class='comma'>,</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='comment'>#Celsius
+</span>    <span class='id identifier rubyid_temp_counter'>temp_counter</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>1</span>
+    <span class='id identifier rubyid_derate_column'>derate_column</span> <span class='op'>=</span> <span class='int'>3</span>
+
+    <span class='kw'>for</span> <span class='id identifier rubyid_row'>row</span> <span class='kw'>in</span> <span class='id identifier rubyid_first_row_of_data'>first_row_of_data</span><span class='op'>..</span><span class='id identifier rubyid_last_row_of_data'>last_row_of_data</span>
+
+        <span class='id identifier rubyid_temp_counter'>temp_counter</span> <span class='op'>+=</span> <span class='int'>1</span>
+        <span class='id identifier rubyid_this_outdoor_temp'>this_outdoor_temp</span> <span class='op'>=</span> <span class='id identifier rubyid_outdoor_temps'>outdoor_temps</span><span class='lbracket'>[</span><span class='id identifier rubyid_temp_counter'>temp_counter</span><span class='rbracket'>]</span>
+
+        <span class='comment'># read in the dependent variable cells first
+</span>        <span class='id identifier rubyid_cell_derate_factor'>cell_derate_factor</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_derate_column'>derate_column</span><span class='rparen'>)</span>
+
+        <span class='comment'># initialize the values
+</span>        <span class='id identifier rubyid_derate_factor'>derate_factor</span> <span class='op'>=</span> <span class='int'>0</span>
+
+        <span class='comment'># read the dependent variables
+</span>        <span class='id identifier rubyid_derate_factor'>derate_factor</span> <span class='op'>=</span> <span class='id identifier rubyid_cell_derate_factor'>cell_derate_factor</span> <span class='kw'>unless</span> <span class='id identifier rubyid_cell_derate_factor'>cell_derate_factor</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+        <span class='comment'># validate inputs, enforcing numerics and non-blanks
+</span>        <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_derate_factor'>derate_factor</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='kw'>if</span> <span class='op'>!</span><span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_parameter_is_numeric?'>parameter_is_numeric?</span><span class='lparen'>(</span><span class='id identifier rubyid_derate_factor'>derate_factor</span><span class='rparen'>)</span>
+            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Found non-numeric derate factor in defrost map data: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_derate_factor'>derate_factor</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+            <span class='kw'>next</span>
+        <span class='kw'>end</span>
+
+        <span class='comment'># create a new data point
+</span>        <span class='id identifier rubyid_this_data_point'>this_data_point</span> <span class='op'>=</span> <span class='const'>DhpOutdoorMapDataPointDefrost</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_this_outdoor_temp'>this_outdoor_temp</span><span class='comma'>,</span> <span class='id identifier rubyid_derate_factor'>derate_factor</span><span class='rparen'>)</span>
+
+        <span class='comment'># add it to the main dataset hash
+</span>        <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='rparen'>)</span>
+
+    <span class='kw'>end</span>
+
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># print base map data
+</span>    <span class='const'>DhpOutdoorMapDataPointDefrost</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span> <span class='comment'># print class-level header line
+</span>    <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span> <span class='rbrace'>}</span> <span class='comment'># print all data points data
+</span>
+    <span class='comment'># throw an error if the number of data points is not sufficient
+</span>    <span class='id identifier rubyid_map_template_max_data_points'>map_template_max_data_points</span> <span class='op'>=</span> <span class='int'>7</span>
+    <span class='kw'>if</span> <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='id identifier rubyid_map_template_max_data_points'>map_template_max_data_points</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>&lt;</span> <span class='float'>0.25</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Insufficient data points found for this map file: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='ivar'>@insufficient_data_points</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='kw'>return</span>
+    <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="read_heating_map-instance_method">
+  
+    - (<tt>Object</tt>) <strong>read_heating_map</strong>(map_file_name, map_spreadsheet_object, rated_heating_capacity, rated_energy_input) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs interpretation of the data found in the cooling performance map
+for DHP-indoors</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>map_spreadsheet_object</span>
+      
+      
+        <span class='type'>(<tt>Roo-Spreadsheet-Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A “Roo gem” spreadsheet instance, created with either Excel.new or
+Excelx.new</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
+934
+935
+936
+937
+938
+939
+940
+941
+942
+943
+944
+945
+946
+947
+948
+949
+950
+951
+952
+953
+954
+955
+956
+957
+958
+959
+960
+961
+962
+963
+964
+965
+966
+967
+968
+969
+970
+971
+972
+973
+974
+975
+976
+977
+978
+979
+980
+981
+982
+983
+984
+985
+986
+987
+988
+989
+990</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/DuctlessHeatPumpOutdoor.rb', line 848</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_read_heating_map'>read_heating_map</span><span class='lparen'>(</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='comma'>,</span> <span class='id identifier rubyid_rated_heating_capacity'>rated_heating_capacity</span><span class='comma'>,</span> <span class='id identifier rubyid_rated_energy_input'>rated_energy_input</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_first_row_of_data'>first_row_of_data</span> <span class='op'>=</span> <span class='int'>13</span>
+    <span class='id identifier rubyid_last_row_of_data'>last_row_of_data</span>  <span class='op'>=</span> <span class='int'>147</span>
+    <span class='id identifier rubyid_num_columns_indoor_temps'>num_columns_indoor_temps</span> <span class='op'>=</span> <span class='int'>8</span>
+    <span class='id identifier rubyid_row_for_indoor_temps'>row_for_indoor_temps</span> <span class='op'>=</span> <span class='int'>11</span>
+    <span class='id identifier rubyid_col_for_indoor_temps'>col_for_indoor_temps</span> <span class='op'>=</span> <span class='tlambda'>-&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='tlambeg'>{</span><span class='int'>3</span><span class='op'>*</span><span class='id identifier rubyid_col'>col</span><span class='op'>+</span><span class='int'>1</span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_col_for_comb_ratio'>col_for_comb_ratio</span> <span class='op'>=</span> <span class='int'>2</span>
+    <span class='id identifier rubyid_col_for_oatemps'>col_for_oatemps</span> <span class='op'>=</span> <span class='int'>3</span>
+
+    <span class='kw'>for</span> <span class='id identifier rubyid_col'>col</span> <span class='kw'>in</span> <span class='int'>1</span><span class='op'>..</span><span class='id identifier rubyid_num_columns_indoor_temps'>num_columns_indoor_temps</span>
+
+        <span class='id identifier rubyid_in_air_db'>in_air_db</span> <span class='op'>=</span> <span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_strip_degree_units'>strip_degree_units</span><span class='lparen'>(</span><span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row_for_indoor_temps'>row_for_indoor_temps</span><span class='comma'>,</span><span class='id identifier rubyid_col_for_indoor_temps'>col_for_indoor_temps</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_in_air_db'>in_air_db</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nil found for indoor dry bulb in heating map at cell (</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_row_for_indoor_temps'>row_for_indoor_temps</span><span class='embexpr_end'>}</span><span class='tstring_content'>,</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_col_for_indoor_temps'>col_for_indoor_temps</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>), skipping this row of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+            <span class='kw'>next</span>
+        <span class='kw'>end</span>
+
+        <span class='kw'>for</span> <span class='id identifier rubyid_row'>row</span> <span class='kw'>in</span> <span class='id identifier rubyid_first_row_of_data'>first_row_of_data</span><span class='op'>..</span><span class='id identifier rubyid_last_row_of_data'>last_row_of_data</span>
+
+            <span class='comment'># process combination ratio for this row
+</span>            <span class='id identifier rubyid_comb_ratio_row'>comb_ratio_row</span> <span class='op'>=</span> <span class='id identifier rubyid_get_combination_ratio_row_from_row_num_htg'>get_combination_ratio_row_from_row_num_htg</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_comb_ratio_row'>comb_ratio_row</span><span class='comma'>,</span> <span class='id identifier rubyid_col_for_comb_ratio'>col_for_comb_ratio</span><span class='rparen'>)</span>
+            <span class='kw'>if</span> <span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+                <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nil found for combination ratio in heating map at cell (</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_comb_ratio_row'>comb_ratio_row</span><span class='embexpr_end'>}</span><span class='tstring_content'>,</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_col_for_comb_ratio'>col_for_comb_ratio</span><span class='embexpr_end'>}</span><span class='tstring_content'>), skipping this row of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                <span class='kw'>next</span>
+            <span class='kw'>end</span>
+            <span class='comment'># we expect the data to be in the following form:
+</span>            <span class='comment'>#   50%
+</span>            <span class='comment'># so we&#39;ll take off the percent sign and divide by 100
+</span>            <span class='kw'>if</span> <span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_parameter_is_numeric?'>parameter_is_numeric?</span><span class='lparen'>(</span><span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span><span class='rparen'>)</span>
+                <span class='id identifier rubyid_combination_ratio'>combination_ratio</span> <span class='op'>=</span> <span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span><span class='rparen'>)</span>
+            <span class='kw'>else</span>
+                <span class='id identifier rubyid_percent_index'>percent_index</span> <span class='op'>=</span> <span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                <span class='kw'>if</span> <span class='id identifier rubyid_percent_index'>percent_index</span> <span class='op'>&lt;</span> <span class='int'>1</span>
+                    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Malformed combination ratio string in heating map for these contents: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span><span class='embexpr_end'>}</span><span class='tstring_content'>; expected percent sign; skipping this column of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                    <span class='kw'>next</span>
+                <span class='kw'>end</span>
+                <span class='id identifier rubyid_comb_ratio_percent_string'>comb_ratio_percent_string</span> <span class='op'>=</span> <span class='id identifier rubyid_combination_ratio_contents'>combination_ratio_contents</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_percent_index'>percent_index</span><span class='rbracket'>]</span>
+                <span class='kw'>if</span> <span class='op'>!</span><span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_parameter_is_numeric?'>parameter_is_numeric?</span><span class='lparen'>(</span><span class='id identifier rubyid_comb_ratio_percent_string'>comb_ratio_percent_string</span><span class='rparen'>)</span>
+                    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid numerics for combination ratio substring: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_comb_ratio_percent_string'>comb_ratio_percent_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>; should include only numerics at this point in parsing; skipping this row of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                    <span class='kw'>next</span>
+                <span class='kw'>end</span>
+                <span class='id identifier rubyid_combination_ratio'>combination_ratio</span> <span class='op'>=</span> <span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_comb_ratio_percent_string'>comb_ratio_percent_string</span><span class='rparen'>)</span><span class='op'>/</span><span class='int'>100</span>
+            <span class='kw'>end</span>
+
+            <span class='comment'># process outdoor db/wb cell contents
+</span>            <span class='id identifier rubyid_cell_contents'>cell_contents</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col_for_oatemps'>col_for_oatemps</span><span class='rparen'>)</span>
+            <span class='kw'>if</span> <span class='id identifier rubyid_cell_contents'>cell_contents</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+                <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nil found for outdoor air temp data in heating map at cell (</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_row'>row</span><span class='embexpr_end'>}</span><span class='tstring_content'>,</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_col_for_oatemps'>col_for_oatemps</span><span class='embexpr_end'>}</span><span class='tstring_content'>), skipping this row of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                <span class='kw'>next</span>
+            <span class='kw'>end</span>
+            <span class='comment'># we expect the data to be in the following form:
+</span>            <span class='comment'>#      20.0°C / 13.9°C
+</span>            <span class='comment'># so we&#39;ll split it right here, then use the utility function to process each individually
+</span>            <span class='id identifier rubyid_slash_index'>slash_index</span> <span class='op'>=</span> <span class='id identifier rubyid_cell_contents'>cell_contents</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+            <span class='kw'>if</span> <span class='id identifier rubyid_slash_index'>slash_index</span> <span class='op'>&lt;</span> <span class='int'>1</span>
+                <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Malformed db/wb string in heating map for these contents: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cell_contents'>cell_contents</span><span class='embexpr_end'>}</span><span class='tstring_content'>; expected slash delimiter between wb/db; skipping this row of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                <span class='kw'>next</span>
+            <span class='kw'>end</span>
+            <span class='id identifier rubyid_db_string'>db_string</span> <span class='op'>=</span> <span class='id identifier rubyid_cell_contents'>cell_contents</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_slash_index'>slash_index</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+            <span class='id identifier rubyid_wb_string'>wb_string</span> <span class='op'>=</span> <span class='id identifier rubyid_cell_contents'>cell_contents</span><span class='lbracket'>[</span><span class='id identifier rubyid_slash_index'>slash_index</span><span class='op'>+</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+            <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_strip_degree_units'>strip_degree_units</span><span class='lparen'>(</span><span class='id identifier rubyid_db_string'>db_string</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_wb'>wb</span> <span class='op'>=</span> <span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_strip_degree_units'>strip_degree_units</span><span class='lparen'>(</span><span class='id identifier rubyid_wb_string'>wb_string</span><span class='rparen'>)</span>
+            <span class='kw'>if</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>or</span> <span class='id identifier rubyid_wb'>wb</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+                <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Something went awry with the dry-bulb/wet-bulb data for this string: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cell_contents'>cell_contents</span><span class='embexpr_end'>}</span><span class='tstring_content'>; check log; skipping this row of data</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                <span class='kw'>next</span>
+            <span class='kw'>end</span>
+            <span class='id identifier rubyid_out_air_db_wb'>out_air_db_wb</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>db</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_db'>db</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_wb'>wb</span><span class='rbrace'>}</span>
+
+            <span class='comment'># read the dependent variables
+</span>            <span class='id identifier rubyid_cell_heating_capacity'>cell_heating_capacity</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='int'>3</span><span class='op'>*</span><span class='id identifier rubyid_col'>col</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_cell_compressor_power'>cell_compressor_power</span> <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='int'>3</span><span class='op'>*</span><span class='id identifier rubyid_col'>col</span> <span class='op'>+</span> <span class='int'>2</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_cell_fan_power'>cell_fan_power</span>        <span class='op'>=</span> <span class='id identifier rubyid_map_spreadsheet_object'>map_spreadsheet_object</span><span class='period'>.</span><span class='id identifier rubyid_cell'>cell</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='int'>3</span><span class='op'>*</span><span class='id identifier rubyid_col'>col</span> <span class='op'>+</span> <span class='int'>3</span><span class='rparen'>)</span>
+
+            <span class='comment'># initialize the values
+</span>            <span class='id identifier rubyid_heating_capacity'>heating_capacity</span> <span class='op'>=</span> <span class='int'>0</span>
+            <span class='id identifier rubyid_compressor_power'>compressor_power</span> <span class='op'>=</span> <span class='int'>0</span>
+            <span class='id identifier rubyid_fan_power'>fan_power</span>        <span class='op'>=</span> <span class='int'>0</span>
+
+            <span class='comment'># read the dependent variables
+</span>            <span class='id identifier rubyid_heating_capacity'>heating_capacity</span> <span class='op'>=</span> <span class='id identifier rubyid_cell_heating_capacity'>cell_heating_capacity</span> <span class='op'>*</span> <span class='int'>1000</span> <span class='kw'>unless</span> <span class='id identifier rubyid_cell_heating_capacity'>cell_heating_capacity</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='id identifier rubyid_compressor_power'>compressor_power</span> <span class='op'>=</span> <span class='id identifier rubyid_cell_compressor_power'>cell_compressor_power</span> <span class='op'>*</span> <span class='int'>1000</span> <span class='kw'>unless</span> <span class='id identifier rubyid_cell_compressor_power'>cell_compressor_power</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='id identifier rubyid_fan_power'>fan_power</span>        <span class='op'>=</span> <span class='id identifier rubyid_cell_fan_power'>cell_fan_power</span> <span class='op'>*</span> <span class='int'>1000</span> <span class='kw'>unless</span> <span class='id identifier rubyid_cell_fan_power'>cell_fan_power</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+            <span class='comment'># we should allow blanks since multiple maps might be unionized to get a full set
+</span>            <span class='comment'># we&#39;ll still check for non-numerics though
+</span>            <span class='id identifier rubyid_valid_point'>valid_point</span> <span class='op'>=</span> <span class='kw'>true</span>
+            <span class='kw'>for</span> <span class='id identifier rubyid_item'>item</span> <span class='kw'>in</span> <span class='lbracket'>[</span><span class='id identifier rubyid_heating_capacity'>heating_capacity</span><span class='comma'>,</span> <span class='id identifier rubyid_compressor_power'>compressor_power</span><span class='comma'>,</span> <span class='id identifier rubyid_fan_power'>fan_power</span><span class='rbracket'>]</span>
+                <span class='kw'>if</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+                    <span class='comment'># blank, ok for now
+</span>                <span class='kw'>elsif</span> <span class='op'>!</span><span class='const'>Numerics</span><span class='op'>::</span><span class='id identifier rubyid_parameter_is_numeric?'>parameter_is_numeric?</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+                    <span class='comment'># non-numeric, error
+</span>                    <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Found non-numerics in map data: [</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_heating_capacity'>heating_capacity</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_compressor_power'>compressor_power</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_fan_power'>fan_power</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+                    <span class='id identifier rubyid_valid_point'>valid_point</span> <span class='op'>=</span> <span class='kw'>false</span>
+                <span class='kw'>else</span>
+                    <span class='comment'># ok, good to go
+</span>                <span class='kw'>end</span>
+            <span class='kw'>end</span>
+            <span class='kw'>next</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_valid_point'>valid_point</span>
+
+            <span class='comment'># also eliminate zero entries
+</span>            <span class='kw'>next</span> <span class='kw'>if</span> <span class='lbracket'>[</span><span class='id identifier rubyid_heating_capacity'>heating_capacity</span><span class='comma'>,</span> <span class='id identifier rubyid_compressor_power'>compressor_power</span><span class='comma'>,</span> <span class='id identifier rubyid_fan_power'>fan_power</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_all?'>all?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>==</span> <span class='int'>0</span> <span class='rbrace'>}</span>
+
+            <span class='comment'># create a new data point
+</span>            <span class='id identifier rubyid_this_data_point'>this_data_point</span> <span class='op'>=</span> <span class='const'>DhpOutdoorMapDataPointHeating</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_combination_ratio'>combination_ratio</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_out_air_db_wb'>out_air_db_wb</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>db</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_out_air_db_wb'>out_air_db_wb</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_in_air_db'>in_air_db</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_heating_capacity'>heating_capacity</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_compressor_power'>compressor_power</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_fan_power'>fan_power</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_rated_heating_capacity'>rated_heating_capacity</span><span class='comma'>,</span>
+                                                   <span class='id identifier rubyid_rated_energy_input'>rated_energy_input</span><span class='rparen'>)</span>
+
+            <span class='comment'># add it to the main dataset hash
+</span>            <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_this_data_point'>this_data_point</span><span class='rparen'>)</span>
+
+        <span class='kw'>end</span>
+
+    <span class='kw'>end</span>
+
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># print base map data
+</span>    <span class='const'>DhpOutdoorMapDataPointHeating</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span> <span class='comment'># print class-level header line
+</span>    <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_spew'>spew</span> <span class='rbrace'>}</span> <span class='comment'># print all data points data
+</span>
+    <span class='comment'># throw an error if the number of data points is not sufficient
+</span>    <span class='id identifier rubyid_map_template_max_data_points'>map_template_max_data_points</span> <span class='op'>=</span> <span class='int'>135</span>
+    <span class='kw'>if</span> <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='id identifier rubyid_map_template_max_data_points'>map_template_max_data_points</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>&lt;</span> <span class='float'>0.01</span> <span class='comment'>#0.25
+</span>        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Insufficient data points found for this map file: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='ivar'>@insufficient_data_points</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='kw'>return</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># validate that it contains at least a few points for CR=1
+</span>    <span class='id identifier rubyid_cr_one_values'>cr_one_values</span> <span class='op'>=</span> <span class='ivar'>@this_data_set</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_val'>val</span><span class='op'>|</span> <span class='id identifier rubyid_val'>val</span><span class='period'>.</span><span class='id identifier rubyid_combination_ratio'>combination_ratio</span> <span class='op'>==</span> <span class='int'>1</span> <span class='rbrace'>}</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_cr_one_values'>cr_one_values</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;</span> <span class='int'>3</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Insufficient data points at CR = 1 for this map file: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_map_file_name'>map_file_name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='ivar'>@insufficient_data_points</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='kw'>return</span>
+    <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu May 26 09:58:11 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

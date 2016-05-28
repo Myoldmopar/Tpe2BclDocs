@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-tpe-to-bcl">tpe-to-bcl</h1>
+
+<p>Contains scripts and supporting information for translating TPE products
+into a form fit for BCL</p>
+
+<p>Call the program with two required (plus one optional) command line
+arguments which are:</p>
+<ul><li>
+<p>A path to a directory containing performance data to process,</p>
+</li><li>
+<p>The product-category key, and</p>
+</li><li>
+<p>An optional flag to define whether to skip the unzipping process for
+product data (useful during debugging)</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>TpeBclCore</span><span class='period'>.</span><span class='id identifier rubyid_rb'>rb</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test-products/HPWH-TestBrandModel</span><span class='tstring_end'>&quot;</span></span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>htpmpw</span><span class='tstring_end'>&quot;</span></span></code></pre>
+
+<p>Or call the main function from within ruby, passing the directoy as an
+argument, where it should be relative to the current working directory:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;TpeBclCore&#39;</span>
+<span class="ruby-identifier">process_dir</span> = <span class="ruby-string">&quot;test-products/HPWH-TestBrandModel&quot;</span>
+<span class="ruby-identifier">product</span> = <span class="ruby-string">&quot;htpmpw&quot;</span>
+<span class="ruby-identifier">perf_data</span>, <span class="ruby-identifier">file_paths</span>, <span class="ruby-identifier">comments</span>, <span class="ruby-identifier">go_no_go</span> = <span class="ruby-constant">TpeBclCore</span>.<span class="ruby-identifier">main</span>(<span class="ruby-identifier">process_dir</span>, <span class="ruby-identifier">product</span>)
+</pre>
+</div></div>
+
+    <div id="footer">
+  Generated on Mon Aug  4 09:58:19 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

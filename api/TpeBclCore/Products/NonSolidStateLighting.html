@@ -1,0 +1,919 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: TpeBclCore::Products::NonSolidStateLighting
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!TpeBclCore/Products/NonSolidStateLighting.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (N)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../TpeBclCore.html" title="TpeBclCore (module)">TpeBclCore</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Products.html" title="TpeBclCore::Products (module)">Products</a></span></span>
+     &raquo; 
+    <span class="title">NonSolidStateLighting</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: TpeBclCore::Products::NonSolidStateLighting
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="ProductBaseClass.html" title="TpeBclCore::Products::ProductBaseClass (class)">ProductBaseClass</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="ProductBaseClass.html" title="TpeBclCore::Products::ProductBaseClass (class)">ProductBaseClass</a></span></li>
+          
+            <li class="next">TpeBclCore::Products::NonSolidStateLighting</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/products/NonSolidStateLamps.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A simple module containing routines for writing Non-SSL lamp idf objects</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="PARAM_INITIALLUMINOUSFLUX-constant" class="">PARAM_INITIALLUMINOUSFLUX =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Non-SSL lamp parameter for luminous flux</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Initial Luminous Flux</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_INPUTPOWER-constant" class="">PARAM_INPUTPOWER =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Non-SSL lamp parameter for input power…this parameter gets
+mapped to the idf for lighting power</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Input Power</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_CORRELATEDCOLORTEMP-constant" class="">PARAM_CORRELATEDCOLORTEMP =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Non-SSL lamp parameter for color temperature</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Correlated Color Temperature</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_RATEDLIFE-constant" class="">PARAM_RATEDLIFE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Non-SSL lamp parameter for rated life</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Life</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_LIGHTSOURCETYPE-constant" class="">PARAM_LIGHTSOURCETYPE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the Non-SSL lamp parameter for light source temp</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Light Source Type</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#csv_parameters-class_method" title="csv_parameters (class method)">+ (Array&lt;String&gt;) <strong>csv_parameters</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the list of csv parameters established for this product category
+Overrides ProductBase.csv_parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expect_map%3F-class_method" title="expect_map? (class method)">+ (Boolean) <strong>expect_map?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns whether or not this product category is set up for including a
+performance map Overrides ProductBase.expect_map?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_bcl_parameters-class_method" title="get_bcl_parameters (class method)">+ ({String=&gt;FixNum}) <strong>get_bcl_parameters</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the parameters that could be included in the BCL Overrides
+ProductBase.get_bcl_parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-class_method" title="name (class method)">+ (String) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the name of this product category Overrides ProductBase.name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#product_key-class_method" title="product_key (class method)">+ (String) <strong>product_key</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the TPE product key string for this product category Overrides
+ProductBase.product_key.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#suitable_for_bcl%3F-class_method" title="suitable_for_bcl? (class method)">+ (Boolean) <strong>suitable_for_bcl?</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Used to determine if the data entered for this product is suitable for
+mapping to the BCL Any number of rules could be enforced in this routine,
+as it is called once all product data has been interpreted Overrides
+ProductBase.suitable_for_bcl?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_idf_stuff-class_method" title="write_idf_stuff (class method)">+ (Object) <strong>write_idf_stuff</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Writes the non-solid state lamp idf object Overrides
+ProductBase.write_idf_stuff.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="csv_parameters-class_method">
+  
+    + (<tt>Array&lt;String&gt;</tt>) <strong>csv_parameters</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the list of csv parameters established for this product category
+Overrides ProductBase.csv_parameters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A list of csv parameter names</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/NonSolidStateLamps.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_csv_parameters'>csv_parameters</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='const'>PARAM_INITIALLUMINOUSFLUX</span><span class='comma'>,</span>
+            <span class='const'>PARAM_INPUTPOWER</span><span class='comma'>,</span>
+            <span class='const'>PARAM_CORRELATEDCOLORTEMP</span><span class='comma'>,</span>
+            <span class='const'>PARAM_RATEDLIFE</span><span class='comma'>,</span>
+            <span class='const'>PARAM_LIGHTSOURCETYPE</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expect_map?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>expect_map?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns whether or not this product category is set up for including a
+performance map Overrides ProductBase.expect_map?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>True if this product category expects a map, or false if not</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/NonSolidStateLamps.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_bcl_parameters-class_method">
+  
+    + (<tt>{String=&gt;FixNum}</tt>) <strong>get_bcl_parameters</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the parameters that could be included in the BCL Overrides
+ProductBase.get_bcl_parameters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>{String=&gt;FixNum}</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns a hash mapping parameter names with averaged values</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61
+62
+63
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/NonSolidStateLamps.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_bcl_parameters'>get_bcl_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_params_to_include'>params_to_include</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_INPUTPOWER</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_params_to_include'>params_to_include</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
+        <span class='id identifier rubyid_parameters'>parameters</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_parameters'>parameters</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="name-class_method">
+  
+    + (<tt>String</tt>) <strong>name</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the name of this product category Overrides ProductBase.name</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of this product category</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/NonSolidStateLamps.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Non-SSL Lamps</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="product_key-class_method">
+  
+    + (<tt>String</tt>) <strong>product_key</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the TPE product key string for this product category Overrides
+ProductBase.product_key</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The product key for this product category</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/NonSolidStateLamps.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product_key'>product_key</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nnslmp</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="suitable_for_bcl?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>suitable_for_bcl?</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Used to determine if the data entered for this product is suitable for
+mapping to the BCL Any number of rules could be enforced in this routine,
+as it is called once all product data has been interpreted Overrides
+ProductBase.suitable_for_bcl?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns true if the product is suitable for pushing, false if not.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/NonSolidStateLamps.rb', line 72</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_suitable_for_bcl?'>suitable_for_bcl?</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_INPUTPOWER</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>else</span>
+        <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_idf_stuff-class_method">
+  
+    + (<tt>Object</tt>) <strong>write_idf_stuff</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes the non-solid state lamp idf object Overrides
+ProductBase.write_idf_stuff</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>product_data</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../SingleProductData.html" title="TpeBclCore::SingleProductData (class)">SingleProductData</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A product performance data structure used to write idf objects</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/NonSolidStateLamps.rb', line 86</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_idf_stuff'>write_idf_stuff</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_lighting_watts'>lighting_watts</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_INPUTPOWER</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_lights_def'>lights_def</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>LightsDefinition</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='gvar'>$osm</span><span class='period'>.</span><span class='id identifier rubyid_osm_model'>osm_model</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_lights_def'>lights_def</span><span class='period'>.</span><span class='id identifier rubyid_setLightingLevel'>setLightingLevel</span><span class='lparen'>(</span><span class='id identifier rubyid_lighting_watts'>lighting_watts</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_lights'>lights</span> <span class='op'>=</span> <span class='const'>OpenStudio</span><span class='op'>::</span><span class='const'>Model</span><span class='op'>::</span><span class='const'>Lights</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_lights_def'>lights_def</span><span class='rparen'>)</span>
+
+    <span class='gvar'>$idf</span><span class='period'>.</span><span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+  Lights,
+    ,                   !- Name
+    ,                   !- Zone or ZoneList Name
+    ,                   !- Schedule Name
+    LightingLevel,      !- Design Level Calculation Method
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_lighting_watts'>lighting_watts</span><span class='embexpr_end'>}</span><span class='tstring_content'>,  !- Lighting Level {W}
+    ,                   !- Watts per Zone Floor Area {W/m2}
+    ,                   !- Watts per Person {W/person}
+    ,                   !- Return Air Fraction
+    ,                   !- Fraction Radiant
+    ,                   !- Fraction Visible
+    ,                   !- Fraction Replaceable
+    ;                   !- End-Use Subcategory
+    </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu May 26 09:58:10 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

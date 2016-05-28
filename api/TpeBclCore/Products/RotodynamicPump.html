@@ -1,0 +1,948 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: TpeBclCore::Products::RotodynamicPump
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!TpeBclCore/Products/RotodynamicPump.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (R)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../TpeBclCore.html" title="TpeBclCore (module)">TpeBclCore</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Products.html" title="TpeBclCore::Products (module)">Products</a></span></span>
+     &raquo; 
+    <span class="title">RotodynamicPump</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: TpeBclCore::Products::RotodynamicPump
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="ProductBaseClass.html" title="TpeBclCore::Products::ProductBaseClass (class)">ProductBaseClass</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="ProductBaseClass.html" title="TpeBclCore::Products::ProductBaseClass (class)">ProductBaseClass</a></span></li>
+          
+            <li class="next">TpeBclCore::Products::RotodynamicPump</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/products/RotodynamicPumps.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A simple module containing routines for writing pump idf objects</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="PARAM_RATEDFLOWRATE-constant" class="">PARAM_RATEDFLOWRATE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the rotodynamic pump parameter for rated flow rate</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Flow Rate</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_RATEDPUMPHEAD-constant" class="">PARAM_RATEDPUMPHEAD =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the rotodynamic pump parameter for rated pump head</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Pump Head</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="PARAM_RATEDMOTORPOWER-constant" class="">PARAM_RATEDMOTORPOWER =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Defines the rotodynamic pump parameter for rated motor power</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rated Motor Power</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#csv_parameters-class_method" title="csv_parameters (class method)">+ (Array&lt;String&gt;) <strong>csv_parameters</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the list of csv parameters established for this product category
+Overrides the ProductBase.csv_parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expect_map%3F-class_method" title="expect_map? (class method)">+ (Boolean) <strong>expect_map?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns wheter or not this product category is set up fro including a
+performance map Overrides ProductBase.expect_map?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_bcl_parameters-class_method" title="get_bcl_parameters (class method)">+ ({String=&gt;FixNum}) <strong>get_bcl_parameters</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the parameters that could be included in the BCL Overrides
+ProductBase.get_bcl_parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-class_method" title="name (class method)">+ (String) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the name of this product category Overrides ProductBase.name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#product_key-class_method" title="product_key (class method)">+ (String) <strong>product_key</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the TPE product key string for this product category Overrides
+ProductBase.product_key.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#suitable_for_bcl%3F-class_method" title="suitable_for_bcl? (class method)">+ (Boolean) <strong>suitable_for_bcl?</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Used to determine if the data entered for this product is suitable for
+mapping to the BCL Any number of rules could be enforce in this routine, as
+it is called once all product data has been interpreted Overrides
+ProductBase.suitable_for_bcl?.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_idf_stuff-class_method" title="write_idf_stuff (class method)">+ (Object) <strong>write_idf_stuff</strong>(product_data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Overrides ProductBase.write_idf_stuff.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="csv_parameters-class_method">
+  
+    + (<tt>Array&lt;String&gt;</tt>) <strong>csv_parameters</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the list of csv parameters established for this product category
+Overrides the ProductBase.csv_parameters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A list of csv parameter names</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_csv_parameters'>csv_parameters</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='const'>PARAM_RATEDFLOWRATE</span><span class='comma'>,</span>
+          <span class='const'>PARAM_RATEDPUMPHEAD</span><span class='comma'>,</span>
+          <span class='const'>PARAM_RATEDMOTORPOWER</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expect_map?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>expect_map?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns wheter or not this product category is set up fro including a
+performance map Overrides ProductBase.expect_map?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>True if this product category expects a map, or false if not</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expect_map?'>expect_map?</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='comment'># for now...
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_bcl_parameters-class_method">
+  
+    + (<tt>{String=&gt;FixNum}</tt>) <strong>get_bcl_parameters</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the parameters that could be included in the BCL Overrides
+ProductBase.get_bcl_parameters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>{String=&gt;FixNum}</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns a hash mapping parameter names with averaged values</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_bcl_parameters'>get_bcl_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_params_to_include'>params_to_include</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_RATEDFLOWRATE</span><span class='comma'>,</span>
+                       <span class='const'>PARAM_RATEDPUMPHEAD</span><span class='comma'>,</span>
+                       <span class='const'>PARAM_RATEDMOTORPOWER</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_params_to_include'>params_to_include</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
+    <span class='id identifier rubyid_val'>val</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_val'>val</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Key BCL parameter, named &#39;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&#39;, was not found in the input.  Skipping...</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_parameters'>parameters</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_val'>val</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_parameters'>parameters</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="name-class_method">
+  
+    + (<tt>String</tt>) <strong>name</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the name of this product category Overrides ProductBase.name</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of this product category</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 18</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rotodynamic Pumps</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="product_key-class_method">
+  
+    + (<tt>String</tt>) <strong>product_key</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the TPE product key string for this product category Overrides
+ProductBase.product_key</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The product key for this product category</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product_key'>product_key</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rtdynm</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="suitable_for_bcl?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>suitable_for_bcl?</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Used to determine if the data entered for this product is suitable for
+mapping to the BCL Any number of rules could be enforce in this routine, as
+it is called once all product data has been interpreted Overrides
+ProductBase.suitable_for_bcl?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns true if the product is suitable for pushing, false if not.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_suitable_for_bcl?'>suitable_for_bcl?</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_required_parameters'>required_parameters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>PARAM_RATEDFLOWRATE</span><span class='comma'>,</span>
+                         <span class='const'>PARAM_RATEDPUMPHEAD</span><span class='comma'>,</span>
+                         <span class='const'>PARAM_RATEDMOTORPOWER</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_required_parameters'>required_parameters</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_param'>param</span><span class='op'>|</span>
+		  <span class='kw'>if</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+<span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span>
+ <span class='kw'>end</span>
+		<span class='kw'>end</span>
+		<span class='kw'>if</span> <span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
+		  <span class='kw'>return</span> <span class='kw'>true</span>
+		<span class='kw'>else</span>
+		  <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_status_message'>status_message</span> <span class='op'>=</span> <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_issue_missing_parameter_error'>issue_missing_parameter_error</span><span class='lparen'>(</span><span class='id identifier rubyid_list_of_missing_parameters'>list_of_missing_parameters</span><span class='rparen'>)</span>
+		  <span class='kw'>return</span> <span class='kw'>false</span>
+		<span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_idf_stuff-class_method">
+  
+    + (<tt>Object</tt>) <strong>write_idf_stuff</strong>(product_data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Overrides ProductBase.write_idf_stuff</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>product_data</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../SingleProductData.html" title="TpeBclCore::SingleProductData (class)">SingleProductData</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A product performance data structure used to write idf objects</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/products/RotodynamicPumps.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_idf_stuff'>write_idf_stuff</span><span class='lparen'>(</span><span class='id identifier rubyid_product_data'>product_data</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDFLOWRATE</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='id identifier rubyid_rated_flow_rate_string'>rated_flow_rate_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_rated_flow_rate_string'>rated_flow_rate_string</span> <span class='op'>=</span> <span class='id identifier rubyid_rated_flow_rate'>rated_flow_rate</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_rated_pump_head'>rated_pump_head</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDPUMPHEAD</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_rated_pump_head'>rated_pump_head</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_rated_pump_head'>rated_pump_head</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='id identifier rubyid_rated_pump_head_string'>rated_pump_head_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_rated_pump_head_string'>rated_pump_head_string</span> <span class='op'>=</span> <span class='id identifier rubyid_rated_pump_head'>rated_pump_head</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_rated_power_consumption'>rated_power_consumption</span> <span class='op'>=</span> <span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_data_from_csv'>data_from_csv</span><span class='period'>.</span><span class='id identifier rubyid_get_parameter_average_value_by_descriptor'>get_parameter_average_value_by_descriptor</span><span class='lparen'>(</span><span class='const'>PARAM_RATEDMOTORPOWER</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_rated_power_consumption'>rated_power_consumption</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_rated_power_consumption'>rated_power_consumption</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='id identifier rubyid_rated_power_consumption_string'>rated_power_consumption_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_rated_power_consumption_string'>rated_power_consumption_string</span> <span class='op'>=</span> <span class='id identifier rubyid_rated_power_consumption'>rated_power_consumption</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>end</span>
+
+  <span class='gvar'>$idf</span><span class='period'>.</span><span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+
+  Pump:VariableSpeed,
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_product_data'>product_data</span><span class='period'>.</span><span class='id identifier rubyid_product_name'>product_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>,       !- Name
+    ,                                   !- Inlet Node Name
+    ,                                   !- Outlet Node Name
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rated_flow_rate_string'>rated_flow_rate_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,          !- Rated Flow Rate {m3/s}
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rated_pump_head_string'>rated_pump_head_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,          !- Rated Pump Head {Pa}
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rated_power_consumption_string'>rated_power_consumption_string</span><span class='embexpr_end'>}</span><span class='tstring_content'>,  !- Rated Power Consumption {W}
+    ,                                   !- Motor Efficiency
+    ,                                   !- Fraction of Motor Inefficiencies to Fluid Stream
+    ,                                   !- Coefficient 1 of the Part Load Performance Curve
+    ,                                   !- Coefficient 2 of the Part Load Performance Curve
+    ,                                   !- Coefficient 3 of the Part Load Performance Curve
+    ,                                   !- Coefficient 4 of the Part Load Performance Curve
+    ,                                   !- Minimum Flow Rate {m3/s}
+    ,                                   !- Pump Control Type
+  </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu May 26 09:58:10 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

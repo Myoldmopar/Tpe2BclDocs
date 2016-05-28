@@ -1,0 +1,1362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: TpeBclCore::IdfWriter
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!TpeBclCore/IdfWriter.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (I)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../TpeBclCore.html" title="TpeBclCore (module)">TpeBclCore</a></span></span>
+     &raquo; 
+    <span class="title">IdfWriter</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: TpeBclCore::IdfWriter
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">TpeBclCore::IdfWriter</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/OutputManager.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A class defined to wrap idf-writing functionality</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="UNIT_TYPE_DIMENSIONLESS-constant" class="">UNIT_TYPE_DIMENSIONLESS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A (dimensionless) unit identifier used when writing IDF files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Dimensionless</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="UNIT_TYPE_TEMPERATURE-constant" class="">UNIT_TYPE_TEMPERATURE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A (temperature) unit identifier used when writing IDF files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Temperature</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="UNIT_TYPE_VOLUMETRICFLOW-constant" class="">UNIT_TYPE_VOLUMETRICFLOW =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A (volumetric flow rate) unit identifier used when writing IDF files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>VolumetricFlow</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="UNIT_TYPE_MASSFLOW-constant" class="">UNIT_TYPE_MASSFLOW =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A (mass flow rate) unit identifier used when writing IDF files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MassFlow</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="UNIT_TYPE_DISTANCE-constant" class="">UNIT_TYPE_DISTANCE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A (distance) unit identifier used when writing IDF files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Distance</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="UNIT_TYPE_POWER-constant" class="">UNIT_TYPE_POWER =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A (power) unit identifier used when writing IDF files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Power</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="IDF_FILE-constant" class="">IDF_FILE =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The file name of the idf file that will be generated</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tpe-bcl.idf</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#idf_file_path-instance_method" title="#idf_file_path (instance method)">- (Object) <strong>idf_file_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute idf_file_path.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#idf_written-instance_method" title="#idf_written (instance method)">- (Object) <strong>idf_written</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute idf_written.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#close-instance_method" title="#close (instance method)">- (Object) <strong>close</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Close the idf file when this product is finished.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#idf-instance_method" title="#idf (instance method)">- (Object) <strong>idf</strong>(message) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The function used for reporting information to the idf file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#idf_field-instance_method" title="#idf_field (instance method)">- (Object) <strong>idf_field</strong>(field_value, total_spaces = 24) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a properly spaced idf field entry.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (IdfWriter) <strong>initialize</strong>(parent_dir) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new idf writer instance.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_curve_quadlinear-instance_method" title="#write_curve_quadlinear (instance method)">- (Object) <strong>write_curve_quadlinear</strong>(vector_x, curve_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Writes a Curve:Quadlinear EnergyPlus object to the idf file based on given
+inputs.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_one_indep_var_table-instance_method" title="#write_one_indep_var_table (instance method)">- (Object) <strong>write_one_indep_var_table</strong>(xy_data, table_name, unit_types, curve_type = &quot;Cubic&quot;) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Writes a Table:OneIndependentVariable object to the idf file based on given
+inputs.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_two_indep_var_table-instance_method" title="#write_two_indep_var_table (instance method)">- (Object) <strong>write_two_indep_var_table</strong>(xyz_data, table_name, unit_types) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Writes a Table:TwoIndependentVariable object to the idf file based on given
+inputs.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="TpeBclCore::IdfWriter (class)">IdfWriter</a></span></tt>) <strong>initialize</strong>(parent_dir) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new idf writer instance</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>parent_dir</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The directory in which to create the idf file</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 269</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_parent_dir'>parent_dir</span><span class='rparen'>)</span>
+    <span class='ivar'>@parent_dir</span> <span class='op'>=</span> <span class='id identifier rubyid_parent_dir'>parent_dir</span>
+    <span class='kw'>unless</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='rparen'>)</span>
+        <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir'>mkdir</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='ivar'>@idf_file_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='ivar'>@parent_dir</span><span class='comma'>,</span> <span class='const'>IDF_FILE</span><span class='rparen'>)</span>
+    <span class='ivar'>@idf_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='ivar'>@idf_file_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='ivar'>@idf_file</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>! TPE -&gt; BCL PRODUCT IDF FILE</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='ivar'>@idf_written</span> <span class='op'>=</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="idf_file_path-instance_method">
+  
+    - (<tt>Object</tt>) <strong>idf_file_path</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute idf_file_path</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+245
+246
+247</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 245</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_idf_file_path'>idf_file_path</span>
+  <span class='ivar'>@idf_file_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="idf_written-instance_method">
+  
+    - (<tt>Object</tt>) <strong>idf_written</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute idf_written</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+246
+247
+248</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 246</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_idf_written'>idf_written</span>
+  <span class='ivar'>@idf_written</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="close-instance_method">
+  
+    - (<tt>Object</tt>) <strong>close</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Close the idf file when this product is finished</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+281
+282
+283
+284
+285</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 281</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='ivar'>@idf_file</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+    <span class='ivar'>@idf_file</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+    <span class='ivar'>@idf_written</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='comment'># we could apply this conditionally if we ever DONT write an idf for a category
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="idf-instance_method">
+  
+    - (<tt>Object</tt>) <strong>idf</strong>(message) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The function used for reporting information to the idf file</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The data to report to the idf</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+289
+290
+291</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 289</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+    <span class='ivar'>@idf_file</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="idf_field-instance_method">
+  
+    - (<tt>Object</tt>) <strong>idf_field</strong>(field_value, total_spaces = 24) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a properly spaced idf field entry</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>field_value</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The string or value to be written to the idf, must have a .to_s function</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>total_spaces</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>24</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The proper number of characters to write in the idf, defaults to 24</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+296
+297
+298
+299
+300</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 296</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_idf_field'>idf_field</span><span class='lparen'>(</span><span class='id identifier rubyid_field_value'>field_value</span><span class='comma'>,</span> <span class='id identifier rubyid_total_spaces'>total_spaces</span><span class='op'>=</span><span class='int'>24</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_s_field'>s_field</span> <span class='op'>=</span> <span class='id identifier rubyid_field_value'>field_value</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='id identifier rubyid_pad_length'>pad_length</span> <span class='op'>=</span> <span class='id identifier rubyid_total_spaces'>total_spaces</span> <span class='op'>-</span> <span class='id identifier rubyid_s_field'>s_field</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>-</span> <span class='int'>1</span> <span class='comment'># -1 for comma
+</span>    <span class='kw'>return</span> <span class='id identifier rubyid_s_field'>s_field</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_ljust'>ljust</span><span class='lparen'>(</span><span class='id identifier rubyid_pad_length'>pad_length</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_curve_quadlinear-instance_method">
+  
+    - (<tt>Object</tt>) <strong>write_curve_quadlinear</strong>(vector_x, curve_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes a Curve:Quadlinear EnergyPlus object to the idf file based on given
+inputs.  Limits are assumed for now.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>vector_x</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;FixNum&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array of float variables that define the curve coefficients</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>curve_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of the curve for easy reference</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 305</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_write_curve_quadlinear'>write_curve_quadlinear</span><span class='lparen'>(</span><span class='id identifier rubyid_vector_x'>vector_x</span><span class='comma'>,</span> <span class='id identifier rubyid_curve_name'>curve_name</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+Curve:QuadLinear,
+   !\memo curve = C1 + C2*w + C3*x + C4*y + C5*z
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_curve_name'>curve_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>,  !- Name
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_vector_x'>vector_x</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>,  !- Coefficient1 Constant
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_vector_x'>vector_x</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>,  !- Coefficient2 w
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_vector_x'>vector_x</span><span class='lbracket'>[</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>,  !- Coefficient3 x
+    0,        !- Coefficient4 y
+    0,        !- Coefficient5 z
+    0,        !- Minimum Value of w
+    100,      !- Maximum Value of w
+    0,        !- Minimum Value of x
+    1.0,      !- Maximum Value of x
+    0,        !- Minimum Value of y
+    1,        !- Maximum Value of y
+    0,        !- Minimum Value of z
+    1,        !- Maximum Value of z</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_one_indep_var_table-instance_method">
+  
+    - (<tt>Object</tt>) <strong>write_one_indep_var_table</strong>(xy_data, table_name, unit_types, curve_type = &quot;Cubic&quot;) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes a Table:OneIndependentVariable object to the idf file based on given
+inputs.  Limits are assumed for now.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>xy_data</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Array&lt;FixNum&gt;&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array of float-pair arrays in the form [ [x1, y1], [x2, y2], …, [xn, yn]
+]</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>table_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>THe name of the table for reference with other objects in the idf</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>unit_types</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array that identifies unit types for the table variables, should be
+filled with values from the UNIT_TYPE_* constants</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 331</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_write_one_indep_var_table'>write_one_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_xy_data'>xy_data</span><span class='comma'>,</span> <span class='id identifier rubyid_table_name'>table_name</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='comma'>,</span> <span class='id identifier rubyid_curve_type'>curve_type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cubic</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+<span class='comment'># make sure there is *something* there first
+</span>    <span class='kw'>if</span> <span class='id identifier rubyid_xy_data'>xy_data</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;</span> <span class='int'>1</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Attempted to write one indep var table with empty array, returning quietly</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='kw'>return</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># check the values first and also get min/max values
+</span>    <span class='id identifier rubyid_minx'>minx</span><span class='comma'>,</span> <span class='id identifier rubyid_miny'>miny</span> <span class='op'>=</span> <span class='int'>9999999999</span><span class='comma'>,</span> <span class='int'>9999999999</span>
+    <span class='id identifier rubyid_maxx'>maxx</span><span class='comma'>,</span> <span class='id identifier rubyid_maxy'>maxy</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>9999999999</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>9999999999</span>
+    <span class='id identifier rubyid_xy_data'>xy_data</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_xy'>xy</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_xy'>xy</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='kw'>return</span>
+        <span class='kw'>elsif</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='kw'>return</span>
+        <span class='kw'>elsif</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='kw'>return</span>
+        <span class='kw'>end</span>
+        <span class='id identifier rubyid_minx'>minx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_minx'>minx</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+        <span class='id identifier rubyid_miny'>miny</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_miny'>miny</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+        <span class='id identifier rubyid_maxx'>maxx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxx'>maxx</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+        <span class='id identifier rubyid_maxy'>maxy</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxy'>maxy</span><span class='comma'>,</span> <span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># write the bulk of the idf object
+</span>    <span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+Table:OneIndependentVariable,
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_table_name'>table_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>,   !- Name
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_curve_type'>curve_type</span><span class='embexpr_end'>}</span><span class='tstring_content'>,   !- Curve Type
+    LinearInterpolationOfTable, !- Interpolation Type
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_minx'>minx</span><span class='embexpr_end'>}</span><span class='tstring_content'>,  !- Minimum Value of x,
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_maxx'>maxx</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Maximum Value of x,
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_miny'>miny</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Minimum Table Output
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_maxy'>maxy</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Maximum Table Output
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Input Unit Type for x
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Output Unit Type
+    1.0, !- Normalization Point</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+    <span class='comment'># write all the values except the last one
+</span>    <span class='id identifier rubyid_xy_data'>xy_data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='op'>-</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_xy'>xy</span><span class='op'>|</span>
+        <span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># write the final value terminating it with a semicolon
+</span>    <span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_xy_data'>xy_data</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_xy_data'>xy_data</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_two_indep_var_table-instance_method">
+  
+    - (<tt>Object</tt>) <strong>write_two_indep_var_table</strong>(xyz_data, table_name, unit_types) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes a Table:TwoIndependentVariable object to the idf file based on given
+inputs.  Limits are assumed for now.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>xyz_data</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Array&lt;FixNum&gt;&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array of float-triplet arrays in the form [ [x1, y1, z1], [x2, y2, z2],
+…, [xn, yn, zn] ]</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>table_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>THe name of the table for reference with other objects in the idf</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>unit_types</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array that identifies unit types for the table variables, should be
+filled with values from the UNIT_TYPE_* constants</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 384</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='comma'>,</span> <span class='id identifier rubyid_table_name'>table_name</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
+
+    <span class='comment'># make sure there is *something* there first
+</span>    <span class='kw'>if</span> <span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;</span> <span class='int'>1</span>
+        <span class='gvar'>$log</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Attempted to write two indep var table with empty array, returning quietly</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='kw'>return</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># check the values first and also get min/max values
+</span>    <span class='id identifier rubyid_minx'>minx</span><span class='comma'>,</span> <span class='id identifier rubyid_miny'>miny</span><span class='comma'>,</span> <span class='id identifier rubyid_minz'>minz</span> <span class='op'>=</span> <span class='int'>9999999999</span><span class='comma'>,</span> <span class='int'>9999999999</span><span class='comma'>,</span> <span class='int'>9999999999</span>
+    <span class='id identifier rubyid_maxx'>maxx</span><span class='comma'>,</span> <span class='id identifier rubyid_maxy'>maxy</span><span class='comma'>,</span> <span class='id identifier rubyid_maxz'>maxz</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>9999999999</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>9999999999</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>9999999999</span>
+    <span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_xyz'>xyz</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='kw'>return</span>
+        <span class='kw'>elsif</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='kw'>return</span>
+        <span class='kw'>elsif</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='kw'>return</span>
+        <span class='kw'>elsif</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+            <span class='kw'>return</span>
+        <span class='kw'>end</span>
+        <span class='id identifier rubyid_minx'>minx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_minx'>minx</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+        <span class='id identifier rubyid_miny'>miny</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_miny'>miny</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+        <span class='id identifier rubyid_minz'>minz</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_minz'>minz</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+        <span class='id identifier rubyid_maxx'>maxx</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxx'>maxx</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+        <span class='id identifier rubyid_maxy'>maxy</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxy'>maxy</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+        <span class='id identifier rubyid_maxz'>maxz</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_maxz'>maxz</span><span class='comma'>,</span> <span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># write the bulk of the idf object
+</span>    <span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>
+Table:TwoIndependentVariables,
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_table_name'>table_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>,   !- Name
+    BiQuadratic,     !- Curve Type
+    LinearInterpolationOfTable, !- Interpolation Type
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_minx'>minx</span><span class='embexpr_end'>}</span><span class='tstring_content'>,  !- Minimum Value of x,
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_maxx'>maxx</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Maximum Value of x,
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_miny'>miny</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Minimum Value of y,
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_maxy'>maxy</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Maximum Value of y,
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_minz'>minz</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Minimum Table Output
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_maxz'>maxz</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Maximum Table Output
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Input Unit Type for x
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Input Unit Type for y
+    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_unit_types'>unit_types</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, !- Output Unit Type
+    1.0, !- Normalization Point</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+    <span class='comment'># write all the values except the last one
+</span>    <span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='op'>-</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_xyz'>xyz</span><span class='op'>|</span>
+        <span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_xyz'>xyz</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># write the final value terminating it with a semicolon
+</span>    <span class='id identifier rubyid_idf'>idf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu May 26 09:58:09 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>
