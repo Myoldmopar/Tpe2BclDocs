@@ -702,7 +702,6 @@ osm_written flag</p>
       <pre class="lines">
 
 
-220
 221
 222
 223
@@ -730,10 +729,11 @@ osm_written flag</p>
 245
 246
 247
-248</pre>
+248
+249</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 220</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 221</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
   <span class='comment'># initialize obj to nothing, it will remain nil if we don&#39;t hit a valid entry, and assume we don&#39;t have an osc to write
@@ -823,6 +823,25 @@ filled with values from the UNIT_TYPE_* constants</p>
       
     </li>
   
+    <li>
+      
+        <span class='name'>curve_type</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;Cubic&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines the curve type to be used once translated into E+ for the table
+interpolation method</p>
+</div>
+      
+    </li>
+  
 </ul>
 
 
@@ -832,7 +851,6 @@ filled with values from the UNIT_TYPE_* constants</p>
       <pre class="lines">
 
 
-121
 122
 123
 124
@@ -873,10 +891,11 @@ filled with values from the UNIT_TYPE_* constants</p>
 159
 160
 161
-162</pre>
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 122</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_one_indep_var_table'>write_one_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_xy_data'>xy_data</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='comma'>,</span> <span class='id identifier rubyid_curve_type'>curve_type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Cubic</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='comment'># make sure there is *something* there first
@@ -1121,7 +1140,6 @@ filled with values from the UNIT_TYPE_* constants</p>
       <pre class="lines">
 
 
-167
 168
 169
 170
@@ -1171,10 +1189,11 @@ filled with values from the UNIT_TYPE_* constants</p>
 214
 215
 216
-217</pre>
+217
+218</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'lib/OutputManager.rb', line 168</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_two_indep_var_table'>write_two_indep_var_table</span><span class='lparen'>(</span><span class='id identifier rubyid_xyz_data'>xyz_data</span><span class='comma'>,</span> <span class='id identifier rubyid_unit_types'>unit_types</span><span class='rparen'>)</span>
   <span class='comment'># make sure there is *something* there first
@@ -1237,7 +1256,7 @@ filled with values from the UNIT_TYPE_* constants</p>
 </div>
 
     <div id="footer">
-  Generated on Sat May 28 09:32:49 2016 by
+  Generated on Sat May 28 09:45:46 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>
